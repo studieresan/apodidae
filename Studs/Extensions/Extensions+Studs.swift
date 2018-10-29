@@ -11,12 +11,12 @@ import UIKit
 
 protocol ScopeFunc {}
 extension ScopeFunc {
-    func apply(block: (Self) -> ()) -> Self {
+    func apply(block: (Self) -> Void) -> Self {
         block(self)
         return self
     }
-    
-    func run(block: (Self) -> ()) {
+
+    func run(block: (Self) -> Void) {
         block(self)
     }
 }

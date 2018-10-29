@@ -17,7 +17,7 @@ struct Event: Decodable {
     let beforeSurveys: [String]?
     let afterSurveys: [String]?
     let date: Date?
-    
+
     enum EventCodingKeys: String, CodingKey {
         case id
         case companyName
@@ -34,7 +34,7 @@ extension Event: Comparable {
     static func < (lhs: Event, rhs: Event) -> Bool {
         return lhs.date ?? Date.distantPast < rhs.date ?? Date.distantPast
     }
-    
+
     static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.id == rhs.id
     }

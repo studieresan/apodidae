@@ -267,6 +267,7 @@
 				8E3782EC2183B981004F083F /* Frameworks */,
 				8E3782ED2183B981004F083F /* Resources */,
 				18AA4DC56A32B21FAE48B8AF /* [CP] Embed Pods Frameworks */,
+				8EDC6C802187A2B500EEA05B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -372,6 +373,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8EDC6C802187A2B500EEA05B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

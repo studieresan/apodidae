@@ -1,0 +1,18 @@
+disabled_rules:
+  - todo
+  - type_name
+
+trailing_comma:
+  mandatory_comma: true
+
+identifier_name:
+  excluded:
+    - id
+    - it
+
+line_length: 145
+
+force_cast: warning
+
+excluded:
+  - Pods
