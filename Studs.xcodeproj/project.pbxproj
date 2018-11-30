@@ -19,8 +19,8 @@
 		8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EA641592184A1D300A138EB /* EventsViewController.storyboard */; };
 		8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415B2184A1E000A138EB /* EventsViewController.swift */; };
 		8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */; };
-		8EAC486F2184BAEA00BB36A2 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EAC486E2184BAEA00BB36A2 /* SettingsViewController.storyboard */; };
-		8EAC48712184BAF600BB36A2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48702184BAF600BB36A2 /* SettingsViewController.swift */; };
+		8EAC486F2184BAEA00BB36A2 /* AboutViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EAC486E2184BAEA00BB36A2 /* AboutViewController.storyboard */; };
+		8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48702184BAF600BB36A2 /* AboutViewController.swift */; };
 		8EAC48732184BB4500BB36A2 /* TravelViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EAC48722184BB4500BB36A2 /* TravelViewController.storyboard */; };
 		8EAC48752184BB4F00BB36A2 /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48742184BB4F00BB36A2 /* TravelViewController.swift */; };
 		8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */; };
@@ -44,8 +44,8 @@
 		8EA641592184A1D300A138EB /* EventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsViewController.storyboard; sourceTree = "<group>"; };
 		8EA6415B2184A1E000A138EB /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Studs.swift"; sourceTree = "<group>"; };
-		8EAC486E2184BAEA00BB36A2 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
-		8EAC48702184BAF600BB36A2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8EAC486E2184BAEA00BB36A2 /* AboutViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutViewController.storyboard; sourceTree = "<group>"; };
+		8EAC48702184BAF600BB36A2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		8EAC48722184BB4500BB36A2 /* TravelViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelViewController.storyboard; sourceTree = "<group>"; };
 		8EAC48742184BB4F00BB36A2 /* TravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
 		8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsViewController.swift; sourceTree = "<group>"; };
@@ -209,8 +209,8 @@
 		8EAC486C2184BACA00BB36A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8EAC486E2184BAEA00BB36A2 /* SettingsViewController.storyboard */,
-				8EAC48702184BAF600BB36A2 /* SettingsViewController.swift */,
+				8EAC486E2184BAEA00BB36A2 /* AboutViewController.storyboard */,
+				8EAC48702184BAF600BB36A2 /* AboutViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			files = (
 				8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */,
-				8EAC486F2184BAEA00BB36A2 /* SettingsViewController.storyboard in Resources */,
+				8EAC486F2184BAEA00BB36A2 /* AboutViewController.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
 				8EAC48732184BB4500BB36A2 /* TravelViewController.storyboard in Resources */,
@@ -409,7 +409,7 @@
 				8E3783082183C3CF004F083F /* UIViewController+Studs.swift in Sources */,
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
-				8EAC48712184BAF600BB36A2 /* SettingsViewController.swift in Sources */,
+				8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

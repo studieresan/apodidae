@@ -23,8 +23,8 @@ final class StudsViewController: UITabBarController {
             $0.tabBarItem = UITabBarItem(title: "Travel", image: nil, tag: 1)
         }
 
-        let settingsViewController = UINavigationController(rootViewController: SettingsViewController.instance()).apply {
-            $0.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 2)
+        let settingsViewController = UINavigationController(rootViewController: AboutViewController.instance()).apply {
+            $0.tabBarItem = UITabBarItem(title: "About", image: nil, tag: 2)
         }
 
         viewControllers = [eventsViewController, travelViewController, settingsViewController]
