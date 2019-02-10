@@ -16,15 +16,15 @@ final class StudsViewController: UITabBarController {
 
     private func setupApplication() {
         let eventsViewController = UINavigationController(rootViewController: EventsViewController.instance()).apply {
-            $0.tabBarItem = UITabBarItem(title: "Events", image: nil, tag: 0)
+            $0.tabBarItem = UITabBarItem(title: "Events", image: UIImage(named: "eventsTab"), tag: 0)
         }
 
         let travelViewController = UINavigationController(rootViewController: TravelViewController.instance()).apply {
-            $0.tabBarItem = UITabBarItem(title: "Travel", image: nil, tag: 1)
+            $0.tabBarItem = UITabBarItem(title: "Travel", image: UIImage(named: "travelTab"), tag: 1)
         }
 
         let settingsViewController = UINavigationController(rootViewController: AboutViewController.instance()).apply {
-            $0.tabBarItem = UITabBarItem(title: "About", image: nil, tag: 2)
+            $0.tabBarItem = UITabBarItem(title: "About", image: UIImage(named: "aboutTab"), tag: 2)
         }
 
         viewControllers = [eventsViewController, travelViewController, settingsViewController]
