@@ -42,18 +42,21 @@ struct Event: Decodable {
 
 extension Event: Comparable {
     static func < (lhs: Event, rhs: Event) -> Bool {
-        let dateFormatter = ISO8601DateFormatter()
-        // iOS <11 can't parse ISO8601 dates with milliseconds, so we remove them
-        let trimmedLhsDate = lhs.date!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
-        let trimmedRhsDate = rhs.date!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
-
-        let lhsDate = dateFormatter.date(from: trimmedLhsDate)
-        let rhsDate = dateFormatter.date(from: trimmedRhsDate)
+        let lhsDate = lhs.getDate()
+        let rhsDate = rhs.getDate()
 
         return lhsDate ?? Date.distantPast < rhsDate ?? Date.distantPast
     }
 
     static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.id == rhs.id
+    }
+
+    func getDate() -> Date? {
+        let dateFormatter = ISO8601DateFormatter()
+        // iOS <11 can't parse ISO8601 dates with milliseconds, so we remove them
+        let trimmed = self.date!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
+        let date = dateFormatter.date(from: trimmed)
+        return date
     }
 }

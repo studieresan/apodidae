@@ -18,22 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9sW-jd-cuL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9sW-jd-cuL">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" id="DhH-XP-5gT" customClass="EventTableViewCell" customModule="Studs" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DhH-XP-5gT" id="Zw6-t1-OOf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iL-j3-IUK" userLabel="EventTitle">
-                                                    <rect key="frame" x="18" y="0.0" width="339" height="66"/>
+                                                    <rect key="frame" x="14" y="0.0" width="347" height="66"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-uv-XQo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="66"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="347" height="66"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3v-0o-uRd" userLabel="Date">
                                                                     <rect key="frame" x="0.0" y="0.0" width="64" height="66"/>
@@ -66,7 +66,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9A-1C-X9v" userLabel="CompanyName">
-                                                                    <rect key="frame" x="64" y="0.0" width="275" height="66"/>
+                                                                    <rect key="frame" x="64" y="0.0" width="283" height="66"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-vr-qGI">
                                                                             <rect key="frame" x="0.0" y="16" width="190.5" height="33.5"/>
@@ -95,10 +95,10 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="3iL-j3-IUK" firstAttribute="leading" secondItem="Zw6-t1-OOf" secondAttribute="leading" constant="18" id="6Xf-e4-bp0"/>
+                                                <constraint firstItem="3iL-j3-IUK" firstAttribute="leading" secondItem="Zw6-t1-OOf" secondAttribute="leading" constant="14" id="6Xf-e4-bp0"/>
                                                 <constraint firstAttribute="bottom" secondItem="3iL-j3-IUK" secondAttribute="bottom" constant="14" id="Hq3-6S-JQY"/>
                                                 <constraint firstItem="3iL-j3-IUK" firstAttribute="top" secondItem="Zw6-t1-OOf" secondAttribute="top" id="nqW-pF-kDM"/>
-                                                <constraint firstAttribute="trailing" secondItem="3iL-j3-IUK" secondAttribute="trailing" constant="18" id="pIL-eu-Ie4"/>
+                                                <constraint firstAttribute="trailing" secondItem="3iL-j3-IUK" secondAttribute="trailing" constant="14" id="pIL-eu-Ie4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
