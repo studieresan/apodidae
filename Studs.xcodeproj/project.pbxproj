@@ -547,7 +547,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB946C463E92B1FCC7943374 /* Pods-Studs.debug.xcconfig */;
 			buildSettings = {
-				API_BASE_URL = "https://localhost:5040";
+				API_BASE_URL = "http://localhost:5040";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
@@ -568,7 +568,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */;
 			buildSettings = {
-				API_BASE_URL = "https://studs18-overlord.herokuapp.com/";
+				API_BASE_URL = "https://studs18-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
