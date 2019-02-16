@@ -77,7 +77,7 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
         header.backgroundColor = UIColor.bgColor
         label.text = sectionTitles[section]
 
-        let fontWeight = section == 0 ? UIFont.Weight.heavy : UIFont.Weight.regular;
+        let fontWeight = section == 0 ? UIFont.Weight.heavy : UIFont.Weight.regular
         label.font = UIFont.systemFont(ofSize: 38, weight: fontWeight)
         label.bottomAnchor.constraint(greaterThanOrEqualTo: header.bottomAnchor, constant: -15).isActive = true
         label.leftAnchor.constraint(greaterThanOrEqualTo: header.leftAnchor, constant: 15).isActive = true
