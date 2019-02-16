@@ -41,7 +41,7 @@ class EventTableViewCell: UITableViewCell {
         if selected {
             // Configure the view for the selected state
             contentView.backgroundColor = UIColor.bgColor
-            containerView.backgroundColor = UIColor.lightGray
+            containerView.backgroundColor = UIColor.veryLightGray
         }
     }
 
