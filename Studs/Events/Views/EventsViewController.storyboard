@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iL-j3-IUK" userLabel="EventTitle">
-                                                    <rect key="frame" x="14" y="0.0" width="347" height="66"/>
+                                                    <rect key="frame" x="14" y="7" width="347" height="66"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyg-uv-XQo">
                                                             <rect key="frame" x="0.0" y="0.0" width="347" height="66"/>
@@ -96,8 +96,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3iL-j3-IUK" firstAttribute="leading" secondItem="Zw6-t1-OOf" secondAttribute="leading" constant="14" id="6Xf-e4-bp0"/>
-                                                <constraint firstAttribute="bottom" secondItem="3iL-j3-IUK" secondAttribute="bottom" constant="14" id="Hq3-6S-JQY"/>
-                                                <constraint firstItem="3iL-j3-IUK" firstAttribute="top" secondItem="Zw6-t1-OOf" secondAttribute="top" id="nqW-pF-kDM"/>
+                                                <constraint firstAttribute="bottom" secondItem="3iL-j3-IUK" secondAttribute="bottom" constant="7" id="Hq3-6S-JQY"/>
+                                                <constraint firstItem="3iL-j3-IUK" firstAttribute="top" secondItem="Zw6-t1-OOf" secondAttribute="top" constant="7" id="nqW-pF-kDM"/>
                                                 <constraint firstAttribute="trailing" secondItem="3iL-j3-IUK" secondAttribute="trailing" constant="14" id="pIL-eu-Ie4"/>
                                             </constraints>
                                         </tableViewCellContentView>
