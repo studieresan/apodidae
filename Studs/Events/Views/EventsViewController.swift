@@ -119,8 +119,13 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: Navigation
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedEvent = data[indexPath.section][indexPath.row]
         let storyboard = UIStoryboard(name: "EventsViewController", bundle: nil)
-        let eventDetailController = storyboard.instantiateViewController(withIdentifier: "EventDetail")
+        guard let eventDetailController = storyboard.instantiateViewController(withIdentifier: "EventDetail")
+            as? EventDetailViewController else {
+            fatalError("EventDetail was not an instance of EventDetailViewController")
+        }
+        eventDetailController.event = selectedEvent
 
         navigationController?.present(eventDetailController, animated: true, completion: nil)
     }

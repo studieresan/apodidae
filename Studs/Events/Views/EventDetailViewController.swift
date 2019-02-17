@@ -12,7 +12,9 @@ class EventDetailViewController: UIViewController {
 
     // MARK: Properties
 
+    public var event: Event?
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var companyName: UILabel!
 
     // MARK: Lifecycle
 
@@ -25,6 +27,9 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let event = event {
+            companyName.text = event.companyName
+        }
     }
 
     // MARK: Actions
@@ -32,7 +37,6 @@ class EventDetailViewController: UIViewController {
     @IBAction func onClose(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
 
     /*
     // MARK: - Navigation

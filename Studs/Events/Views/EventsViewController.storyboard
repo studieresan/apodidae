@@ -158,6 +158,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="oeE-E7-HAa" id="ncU-Xi-Gve"/>
+                        <outlet property="companyName" destination="sOf-9L-77r" id="qzw-h0-bbK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9m-Ye-Fjv" userLabel="First Responder" sceneMemberID="firstResponder"/>
