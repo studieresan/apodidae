@@ -55,6 +55,12 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
         eventsTable.dataSource = self
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedIndex = eventsTable.indexPathForSelectedRow {
+            eventsTable.deselectRow(at: selectedIndex, animated: true)
+        }
+    }
+
     // MARK: Table methods
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -108,6 +114,15 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
         cell.companyName.text = currentData.companyName
 
         return cell
+    }
+
+    // MARK: Navigation
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "EventsViewController", bundle: nil)
+        let eventDetailController = storyboard.instantiateViewController(withIdentifier: "EventDetail")
+
+        navigationController?.present(eventDetailController, animated: true, completion: nil)
     }
 
     // MARK: Helper functions
