@@ -26,7 +26,7 @@ final class EventTableViewCell: UITableViewCell {
         day.textColor = UIColor.primaryColor
 
         // Add drop shadow to container view
-        _ = containerView.layer.apply {
+        containerView.layer.run {
             $0.shadowRadius = 2
             $0.shadowOpacity = 1
             $0.shadowColor = UIColor(rgb: 0xcbcbcb).cgColor
