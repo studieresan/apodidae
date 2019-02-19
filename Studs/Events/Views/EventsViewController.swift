@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RxSwift
 
-final class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class EventsViewController: UIViewController {
 
     // MARK: Properties
 
@@ -17,6 +18,7 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
     // Array of next event, upcoming events, past events
     var data = [[Event](), [Event](), [Event]()]
     let sectionTitles = ["Next event", "Upcoming", "Past events"]
+    let disposeBag = DisposeBag()
 
     // MARK: Lifecycle
 
@@ -26,26 +28,19 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     override func viewDidLoad() {
-        // Fetch the events
-        // Maybe do something with the returned object?
-        _ = Http.fetchAllEvents().subscribe { event in
-            switch event {
-            case .next(let value):
-                // Sort events, earliest first
-                let sortedEvents = value.data.allEvents.sorted(by: { $0 < $1 })
-                self.data = self.organizeEvents(events: sortedEvents)
+        setTableStyles()
+        loadEventData()
+    }
 
-                DispatchQueue.main.async {
-                    self.eventsTable.reloadData()
-                }
-            case .error(let error):
-                print(error)
-            case .completed:
-                // Maybe do something here?
-                print("done")
-            }
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        resetSelectedCell()
+    }
 
+}
+
+extension EventsViewController: UITableViewDelegate {
+
+    private func setTableStyles() {
         // Set styling
         view.backgroundColor = UIColor.bgColor
         eventsTable.backgroundColor = UIColor.bgColor
@@ -55,13 +50,11 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
         eventsTable.dataSource = self
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    private func resetSelectedCell() {
         if let selectedIndex = eventsTable.indexPathForSelectedRow {
             eventsTable.deselectRow(at: selectedIndex, animated: true)
         }
     }
-
-    // MARK: Table methods
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
@@ -123,32 +116,50 @@ final class EventsViewController: UIViewController, UITableViewDelegate, UITable
         let storyboard = UIStoryboard(name: "EventsViewController", bundle: nil)
         guard let eventDetailController = storyboard.instantiateViewController(withIdentifier: "EventDetail")
             as? EventDetailViewController else {
-            fatalError("EventDetail was not an instance of EventDetailViewController")
+                fatalError("EventDetail was not an instance of EventDetailViewController")
         }
         eventDetailController.event = selectedEvent
 
         navigationController?.present(eventDetailController, animated: true, completion: nil)
     }
 
-    // MARK: Helper functions
+}
+
+extension EventsViewController: UITableViewDataSource {
+
+    private func loadEventData() {
+        // Fetch the events
+        Http.fetchAllEvents().subscribe(onNext: { events in
+            // Sort events, earliest first
+            let sortedEvents = events.data.allEvents.sorted(by: { $0 < $1 })
+            self.data = self.organizeEvents(events: sortedEvents)
+
+            DispatchQueue.main.async {
+                self.eventsTable.reloadData()
+            }
+        }, onError: { error in
+            print(error)
+        }).disposed(by: disposeBag)
+    }
 
     /**
      Takes an array of Events and divides them into three categories:
      the next event, all upcoming events (not including next event), all past events.
-    */
+     */
     private func organizeEvents(events: [Event]) -> [[Event]] {
         let today = Date()
-        guard let ixOfFirstUpcoming = events.firstIndex(where: {
+        guard let idxOfFirstUpcoming = events.firstIndex(where: {
             $0.getDate()! > today
         }) else {
             // All events are in the past
             return [[], [], events]
         }
 
-        let nextEvent = [events[ixOfFirstUpcoming]]
-        let upcoming = Array(events[ixOfFirstUpcoming+1..<events.count])
-        let pastEvents = Array(events[0..<ixOfFirstUpcoming])
+        let nextEvent = [events[idxOfFirstUpcoming]]
+        let upcoming = Array(events[idxOfFirstUpcoming+1..<events.count])
+        let pastEvents = Array(events[0..<idxOfFirstUpcoming])
 
         return [nextEvent, upcoming, pastEvents]
     }
+
 }

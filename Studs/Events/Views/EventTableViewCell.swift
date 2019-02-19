@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+final class EventTableViewCell: UITableViewCell {
 
     // MARK: Properties
 
@@ -20,19 +20,19 @@ class EventTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-//        selectionStyle = SelectionStyle.none
-
         // Set colors of elements
         contentView.backgroundColor = UIColor.bgColor
         month.textColor = UIColor.primaryColor
         day.textColor = UIColor.primaryColor
 
         // Add drop shadow to container view
-        containerView.layer.shadowRadius = 2
-        containerView.layer.shadowOpacity = 1
-        containerView.layer.shadowColor = UIColor(rgb: 0xcbcbcb).cgColor
-        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+        _ = containerView.layer.apply {
+            $0.shadowRadius = 2
+            $0.shadowOpacity = 1
+            $0.shadowColor = UIColor(rgb: 0xcbcbcb).cgColor
+            $0.shadowOffset = CGSize(width: 0, height: 2)
+            $0.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
