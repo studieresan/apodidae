@@ -113,14 +113,10 @@ extension EventsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEvent = data[indexPath.section][indexPath.row]
-        let storyboard = UIStoryboard(name: "EventsViewController", bundle: nil)
-        guard let eventDetailController = storyboard.instantiateViewController(withIdentifier: "EventDetail")
-            as? EventDetailViewController else {
-                fatalError("EventDetail was not an instance of EventDetailViewController")
-        }
-        eventDetailController.event = selectedEvent
+        let eventDetailViewController = EventDetailViewController.instance()
+        eventDetailViewController.event = selectedEvent
 
-        navigationController?.present(eventDetailController, animated: true, completion: nil)
+        navigationController?.present(eventDetailViewController, animated: true, completion: nil)
     }
 
 }
