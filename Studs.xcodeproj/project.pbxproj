@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */; };
+		8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A3DA2210CD670098909F /* EventTableViewCell.swift */; };
+		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
+		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
 		8E3782FA2183B982004F083F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
 		8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782FB2183B982004F083F /* LaunchScreen.storyboard */; };
@@ -31,6 +34,9 @@
 /* Begin PBXFileReference section */
 		411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Studs/Pods-Studs.release.xcconfig"; sourceTree = "<group>"; };
+		8B63A3DA2210CD670098909F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
+		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3782F22183B981004F083F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E3782F92183B982004F083F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,7 +166,10 @@
 			isa = PBXGroup;
 			children = (
 				8EA641592184A1D300A138EB /* EventsViewController.storyboard */,
+				8B63A3DA2210CD670098909F /* EventTableViewCell.swift */,
 				8EA6415B2184A1E000A138EB /* EventsViewController.swift */,
+				8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */,
+				8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +330,7 @@
 				8EAC486F2184BAEA00BB36A2 /* AboutViewController.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
+				8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */,
 				8EAC48732184BB4500BB36A2 /* TravelViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */,
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
 				8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
@@ -409,6 +420,7 @@
 				8E3783082183C3CF004F083F /* UIViewController+Studs.swift in Sources */,
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
+				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
 				8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,7 +559,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB946C463E92B1FCC7943374 /* Pods-Studs.debug.xcconfig */;
 			buildSettings = {
-				API_BASE_URL = "https://localhost:5040";
+				API_BASE_URL = "http://localhost:5040";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
@@ -568,7 +580,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */;
 			buildSettings = {
-				API_BASE_URL = "https://studs18-overlord.herokuapp.com/";
+				API_BASE_URL = "https://studs18-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;

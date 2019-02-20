@@ -30,7 +30,7 @@ struct Http {
 
     static func get<T: Decodable>(endpoint: Endpoint, type: T.Type) -> Observable<T> {
         return Observable.create { observer in
-            URLSession.shared.dataTask(with: URL(string: "\(baseURL)\(endpoint)")!) { data, _, error in
+            URLSession.shared.dataTask(with: URL(string: "\(baseURL)/\(endpoint)")!) { data, _, error in
                 guard let data = data else {
                     observer.onError(error!)
                     return
@@ -46,6 +46,58 @@ struct Http {
             }.resume()
             return Disposables.create()
         }
+    }
+
+    static func graphQL<T: Decodable>(query: String, type: T.Type) -> Observable<T> {
+        return Observable.create { observer in
+            guard let formatedQuery = query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
+                print(query)
+                fatalError("Couldn't create query string")
+            }
+            var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)?query=\(formatedQuery)")!)
+            request.httpMethod = "POST"
+            request.setValue("application/graphql", forHTTPHeaderField: "Content-Type")
+
+            URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data else {
+                    observer.onError(error!)
+                    return
+                }
+
+                let result = decode(data: data, type: type)
+                switch result {
+                case .right(let it):
+                    observer.onNext(it)
+                    observer.onCompleted()
+                case .left(let err):
+                    observer.onError(err)
+                }
+            }.resume()
+
+            return Disposables.create()
+        }
+    }
+
+    static func fetchAllEvents() -> Observable<AllEventsResponse> {
+        let query = """
+        {
+            allEvents {
+                id
+                companyName
+                schedule
+                privateDescription
+                publicDescription
+                date
+                beforeSurveys
+                afterSurveys
+                location
+                pictures
+                published
+                responsible
+            }
+        }
+        """
+        return graphQL(query: query, type: AllEventsResponse.self)
     }
 
     private static func decode<T: Decodable>(data: Data, type: T.Type) -> Either<Error, T> {
