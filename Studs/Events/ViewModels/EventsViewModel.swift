@@ -36,18 +36,16 @@ final class EventsViewModel {
     func fetchData() {
         // Fetch the events
         Http.fetchAllEvents().subscribe(onNext: { [weak self] events in
+            guard let self = self else { return }
+
             // Sort events, earliest first
             let sortedEvents = events.data.allEvents.sorted(by: { $0 < $1 })
 
-            guard let organizedEvents = self?.organizeEvents(events: sortedEvents) else {
-                return
-            }
-            guard let cellViewModels = self?.mapEventToCellViewModel(events: organizedEvents) else {
-                return
-            }
+            let organizedEvents = self.organizeEvents(events: sortedEvents)
+            let cellViewModels = self.mapEventToCellViewModel(events: organizedEvents)
 
-            self?.events = organizedEvents
-            self?.cellViewModels = cellViewModels
+            self.events = organizedEvents
+            self.cellViewModels = cellViewModels
         }, onError: { error in
             print(error)
         }).disposed(by: disposeBag)
