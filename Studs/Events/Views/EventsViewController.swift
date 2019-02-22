@@ -26,9 +26,9 @@ final class EventsViewController: UIViewController {
     override func viewDidLoad() {
         setTableStyles()
 
-        viewModel.reloadTableViewClosure = {
+        viewModel.reloadTableViewClosure = { [weak self] in
             DispatchQueue.main.async {
-                self.eventsTable.reloadData()
+                self?.eventsTable.reloadData()
             }
         }
 
