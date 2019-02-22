@@ -11,5 +11,5 @@ import Foundation
 struct EventCellViewModel {
     let month: String
     let day: String
-    let companyName: String?
+    let companyName: String
 }
