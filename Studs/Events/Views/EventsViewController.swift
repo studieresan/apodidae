@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 final class EventsViewController: UIViewController {
 
@@ -15,10 +14,7 @@ final class EventsViewController: UIViewController {
 
     @IBOutlet weak var eventsTable: UITableView!
 
-    // Array of next event, upcoming events, past events
-    var data = [[Event](), [Event](), [Event]()]
-    let sectionTitles = ["Next event", "Upcoming", "Past events"]
-    let disposeBag = DisposeBag()
+    let viewModel = EventsViewModel()
 
     // MARK: Lifecycle
 
@@ -29,7 +25,14 @@ final class EventsViewController: UIViewController {
 
     override func viewDidLoad() {
         setTableStyles()
-        loadEventData()
+
+        viewModel.reloadTableViewClosure = { [weak self] in
+            DispatchQueue.main.async {
+                self?.eventsTable.reloadData()
+            }
+        }
+
+        viewModel.fetchData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +41,7 @@ final class EventsViewController: UIViewController {
 
 }
 
-extension EventsViewController: UITableViewDelegate {
+extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
 
     private func setTableStyles() {
         // Set styling
@@ -57,11 +60,11 @@ extension EventsViewController: UITableViewDelegate {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        return viewModel.sectionTitles.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
+        return viewModel.numberOfRowsInSection(section: section)
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -74,7 +77,7 @@ extension EventsViewController: UITableViewDelegate {
         header.addSubview(label)
 
         header.backgroundColor = UIColor.bgColor
-        label.text = sectionTitles[section]
+        label.text = viewModel.sectionTitles[section]
 
         let fontWeight = section == 0 ? UIFont.Weight.heavy : UIFont.Weight.regular
         label.font = UIFont.systemFont(ofSize: 38, weight: fontWeight)
@@ -89,22 +92,11 @@ extension EventsViewController: UITableViewDelegate {
         guard let cell = eventsTable.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {
             fatalError("The dequeued cell is not an instance of EventTableViewCell")
         }
-        let currentData = data[indexPath.section][indexPath.row]
 
-        guard let date = currentData.getDate() else {
-            fatalError("Couldn't format date of event")
-        }
-
-        // Display month and date
-        let dateFormatter = DateFormatter()
-
-        dateFormatter.dateFormat = "MMM"
-        cell.month.text = dateFormatter.string(from: date).uppercased()
-
-        dateFormatter.dateFormat = "d"
-        cell.day.text = dateFormatter.string(from: date)
-
-        cell.companyName.text = currentData.companyName
+        let cellViewModel = viewModel.getCellViewModel(at: indexPath)
+        cell.month.text = cellViewModel.month
+        cell.day.text = cellViewModel.day
+        cell.companyName.text = cellViewModel.companyName
 
         return cell
     }
@@ -112,50 +104,11 @@ extension EventsViewController: UITableViewDelegate {
     // MARK: Navigation
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedEvent = data[indexPath.section][indexPath.row]
+        let selectedEvent = viewModel.getEvent(at: indexPath)
         let eventDetailViewController = EventDetailViewController.instance()
         eventDetailViewController.event = selectedEvent
 
         navigationController?.present(eventDetailViewController, animated: true, completion: nil)
-    }
-
-}
-
-extension EventsViewController: UITableViewDataSource {
-
-    private func loadEventData() {
-        // Fetch the events
-        Http.fetchAllEvents().subscribe(onNext: { events in
-            // Sort events, earliest first
-            let sortedEvents = events.data.allEvents.sorted(by: { $0 < $1 })
-            self.data = self.organizeEvents(events: sortedEvents)
-
-            DispatchQueue.main.async {
-                self.eventsTable.reloadData()
-            }
-        }, onError: { error in
-            print(error)
-        }).disposed(by: disposeBag)
-    }
-
-    /**
-     Takes an array of Events and divides them into three categories:
-     the next event, all upcoming events (not including next event), all past events.
-     */
-    private func organizeEvents(events: [Event]) -> [[Event]] {
-        let today = Date()
-        guard let idxOfFirstUpcoming = events.firstIndex(where: {
-            $0.getDate()! > today
-        }) else {
-            // All events are in the past
-            return [[], [], events]
-        }
-
-        let nextEvent = [events[idxOfFirstUpcoming]]
-        let upcoming = Array(events[idxOfFirstUpcoming+1..<events.count])
-        let pastEvents = Array(events[0..<idxOfFirstUpcoming])
-
-        return [nextEvent, upcoming, pastEvents]
     }
 
 }
