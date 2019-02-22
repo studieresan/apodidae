@@ -94,15 +94,15 @@ final class EventsViewModel {
         // initialize a 2D array with as many inner arrays as `events` has.
         var result = Array(repeating: [EventCellViewModel](), count: events.count)
 
+        // Display month and date
+        let dateFormatter = DateFormatter()
+
         // create an EventTableCellViewModel for each event
         for (index, category) in events.enumerated() {
             for event in category {
                 guard let date = event.getDate() else {
                     fatalError("Couldn't format date of event")
                 }
-
-                // Display month and date
-                let dateFormatter = DateFormatter()
 
                 dateFormatter.dateFormat = "MMM"
                 let month = dateFormatter.string(from: date).uppercased()
