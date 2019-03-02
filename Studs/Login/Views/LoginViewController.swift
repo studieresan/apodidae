@@ -14,6 +14,7 @@ final class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
 
     let viewModel = LoginViewModel()
 
@@ -22,6 +23,15 @@ final class LoginViewController: UIViewController {
 
         emailTextField.delegate = self
         passwordTextField.delegate = self
+
+        // Clear the error label on load
+        errorLabel.text = ""
+
+        viewModel.onErrorMsgChange = { [weak self] (errorMsg) in
+            DispatchQueue.main.async {
+                self?.errorLabel.text = errorMsg
+            }
+        }
     }
 
     // MARK: Actions
