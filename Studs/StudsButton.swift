@@ -1,0 +1,21 @@
+//
+//  StudsButton.swift
+//  Studs
+//
+//  Created by Willy Liu on 2019-03-02.
+//  Copyright © 2019 Studieresan. All rights reserved.
+//
+
+import UIKit
+
+class StudsButton: UIButton {
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        layer.cornerRadius = 20
+        clipsToBounds = true
+        backgroundColor = UIColor.primary
+    }
+
+}

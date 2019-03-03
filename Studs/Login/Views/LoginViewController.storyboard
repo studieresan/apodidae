@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HXf-Mm-zmf" userLabel="LoginFormStack">
-                                <rect key="frame" x="45" y="189.5" width="285" height="308"/>
+                                <rect key="frame" x="45" y="70" width="285" height="314"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ju1-Oi-jum">
                                         <rect key="frame" x="92.5" y="0.0" width="100" height="46"/>
@@ -42,52 +42,58 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kGD-Fk-gGl">
-                                        <rect key="frame" x="0.0" y="95.5" width="285" height="30"/>
+                                        <rect key="frame" x="0.0" y="95.5" width="285" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="4Nd-AE-N2J"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTa-9O-1aY" userLabel="Spacing">
-                                        <rect key="frame" x="0.0" y="130.5" width="285" height="14"/>
+                                        <rect key="frame" x="0.0" y="138.5" width="285" height="14"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="Y5f-jE-MsK"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnN-Gw-f1u">
-                                        <rect key="frame" x="0.0" y="149.5" width="285" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="157.5" width="285" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zAD-uO-Slh">
-                                        <rect key="frame" x="0.0" y="175" width="285" height="30"/>
+                                        <rect key="frame" x="0.0" y="183" width="285" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="xW5-zf-HrL"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7K-ha-xEE" userLabel="Spacing">
-                                        <rect key="frame" x="0.0" y="210" width="285" height="14"/>
+                                        <rect key="frame" x="0.0" y="226" width="285" height="14"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="BTa-i2-ogA"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MW-6A-wEw">
-                                        <rect key="frame" x="70" y="229" width="145" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1MW-6A-wEw" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="245" width="145" height="40"/>
                                         <color key="backgroundColor" red="0.48994715253244525" green="0.67112341297325773" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="D1b-1N-fYx"/>
+                                            <constraint firstAttribute="height" constant="40" id="D1b-1N-fYx"/>
                                             <constraint firstAttribute="width" constant="145" id="SBj-MY-6DS"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Log in"/>
+                                        <state key="normal" title="LOG IN"/>
                                         <connections>
                                             <action selector="didTapLogin:" destination="2j8-YH-0IV" eventType="touchUpInside" id="yH6-AL-yLt"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBi-mA-MxO" userLabel="ErrorMessageLabel">
-                                        <rect key="frame" x="87" y="284" width="111" height="24"/>
+                                        <rect key="frame" x="87" y="290" width="111" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="mgX-9L-DM9"/>
                                         </constraints>
@@ -110,7 +116,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HXf-Mm-zmf" firstAttribute="centerY" secondItem="2NK-6o-2rN" secondAttribute="centerY" id="Uw1-bj-Hkp"/>
+                            <constraint firstItem="HXf-Mm-zmf" firstAttribute="top" secondItem="2NK-6o-2rN" secondAttribute="top" constant="50" id="SCp-r7-gwb"/>
                             <constraint firstItem="2NK-6o-2rN" firstAttribute="trailing" secondItem="HXf-Mm-zmf" secondAttribute="trailing" constant="45" id="asc-5G-Cfm"/>
                             <constraint firstItem="HXf-Mm-zmf" firstAttribute="leading" secondItem="2NK-6o-2rN" secondAttribute="leading" constant="45" id="k1d-b1-x5X"/>
                         </constraints>
