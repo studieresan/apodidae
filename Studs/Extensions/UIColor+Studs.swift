@@ -21,7 +21,8 @@ extension UIColor {
     }
 
     // MARK: - Studs Colors
-    static let primaryColor = UIColor(rgb: 0x1D6598)
+    static let primary = UIColor(rgb: 0x3d8ec6)
+    static let primaryDark = UIColor(rgb: 0x1D6598)
     static let bgColor = UIColor(rgb: 0xFCFCFC)
     static let veryLightGray = UIColor(rgb: 0xd9d9d9)
 
