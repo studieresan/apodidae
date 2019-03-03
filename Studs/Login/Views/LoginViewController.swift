@@ -49,6 +49,11 @@ final class LoginViewController: UIViewController {
         viewModel.login(email: email!, password: password!)
     }
 
+    // Dismiss keyboard when tapping anywhere outside text fields
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     /*
     // MARK: - Navigation
 

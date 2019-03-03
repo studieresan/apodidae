@@ -33,7 +33,7 @@ final class LoginViewModel {
 
             print("Response:")
             print(response)
-            
+
             if response.error != nil {
                 self?.errorMsg = response.error!
                 return
