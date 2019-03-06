@@ -51,7 +51,7 @@ final class LoginViewModel {
             }
 
             if response.token != nil {
-                UserDefaults.standard.set(response.token, forKey: "token")
+                UserManager.setToken(token: response.token!)
                 self.isLoggedIn = true
             }
         }, onError: { error in

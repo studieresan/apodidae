@@ -17,10 +17,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let userToken = UserDefaults.standard.string(forKey: "token")
-        let isLoggedIn = userToken != nil
-
-        let rootVC = isLoggedIn ? StudsViewController() : LoginViewController.instance()
+        let rootVC = UserManager.isLoggedIn() ? StudsViewController() : LoginViewController.instance()
 
         window?.run {
             $0.rootViewController = rootVC

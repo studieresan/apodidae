@@ -16,6 +16,7 @@
 		8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B5222183EB00AE767B /* LoginViewModel.swift */; };
 		8B3936BD222C64700032442F /* StudsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3936BC222C646F0032442F /* StudsButton.swift */; };
 		8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A3DA2210CD670098909F /* EventTableViewCell.swift */; };
+		8B8FC9E222301374000C7796 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FC9E122301374000C7796 /* UserManager.swift */; };
 		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		8B1440B5222183EB00AE767B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8B3936BC222C646F0032442F /* StudsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StudsButton.swift; path = /Users/willyliu/Documents/Code/apodidae/Studs/StudsButton.swift; sourceTree = "<absolute>"; };
 		8B63A3DA2210CD670098909F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		8B8FC9E122301374000C7796 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Studs/UserManager.swift; sourceTree = SOURCE_ROOT; };
 		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
 		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 				8E3782FE2183B982004F083F /* Info.plist */,
 				8B3936BC222C646F0032442F /* StudsButton.swift */,
 				8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */,
+				8B8FC9E122301374000C7796 /* UserManager.swift */,
 			);
 			path = Studs;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
+				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,
 				8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */,
 				8EAC48752184BB4F00BB36A2 /* TravelViewController.swift in Sources */,
 				8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */,

@@ -96,9 +96,14 @@ struct Http {
                 print(query)
                 fatalError("Couldn't create query string")
             }
+
             var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)?query=\(formatedQuery)")!)
             request.httpMethod = "POST"
             request.setValue("application/graphql", forHTTPHeaderField: "Content-Type")
+
+            if let userToken = UserManager.getToken() {
+                request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
+            }
 
             URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data else {
