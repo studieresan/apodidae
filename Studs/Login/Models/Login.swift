@@ -16,13 +16,6 @@ struct LoginResponse: Decodable {
     let name: String?
 }
 
-// Will be set if the email param is not an email
-struct LoginError: Decodable {
-    let msg: String? // The error message
-    let param: String? // indicates which param is invalid
-    let value: String? // contains the invalid value
-}
-
 struct LoginPayload: Codable {
     let email: String
     let password: String
