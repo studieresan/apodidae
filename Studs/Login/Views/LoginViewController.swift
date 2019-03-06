@@ -32,6 +32,14 @@ final class LoginViewController: UIViewController {
                 self?.errorLabel.text = errorMsg
             }
         }
+
+        viewModel.onLoginChange = { [weak self] (isLoggedIn) in
+            if isLoggedIn {
+                DispatchQueue.main.async {
+                    self?.present(StudsViewController(), animated: true, completion: nil)
+                }
+            }
+        }
     }
 
     // MARK: Actions
@@ -44,25 +52,14 @@ final class LoginViewController: UIViewController {
             return
         }
 
-        print(email!)
-        print(password!)
         viewModel.login(email: email!, password: password!)
+        self.view.endEditing(true)
     }
 
     // Dismiss keyboard when tapping anywhere outside text fields
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

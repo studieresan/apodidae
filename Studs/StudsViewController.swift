@@ -14,14 +14,6 @@ final class StudsViewController: UITabBarController {
         setupApplication()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        let isLoggedIn = false
-        if !isLoggedIn {
-            self.present(LoginViewController.instance(), animated: true, completion: nil)
-            return
-        }
-    }
-
     private func setupApplication() {
         let eventsViewController = UINavigationController(rootViewController: EventsViewController.instance()).apply {
             $0.tabBarItem = UITabBarItem(title: "Events", image: #imageLiteral(resourceName: "eventsTab"), tag: 0)
