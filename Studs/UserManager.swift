@@ -11,8 +11,6 @@ import RxSwift
 
 final class UserManager {
 
-    static private let disposeBag = DisposeBag()
-
     static func getToken() -> String? {
         return UserDefaults.standard.string(forKey: "token")
     }
