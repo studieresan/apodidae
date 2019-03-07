@@ -25,6 +25,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJS-sQ-pt7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="NMu-4d-eJP"/>
+                                </constraints>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmE-N5-o2i">
                                 <rect key="frame" x="320" y="42" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -35,16 +41,22 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DJS-sQ-pt7" firstAttribute="leading" secondItem="GkJ-eB-pPw" secondAttribute="leading" id="Km1-9j-xmF"/>
+                            <constraint firstItem="DJS-sQ-pt7" firstAttribute="trailing" secondItem="GkJ-eB-pPw" secondAttribute="trailing" id="dKz-Nf-414"/>
+                            <constraint firstItem="DJS-sQ-pt7" firstAttribute="top" secondItem="Aha-OD-FKR" secondAttribute="top" id="yW0-Yo-1Pm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GkJ-eB-pPw"/>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="rmE-N5-o2i" id="f5j-AS-KmQ"/>
                         <outlet property="companyName" destination="NHF-i8-uHy" id="1Ib-Yx-crg"/>
+                        <outlet property="mapView" destination="DJS-sQ-pt7" id="IPP-W4-d07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47J-Ip-0Om" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="-205"/>
+            <point key="canvasLocation" x="1416.8" y="-205.54722638680661"/>
         </scene>
     </scenes>
 </document>

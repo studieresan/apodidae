@@ -198,8 +198,8 @@
 				8EA641592184A1D300A138EB /* EventsViewController.storyboard */,
 				8B63A3DA2210CD670098909F /* EventTableViewCell.swift */,
 				8EA6415B2184A1E000A138EB /* EventsViewController.swift */,
-				8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */,
 				8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */,
+				8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
