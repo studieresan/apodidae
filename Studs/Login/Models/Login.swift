@@ -16,7 +16,7 @@ struct LoginResponse: Decodable {
     let name: String?
 }
 
-struct LoginPayload: Codable {
+struct LoginPayload: Encodable {
     let email: String
     let password: String
 }
