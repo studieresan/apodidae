@@ -10,7 +10,13 @@
 		1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */; };
 		8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */; };
 		8B1440AD2220322400AE767B /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AC2220322400AE767B /* EventsViewModel.swift */; };
+		8B1440AF2221772D00AE767B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1440AE2221772D00AE767B /* LoginViewController.storyboard */; };
+		8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B02221779C00AE767B /* LoginViewController.swift */; };
+		8B1440B42221831100AE767B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B32221831100AE767B /* Login.swift */; };
+		8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B5222183EB00AE767B /* LoginViewModel.swift */; };
+		8B3936BD222C64700032442F /* StudsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3936BC222C646F0032442F /* StudsButton.swift */; };
 		8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A3DA2210CD670098909F /* EventTableViewCell.swift */; };
+		8B8FC9E222301374000C7796 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FC9E122301374000C7796 /* UserManager.swift */; };
 		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
@@ -38,7 +44,13 @@
 		4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Studs/Pods-Studs.release.xcconfig"; sourceTree = "<group>"; };
 		8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCellViewModel.swift; path = Studs/Events/ViewModels/EventCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8B1440AC2220322400AE767B /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		8B1440AE2221772D00AE767B /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		8B1440B02221779C00AE767B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8B1440B32221831100AE767B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		8B1440B5222183EB00AE767B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8B3936BC222C646F0032442F /* StudsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StudsButton.swift; path = /Users/willyliu/Documents/Code/apodidae/Studs/StudsButton.swift; sourceTree = "<absolute>"; };
 		8B63A3DA2210CD670098909F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		8B8FC9E122301374000C7796 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Studs/UserManager.swift; sourceTree = SOURCE_ROOT; };
 		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
 		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B1440B2222182F000AE767B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B1440B32221831100AE767B /* Login.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8E3782E62183B981004F083F = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +127,9 @@
 				8E3783042183BB63004F083F /* Extensions */,
 				8E3782F92183B982004F083F /* Assets.xcassets */,
 				8E3782FE2183B982004F083F /* Info.plist */,
+				8B3936BC222C646F0032442F /* StudsButton.swift */,
 				8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */,
+				8B8FC9E122301374000C7796 /* UserManager.swift */,
 			);
 			path = Studs;
 			sourceTree = "<group>";
@@ -134,7 +156,8 @@
 		8E37830C2183C4DE004F083F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				8EAC48652184BA3600BB36A2 /* View Models */,
+				8B1440B2222182F000AE767B /* Models */,
+				8EAC48652184BA3600BB36A2 /* ViewModels */,
 				8EAC48642184BA2700BB36A2 /* Views */,
 			);
 			path = Login;
@@ -154,16 +177,19 @@
 			isa = PBXGroup;
 			children = (
 				8E37830D2183C4EF004F083F /* ForgotPasswordViewController.storyboard */,
+				8B1440AE2221772D00AE767B /* LoginViewController.storyboard */,
+				8B1440B02221779C00AE767B /* LoginViewController.swift */,
 				8E37830F2183C507004F083F /* ForgotPasswordViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8EAC48652184BA3600BB36A2 /* View Models */ = {
+		8EAC48652184BA3600BB36A2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8B1440B5222183EB00AE767B /* LoginViewModel.swift */,
 			);
-			path = "View Models";
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8EAC48662184BA6200BB36A2 /* Views */ = {
@@ -331,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B1440AF2221772D00AE767B /* LoginViewController.storyboard in Resources */,
 				8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */,
 				8EAC486F2184BAEA00BB36A2 /* AboutViewController.storyboard in Resources */,
@@ -374,7 +401,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
@@ -387,7 +414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8EDC6C802187A2B500EEA05B /* ShellScript */ = {
@@ -416,19 +443,24 @@
 			files = (
 				8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */,
 				8B1440AD2220322400AE767B /* EventsViewModel.swift in Sources */,
+				8B1440B42221831100AE767B /* Login.swift in Sources */,
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
 				8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */,
 				8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
+				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,
 				8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */,
 				8EAC48752184BB4F00BB36A2 /* TravelViewController.swift in Sources */,
 				8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */,
 				8E3783082183C3CF004F083F /* UIViewController+Studs.swift in Sources */,
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
+				8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */,
+				8B3936BD222C64700032442F /* StudsButton.swift in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
 				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
+				8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */,
 				8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -48,15 +48,60 @@ struct Http {
         }
     }
 
+    static func post<Payload: Encodable, Response: Decodable>
+        (endpoint: Endpoint, body: Payload, type: Response.Type) -> Observable<Response> {
+
+        let jsonEncoder = JSONEncoder()
+        var jsonPayload: Data
+
+        do {
+            jsonPayload = try jsonEncoder.encode(body)
+        } catch let error {
+            print(error)
+            fatalError("Couldn't format body to JSON")
+        }
+
+        return Observable.create { observer in
+            var request = URLRequest(url: URL(string: "\(baseURL)/\(endpoint)")!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonPayload
+
+            URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data else {
+                    observer.onError(error!)
+                    return
+                }
+
+                let result = decode(data: data, type: type)
+
+                switch result {
+                case .right(let it):
+                    observer.onNext(it)
+                    observer.onCompleted()
+                case .left(let err):
+                    observer.onError(err)
+                }
+                }.resume()
+
+            return Disposables.create()
+        }
+    }
+
     static func graphQL<T: Decodable>(query: String, type: T.Type) -> Observable<T> {
         return Observable.create { observer in
             guard let formatedQuery = query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
                 print(query)
                 fatalError("Couldn't create query string")
             }
+
             var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)?query=\(formatedQuery)")!)
             request.httpMethod = "POST"
             request.setValue("application/graphql", forHTTPHeaderField: "Content-Type")
+
+            if let userToken = UserManager.getToken() {
+                request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
+            }
 
             URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data else {
@@ -76,6 +121,11 @@ struct Http {
 
             return Disposables.create()
         }
+    }
+
+    static func login(email: String, password: String) -> Observable<LoginResponse> {
+        let loginPayload = LoginPayload(email: email, password: password)
+        return Http.post(endpoint: Endpoint.login, body: loginPayload, type: LoginResponse.self)
     }
 
     static func fetchAllEvents() -> Observable<AllEventsResponse> {
