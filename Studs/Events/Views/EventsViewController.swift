@@ -21,6 +21,8 @@ final class EventsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // Hide the top navigation bar in this view
         navigationController?.setNavigationBarHidden(true, animated: animated)
+
+        resetSelectedCell()
     }
 
     override func viewDidLoad() {
@@ -33,10 +35,6 @@ final class EventsViewController: UIViewController {
         }
 
         viewModel.fetchData()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        resetSelectedCell()
     }
 
 }
