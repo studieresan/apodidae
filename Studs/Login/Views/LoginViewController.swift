@@ -16,7 +16,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
 
-    let viewModel = LoginViewModel()
+    private let viewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

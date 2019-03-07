@@ -56,7 +56,6 @@ struct Http {
 
         do {
             jsonPayload = try jsonEncoder.encode(body)
-            print(String(data: jsonPayload, encoding: .utf8)!)
         } catch let error {
             print(error)
             fatalError("Couldn't format body to JSON")
@@ -74,7 +73,6 @@ struct Http {
                     return
                 }
 
-                print(String(data: data, encoding: .utf8)!)
                 let result = decode(data: data, type: type)
 
                 switch result {
