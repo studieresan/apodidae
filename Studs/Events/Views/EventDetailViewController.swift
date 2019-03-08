@@ -8,18 +8,23 @@
 
 import UIKit
 import MapKit
+import SafariServices
 
 final class EventDetailViewController: UIViewController {
 
     // MARK: Properties
 
     public var event: Event?
+
+    @IBOutlet weak var scrollView: UIScrollView!
+
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
 
     @IBOutlet weak var eventTitleMonth: UILabel!
     @IBOutlet weak var eventTitleDay: UILabel!
     @IBOutlet weak var companyName: UILabel!
+
     @IBOutlet weak var descriptionText: UITextView!
 
     // MARK: Lifecycle
@@ -32,6 +37,8 @@ final class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        scrollView.delegate = self
+
         if event != nil {
             initEventTitle()
             initDescription()
@@ -43,6 +50,24 @@ final class EventDetailViewController: UIViewController {
 
     @IBAction func onClose(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func didTapPreEvent(_ sender: Any) {
+        if (event!.beforeSurveys?.count)! < 1 {
+            return
+        }
+        if let preEventUrl = event!.beforeSurveys?[0] {
+            self.openUrl(url: preEventUrl)
+        }
+    }
+
+    @IBAction func didTapAfterEvent(_ sender: Any) {
+        if (event!.afterSurveys?.count)! < 1 {
+            return
+        }
+        if let afterEventUrl = event!.afterSurveys?[0] {
+            self.openUrl(url: afterEventUrl)
+        }
     }
 
     // MARK: Private methods
@@ -94,7 +119,7 @@ final class EventDetailViewController: UIViewController {
                                                     latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
             self.mapView.run {
                 $0.addAnnotation(annotation)
-                $0.setRegion(coordinateRegion, animated: true)
+                $0.setRegion(coordinateRegion, animated: false)
             }
         }
     }
@@ -111,6 +136,12 @@ final class EventDetailViewController: UIViewController {
 
     // MARK: Helper methods
 
+    private func openUrl(url: String) {
+        guard let url = URL(string: url) else { return }
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
+
     // Converts an address to coordinates.
     // Source: https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
     private func getCoordinate(addressString: String, completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
@@ -126,6 +157,17 @@ final class EventDetailViewController: UIViewController {
             }
 
             completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+        }
+    }
+
+}
+
+extension EventDetailViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Prevent scroll bouncing on the top of the scroll view
+        if scrollView.contentOffset.y < 0 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         }
     }
 
