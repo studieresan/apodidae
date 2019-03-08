@@ -15,8 +15,11 @@ final class EventDetailViewController: UIViewController {
 
     public var event: Event?
     @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+
+    @IBOutlet weak var eventTitleMonth: UILabel!
+    @IBOutlet weak var eventTitleDay: UILabel!
+    @IBOutlet weak var companyName: UILabel!
 
     // MARK: Lifecycle
 
@@ -32,7 +35,7 @@ final class EventDetailViewController: UIViewController {
             fatalError("Did not load event from previous screen")
         }
 
-        companyName.text = event.companyName
+        initEventTitle(event: event)
         setInitialLocation()
     }
 
@@ -43,6 +46,32 @@ final class EventDetailViewController: UIViewController {
     }
 
     // MARK: Private methods
+
+    private func initEventTitle(event: Event) {
+        let dateFormatter = DateFormatter()
+
+        guard let date = event.getDate() else {
+            fatalError("Couldn't format date of event")
+        }
+
+        dateFormatter.dateFormat = "MMM"
+        let month = dateFormatter.string(from: date).uppercased()
+
+        dateFormatter.dateFormat = "d"
+        let day = dateFormatter.string(from: date)
+
+        eventTitleMonth.run {
+            $0.textColor = UIColor.primaryDark
+            $0.text = month
+        }
+
+        eventTitleDay.run {
+            $0.textColor = UIColor.primaryDark
+            $0.text = day
+        }
+
+        companyName.text = event.companyName
+    }
 
     private func setInitialLocation() {
         guard let address = event?.location else {
@@ -55,7 +84,7 @@ final class EventDetailViewController: UIViewController {
             }
 
             let regionRadius: CLLocationDistance = 500
-    
+
             let annotation = MKPointAnnotation().apply {
                 $0.coordinate = location
                 $0.title = address
