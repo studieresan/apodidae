@@ -20,6 +20,7 @@ final class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventTitleMonth: UILabel!
     @IBOutlet weak var eventTitleDay: UILabel!
     @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak var descriptionText: UITextView!
 
     // MARK: Lifecycle
 
@@ -37,6 +38,7 @@ final class EventDetailViewController: UIViewController {
 
         initEventTitle(event: event)
         setInitialLocation()
+        descriptionText.text = event.privateDescription
     }
 
     // MARK: Actions
