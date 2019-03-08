@@ -37,8 +37,8 @@ final class EventDetailViewController: UIViewController {
         }
 
         initEventTitle(event: event)
+        initDescription()
         setInitialLocation()
-        descriptionText.text = event.privateDescription
     }
 
     // MARK: Actions
@@ -101,9 +101,21 @@ final class EventDetailViewController: UIViewController {
         }
     }
 
+    private func initDescription() {
+        descriptionText.run {
+            $0.text = event!.privateDescription
+
+            // Remove textview padding
+            $0.textContainerInset = UIEdgeInsets.zero
+            $0.textContainer.lineFragmentPadding = 0
+        }
+    }
+
+    // MARK: Helper methods
+
     // Converts an address to coordinates.
     // Source: https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
-    func getCoordinate(addressString: String, completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
+    private func getCoordinate(addressString: String, completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(addressString) { (placemarks, error) in
             if error == nil {

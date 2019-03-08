@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aja-vv-AT0">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="790.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="806.5"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJS-sQ-pt7">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
@@ -31,7 +31,7 @@
                                                 </constraints>
                                             </mapView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="InY-kH-rYf">
-                                                <rect key="frame" x="0.0" y="256" width="375" height="534.5"/>
+                                                <rect key="frame" x="0.0" y="256" width="375" height="550.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5o-lW-q7u" userLabel="EventTitle">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
@@ -149,10 +149,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtD-iy-bta" userLabel="Description">
-                                                        <rect key="frame" x="0.0" y="206" width="375" height="328.5"/>
+                                                        <rect key="frame" x="0.0" y="206" width="375" height="344.5"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nyz-ns-p7d">
-                                                                <rect key="frame" x="19" y="20" width="337" height="288.5"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Nyz-ns-p7d">
+                                                                <rect key="frame" x="19" y="20" width="337" height="304.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gC-it-hCr">
                                                                         <rect key="frame" x="0.0" y="0.0" width="337" height="24"/>
@@ -161,7 +161,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLz-iG-yGm">
-                                                                        <rect key="frame" x="0.0" y="24" width="337" height="264.5"/>
+                                                                        <rect key="frame" x="0.0" y="38" width="337" height="266.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                         <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
