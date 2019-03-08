@@ -32,13 +32,11 @@ final class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let event = event else {
-            fatalError("Did not load event from previous screen")
+        if event != nil {
+            initEventTitle()
+            initDescription()
+            setInitialLocation()
         }
-
-        initEventTitle(event: event)
-        initDescription()
-        setInitialLocation()
     }
 
     // MARK: Actions
@@ -49,10 +47,10 @@ final class EventDetailViewController: UIViewController {
 
     // MARK: Private methods
 
-    private func initEventTitle(event: Event) {
+    private func initEventTitle() {
         let dateFormatter = DateFormatter()
 
-        guard let date = event.getDate() else {
+        guard let date = event!.getDate() else {
             fatalError("Couldn't format date of event")
         }
 
@@ -72,7 +70,7 @@ final class EventDetailViewController: UIViewController {
             $0.text = day
         }
 
-        companyName.text = event.companyName
+        companyName.text = event!.companyName
     }
 
     private func setInitialLocation() {
