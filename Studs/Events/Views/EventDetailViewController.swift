@@ -39,6 +39,11 @@ final class EventDetailViewController: UIViewController {
 
         scrollView.delegate = self
 
+        closeButton.run {
+            $0.setTitle("", for: .normal)
+            $0.setBackgroundImage(#imageLiteral(resourceName: "closeBtn"), for: .normal)
+        }
+
         if event != nil {
             initEventTitle()
             initDescription()
