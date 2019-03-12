@@ -54,6 +54,31 @@ final class EventDetailViewController: UIViewController {
         }
 
         self.title = event?.companyName
+        setUpClickListeners()
+    }
+
+    private func setUpClickListeners() {
+        eventAddress.run {
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMapDirections)))
+        }
+    }
+
+    @objc
+    private func showMapDirections() {
+        guard let address = event?.location else {
+            fatalError("Event location isn't set")
+        }
+
+        getCoordinate(addressString: address) { [weak self] coordinate, err in
+            guard err == nil else { return }
+
+            let destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate)).apply {
+                $0.name = self?.event?.companyName
+            }
+
+            destination.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault])
+        }
     }
 
     // MARK: Actions
