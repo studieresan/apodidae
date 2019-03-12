@@ -25,6 +25,9 @@ final class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventTitleDay: UILabel!
     @IBOutlet weak var companyName: UILabel!
 
+    @IBOutlet weak var eventTime: UILabel!
+    @IBOutlet weak var eventAddress: UILabel!
+
     @IBOutlet weak var descriptionText: UITextView!
 
     // MARK: Lifecycle
@@ -59,6 +62,7 @@ final class EventDetailViewController: UIViewController {
 
     @IBAction func didTapPreEvent(_ sender: Any) {
         if (event!.beforeSurveys?.count)! < 1 {
+            showNoFormAlert()
             return
         }
         if let preEventUrl = event!.beforeSurveys?[0] {
@@ -68,6 +72,7 @@ final class EventDetailViewController: UIViewController {
 
     @IBAction func didTapAfterEvent(_ sender: Any) {
         if (event!.afterSurveys?.count)! < 1 {
+            showNoFormAlert()
             return
         }
         if let afterEventUrl = event!.afterSurveys?[0] {
@@ -101,6 +106,12 @@ final class EventDetailViewController: UIViewController {
         }
 
         companyName.text = event!.companyName
+
+        eventAddress.text = event!.location
+
+        dateFormatter.dateFormat = "EEEE MMM d, HH:mm"
+        let timeStamp = dateFormatter.string(from: date)
+        eventTime.text = timeStamp
     }
 
     private func setInitialLocation() {
@@ -141,6 +152,16 @@ final class EventDetailViewController: UIViewController {
 
     // MARK: Helper methods
 
+    // Shows an alert for when no survey has been added to this event
+    private func showNoFormAlert() {
+        let alert = UIAlertController(title: "Event survey",
+                                      message: "This survey hasn't been added to this event yet", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action1)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    // Opens a specified URL in a Safari View Controller
     private func openUrl(url: String) {
         guard let url = URL(string: url) else { return }
         let svc = SFSafariViewController(url: url)
