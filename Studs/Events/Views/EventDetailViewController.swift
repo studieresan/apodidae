@@ -32,19 +32,27 @@ final class EventDetailViewController: UIViewController {
     // MARK: Lifecycle
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Show the top navigation bar in this view
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        setTabBarVisible(visible: false, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setTabBarVisible(visible: true, animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         scrollView.delegate = self
+
         if event != nil {
             initEventTitle()
             initDescription()
             setInitialLocation()
         }
+
         self.title = event?.companyName
     }
 
