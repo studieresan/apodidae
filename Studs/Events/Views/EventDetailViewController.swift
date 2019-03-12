@@ -18,7 +18,6 @@ final class EventDetailViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
 
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
 
     @IBOutlet weak var eventTitleMonth: UILabel!
@@ -41,25 +40,15 @@ final class EventDetailViewController: UIViewController {
         super.viewDidLoad()
 
         scrollView.delegate = self
-
-        closeButton.run {
-            $0.setTitle("", for: .normal)
-            $0.setBackgroundImage(#imageLiteral(resourceName: "closeBtn"), for: .normal)
-        }
-
         if event != nil {
             initEventTitle()
             initDescription()
             setInitialLocation()
         }
+        self.title = event?.companyName
     }
 
     // MARK: Actions
-
-    @IBAction func onClose(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
     @IBAction func didTapPreEvent(_ sender: Any) {
         if (event!.beforeSurveys?.count)! < 1 {
             showNoFormAlert()
@@ -196,5 +185,4 @@ extension EventDetailViewController: UIScrollViewDelegate {
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         }
     }
-
 }

@@ -105,8 +105,6 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedEvent = viewModel.getEvent(at: indexPath)
         let eventDetailViewController = EventDetailViewController.instance()
         eventDetailViewController.event = selectedEvent
-
-        navigationController?.present(eventDetailViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(eventDetailViewController, animated: true)
     }
-
 }

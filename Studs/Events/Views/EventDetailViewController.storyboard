@@ -257,31 +257,17 @@
                                     <constraint firstAttribute="bottom" secondItem="aja-vv-AT0" secondAttribute="bottom" id="plX-go-d7O"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmE-N5-o2i">
-                                <rect key="frame" x="330" y="30" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="QYx-zB-cww"/>
-                                    <constraint firstAttribute="width" constant="30" id="e7r-wE-8ZH"/>
-                                </constraints>
-                                <state key="normal" title="X"/>
-                                <connections>
-                                    <action selector="onClose:" destination="zEG-Wk-532" eventType="touchUpInside" id="66r-id-LLx"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="GkJ-eB-pPw" firstAttribute="bottom" secondItem="4bJ-pF-36q" secondAttribute="bottom" id="0bJ-hk-cA5"/>
                             <constraint firstItem="4bJ-pF-36q" firstAttribute="leading" secondItem="GkJ-eB-pPw" secondAttribute="leading" id="Ll1-Tc-bBP"/>
                             <constraint firstItem="4bJ-pF-36q" firstAttribute="top" secondItem="Aha-OD-FKR" secondAttribute="top" id="X9q-i7-V3C"/>
-                            <constraint firstItem="rmE-N5-o2i" firstAttribute="top" secondItem="GkJ-eB-pPw" secondAttribute="top" constant="10" id="cz0-e4-Ktw"/>
                             <constraint firstItem="GkJ-eB-pPw" firstAttribute="trailing" secondItem="4bJ-pF-36q" secondAttribute="trailing" id="orr-Ht-Czc"/>
-                            <constraint firstItem="GkJ-eB-pPw" firstAttribute="trailing" secondItem="rmE-N5-o2i" secondAttribute="trailing" constant="15" id="pFg-Lo-Qyr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GkJ-eB-pPw"/>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="rmE-N5-o2i" id="f5j-AS-KmQ"/>
                         <outlet property="companyName" destination="Eel-2a-qov" id="hCn-01-pM8"/>
                         <outlet property="descriptionText" destination="vLz-iG-yGm" id="9mX-Yd-t9X"/>
                         <outlet property="eventAddress" destination="heG-NP-3bX" id="qIl-SF-Khr"/>
