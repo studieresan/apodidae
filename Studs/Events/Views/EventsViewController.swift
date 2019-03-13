@@ -21,6 +21,8 @@ final class EventsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // Hide the top navigation bar in this view
         navigationController?.setNavigationBarHidden(true, animated: animated)
+
+        resetSelectedCell()
     }
 
     override func viewDidLoad() {
@@ -33,10 +35,6 @@ final class EventsViewController: UIViewController {
         }
 
         viewModel.fetchData()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        resetSelectedCell()
     }
 
 }
@@ -107,8 +105,6 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedEvent = viewModel.getEvent(at: indexPath)
         let eventDetailViewController = EventDetailViewController.instance()
         eventDetailViewController.event = selectedEvent
-
-        navigationController?.present(eventDetailViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(eventDetailViewController, animated: true)
     }
-
 }
