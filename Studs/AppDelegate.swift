@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import UserNotifications
+import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
-final class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+
+        application.registerForRemoteNotifications()
+
         window = UIWindow(frame: UIScreen.main.bounds)
 
         let rootVC = UserManager.isLoggedIn() ? StudsViewController() : LoginViewController.instance()
@@ -23,6 +35,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.rootViewController = rootVC
             $0.makeKeyAndVisible()
         }
+
+        FirebaseApp.configure()
         return true
     }
 }
