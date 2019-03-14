@@ -9,4 +9,6 @@ target 'Studs' do
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
   pod 'SwiftLint'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 end
