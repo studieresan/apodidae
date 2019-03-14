@@ -16,6 +16,8 @@ final class EventsViewController: UIViewController {
 
     let viewModel = EventsViewModel()
 
+    private let refreshControl = UIRefreshControl()
+
     // MARK: Lifecycle
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,11 +28,12 @@ final class EventsViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        setTableStyles()
+        setupTable()
 
         viewModel.reloadTableViewClosure = { [weak self] in
             DispatchQueue.main.async {
                 self?.eventsTable.reloadData()
+                self?.refreshControl.endRefreshing()
             }
         }
 
@@ -41,7 +44,7 @@ final class EventsViewController: UIViewController {
 
 extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
 
-    private func setTableStyles() {
+    private func setupTable() {
         // Set styling
         view.backgroundColor = UIColor.bgColor
         eventsTable.backgroundColor = UIColor.bgColor
@@ -49,6 +52,14 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         // Set up the table view
         eventsTable.delegate = self
         eventsTable.dataSource = self
+
+        // Add pull to refresh
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
+        eventsTable.refreshControl = refreshControl
+    }
+
+    @objc private func fetchData() {
+        viewModel.fetchData()
     }
 
     private func resetSelectedCell() {
