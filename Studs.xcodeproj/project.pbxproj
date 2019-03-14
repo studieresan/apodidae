@@ -16,6 +16,7 @@
 		8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B5222183EB00AE767B /* LoginViewModel.swift */; };
 		8B3936BD222C64700032442F /* StudsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3936BC222C646F0032442F /* StudsButton.swift */; };
 		8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A3DA2210CD670098909F /* EventTableViewCell.swift */; };
+		8B7FD90E223AE7720069D6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */; };
 		8B8FC9E222301374000C7796 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FC9E122301374000C7796 /* UserManager.swift */; };
 		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
@@ -50,6 +51,7 @@
 		8B1440B5222183EB00AE767B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8B3936BC222C646F0032442F /* StudsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsButton.swift; sourceTree = "<group>"; };
 		8B63A3DA2210CD670098909F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B8FC9E122301374000C7796 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Studs/UserManager.swift; sourceTree = SOURCE_ROOT; };
 		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
 		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				8E3783042183BB63004F083F /* Extensions */,
 				8E3782F92183B982004F083F /* Assets.xcassets */,
 				8E3782FE2183B982004F083F /* Info.plist */,
+				8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */,
 				8B3936BC222C646F0032442F /* StudsButton.swift */,
 				8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */,
 				8B8FC9E122301374000C7796 /* UserManager.swift */,
@@ -359,6 +362,7 @@
 			files = (
 				8B1440AF2221772D00AE767B /* LoginViewController.storyboard in Resources */,
 				8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */,
+				8B7FD90E223AE7720069D6FD /* GoogleService-Info.plist in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */,
 				8EAC486F2184BAEA00BB36A2 /* AboutViewController.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */,
@@ -402,15 +406,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
