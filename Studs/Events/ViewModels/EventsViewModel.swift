@@ -75,14 +75,14 @@ final class EventsViewModel {
             $0.getDate()! > today
         }) else {
             // All events are in the past
-            return [[], [], events]
+            return [[], [], events.reversed()]
         }
 
         let nextEvent = [events[idxOfFirstUpcoming]]
         let upcoming = Array(events[idxOfFirstUpcoming+1..<events.count])
         let pastEvents = Array(events[0..<idxOfFirstUpcoming])
 
-        return [nextEvent, upcoming, pastEvents]
+        return [nextEvent, upcoming, pastEvents.reversed()]
     }
 
     /**
