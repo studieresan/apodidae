@@ -75,15 +75,19 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thL-Bj-sge" userLabel="CompanyName">
                                                                                 <rect key="frame" x="64" y="0.0" width="311" height="64"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eel-2a-qov">
-                                                                                        <rect key="frame" x="0.0" y="16" width="190.5" height="33.5"/>
-                                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eel-2a-qov">
+                                                                                        <rect key="frame" x="0.0" y="15.5" width="311" height="33.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="Eel-2a-qov" firstAttribute="leading" secondItem="thL-Bj-sge" secondAttribute="leading" id="Se5-qZ-lA0"/>
+                                                                                    <constraint firstItem="Eel-2a-qov" firstAttribute="centerY" secondItem="thL-Bj-sge" secondAttribute="centerY" id="W6W-r0-wf8"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="Eel-2a-qov" secondAttribute="trailing" id="Ycm-NZ-NKq"/>
+                                                                                </constraints>
                                                                             </view>
                                                                         </subviews>
                                                                         <constraints>

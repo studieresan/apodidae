@@ -68,15 +68,19 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9A-1C-X9v" userLabel="CompanyName">
                                                                     <rect key="frame" x="64" y="0.0" width="283" height="66"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Company name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-vr-qGI">
-                                                                            <rect key="frame" x="0.0" y="16" width="190.5" height="33.5"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-vr-qGI">
+                                                                            <rect key="frame" x="0.0" y="16.5" width="283" height="33.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="QaO-vr-qGI" firstAttribute="centerY" secondItem="I9A-1C-X9v" secondAttribute="centerY" id="71E-nd-0qt"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="QaO-vr-qGI" secondAttribute="trailing" id="Jb3-FA-bzS"/>
+                                                                        <constraint firstItem="QaO-vr-qGI" firstAttribute="leading" secondItem="I9A-1C-X9v" secondAttribute="leading" id="LgU-kR-txQ"/>
+                                                                    </constraints>
                                                                 </view>
                                                             </subviews>
                                                             <constraints>
