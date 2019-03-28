@@ -23,11 +23,6 @@ struct Http {
         case allEvents
     }
 
-    private enum Either<A, B> {
-        case left(A)
-        case right(B)
-    }
-
     static func get<T: Decodable>(endpoint: Endpoint, type: T.Type) -> Observable<T> {
         return Observable.create { observer in
             URLSession.shared.dataTask(with: URL(string: "\(baseURL)/\(endpoint)")!) { data, _, error in
@@ -37,10 +32,10 @@ struct Http {
                 }
                 let result = decode(data: data, type: type)
                 switch result {
-                case .right(let it):
+                case .success(let it):
                     observer.onNext(it)
                     observer.onCompleted()
-                case .left(let err):
+                case .failure(let err):
                     observer.onError(err)
                 }
             }.resume()
@@ -76,10 +71,10 @@ struct Http {
                 let result = decode(data: data, type: type)
 
                 switch result {
-                case .right(let it):
+                case .success(let it):
                     observer.onNext(it)
                     observer.onCompleted()
-                case .left(let err):
+                case .failure(let err):
                     observer.onError(err)
                 }
                 }.resume()
@@ -111,10 +106,10 @@ struct Http {
 
                 let result = decode(data: data, type: type)
                 switch result {
-                case .right(let it):
+                case .success(let it):
                     observer.onNext(it)
                     observer.onCompleted()
-                case .left(let err):
+                case .failure(let err):
                     observer.onError(err)
                 }
             }.resume()
@@ -150,13 +145,13 @@ struct Http {
         return graphQL(query: query, type: AllEventsResponse.self)
     }
 
-    private static func decode<T: Decodable>(data: Data, type: T.Type) -> Either<Error, T> {
+    private static func decode<T: Decodable>(data: Data, type: T.Type) -> Result<T, Error> {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(type, from: data)
-            return Either.right(result)
+            return .success(result)
         } catch let err {
-            return Either.left(err)
+            return .failure(err)
         }
     }
 }

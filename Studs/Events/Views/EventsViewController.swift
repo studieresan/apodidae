@@ -11,7 +11,6 @@ import UIKit
 final class EventsViewController: UIViewController {
 
     // MARK: Properties
-
     @IBOutlet weak var eventsTable: UITableView!
 
     let viewModel = EventsViewModel()
@@ -19,17 +18,14 @@ final class EventsViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
 
     // MARK: Lifecycle
-
     override func viewWillAppear(_ animated: Bool) {
         // Hide the top navigation bar in this view
         navigationController?.setNavigationBarHidden(true, animated: animated)
-
         resetSelectedCell()
     }
 
     override func viewDidLoad() {
         setupTable()
-
         viewModel.reloadTableViewClosure = { [weak self] in
             DispatchQueue.main.async {
                 self?.eventsTable.reloadData()
