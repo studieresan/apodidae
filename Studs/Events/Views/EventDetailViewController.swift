@@ -165,7 +165,6 @@ final class EventDetailViewController: UIViewController {
     private func initDescription() {
         descriptionText.run {
             $0.text = event!.privateDescription
-
             // Remove textview padding
             $0.textContainerInset = UIEdgeInsets.zero
             $0.textContainer.lineFragmentPadding = 0

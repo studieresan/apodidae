@@ -51,5 +51,4 @@ final class EventTableViewCell: UITableViewCell {
         contentView.backgroundColor = UIColor.bgColor
         containerView.backgroundColor = UIColor.veryLightGray
     }
-
 }
