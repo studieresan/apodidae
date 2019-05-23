@@ -11,7 +11,6 @@ import UIKit
 final class TravelUpdateTableViewCell: UITableViewCell {
 
     // MARK: UI elements
-
     private lazy var nameLabel: UILabel = self.setupNameLabel()
     private lazy var timeLabel: UILabel = self.setupTimeLabel()
     private lazy var locationIcon: UIImageView = self.setupLocationIcon()
@@ -20,16 +19,14 @@ final class TravelUpdateTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        self.addSubview(nameLabel)
-        self.addSubview(timeLabel)
-        self.addSubview(locationIcon)
-        self.addSubview(locationLabel)
-        self.addSubview(contentLabel)
-
+        contentView.run {
+            $0.addSubview(nameLabel)
+            $0.addSubview(timeLabel)
+            $0.addSubview(locationIcon)
+            $0.addSubview(locationLabel)
+            $0.addSubview(contentLabel)
+        }
         addConstraints()
-        setNeedsLayout()
-        layoutIfNeeded()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,22 +36,36 @@ final class TravelUpdateTableViewCell: UITableViewCell {
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
+        // Name
         constraints += [
-            contentView.widthAnchor.constraint(equalTo: self.widthAnchor),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+        ]
+
+        // Location icon
+        constraints += [
+            locationIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            locationIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+        ]
+
+        // Location
+        constraints += [
+            locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            locationLabel.leadingAnchor.constraint(equalTo: locationIcon.trailingAnchor, constant: 5),
+        ]
+
+        // Message
+        constraints += [
+            contentLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor),
+            contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+        ]
+
+        // Time
+        constraints += [
             timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            locationIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 3),
-            locationIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            locationIcon.heightAnchor.constraint(equalToConstant: 15),
-            locationIcon.widthAnchor.constraint(equalToConstant: 14),
-            locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
-            locationLabel.leadingAnchor.constraint(equalTo: locationIcon.trailingAnchor, constant: 4),
-            contentLabel.topAnchor.constraint(equalTo: locationIcon.bottomAnchor, constant: 14),
-            contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            contentLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ]
 
         NSLayoutConstraint.activate(constraints)

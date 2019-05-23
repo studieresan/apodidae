@@ -33,14 +33,10 @@ final class TravelDetailsViewController: UIViewController {
         navButtonsStackView.addArrangedSubview(contactsBtn)
         if #available(iOS 11.0, *) {
             navButtonsStackView.setCustomSpacing(10, after: housingBtn)
-        } else {
-            // Fallback on earlier versions
         }
         view.addSubview(separator)
         view.addSubview(updateTitleLabel)
         view.addSubview(updateFeedTable)
-        updateFeedTable.rowHeight = UITableView.automaticDimension
-        updateFeedTable.estimatedRowHeight = UITableView.automaticDimension
         updateFeedTable.delegate = self
         updateFeedTable.dataSource = self
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
@@ -109,6 +105,7 @@ final class TravelDetailsViewController: UIViewController {
         return StudsButton().apply {
             $0.setTitle("Housing", for: .normal)
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.addTarget(self, action: #selector(displayHousingInfo), for: .touchUpInside)
         }
     }
 
@@ -116,6 +113,7 @@ final class TravelDetailsViewController: UIViewController {
         return StudsButton().apply {
             $0.setTitle("Contacts", for: .normal)
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.addTarget(self, action: #selector(displayContactInfo), for: .touchUpInside)
         }
     }
 
@@ -140,6 +138,14 @@ final class TravelDetailsViewController: UIViewController {
             $0.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         }
     }
+
+    @objc private func displayHousingInfo() {
+        print("Display housing")
+    }
+
+    @objc private func displayContactInfo() {
+        print("Display contact")
+    }
 }
 
 extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -149,19 +155,10 @@ extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell") as? TravelUpdateTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as? TravelUpdateTableViewCell else {
             fatalError("Table cell not of type TravelUpdateTableViewCell")
         }
 
         return cell
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-
 }
