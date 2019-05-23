@@ -19,6 +19,7 @@
 		8B7FD90E223AE7720069D6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */; };
 		8B8FC9E222301374000C7796 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FC9E122301374000C7796 /* UserManager.swift */; };
 		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
+		8BA4FD762297299D00D76B47 /* TravelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */; };
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
 		8E3782FA2183B982004F083F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B8FC9E122301374000C7796 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Studs/UserManager.swift; sourceTree = SOURCE_ROOT; };
 		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
+		8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailsViewController.swift; sourceTree = "<group>"; };
 		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3782F22183B981004F083F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				8EAC48742184BB4F00BB36A2 /* TravelViewController.swift */,
+				8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */,
 				8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
+				8BA4FD762297299D00D76B47 /* TravelDetailsViewController.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
 				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,

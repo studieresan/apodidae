@@ -82,7 +82,7 @@ final class TravelViewController: UIViewController {
     }
 
     @objc private func showBottomSheet() {
-        let bottomSheetVc = MDCBottomSheetController(contentViewController: AboutViewController.instance())
+        let bottomSheetVc = MDCBottomSheetController(contentViewController: TravelDetailsViewController())
         present(bottomSheetVc, animated: true, completion: nil)
     }
 }
