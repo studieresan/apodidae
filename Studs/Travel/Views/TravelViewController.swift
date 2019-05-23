@@ -43,7 +43,7 @@ final class TravelViewController: UIViewController {
         view.addSubview(map)
         let button = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(showBottomSheet))
         self.navigationItem.setRightBarButton(button, animated: false)
-        self.title = "Trip"
+        self.title = "Travel"
         addConstraints()
     }
 

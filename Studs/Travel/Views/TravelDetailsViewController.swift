@@ -39,7 +39,11 @@ final class TravelDetailsViewController: UIViewController {
         view.addSubview(separator)
         view.addSubview(updateTitleLabel)
         view.addSubview(updateFeedTable)
+        updateFeedTable.rowHeight = UITableView.automaticDimension
+        updateFeedTable.estimatedRowHeight = UITableView.automaticDimension
         updateFeedTable.delegate = self
+        updateFeedTable.dataSource = self
+        updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
 
         addConstraints()
     }
@@ -133,11 +137,31 @@ final class TravelDetailsViewController: UIViewController {
     private func setupUpdateFeedTable() -> UITableView {
         return UITableView().apply {
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         }
     }
 }
 
-extension TravelDetailsViewController: UITableViewDelegate {
+extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell") as? TravelUpdateTableViewCell else {
+            fatalError("Table cell not of type TravelUpdateTableViewCell")
+        }
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 
 }
