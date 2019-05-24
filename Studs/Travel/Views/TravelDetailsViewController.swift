@@ -19,6 +19,7 @@ final class TravelDetailsViewController: UIViewController {
     private lazy var contactsBtn: UIButton = self.setupContactsBtn()
     private lazy var separator: UIView = self.setupSeparatorLine()
     private lazy var updateTitleLabel: UILabel = self.setupUpdateTitleLabel()
+    private lazy var tableTopBorder: UIView = self.setupTableTopBorder()
     private lazy var updateFeedTable: UITableView = self.setupUpdateFeedTable()
 
     override func viewDidLoad() {
@@ -36,6 +37,7 @@ final class TravelDetailsViewController: UIViewController {
         }
         view.addSubview(separator)
         view.addSubview(updateTitleLabel)
+        view.addSubview(tableTopBorder)
         view.addSubview(updateFeedTable)
         updateFeedTable.delegate = self
         updateFeedTable.dataSource = self
@@ -47,23 +49,47 @@ final class TravelDetailsViewController: UIViewController {
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
+        // Drag indicator
         constraints += [
             dragIndicatorView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             dragIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dragIndicatorView.widthAnchor.constraint(equalToConstant: 30),
-            dragIndicatorView.heightAnchor.constraint(equalToConstant: 4),
+            dragIndicatorView.heightAnchor.constraint(equalToConstant: 5),
+        ]
+
+        // Title
+        constraints += [
             titleLabel.topAnchor.constraint(equalTo: dragIndicatorView.bottomAnchor, constant: 8),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ]
+
+        // Buttons stack view and buttons
+        constraints += [
             navButtonsStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             navButtonsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navButtonsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             housingBtn.heightAnchor.constraint(equalToConstant: 40),
             contactsBtn.heightAnchor.constraint(equalToConstant: 40),
+        ]
+
+        // Section separator line
+        constraints += [
             separator.heightAnchor.constraint(equalToConstant: 4),
             separator.widthAnchor.constraint(equalToConstant: view.frame.size.width),
             separator.topAnchor.constraint(equalTo: navButtonsStackView.bottomAnchor, constant: 24),
+        ]
+
+        // "Updates" label
+        constraints += [
             updateTitleLabel.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 14),
             updateTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tableTopBorder.widthAnchor.constraint(equalTo: view.widthAnchor),
+            tableTopBorder.heightAnchor.constraint(equalToConstant: 1),
+            tableTopBorder.bottomAnchor.constraint(equalTo: updateFeedTable.topAnchor),
+        ]
+
+        // Updates table
+        constraints += [
             updateFeedTable.topAnchor.constraint(equalTo: updateTitleLabel.bottomAnchor, constant: 14),
             updateFeedTable.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             updateFeedTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -78,7 +104,7 @@ final class TravelDetailsViewController: UIViewController {
     private func setupDragIndicatorView() -> UIView {
         return UIView().apply {
             $0.backgroundColor = UIColor(rgb: 0xd8d8d8)
-            $0.layer.cornerRadius = 2
+            $0.layer.cornerRadius = 2.5
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
     }
@@ -86,6 +112,7 @@ final class TravelDetailsViewController: UIViewController {
     private func setupTitleLabel() -> UILabel {
         return UILabel().apply {
             $0.text = "Travel info"
+            $0.textColor = UIColor.textColor
             $0.font = UIFont.boldSystemFont(ofSize: 20)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -127,7 +154,15 @@ final class TravelDetailsViewController: UIViewController {
     private func setupUpdateTitleLabel() -> UILabel {
         return UILabel().apply {
             $0.text = "Updates"
+            $0.textColor = UIColor.textColor
             $0.font = UIFont.boldSystemFont(ofSize: 20)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+
+    private func setupTableTopBorder() -> UIView {
+        return UIView().apply {
+            $0.backgroundColor = UIColor(rgb: 0xeff4f6)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
     }

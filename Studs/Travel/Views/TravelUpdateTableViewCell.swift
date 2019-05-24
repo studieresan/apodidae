@@ -45,7 +45,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
         // Location icon
         constraints += [
             locationIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            locationIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            locationIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
         ]
 
         // Location
@@ -56,7 +56,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
 
         // Message
         constraints += [
-            contentLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor),
+            contentLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10),
             contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
@@ -77,6 +77,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
         return UILabel().apply {
             $0.text = "Andreas Heiskanen"
             $0.numberOfLines = 0
+            $0.textColor = UIColor.textColor
             $0.font = UIFont.boldSystemFont(ofSize: 16)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -111,6 +112,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
     private func setupContentLabel() -> UILabel {
         return UILabel().apply {
             $0.numberOfLines = 0
+            $0.textColor = UIColor.textColor
             $0.text = "Nån som vill äta på Michelin-restaurang?"
             $0.font = UIFont.systemFont(ofSize: 16)
             $0.translatesAutoresizingMaskIntoConstraints = false

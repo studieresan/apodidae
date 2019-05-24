@@ -26,6 +26,8 @@ extension UIColor {
     static let bgColor = UIColor(rgb: 0xFCFCFC)
     static let veryLightGray = UIColor(rgb: 0xd9d9d9)
 
+    static let textColor = UIColor(rgb: 0x4d4d4d)
+
     static let darkBlue = UIColor(rgb: 0x2F3C51)
     static let lightBlue = UIColor(rgb: 0x17B7C8)
 }
