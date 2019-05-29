@@ -24,6 +24,8 @@ final class TravelDetailsViewController: UIViewController {
     private lazy var updateFeedTable: UITableView = self.setupUpdateFeedTable()
     private lazy var newUpdateBtn: UIButton = self.setupNewUpdateBtn()
 
+    private var viewFrame: CGRect?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +49,20 @@ final class TravelDetailsViewController: UIViewController {
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
 
         addConstraints()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if let frame = self.viewFrame {
+            view.frame = frame
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        // Presenting a modal VC from this bottom sheet causes the size of this view
+        // to change when when dismissing the view (it becomes too tall).
+        // To get around this, we save the view frame before presenting the new view
+        // and then restore the size when this view appears again
+        self.viewFrame = view.frame
     }
 
     private func addConstraints() {
@@ -189,7 +205,14 @@ final class TravelDetailsViewController: UIViewController {
             $0.setImage(image, for: .normal)
             $0.backgroundColor = UIColor.primary
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.addTarget(self, action: #selector(showNewPostScreen), for: .touchUpInside)
         }
+    }
+
+    @objc private func showNewPostScreen() {
+        let statusVC = StatusUpdateViewController()
+        let navVC = UINavigationController(rootViewController: statusVC)
+        present(navVC, animated: true, completion: nil)
     }
 
     @objc private func displayHousingInfo() {

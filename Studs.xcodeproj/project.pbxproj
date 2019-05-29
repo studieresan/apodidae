@@ -21,6 +21,7 @@
 		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
 		8BA4FD762297299D00D76B47 /* TravelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */; };
 		8BA4FD7A229740D700D76B47 /* TravelUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4FD79229740D700D76B47 /* TravelUpdateTableViewCell.swift */; };
+		8BAA753E229F1E1C00EDEF22 /* StatusUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA753D229F1E1C00EDEF22 /* StatusUpdateViewController.swift */; };
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
 		8E3782FA2183B982004F083F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
 		8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailsViewController.swift; sourceTree = "<group>"; };
 		8BA4FD79229740D700D76B47 /* TravelUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelUpdateTableViewCell.swift; sourceTree = "<group>"; };
+		8BAA753D229F1E1C00EDEF22 /* StatusUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusUpdateViewController.swift; sourceTree = "<group>"; };
 		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3782F22183B981004F083F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */,
 				8BA4FD79229740D700D76B47 /* TravelUpdateTableViewCell.swift */,
 				8E44CED2229EFFB800CF96E0 /* TravelInfoViewController.swift */,
+				8BAA753D229F1E1C00EDEF22 /* StatusUpdateViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				8E44CED3229EFFB800CF96E0 /* TravelInfoViewController.swift in Sources */,
 				8B3936BD222C64700032442F /* StudsButton.swift in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
+				8BAA753E229F1E1C00EDEF22 /* StatusUpdateViewController.swift in Sources */,
 				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
 				8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */,
 				8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */,
