@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialButtons
 
 final class TravelDetailsViewController: UIViewController {
 
@@ -21,6 +22,7 @@ final class TravelDetailsViewController: UIViewController {
     private lazy var updateTitleLabel: UILabel = self.setupUpdateTitleLabel()
     private lazy var tableTopBorder: UIView = self.setupTableTopBorder()
     private lazy var updateFeedTable: UITableView = self.setupUpdateFeedTable()
+    private lazy var newUpdateBtn: UIButton = self.setupNewUpdateBtn()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,7 @@ final class TravelDetailsViewController: UIViewController {
         view.addSubview(updateTitleLabel)
         view.addSubview(tableTopBorder)
         view.addSubview(updateFeedTable)
+        view.addSubview(newUpdateBtn)
         updateFeedTable.delegate = self
         updateFeedTable.dataSource = self
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
@@ -94,6 +97,12 @@ final class TravelDetailsViewController: UIViewController {
             updateFeedTable.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             updateFeedTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             updateFeedTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ]
+
+        // New update button
+        constraints += [
+            newUpdateBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -18),
+            newUpdateBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
         ]
 
         NSLayoutConstraint.activate(constraints)
@@ -171,6 +180,15 @@ final class TravelDetailsViewController: UIViewController {
         return UITableView().apply {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
+    }
+
+    private func setupNewUpdateBtn() -> UIButton {
+        return MDCFloatingButton().apply {
+            let image = UIImage(named: "newUpdateIcon")
+            $0.setImage(image, for: .normal)
+            $0.backgroundColor = UIColor.primary
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
     }
 

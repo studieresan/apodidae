@@ -42,6 +42,7 @@ final class TravelViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(map)
         let button = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(showBottomSheet))
+        self.navigationItem.setLeftBarButton(MKUserTrackingBarButtonItem(mapView: map), animated: false)
         self.navigationItem.setRightBarButton(button, animated: false)
         self.title = "Travel"
         addConstraints()
@@ -72,7 +73,6 @@ final class TravelViewController: UIViewController {
 
     private func fetchUserLocation() {
         locationManager = CLLocationManager()
-        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
 
@@ -86,13 +86,5 @@ final class TravelViewController: UIViewController {
         let distanceFromTop: CGFloat = 75
         bottomSheetVc.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height - distanceFromTop)
         present(bottomSheetVc, animated: true, completion: nil)
-    }
-}
-
-extension TravelViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        map.setCenter(map.userLocation.coordinate, animated: true)
-        let region = MKCoordinateRegion(center: map.userLocation.coordinate, latitudinalMeters: mapSpan, longitudinalMeters: mapSpan)
-        map.setRegion(region, animated: true)
     }
 }

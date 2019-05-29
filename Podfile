@@ -12,4 +12,5 @@ target 'Studs' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'MaterialComponents/BottomSheet'
+  pod 'MaterialComponents/Buttons'
 end

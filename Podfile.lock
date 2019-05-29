@@ -61,6 +61,17 @@ PODS:
     - MaterialComponents/private/Math
     - MaterialComponents/ShapeLibrary
     - MaterialComponents/Shapes
+  - MaterialComponents/Buttons (80.0.0):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (80.0.0):
+    - MaterialComponents/private/Math
   - MaterialComponents/private/Application (80.0.0)
   - MaterialComponents/private/KeyboardWatcher (80.0.0):
     - MaterialComponents/private/Application
@@ -74,6 +85,11 @@ PODS:
   - MaterialComponents/Shapes (80.0.0):
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (80.0.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -91,6 +107,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
   - MaterialComponents/BottomSheet
+  - MaterialComponents/Buttons
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
   - SwiftLint
@@ -106,6 +123,8 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - nanopb
     - Protobuf
     - RxAtomic
@@ -123,6 +142,8 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   MaterialComponents: fcd7ab0d6087bce852e2c60c2c712809f76c7f9e
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
@@ -130,6 +151,6 @@ SPEC CHECKSUMS:
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 94de073a4c07e47e8a78fb93d5ac01039c2b49d6
+PODFILE CHECKSUM: 815d1247a6379b2daa7b5f63f5ec7f79cbe4915c
 
 COCOAPODS: 1.6.1
