@@ -175,11 +175,17 @@ final class TravelDetailsViewController: UIViewController {
     }
 
     @objc private func displayHousingInfo() {
-        print("Display housing")
+        let htmlFile = Bundle.main.path(forResource: "housing_info", ofType: "html")
+        if let htmlString = try? NSString(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8.rawValue) {
+            present(TravelInfoViewController(html: htmlString as String), animated: true)
+        }
     }
 
     @objc private func displayContactInfo() {
-        print("Display contact")
+        let htmlFile = Bundle.main.path(forResource: "contact_info", ofType: "html")
+        if let htmlString = try? NSString(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8.rawValue) {
+            present(TravelInfoViewController(html: htmlString as String), animated: true)
+        }
     }
 }
 
@@ -193,7 +199,6 @@ extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as? TravelUpdateTableViewCell else {
             fatalError("Table cell not of type TravelUpdateTableViewCell")
         }
-
         return cell
     }
 }
