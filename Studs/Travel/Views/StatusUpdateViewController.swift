@@ -10,6 +10,8 @@ import UIKit
 
 final class StatusUpdateViewController: UIViewController {
 
+    private lazy var statusTextfield: UITextField = self.setupTextfield()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "New status"
@@ -22,14 +24,22 @@ final class StatusUpdateViewController: UIViewController {
         navigationItem.setRightBarButton(submitBtn, animated: false)
         navigationItem.rightBarButtonItem?.isEnabled = false
 
+        view.addSubview(statusTextfield)
+        statusTextfield.becomeFirstResponder()
+
         addConstraints()
     }
 
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
+        // Textfield
+        // TODO: not working properly yet
         constraints += [
-
+            statusTextfield.topAnchor.constraint(equalTo: view.topAnchor),
+            statusTextfield.leftAnchor.constraint(equalTo: view.leftAnchor),
+            statusTextfield.rightAnchor.constraint(equalTo: view.rightAnchor),
+            statusTextfield.heightAnchor.constraint(equalToConstant: 300),
         ]
 
         NSLayoutConstraint.activate(constraints)
@@ -48,7 +58,11 @@ final class StatusUpdateViewController: UIViewController {
     // MARK: UI Element creators
 
     private func setupTextfield() -> UITextField {
-        return UITextField()
+        return UITextField().apply {
+            $0.backgroundColor = .gray
+            $0.contentVerticalAlignment = .top
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
     }
 
 }
