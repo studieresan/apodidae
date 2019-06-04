@@ -209,6 +209,8 @@ final class TravelDetailsViewController: UIViewController {
         }
     }
 
+    // MARK: Actions
+
     @objc private func showNewPostScreen() {
         let statusVC = StatusUpdateViewController()
         let navVC = UINavigationController(rootViewController: statusVC)
