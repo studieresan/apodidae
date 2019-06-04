@@ -18,6 +18,8 @@ final class TravelViewController: UIViewController {
 
     private var locationManager: CLLocationManager!
 
+    private var hasZoomedInMap = false
+
     init() {
         super.init(nibName: nil, bundle: nil)
         super.modalPresentationStyle = .fullScreen
@@ -73,6 +75,7 @@ final class TravelViewController: UIViewController {
 
     private func fetchUserLocation() {
         locationManager = CLLocationManager()
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
 
@@ -87,4 +90,18 @@ final class TravelViewController: UIViewController {
         bottomSheetVc.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height - distanceFromTop)
         present(bottomSheetVc, animated: true, completion: nil)
     }
+}
+
+extension TravelViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Only zoom in on user once
+        if !hasZoomedInMap {
+            map.setCenter(map.userLocation.coordinate, animated: true)
+            let region = MKCoordinateRegion(center: map.userLocation.coordinate, latitudinalMeters: mapSpan, longitudinalMeters: mapSpan)
+            map.setRegion(region, animated: true)
+            hasZoomedInMap = true
+        }
+    }
+
 }
