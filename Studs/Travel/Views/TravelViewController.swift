@@ -83,7 +83,7 @@ final class TravelViewController: UIViewController {
 
     @objc private func showBottomSheet() {
         let bottomSheetVc = MDCBottomSheetController(contentViewController: TravelDetailsViewController())
-        let distanceFromTop: CGFloat = 100
+        let distanceFromTop: CGFloat = 120
         bottomSheetVc.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height - distanceFromTop)
         present(bottomSheetVc, animated: true, completion: nil)
     }

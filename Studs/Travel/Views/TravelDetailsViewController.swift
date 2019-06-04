@@ -47,7 +47,9 @@ final class TravelDetailsViewController: UIViewController {
         updateFeedTable.delegate = self
         updateFeedTable.dataSource = self
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
+    }
 
+    override func viewSafeAreaInsetsDidChange() {
         addConstraints()
     }
 
@@ -116,8 +118,15 @@ final class TravelDetailsViewController: UIViewController {
         ]
 
         // New update button
+        var bottomConstant = CGFloat(integerLiteral: -18)
+        if #available(iOS 11.0, *) {
+            let bottomInset = view.safeAreaInsets.bottom
+            print(view.safeAreaInsets)
+            bottomConstant -= bottomInset
+        }
+
         constraints += [
-            newUpdateBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -18),
+            newUpdateBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomConstant),
             newUpdateBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
         ]
 

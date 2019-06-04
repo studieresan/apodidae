@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 final class StatusUpdateViewController: UIViewController {
+
+    // MARK: Properties
+
+    private var locationManager = CLLocationManager()
 
     // MARK: UI Elements
 
@@ -43,6 +48,10 @@ final class StatusUpdateViewController: UIViewController {
 
         addConstraints()
 
+        locationManager.delegate = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
                                                name: UIResponder.keyboardWillShowNotification, object: nil)
 
@@ -106,22 +115,34 @@ final class StatusUpdateViewController: UIViewController {
             return
         }
 
-        locationBarKeyboardVisibleConstraint = locationBar.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor,
-            constant: -keyboardFrame.cgRectValue.height)
+        if locationBarKeyboardVisibleConstraint == nil {
+            var keyboardHeight = keyboardFrame.cgRectValue.height
+
+            if #available(iOS 11.0, *) {
+                let bottomInset = view.safeAreaInsets.bottom
+                keyboardHeight -= bottomInset
+            }
+
+            locationBarKeyboardVisibleConstraint = locationBar.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor,
+                                                                                       constant: -keyboardHeight)
+        }
 
         locationBarKeyboardHiddenConstraint?.isActive = false
         locationBarKeyboardVisibleConstraint?.isActive = true
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
-        locationBarKeyboardHiddenConstraint = locationBar.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor)
+        if locationBarKeyboardHiddenConstraint == nil {
+            locationBarKeyboardHiddenConstraint = locationBar.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor)
+        }
 
         locationBarKeyboardVisibleConstraint?.isActive = false
         locationBarKeyboardHiddenConstraint?.isActive = true
     }
 
     @objc func onTapAddLocation() {
-        print("Tapped")
+        addLocationButton.setTitle("Getting location...", for: .normal)
+        locationManager.requestLocation()
     }
 
     // MARK: UI Element creators
@@ -187,6 +208,28 @@ extension StatusUpdateViewController: UITextViewDelegate {
             self.navigationItem.rightBarButtonItem?.isEnabled = false
             self.textViewPlaceholder.isHidden = false
         }
+    }
+
+}
+
+extension StatusUpdateViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation = locations[0]
+        let geocoder = CLGeocoder()
+
+        geocoder.reverseGeocodeLocation(currentLocation) { (placemarks, error) in
+            if error == nil {
+                let locationName = placemarks?[0]
+                self.addLocationButton.setTitle(locationName?.name, for: .normal)
+            } else {
+                self.addLocationButton.setTitle("Couldn't get location", for: .normal)
+            }
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 
 }
