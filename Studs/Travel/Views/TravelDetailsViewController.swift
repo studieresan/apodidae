@@ -121,7 +121,6 @@ final class TravelDetailsViewController: UIViewController {
         var bottomConstant = CGFloat(integerLiteral: -18)
         if #available(iOS 11.0, *) {
             let bottomInset = view.safeAreaInsets.bottom
-            print(view.safeAreaInsets)
             bottomConstant -= bottomInset
         }
 
