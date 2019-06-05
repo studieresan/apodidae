@@ -28,6 +28,10 @@ final class StatusUpdateViewController: UIViewController {
     private var locationBarKeyboardHiddenConstraint: NSLayoutConstraint?
     private var locationBarKeyboardVisibleConstraint: NSLayoutConstraint?
 
+    // MARK: Constants
+
+    static let statusFontSize: CGFloat = 24
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "New status"
@@ -73,7 +77,7 @@ final class StatusUpdateViewController: UIViewController {
 
         // Textfield
         constraints += [
-            statusTextfield.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 10),
+            statusTextfield.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 12),
             statusTextfield.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             statusTextfield.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             statusTextfield.bottomAnchor.constraint(equalTo: locationBar.topAnchor),
@@ -157,7 +161,7 @@ final class StatusUpdateViewController: UIViewController {
 
     private func setupTextView() -> UITextView {
         return UITextView().apply {
-            $0.font = .systemFont(ofSize: 18)
+            $0.font = .systemFont(ofSize: StatusUpdateViewController.statusFontSize)
             $0.textColor = .textColor
             $0.textContainerInset = .zero
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -166,7 +170,7 @@ final class StatusUpdateViewController: UIViewController {
 
     private func setupTextViewPlaceHolder() -> UILabel {
         return UILabel().apply {
-            $0.font = .systemFont(ofSize: 18)
+            $0.font = .systemFont(ofSize: StatusUpdateViewController.statusFontSize)
             $0.textColor = .lightGray
             $0.text = "What's happening?"
             $0.translatesAutoresizingMaskIntoConstraints = false
