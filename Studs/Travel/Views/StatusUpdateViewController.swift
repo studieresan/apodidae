@@ -20,6 +20,7 @@ final class StatusUpdateViewController: UIViewController {
     private lazy var statusTextfield: UITextView = self.setupTextView()
     private lazy var textViewPlaceholder: UILabel = self.setupTextViewPlaceHolder()
     private lazy var locationBar: UIView = self.setupLocationBar()
+    private lazy var addLocationIcon: UIImageView = self.setupAddLocationIcon()
     private lazy var addLocationButton: UIButton = self.setupAddLocationButton()
 
     // Used for adjusting the bottom anchor of the location bar depending on
@@ -35,7 +36,7 @@ final class StatusUpdateViewController: UIViewController {
         let cancelBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
         navigationItem.setLeftBarButton(cancelBtn, animated: false)
 
-        let submitBtn = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(submit))
+        let submitBtn = UIBarButtonItem(title: "Share", style: .done, target: self, action: #selector(submit))
         navigationItem.setRightBarButton(submitBtn, animated: false)
         navigationItem.rightBarButtonItem?.isEnabled = false
 
@@ -44,6 +45,7 @@ final class StatusUpdateViewController: UIViewController {
 
         view.addSubview(textViewPlaceholder)
         view.addSubview(locationBar)
+        view.addSubview(addLocationIcon)
         view.addSubview(addLocationButton)
 
         addConstraints()
@@ -90,6 +92,14 @@ final class StatusUpdateViewController: UIViewController {
             locationBar.heightAnchor.constraint(equalToConstant: 45),
         ]
 
+        // Add location icon
+        constraints += [
+            addLocationIcon.centerYAnchor.constraint(equalTo: locationBar.centerYAnchor),
+            addLocationIcon.leftAnchor.constraint(equalTo: locationBar.leftAnchor, constant: 14),
+            addLocationIcon.widthAnchor.constraint(equalToConstant: 14),
+            addLocationIcon.heightAnchor.constraint(equalToConstant: 16),
+        ]
+
         // Add location button
         constraints += [
             addLocationButton.leftAnchor.constraint(equalTo: locationBar.leftAnchor, constant: 40),
@@ -115,17 +125,15 @@ final class StatusUpdateViewController: UIViewController {
             return
         }
 
-        if locationBarKeyboardVisibleConstraint == nil {
-            var keyboardHeight = keyboardFrame.cgRectValue.height
+        var keyboardHeight = keyboardFrame.cgRectValue.height
 
-            if #available(iOS 11.0, *) {
-                let bottomInset = view.safeAreaInsets.bottom
-                keyboardHeight -= bottomInset
-            }
-
-            locationBarKeyboardVisibleConstraint = locationBar.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor,
-                                                                                       constant: -keyboardHeight)
+        if #available(iOS 11.0, *) {
+            let bottomInset = view.safeAreaInsets.bottom
+            keyboardHeight -= bottomInset
         }
+
+        locationBarKeyboardVisibleConstraint = locationBar.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor,
+                                                                                   constant: -keyboardHeight)
 
         locationBarKeyboardHiddenConstraint?.isActive = false
         locationBarKeyboardVisibleConstraint?.isActive = true
@@ -159,37 +167,31 @@ final class StatusUpdateViewController: UIViewController {
     private func setupTextViewPlaceHolder() -> UILabel {
         return UILabel().apply {
             $0.font = .systemFont(ofSize: 18)
-            $0.textColor = .veryLightGray
+            $0.textColor = .lightGray
             $0.text = "What's happening?"
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
     }
 
     private func setupLocationBar() -> UIView {
-        let bar = UIView().apply {
-            $0.backgroundColor = .primary
+        return UIView().apply {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
+    }
 
-        let icon = UIImageView(image: UIImage(named: "locationBarIcon")).apply {
+    private func setupAddLocationIcon() -> UIImageView {
+        let image = UIImage(named: "locationBarIcon")?.withRenderingMode(.alwaysTemplate)
+        let icon = UIImageView(image: image).apply {
+            $0.tintColor = .primary
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        bar.addSubview(icon)
-
-        NSLayoutConstraint.activate([
-            icon.centerYAnchor.constraint(equalTo: bar.centerYAnchor),
-            icon.leftAnchor.constraint(equalTo: bar.leftAnchor, constant: 12),
-            icon.widthAnchor.constraint(equalToConstant: 14),
-            icon.heightAnchor.constraint(equalToConstant: 16),
-        ])
-
-        return bar
+        return icon
     }
 
     private func setupAddLocationButton() -> UIButton {
         return UIButton().apply {
-            $0.setTitle("Add location", for: .normal)
-            $0.titleLabel?.textColor = .white
+            $0.setTitle("Add your location", for: .normal)
+            $0.setTitleColor(.primary, for: .normal)
             $0.contentHorizontalAlignment = .left
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.addTarget(self, action: #selector(onTapAddLocation), for: .touchUpInside)
@@ -222,6 +224,12 @@ extension StatusUpdateViewController: CLLocationManagerDelegate {
             if error == nil {
                 let locationName = placemarks?[0]
                 self.addLocationButton.setTitle(locationName?.name, for: .normal)
+
+                UIView.transition(with: self.addLocationButton, duration: 0.15, options: .transitionCrossDissolve, animations: {
+                    self.addLocationButton.setTitleColor(.white, for: .normal)
+                    self.locationBar.backgroundColor = .primary
+                    self.addLocationIcon.tintColor = .white
+                }, completion: nil)
             } else {
                 self.addLocationButton.setTitle("Couldn't get location", for: .normal)
             }
