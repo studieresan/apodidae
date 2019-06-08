@@ -11,6 +11,8 @@ import MaterialComponents.MaterialButtons
 
 final class TravelDetailsViewController: UIViewController {
 
+    private let viewModel = TravelDetailsViewModel()
+
     // MARK: UI Elements
 
     private lazy var dragIndicatorView: UIView = self.setupDragIndicatorView()
@@ -47,6 +49,9 @@ final class TravelDetailsViewController: UIViewController {
         updateFeedTable.delegate = self
         updateFeedTable.dataSource = self
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
+
+        viewModel.delegate = self
+        viewModel.setupDbListener()
     }
 
     override func viewSafeAreaInsetsDidChange() {
@@ -65,6 +70,8 @@ final class TravelDetailsViewController: UIViewController {
         // To get around this, we save the view frame before presenting the new view
         // and then restore the size when this view appears again
         self.viewFrame = view.frame
+
+        viewModel.removeDbListeners()
     }
 
     private func addConstraints() {
@@ -243,13 +250,29 @@ final class TravelDetailsViewController: UIViewController {
 extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.numberOfFeedItems()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as? TravelUpdateTableViewCell else {
             fatalError("Table cell not of type TravelUpdateTableViewCell")
         }
+
+        let data = viewModel.getFeedItem(forIndexPath: indexPath)
+        cell.nameLabel.text = data.user
+        cell.contentLabel.text = data.message
+        cell.timeLabel.text = data.timeFromNow()
+        cell.locationLabel.text = "???"
         return cell
     }
+}
+
+extension TravelDetailsViewController: TravelDetailsViewModelDelegate {
+
+    func onNewValues() {
+        DispatchQueue.main.async {
+            self.updateFeedTable.reloadData()
+        }
+    }
+
 }
