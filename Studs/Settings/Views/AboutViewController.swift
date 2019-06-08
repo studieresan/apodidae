@@ -10,22 +10,41 @@ import UIKit
 
 final class AboutViewController: UIViewController {
 
+    // MARK: UI Elements
+
+    private lazy var logoutBtn: UIButton = self.setupLogoutBtn()
+
     // MARK: Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .white
+        view.addSubview(logoutBtn)
+
+        addConstraints()
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         // Hide the top navigation bar in this view
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
-    // MARK: Actions
+    private func addConstraints() {
+        var constraints: [NSLayoutConstraint] = []
 
-    @IBAction func didTapLogout(_ sender: Any) {
-        showLogoutDialog()
+        // Log out button
+        constraints += [
+            logoutBtn.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor),
+            logoutBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
 
-    // MARK: Methods
+    // MARK: Actions
 
-    func showLogoutDialog() {
+    @objc func showLogoutDialog() {
         let dialog = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .actionSheet)
 
         let logoutAction = UIAlertAction(title: "Log out", style: .destructive, handler: { (_) -> Void in
@@ -42,9 +61,19 @@ final class AboutViewController: UIViewController {
         self.present(dialog, animated: true, completion: nil)
     }
 
-    func logout() {
+    private func logout() {
         UserManager.clearToken()
         self.present(LoginViewController.instance(), animated: true, completion: nil)
+    }
+
+    // MARK: UI Element creators
+
+    private func setupLogoutBtn() -> UIButton {
+        return UIButton(type: .system).apply {
+            $0.setTitle("Log out", for: .normal)
+            $0.addTarget(self, action: #selector(showLogoutDialog), for: .touchUpInside)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
     }
 
 }

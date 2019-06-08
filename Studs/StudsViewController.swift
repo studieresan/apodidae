@@ -23,7 +23,7 @@ final class StudsViewController: UITabBarController {
             $0.tabBarItem = UITabBarItem(title: "Travel", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
         }
 
-        let settingsViewController = UINavigationController(rootViewController: AboutViewController.instance()).apply {
+        let settingsViewController = UINavigationController(rootViewController: AboutViewController()).apply {
             $0.tabBarItem = UITabBarItem(title: "About", image: #imageLiteral(resourceName: "aboutTab"), tag: 2)
         }
 
