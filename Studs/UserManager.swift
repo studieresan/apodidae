@@ -19,6 +19,14 @@ final class UserManager {
         UserDefaults.standard.set(token, forKey: "token")
     }
 
+    static func getName() -> String? {
+        return UserDefaults.standard.string(forKey: "name")
+    }
+
+    static func setName(name: String) {
+        UserDefaults.standard.set(name, forKey: "name")
+    }
+
     static func clearToken() {
         UserDefaults.standard.removeObject(forKey: "token")
     }

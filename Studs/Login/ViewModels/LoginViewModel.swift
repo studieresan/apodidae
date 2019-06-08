@@ -52,6 +52,7 @@ final class LoginViewModel {
 
             if response.token != nil {
                 UserManager.setToken(token: response.token!)
+                UserManager.setName(name: response.name!)
                 self.isLoggedIn = true
             }
         }, onError: { error in

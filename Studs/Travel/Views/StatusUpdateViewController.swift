@@ -8,12 +8,19 @@
 
 import UIKit
 import CoreLocation
+import FirebaseDatabase
 
 final class StatusUpdateViewController: UIViewController {
 
     // MARK: Properties
 
     private var locationManager = CLLocationManager()
+    private let dbRef = Database.database()
+
+    private var message = ""
+    private var lat = 0.0
+    private var lng = 0.0
+    private var locationName = ""
 
     // MARK: UI Elements
 
@@ -121,7 +128,42 @@ final class StatusUpdateViewController: UIViewController {
     }
 
     @objc private func submit() {
-        dismiss(animated: true, completion: nil)
+        guard let username = UserManager.getName() else {
+            let alert = UIAlertController(title: "Couldn't share update",
+                                          message: "Please log out and log in again!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action1)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        var data: FeedItem
+        let now = Int(Date().timeIntervalSince1970)
+        if self.locationName != "" {
+            data = FeedItem(
+                user: username,
+                lat: self.lat,
+                lng: self.lng,
+                message: self.message,
+                timestamp: now,
+                locationName: self.locationName,
+                includeLocation: (self.locationName != "")
+            )
+        } else {
+            data = FeedItem(user: username, message: self.message, timestamp: now)
+        }
+        let dict = data.asDict()
+
+        dbRef.reference(withPath: "locations").childByAutoId().setValue(dict) { err, _ in
+            if err != nil {
+                let alert = UIAlertController(title: "Something went wrong",
+                                              message: "Please try again later", preferredStyle: .alert)
+                let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(action1)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -207,6 +249,7 @@ final class StatusUpdateViewController: UIViewController {
 extension StatusUpdateViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
+        self.message = textView.text
         if textView.text.count > 0 {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
             self.textViewPlaceholder.isHidden = true
@@ -222,11 +265,17 @@ extension StatusUpdateViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations[0]
+        print("current location")
+        print(currentLocation)
+        self.lat = currentLocation.coordinate.latitude
+        self.lng = currentLocation.coordinate.longitude
+
         let geocoder = CLGeocoder()
 
         geocoder.reverseGeocodeLocation(currentLocation) { (placemarks, error) in
             if error == nil {
                 let locationName = placemarks?[0]
+                self.locationName = locationName?.name ?? ""
                 self.addLocationButton.setTitle(locationName?.name, for: .normal)
 
                 UIView.transition(with: self.addLocationButton, duration: 0.15, options: .transitionCrossDissolve, animations: {

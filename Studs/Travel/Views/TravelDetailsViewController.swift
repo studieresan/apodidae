@@ -51,7 +51,6 @@ final class TravelDetailsViewController: UIViewController {
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
 
         viewModel.delegate = self
-        viewModel.setupDbListener()
     }
 
     override func viewSafeAreaInsetsDidChange() {
@@ -62,6 +61,7 @@ final class TravelDetailsViewController: UIViewController {
         if let frame = self.viewFrame {
             view.frame = frame
         }
+        viewModel.setupDbListener()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -262,7 +262,14 @@ extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSourc
         cell.nameLabel.text = data.user
         cell.contentLabel.text = data.message
         cell.timeLabel.text = data.timeFromNow()
-        cell.locationLabel.text = "???"
+
+        // If no location, display "-" instead
+        if data.locationName.trimmingCharacters(in: .whitespaces) != "" {
+            cell.locationLabel.text = data.locationName
+        } else {
+            cell.locationLabel.text = "-"
+        }
+
         return cell
     }
 }
