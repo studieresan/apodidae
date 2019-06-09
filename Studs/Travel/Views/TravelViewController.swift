@@ -47,6 +47,9 @@ final class TravelViewController: UIViewController {
         self.navigationItem.setLeftBarButton(MKUserTrackingBarButtonItem(mapView: map), animated: false)
         self.navigationItem.setRightBarButton(button, animated: false)
         self.title = "Travel"
+
+        map.delegate = self
+
         addConstraints()
     }
 
@@ -110,18 +113,56 @@ final class TravelViewController: UIViewController {
             $0.setRegion(coordinateRegion, animated: true)
         }
     }
+
 }
 
 extension TravelViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
         // Only zoom in on user once
         if !hasZoomedInMap {
-            map.setCenter(map.userLocation.coordinate, animated: true)
-            let region = MKCoordinateRegion(center: map.userLocation.coordinate, latitudinalMeters: mapSpan, longitudinalMeters: mapSpan)
-            map.setRegion(region, animated: true)
+            let currentLocation = locations[0]
+            map.setCenter(currentLocation.coordinate, animated: true)
+            let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: mapSpan, longitudinalMeters: mapSpan)
+            map.setRegion(region, animated: false)
             hasZoomedInMap = true
         }
+    }
+
+}
+
+extension TravelViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+
+        let identifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoDark)
+        } else {
+            annotationView?.annotation = annotation
+        }
+
+        return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard
+            let coordinate = view.annotation?.coordinate,
+            let name = view.annotation?.title
+        else {
+            return
+        }
+        let destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate)).apply {
+            $0.name = name
+        }
+        destination.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault])
     }
 
 }
