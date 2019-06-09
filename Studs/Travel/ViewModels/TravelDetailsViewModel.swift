@@ -21,7 +21,15 @@ final class TravelDetailsViewModel {
     }
 
     func setupDbListener() {
-        dbRef.reference(withPath: "locations").queryOrdered(byChild: "timestamp").observe(.value) { (snapshot) in
+        // Statuses "disappear" after 24 hours, so we only fetch the statuses from
+        // the last 24 hours from Firebase
+        let secondsInADay = 86400.0
+        let timeStampOneDayAgo = Date().timeIntervalSince1970 - secondsInADay
+
+        dbRef.reference(withPath: "locations")
+            .queryOrdered(byChild: "timestamp")
+            .queryStarting(atValue: timeStampOneDayAgo)
+            .observe(.value) { (snapshot) in
             var items: [FeedItem] = []
             for child in snapshot.children {
                 guard
