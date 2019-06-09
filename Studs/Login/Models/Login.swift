@@ -8,12 +8,16 @@
 
 import Foundation
 
-struct LoginResponse: Decodable {
+struct UserData: Codable {
     let error: String? // Will be set if email or password is wrong
     let id: String?
     let email: String?
     let token: String?
     let name: String?
+    let position: String?
+    let phone: String?
+    let picture: String?
+
 }
 
 struct LoginPayload: Encodable {

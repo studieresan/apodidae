@@ -17,6 +17,9 @@ final class StatusUpdateViewController: UIViewController {
     private var locationManager = CLLocationManager()
     private let dbRef = Database.database()
 
+    private var username: String!
+    private var profilePicUrl: String!
+
     private var message = ""
     private var lat = 0.0
     private var lng = 0.0
@@ -29,6 +32,7 @@ final class StatusUpdateViewController: UIViewController {
     private lazy var locationBar: UIView = self.setupLocationBar()
     private lazy var addLocationIcon: UIImageView = self.setupAddLocationIcon()
     private lazy var addLocationButton: UIButton = self.setupAddLocationButton()
+    private lazy var profilePic: UIImageView = self.setupProfilePic()
 
     // Used for adjusting the bottom anchor of the location bar depending on
     // if the keyboard is visible or not
@@ -37,10 +41,29 @@ final class StatusUpdateViewController: UIViewController {
 
     // MARK: Constants
 
-    static let statusFontSize: CGFloat = 24
+    static let statusFontSize: CGFloat = 20
+    static let profilePicSize: CGFloat = 32
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        guard
+            let userdata = UserManager.getUserData(),
+            let name = userdata.name,
+            let picture = userdata.picture
+        else {
+            let alert = UIAlertController(title: "Something went wrong",
+                                          message: "Please log out and log in again!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Ok", style: .default) { _ in
+                self.cancel()
+            }
+            alert.addAction(action1)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        username = name
+        profilePicUrl = picture
+
         title = "New status"
         view.backgroundColor = .white
 
@@ -51,6 +74,7 @@ final class StatusUpdateViewController: UIViewController {
         navigationItem.setRightBarButton(submitBtn, animated: false)
         navigationItem.rightBarButtonItem?.isEnabled = false
 
+        view.addSubview(profilePic)
         view.addSubview(statusTextfield)
         statusTextfield.delegate = self
 
@@ -82,10 +106,18 @@ final class StatusUpdateViewController: UIViewController {
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
+        // Profile picture
+        constraints += [
+            profilePic.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 12),
+            profilePic.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            profilePic.widthAnchor.constraint(equalToConstant: StatusUpdateViewController.profilePicSize),
+            profilePic.heightAnchor.constraint(equalToConstant: StatusUpdateViewController.profilePicSize),
+        ]
+
         // Textfield
         constraints += [
-            statusTextfield.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 12),
-            statusTextfield.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            statusTextfield.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor, constant: 14),
+            statusTextfield.leftAnchor.constraint(equalTo: profilePic.rightAnchor, constant: 3),
             statusTextfield.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             statusTextfield.bottomAnchor.constraint(equalTo: locationBar.topAnchor),
         ]
@@ -128,16 +160,9 @@ final class StatusUpdateViewController: UIViewController {
     }
 
     @objc private func submit() {
-        guard let username = UserManager.getName() else {
-            let alert = UIAlertController(title: "Couldn't share update",
-                                          message: "Please log out and log in again!", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(action1)
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
         var data: FeedItem
         let now = Int(Date().timeIntervalSince1970)
+
         if self.locationName != "" {
             data = FeedItem(
                 user: username,
@@ -204,7 +229,7 @@ final class StatusUpdateViewController: UIViewController {
     private func setupTextView() -> UITextView {
         return UITextView().apply {
             $0.font = .systemFont(ofSize: StatusUpdateViewController.statusFontSize)
-            $0.textColor = .textColor
+            $0.textColor = .black
             $0.textContainerInset = .zero
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -241,6 +266,15 @@ final class StatusUpdateViewController: UIViewController {
             $0.contentHorizontalAlignment = .left
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.addTarget(self, action: #selector(onTapAddLocation), for: .touchUpInside)
+        }
+    }
+
+    private func setupProfilePic() -> UIImageView {
+        return UIImageView().apply {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.imageFromURL(urlString: profilePicUrl)
+            $0.layer.cornerRadius = StatusUpdateViewController.profilePicSize / 2
+            $0.clipsToBounds = true
         }
     }
 

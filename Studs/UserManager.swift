@@ -11,28 +11,27 @@ import RxSwift
 
 final class UserManager {
 
+    static func saveUserData(data: UserData) {
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(data), forKey: "userdata")
+    }
+
+    static func getUserData() -> UserData? {
+        if let value = UserDefaults.standard.value(forKey: "userdata") as? Data {
+            return try? PropertyListDecoder().decode(UserData.self, from: value)
+        }
+        return nil
+    }
+
     static func getToken() -> String? {
-        return UserDefaults.standard.string(forKey: "token")
+        return getUserData()?.token
     }
 
-    static func setToken(token: String) {
-        UserDefaults.standard.set(token, forKey: "token")
-    }
-
-    static func getName() -> String? {
-        return UserDefaults.standard.string(forKey: "name")
-    }
-
-    static func setName(name: String) {
-        UserDefaults.standard.set(name, forKey: "name")
-    }
-
-    static func clearToken() {
-        UserDefaults.standard.removeObject(forKey: "token")
+    static func clearUserData() {
+        UserDefaults.standard.removeObject(forKey: "userdata")
     }
 
     static func isLoggedIn() -> Bool {
-        return UserManager.getToken() != nil
+        return UserManager.getUserData() != nil
     }
 
 }

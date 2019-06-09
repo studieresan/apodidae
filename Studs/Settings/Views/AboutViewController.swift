@@ -62,7 +62,7 @@ final class AboutViewController: UIViewController {
     }
 
     private func logout() {
-        UserManager.clearToken()
+        UserManager.clearUserData()
         self.present(LoginViewController.instance(), animated: true, completion: nil)
     }
 
