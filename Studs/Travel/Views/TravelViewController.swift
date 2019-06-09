@@ -85,10 +85,30 @@ final class TravelViewController: UIViewController {
     }
 
     @objc private func showBottomSheet() {
-        let bottomSheetVc = MDCBottomSheetController(contentViewController: TravelDetailsViewController())
+        let detailsVC = TravelDetailsViewController().apply {
+            $0.previousVC = self
+        }
+        let bottomSheetVc = MDCBottomSheetController(contentViewController: detailsVC)
         let distanceFromTop: CGFloat = 120
         bottomSheetVc.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height - distanceFromTop)
         present(bottomSheetVc, animated: true, completion: nil)
+    }
+
+    func addMapAnnotation(latitude: Double, longitude: Double, nameOfPerson: String, locationName: String) {
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let annotation = MKPointAnnotation().apply {
+            $0.coordinate = coordinate
+            $0.title = "\(nameOfPerson): \(locationName)"
+        }
+
+        let regionRadius: CLLocationDistance = 500
+        let coordinateRegion = MKCoordinateRegion(center: coordinate,
+                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+
+        map.run {
+            $0.addAnnotation(annotation)
+            $0.setRegion(coordinateRegion, animated: true)
+        }
     }
 }
 

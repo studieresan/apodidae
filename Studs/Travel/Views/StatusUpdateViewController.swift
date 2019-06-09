@@ -178,6 +178,7 @@ final class StatusUpdateViewController: UIViewController {
             data = FeedItem(user: username, message: self.message, timestamp: now, picture: profilePicUrl)
         }
         let dict = data.asDict()
+        print(dict as Any)
 
         dbRef.reference(withPath: "locations").childByAutoId().setValue(dict) { err, _ in
             if err != nil {
@@ -300,8 +301,6 @@ extension StatusUpdateViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations[0]
-        print("current location")
-        print(currentLocation)
         self.lat = currentLocation.coordinate.latitude
         self.lng = currentLocation.coordinate.longitude
 

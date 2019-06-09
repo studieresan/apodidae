@@ -11,7 +11,10 @@ import MaterialComponents.MaterialButtons
 
 final class TravelDetailsViewController: UIViewController {
 
+    var previousVC: TravelViewController!
     private let viewModel = TravelDetailsViewModel()
+
+    private var displayedPins = Set<String>()
 
     // MARK: UI Elements
 
@@ -245,6 +248,7 @@ final class TravelDetailsViewController: UIViewController {
             present(TravelInfoViewController(html: htmlString as String), animated: true)
         }
     }
+
 }
 
 extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -257,6 +261,7 @@ extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSourc
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as? TravelUpdateTableViewCell else {
             fatalError("Table cell not of type TravelUpdateTableViewCell")
         }
+        cell.selectionStyle = .gray
 
         let data = viewModel.getFeedItem(forIndexPath: indexPath)
         cell.profilePic.imageFromURL(urlString: data.picture)
@@ -273,6 +278,34 @@ extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSourc
 
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = viewModel.getFeedItem(forIndexPath: indexPath)
+
+        if data.includeLocation && data.locationName != "" {
+            let alert = UIAlertController(
+                title: "Add location to the map?",
+                message: "You can add a pin to show where this location is on the map",
+                preferredStyle: .alert
+            )
+            let addPinAction = UIAlertAction(title: "Add pin", style: .default) { _ in
+                self.previousVC.addMapAnnotation(
+                    latitude: data.lat,
+                    longitude: data.lng,
+                    nameOfPerson: data.user,
+                    locationName: data.locationName
+                )
+                self.dismiss(animated: true, completion: nil)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(addPinAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
 }
 
 extension TravelDetailsViewController: TravelDetailsViewModelDelegate {

@@ -42,7 +42,7 @@ struct FeedItem {
         self.key = dict["key"] as? String ?? ""
         self.user = dict["user"] as? String ?? ""
         self.lat = dict["lat"] as? Double ?? 0.0
-        self.lng = dict["lat"] as? Double ?? 0.0
+        self.lng = dict["lng"] as? Double ?? 0.0
         self.message = dict["message"] as? String ?? ""
         self.timestamp = dict["timestamp"] as? Int ?? 0
         self.locationName = dict["locationName"] as? String ?? ""
@@ -56,7 +56,7 @@ struct FeedItem {
             "message": message,
             "timestamp": timestamp,
             "includeLocation": includeLocation,
-            "picture": picture
+            "picture": picture,
             ] as [String: Any]
 
         if self.includeLocation {
