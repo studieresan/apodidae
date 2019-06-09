@@ -171,10 +171,11 @@ final class StatusUpdateViewController: UIViewController {
                 message: self.message,
                 timestamp: now,
                 locationName: self.locationName,
+                picture: profilePicUrl,
                 includeLocation: (self.locationName != "")
             )
         } else {
-            data = FeedItem(user: username, message: self.message, timestamp: now)
+            data = FeedItem(user: username, message: self.message, timestamp: now, picture: profilePicUrl)
         }
         let dict = data.asDict()
 

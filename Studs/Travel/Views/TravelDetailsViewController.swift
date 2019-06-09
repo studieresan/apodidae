@@ -259,6 +259,7 @@ extension TravelDetailsViewController: UITableViewDelegate, UITableViewDataSourc
         }
 
         let data = viewModel.getFeedItem(forIndexPath: indexPath)
+        cell.profilePic.imageFromURL(urlString: data.picture)
         cell.nameLabel.text = data.user
         cell.contentLabel.text = data.message
         cell.timeLabel.text = data.timeFromNow()

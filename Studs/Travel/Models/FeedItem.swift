@@ -16,22 +16,25 @@ struct FeedItem {
     var message: String = ""
     var timestamp: Int = 0
     var locationName: String = ""
+    var picture: String = ""
     var includeLocation: Bool = true
 
-    init(user: String, lat: Double, lng: Double, message: String, timestamp: Int, locationName: String, includeLocation: Bool) {
+    init(user: String, lat: Double, lng: Double, message: String, timestamp: Int, locationName: String, picture: String, includeLocation: Bool) {
         self.user = user
         self.lat = lat
         self.lng = lng
         self.message = message
         self.timestamp = timestamp
         self.locationName = locationName
+        self.picture = picture
         self.includeLocation = includeLocation
     }
 
-    init(user: String, message: String, timestamp: Int) {
+    init(user: String, message: String, timestamp: Int, picture: String) {
         self.user = user
         self.message = message
         self.timestamp = timestamp
+        self.picture = picture
         self.includeLocation = false
     }
 
@@ -43,6 +46,7 @@ struct FeedItem {
         self.message = dict["message"] as? String ?? ""
         self.timestamp = dict["timestamp"] as? Int ?? 0
         self.locationName = dict["locationName"] as? String ?? ""
+        self.picture = dict["picture"] as? String ?? ""
         self.includeLocation = (dict["includeLocation"] != nil)
     }
 
@@ -52,6 +56,7 @@ struct FeedItem {
             "message": message,
             "timestamp": timestamp,
             "includeLocation": includeLocation,
+            "picture": picture
             ] as [String: Any]
 
         if self.includeLocation {

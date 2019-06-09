@@ -11,6 +11,7 @@ import UIKit
 final class TravelUpdateTableViewCell: UITableViewCell {
 
     // MARK: UI elements
+    lazy var profilePic: UIImageView = self.setupProfilePic()
     lazy var nameLabel: UILabel = self.setupNameLabel()
     lazy var timeLabel: UILabel = self.setupTimeLabel()
     private lazy var locationIcon: UIImageView = self.setupLocationIcon()
@@ -21,6 +22,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         contentView.run {
+            $0.addSubview(profilePic)
             $0.addSubview(nameLabel)
             $0.addSubview(timeLabel)
             $0.addSubview(locationIcon)
@@ -37,15 +39,23 @@ final class TravelUpdateTableViewCell: UITableViewCell {
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
+        // Profile picture
+        constraints += [
+            profilePic.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            profilePic.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
+            profilePic.widthAnchor.constraint(equalToConstant: 48),
+            profilePic.heightAnchor.constraint(equalToConstant: 48),
+        ]
+
         // Name
         constraints += [
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            nameLabel.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 10),
         ]
 
         // Location icon
         constraints += [
-            locationIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            locationIcon.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             locationIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
         ]
 
@@ -58,7 +68,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
         // Message
         constraints += [
             contentLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10),
-            contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            contentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ]
@@ -117,6 +127,14 @@ final class TravelUpdateTableViewCell: UITableViewCell {
             $0.text = "This is text."
             $0.font = UIFont.systemFont(ofSize: 16)
             $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+
+    private func setupProfilePic() -> UIImageView {
+        return UIImageView().apply {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.layer.cornerRadius = 48 / 2
+            $0.clipsToBounds = true
         }
     }
 }
