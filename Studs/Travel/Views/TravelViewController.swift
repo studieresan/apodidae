@@ -159,10 +159,22 @@ extension TravelViewController: MKMapViewDelegate {
         else {
             return
         }
-        let destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate)).apply {
-            $0.name = name
+
+        let alert = UIAlertController(
+            title: "Show directions in Maps?",
+            message: "Open the Maps app and show directions to this location",
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: "Show directions", style: .default) { _ in
+            let destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate)).apply {
+                $0.name = name
+            }
+            destination.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault])
         }
-        destination.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault])
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
