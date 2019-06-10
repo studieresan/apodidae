@@ -16,7 +16,7 @@ extension UIImageView {
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, _, error) -> Void in
 
             if error != nil {
-                print(error ?? "No Error")
+                print(error!)
                 return
             }
             DispatchQueue.main.async(execute: { () -> Void in

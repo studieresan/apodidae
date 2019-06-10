@@ -178,18 +178,17 @@ final class StatusUpdateViewController: UIViewController {
             data = FeedItem(user: username, message: self.message, timestamp: now, picture: profilePicUrl)
         }
         let dict = data.asDict()
-        print(dict as Any)
 
-        dbRef.reference(withPath: "locations").childByAutoId().setValue(dict) { err, _ in
+        dbRef.reference(withPath: "locations").childByAutoId().setValue(dict) { [weak self] err, _ in
             if err != nil {
                 let alert = UIAlertController(title: "Something went wrong",
                                               message: "Please try again later", preferredStyle: .alert)
                 let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(action1)
-                self.present(alert, animated: true, completion: nil)
+                self?.present(alert, animated: true, completion: nil)
                 return
             }
-            self.dismiss(animated: true, completion: nil)
+            self?.dismiss(animated: true, completion: nil)
         }
     }
 
