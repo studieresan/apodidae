@@ -54,6 +54,7 @@ final class TravelDetailsViewController: UIViewController {
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
 
         viewModel.delegate = self
+        viewModel.setupDbListener()
     }
 
     override func viewSafeAreaInsetsDidChange() {
@@ -64,7 +65,6 @@ final class TravelDetailsViewController: UIViewController {
         if let frame = self.viewFrame {
             view.frame = frame
         }
-        viewModel.setupDbListener()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,7 +73,9 @@ final class TravelDetailsViewController: UIViewController {
         // To get around this, we save the view frame before presenting the new view
         // and then restore the size when this view appears again
         self.viewFrame = view.frame
+    }
 
+    deinit {
         viewModel.removeDbListeners()
     }
 
