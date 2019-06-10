@@ -12,13 +12,19 @@ import MaterialComponents.MaterialBottomSheet
 
 final class TravelViewController: UIViewController {
 
+    // MARK: Properties
+
     private let mapSpan: CLLocationDistance = 500
+    private var locationManager: CLLocationManager!
+    private var hasZoomedInMap = false
+    private let viewModel = TravelViewModel()
+    private var userToAnnotationMap: [String: MKAnnotation] = [:]
+
+    // MARK: UI Elements
 
     private lazy var map: MKMapView = self.setupMap()
 
-    private var locationManager: CLLocationManager!
-
-    private var hasZoomedInMap = false
+    // MARK: Lifecycle
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -27,16 +33,6 @@ final class TravelViewController: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setupMap() -> MKMapView {
-        let mapView = MKMapView()
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.mapType = .standard
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
-        mapView.showsUserLocation = true
-        return mapView
     }
 
     override func viewDidLoad() {
@@ -51,6 +47,9 @@ final class TravelViewController: UIViewController {
         map.delegate = self
 
         addConstraints()
+
+        viewModel.delegate = self
+        viewModel.setupLiveLocationListener()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +60,10 @@ final class TravelViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         locationManager.stopUpdatingLocation()
+    }
+
+    deinit {
+        viewModel.removeLiveLocationListener()
     }
 
     private func addConstraints() {
@@ -112,6 +115,18 @@ final class TravelViewController: UIViewController {
             $0.addAnnotation(annotation)
             $0.setRegion(coordinateRegion, animated: true)
         }
+    }
+
+    // MARK: UI Element creators
+
+    private func setupMap() -> MKMapView {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.mapType = .standard
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
+        mapView.showsUserLocation = true
+        return mapView
     }
 
 }
@@ -175,6 +190,22 @@ extension TravelViewController: MKMapViewDelegate {
         alert.addAction(action)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
+    }
+
+}
+
+extension TravelViewController: TravelViewModelDelegate {
+
+    func onNewLiveLocation(latestLocation: LastKnownLocation) {
+        if let previousAnnotationForUser = userToAnnotationMap[latestLocation.user] {
+            self.map.removeAnnotation(previousAnnotationForUser)
+        }
+        let newAnnotation = MKPointAnnotation().apply {
+            $0.coordinate = CLLocationCoordinate2D(latitude: latestLocation.lat, longitude: latestLocation.lng)
+            $0.title = "\(latestLocation.user)'s last position"
+        }
+        userToAnnotationMap[latestLocation.user] = newAnnotation
+        self.map.addAnnotation(newAnnotation)
     }
 
 }

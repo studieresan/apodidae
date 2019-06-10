@@ -18,6 +18,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
+        FirebaseApp.configure()
+        
         UNUserNotificationCenter.current().delegate = self
 
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -36,7 +38,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
             $0.makeKeyAndVisible()
         }
 
-        FirebaseApp.configure()
         return true
     }
 }
