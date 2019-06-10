@@ -18,6 +18,8 @@ final class TravelViewController: UIViewController {
 
     private var locationManager: CLLocationManager!
 
+    private var hasZoomedInMap = false
+
     init() {
         super.init(nibName: nil, bundle: nil)
         super.modalPresentationStyle = .fullScreen
@@ -42,8 +44,12 @@ final class TravelViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(map)
         let button = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(showBottomSheet))
+        self.navigationItem.setLeftBarButton(MKUserTrackingBarButtonItem(mapView: map), animated: false)
         self.navigationItem.setRightBarButton(button, animated: false)
         self.title = "Travel"
+
+        map.delegate = self
+
         addConstraints()
     }
 
@@ -82,17 +88,93 @@ final class TravelViewController: UIViewController {
     }
 
     @objc private func showBottomSheet() {
-        let bottomSheetVc = MDCBottomSheetController(contentViewController: TravelDetailsViewController())
-        let distanceFromTop: CGFloat = 75
+        let detailsVC = TravelDetailsViewController().apply {
+            $0.previousVC = self
+        }
+        let bottomSheetVc = MDCBottomSheetController(contentViewController: detailsVC)
+        let distanceFromTop: CGFloat = 120
         bottomSheetVc.preferredContentSize = CGSize(width: view.frame.width, height: view.frame.height - distanceFromTop)
         present(bottomSheetVc, animated: true, completion: nil)
     }
+
+    func addMapAnnotation(latitude: Double, longitude: Double, nameOfPerson: String, locationName: String) {
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let annotation = MKPointAnnotation().apply {
+            $0.coordinate = coordinate
+            $0.title = "\(nameOfPerson): \(locationName)"
+        }
+
+        let regionRadius: CLLocationDistance = 500
+        let coordinateRegion = MKCoordinateRegion(center: coordinate,
+                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+
+        map.run {
+            $0.addAnnotation(annotation)
+            $0.setRegion(coordinateRegion, animated: true)
+        }
+    }
+
 }
 
 extension TravelViewController: CLLocationManagerDelegate {
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        map.setCenter(map.userLocation.coordinate, animated: true)
-        let region = MKCoordinateRegion(center: map.userLocation.coordinate, latitudinalMeters: mapSpan, longitudinalMeters: mapSpan)
-        map.setRegion(region, animated: true)
+        print(locations)
+        // Only zoom in on user once
+        if !hasZoomedInMap {
+            let currentLocation = locations[0]
+            map.setCenter(currentLocation.coordinate, animated: true)
+            let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: mapSpan, longitudinalMeters: mapSpan)
+            map.setRegion(region, animated: false)
+            hasZoomedInMap = true
+        }
     }
+
+}
+
+extension TravelViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+
+        let identifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoDark)
+        } else {
+            annotationView?.annotation = annotation
+        }
+
+        return annotationView
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard
+            let coordinate = view.annotation?.coordinate,
+            let name = view.annotation?.title
+        else {
+            return
+        }
+
+        let alert = UIAlertController(
+            title: "Show directions in Maps?",
+            message: "Open the Maps app and show directions to this location",
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: "Show directions", style: .default) { _ in
+            let destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate)).apply {
+                $0.name = name
+            }
+            destination.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault])
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }

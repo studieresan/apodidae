@@ -118,9 +118,9 @@ struct Http {
         }
     }
 
-    static func login(email: String, password: String) -> Observable<LoginResponse> {
+    static func login(email: String, password: String) -> Observable<UserData> {
         let loginPayload = LoginPayload(email: email, password: password)
-        return Http.post(endpoint: Endpoint.login, body: loginPayload, type: LoginResponse.self)
+        return Http.post(endpoint: Endpoint.login, body: loginPayload, type: UserData.self)
     }
 
     static func fetchAllEvents() -> Observable<AllEventsResponse> {

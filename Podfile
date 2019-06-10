@@ -11,5 +11,8 @@ target 'Studs' do
   pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Database'
   pod 'MaterialComponents/BottomSheet'
+  pod 'MaterialComponents/Buttons'
 end

@@ -16,11 +16,15 @@
 		8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B5222183EB00AE767B /* LoginViewModel.swift */; };
 		8B3936BD222C64700032442F /* StudsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3936BC222C646F0032442F /* StudsButton.swift */; };
 		8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A3DA2210CD670098909F /* EventTableViewCell.swift */; };
+		8B747D3322AC31BF009722DD /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B747D3222AC31BF009722DD /* FeedItem.swift */; };
+		8B747D3622AC3D97009722DD /* TravelDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B747D3522AC3D97009722DD /* TravelDetailsViewModel.swift */; };
 		8B7FD90E223AE7720069D6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */; };
 		8B8FC9E222301374000C7796 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FC9E122301374000C7796 /* UserManager.swift */; };
 		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
 		8BA4FD762297299D00D76B47 /* TravelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */; };
 		8BA4FD7A229740D700D76B47 /* TravelUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4FD79229740D700D76B47 /* TravelUpdateTableViewCell.swift */; };
+		8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */; };
+		8BAA753E229F1E1C00EDEF22 /* StatusUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA753D229F1E1C00EDEF22 /* StatusUpdateViewController.swift */; };
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
 		8E3782FA2183B982004F083F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
@@ -54,11 +58,15 @@
 		8B1440B5222183EB00AE767B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8B3936BC222C646F0032442F /* StudsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsButton.swift; sourceTree = "<group>"; };
 		8B63A3DA2210CD670098909F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		8B747D3222AC31BF009722DD /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
+		8B747D3522AC3D97009722DD /* TravelDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailsViewModel.swift; sourceTree = "<group>"; };
 		8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B8FC9E122301374000C7796 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Studs/UserManager.swift; sourceTree = SOURCE_ROOT; };
 		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
 		8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDetailsViewController.swift; sourceTree = "<group>"; };
 		8BA4FD79229740D700D76B47 /* TravelUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelUpdateTableViewCell.swift; sourceTree = "<group>"; };
+		8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Studs.swift"; sourceTree = "<group>"; };
+		8BAA753D229F1E1C00EDEF22 /* StatusUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusUpdateViewController.swift; sourceTree = "<group>"; };
 		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3782F22183B981004F083F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +110,22 @@
 				8B1440B32221831100AE767B /* Login.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8B747D3122AC31AA009722DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B747D3222AC31BF009722DD /* FeedItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B747D3422AC3D81009722DD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B747D3522AC3D97009722DD /* TravelDetailsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8E3782E62183B981004F083F = {
@@ -152,6 +176,7 @@
 				8E3783072183C3CF004F083F /* UIViewController+Studs.swift */,
 				8E3783092183C3F8004F083F /* UIStoryboard+Studs.swift */,
 				8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */,
+				8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,8 +252,9 @@
 		8EAC48682184BA9400BB36A2 /* Travel */ = {
 			isa = PBXGroup;
 			children = (
+				8B747D3422AC3D81009722DD /* ViewModels */,
+				8B747D3122AC31AA009722DD /* Models */,
 				8EAC486B2184BAC100BB36A2 /* Views */,
-				8EAC486A2184BABB00BB36A2 /* View Models */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -242,13 +268,6 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		8EAC486A2184BABB00BB36A2 /* View Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Models";
-			sourceTree = "<group>";
-		};
 		8EAC486B2184BAC100BB36A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +275,7 @@
 				8BA4FD752297299D00D76B47 /* TravelDetailsViewController.swift */,
 				8BA4FD79229740D700D76B47 /* TravelUpdateTableViewCell.swift */,
 				8E44CED2229EFFB800CF96E0 /* TravelInfoViewController.swift */,
+				8BAA753D229F1E1C00EDEF22 /* StatusUpdateViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -416,11 +436,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -428,11 +451,14 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,8 +494,11 @@
 				8B1440AD2220322400AE767B /* EventsViewModel.swift in Sources */,
 				8B1440B42221831100AE767B /* Login.swift in Sources */,
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
+				8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */,
 				8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */,
 				8BA4FD7A229740D700D76B47 /* TravelUpdateTableViewCell.swift in Sources */,
+				8B747D3622AC3D97009722DD /* TravelDetailsViewModel.swift in Sources */,
+				8B747D3322AC31BF009722DD /* FeedItem.swift in Sources */,
 				8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
 				8BA4FD762297299D00D76B47 /* TravelDetailsViewController.swift in Sources */,
@@ -485,6 +514,7 @@
 				8E44CED3229EFFB800CF96E0 /* TravelInfoViewController.swift in Sources */,
 				8B3936BD222C64700032442F /* StudsButton.swift in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
+				8BAA753E229F1E1C00EDEF22 /* StatusUpdateViewController.swift in Sources */,
 				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
 				8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */,
 				8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */,

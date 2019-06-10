@@ -11,16 +11,18 @@ import UIKit
 final class TravelUpdateTableViewCell: UITableViewCell {
 
     // MARK: UI elements
-    private lazy var nameLabel: UILabel = self.setupNameLabel()
-    private lazy var timeLabel: UILabel = self.setupTimeLabel()
+    lazy var profilePic: UIImageView = self.setupProfilePic()
+    lazy var nameLabel: UILabel = self.setupNameLabel()
+    lazy var timeLabel: UILabel = self.setupTimeLabel()
     private lazy var locationIcon: UIImageView = self.setupLocationIcon()
-    private lazy var locationLabel: UILabel = self.setupLocationLabel()
-    private lazy var contentLabel: UILabel = self.setupContentLabel()
+    lazy var locationLabel: UILabel = self.setupLocationLabel()
+    lazy var contentLabel: UILabel = self.setupContentLabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         contentView.run {
+            $0.addSubview(profilePic)
             $0.addSubview(nameLabel)
             $0.addSubview(timeLabel)
             $0.addSubview(locationIcon)
@@ -37,15 +39,23 @@ final class TravelUpdateTableViewCell: UITableViewCell {
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
+        // Profile picture
+        constraints += [
+            profilePic.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            profilePic.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
+            profilePic.widthAnchor.constraint(equalToConstant: 48),
+            profilePic.heightAnchor.constraint(equalToConstant: 48),
+        ]
+
         // Name
         constraints += [
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            nameLabel.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 10),
         ]
 
         // Location icon
         constraints += [
-            locationIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            locationIcon.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             locationIcon.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 2),
         ]
 
@@ -58,7 +68,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
         // Message
         constraints += [
             contentLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10),
-            contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            contentLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
             contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ]
@@ -76,7 +86,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
 
     private func setupNameLabel() -> UILabel {
         return UILabel().apply {
-            $0.text = "Andreas Heiskanen"
+            $0.text = "First Last"
             $0.numberOfLines = 0
             $0.textColor = UIColor.textColor
             $0.font = UIFont.boldSystemFont(ofSize: 16)
@@ -102,7 +112,7 @@ final class TravelUpdateTableViewCell: UITableViewCell {
 
     private func setupLocationLabel() -> UILabel {
         return UILabel().apply {
-            $0.text = "Sushi Inoue"
+            $0.text = "Location name"
             $0.numberOfLines = 0
             $0.font = UIFont.systemFont(ofSize: 16)
             $0.textColor = UIColor(rgb: 0x8d8d8d)
@@ -114,9 +124,17 @@ final class TravelUpdateTableViewCell: UITableViewCell {
         return UILabel().apply {
             $0.numberOfLines = 0
             $0.textColor = UIColor.textColor
-            $0.text = "Nån som vill äta på Michelin-restaurang?"
+            $0.text = "This is text."
             $0.font = UIFont.systemFont(ofSize: 16)
             $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+    }
+
+    private func setupProfilePic() -> UIImageView {
+        return UIImageView().apply {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.layer.cornerRadius = 48 / 2
+            $0.clipsToBounds = true
         }
     }
 }
