@@ -12,7 +12,14 @@ final class AboutViewController: UIViewController {
 
     // MARK: UI Elements
 
-    private lazy var logoutBtn: UIButton = self.setupLogoutBtn()
+    private lazy var settingsTable: UITableView = self.setupSettingsTable()
+    private lazy var liveLocationCell: UITableViewCell = self.setupLiveLocationToggle()
+
+    // MARK: Properties
+
+    private let sectionTitles = ["Live location"]
+    private let sectionFooters = ["Share your location in real-time while the travel page is open"]
+    private lazy var tableRows = self.setupTableRows()
 
     // MARK: Lifecycle
 
@@ -20,23 +27,25 @@ final class AboutViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        view.addSubview(logoutBtn)
+        title = "Settings"
+        let logoutBtn = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(showLogoutDialog))
+        navigationItem.setRightBarButton(logoutBtn, animated: false)
+
+        view.addSubview(settingsTable)
+        settingsTable.dataSource = self
 
         addConstraints()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        // Hide the top navigation bar in this view
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
-        // Log out button
+        // Settings table
         constraints += [
-            logoutBtn.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor),
-            logoutBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            settingsTable.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor),
+            settingsTable.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            settingsTable.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            settingsTable.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor),
         ]
 
         NSLayoutConstraint.activate(constraints)
@@ -66,14 +75,56 @@ final class AboutViewController: UIViewController {
         self.present(LoginViewController.instance(), animated: true, completion: nil)
     }
 
+    private func setupTableRows() -> [[UITableViewCell]] {
+        return [
+            [self.liveLocationCell],
+        ]
+    }
+
+    @objc private func toggleLiveLocationPreference(toggle: UISwitch) {
+        UserManager.setShouldShareLiveLocation(toggle.isOn)
+    }
+
     // MARK: UI Element creators
 
-    private func setupLogoutBtn() -> UIButton {
-        return UIButton(type: .system).apply {
-            $0.setTitle("Log out", for: .normal)
-            $0.addTarget(self, action: #selector(showLogoutDialog), for: .touchUpInside)
+    private func setupSettingsTable() -> UITableView {
+        return UITableView(frame: CGRect.zero, style: .grouped).apply {
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         }
+    }
+
+    private func setupLiveLocationToggle() -> UITableViewCell {
+        return UITableViewCell().apply {
+            $0.textLabel?.text = "Share live location"
+            $0.detailTextLabel?.text = "Shares your live location while you have the travel page open."
+
+            let toggle = UISwitch().apply {
+                $0.setOn(UserManager.getShouldShareLiveLocation(), animated: false)
+                $0.addTarget(self, action: #selector(toggleLiveLocationPreference(toggle:)), for: .valueChanged)
+            }
+            $0.accessoryView = toggle
+        }
+    }
+
+}
+
+extension AboutViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableRows[section].count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return self.tableRows[indexPath.section][indexPath.row]
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sectionTitles[section]
+    }
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return self.sectionFooters[section]
     }
 
 }

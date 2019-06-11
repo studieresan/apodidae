@@ -54,6 +54,7 @@ final class TravelDetailsViewController: UIViewController {
         updateFeedTable.register(TravelUpdateTableViewCell.self, forCellReuseIdentifier: "travelCell")
 
         viewModel.delegate = self
+        viewModel.setupDbListener()
     }
 
     override func viewSafeAreaInsetsDidChange() {
@@ -64,7 +65,6 @@ final class TravelDetailsViewController: UIViewController {
         if let frame = self.viewFrame {
             view.frame = frame
         }
-        viewModel.setupDbListener()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,7 +73,9 @@ final class TravelDetailsViewController: UIViewController {
         // To get around this, we save the view frame before presenting the new view
         // and then restore the size when this view appears again
         self.viewFrame = view.frame
+    }
 
+    deinit {
         viewModel.removeDbListeners()
     }
 
@@ -236,17 +238,15 @@ final class TravelDetailsViewController: UIViewController {
     }
 
     @objc private func displayHousingInfo() {
-        let htmlFile = Bundle.main.path(forResource: "housing_info", ofType: "html")
-        if let htmlString = try? NSString(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8.rawValue) {
-            present(TravelInfoViewController(html: htmlString as String), animated: true)
-        }
+        let infoVC = TravelInfoViewController(type: .housing)
+        let navVC = UINavigationController(rootViewController: infoVC)
+        present(navVC, animated: true, completion: nil)
     }
 
     @objc private func displayContactInfo() {
-        let htmlFile = Bundle.main.path(forResource: "contact_info", ofType: "html")
-        if let htmlString = try? NSString(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8.rawValue) {
-            present(TravelInfoViewController(html: htmlString as String), animated: true)
-        }
+        let infoVC = TravelInfoViewController(type: .contacts)
+        let navVC = UINavigationController(rootViewController: infoVC)
+        present(navVC, animated: true, completion: nil)
     }
 
 }

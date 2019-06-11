@@ -7,16 +7,28 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
+enum InfoType {
+    case housing
+    case contacts
+}
 
 final class TravelInfoViewController: UIViewController {
 
-    private let html: String
+    // MARK: Properties
 
-    private lazy var webView: UIWebView = self.setupWebView()
-    private lazy var closeButton: UIImageView = self.setupCloseButton()
+    private let infoType: InfoType
+    private let dbRef = Database.database()
 
-    init(html: String) {
-        self.html = html
+    // MARK: UI Elements
+
+    private lazy var infoTextView: UITextView = self.setupTextView()
+
+    // MARK: Lifecycle
+
+    init(type: InfoType) {
+        self.infoType = type
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -27,25 +39,34 @@ final class TravelInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(webView)
-        view.addSubview(closeButton)
+
+        var ref: DatabaseReference
+
+        switch infoType {
+        case .housing:
+            self.title = "Housing"
+            ref = dbRef.reference(withPath: "housing")
+        case .contacts:
+            self.title = "Contacts"
+            ref = dbRef.reference(withPath: "contacts")
+        }
+
+        let closeBtn = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(dismissView))
+        navigationItem.setRightBarButton(closeBtn, animated: false)
+
+        view.addSubview(infoTextView)
+
         addConstraints()
+
+        ref.observeSingleEvent(of: .value) { snapshot in
+            let text = snapshot.value as? String ?? ""
+            self.infoTextView.text = text
+        }
     }
 
-    private func setupWebView() -> UIWebView {
-        let webView = UIWebView(frame: view.frame)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        webView.loadHTMLString(html, baseURL: nil)
-        webView.backgroundColor = .clear
-        return webView
-    }
-
-    private func setupCloseButton() -> UIImageView {
-        let closeButton = UIImageView(image: UIImage(named: "closeBtn"))
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.isUserInteractionEnabled = true
-        closeButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissView)))
-        return closeButton
+    override func viewDidLayoutSubviews() {
+        // Make sure textview is scrolled to top when loaded
+        infoTextView.setContentOffset(.zero, animated: false)
     }
 
     @objc private func dismissView() {
@@ -55,18 +76,27 @@ final class TravelInfoViewController: UIViewController {
     private func addConstraints() {
         var constraints: [NSLayoutConstraint] = []
 
+        // Text view
         constraints += [
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
-            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ]
-
-        constraints += [
-            closeButton.topAnchor.constraint(equalTo: webView.topAnchor, constant: 45),
-            closeButton.trailingAnchor.constraint(equalTo: webView.trailingAnchor, constant: -15),
+            infoTextView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor),
+            infoTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            infoTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+            infoTextView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor),
         ]
 
         NSLayoutConstraint.activate(constraints)
+    }
+
+    // MARK: UI Element creators
+
+    private func setupTextView() -> UITextView {
+        return UITextView().apply {
+            $0.isEditable = false
+            $0.isSelectable = true
+            $0.font = .systemFont(ofSize: 18)
+            $0.textColor = .textColor
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.dataDetectorTypes = [.address, .link, .phoneNumber]
+        }
     }
 }

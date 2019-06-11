@@ -11,7 +11,7 @@ $ pod repo update
 $ pod install
 ```
 
-This app uses Firebase Cloud Messaging for push notifications. Add `GoogleService-Info.plist` in the `Studs` folder. See [here](https://support.google.com/firebase/answer/7015592) for more info.
+This app uses Firebase Cloud Messaging for push notifications and Firebase Realtime Database for the travel section. Add `GoogleService-Info.plist` in the `Studs` folder. See [here](https://support.google.com/firebase/answer/7015592) for more info.
 
 Then open the project with Xcode.
 
