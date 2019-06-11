@@ -37,8 +37,6 @@
 		8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E37830D2183C4EF004F083F /* ForgotPasswordViewController.storyboard */; };
 		8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37830F2183C507004F083F /* ForgotPasswordViewController.swift */; };
 		8E44CED3229EFFB800CF96E0 /* TravelInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E44CED2229EFFB800CF96E0 /* TravelInfoViewController.swift */; };
-		8E44CED5229F0BC500CF96E0 /* contact_info.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E44CED4229F0BC500CF96E0 /* contact_info.html */; };
-		8E44CED7229F0C2500CF96E0 /* housing_info.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E44CED6229F0C2400CF96E0 /* housing_info.html */; };
 		8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EA641592184A1D300A138EB /* EventsViewController.storyboard */; };
 		8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415B2184A1E000A138EB /* EventsViewController.swift */; };
 		8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */; };
@@ -83,8 +81,6 @@
 		8E37830D2183C4EF004F083F /* ForgotPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPasswordViewController.storyboard; sourceTree = "<group>"; };
 		8E37830F2183C507004F083F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		8E44CED2229EFFB800CF96E0 /* TravelInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewController.swift; sourceTree = "<group>"; };
-		8E44CED4229F0BC500CF96E0 /* contact_info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = contact_info.html; sourceTree = "<group>"; };
-		8E44CED6229F0C2400CF96E0 /* housing_info.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = housing_info.html; sourceTree = "<group>"; };
 		8EA641592184A1D300A138EB /* EventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsViewController.storyboard; sourceTree = "<group>"; };
 		8EA6415B2184A1E000A138EB /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Studs.swift"; sourceTree = "<group>"; };
@@ -164,8 +160,6 @@
 				8E37830B2183C485004F083F /* Supporting Files */,
 				8E3783042183BB63004F083F /* Extensions */,
 				8E3782F92183B982004F083F /* Assets.xcassets */,
-				8E44CED4229F0BC500CF96E0 /* contact_info.html */,
-				8E44CED6229F0C2400CF96E0 /* housing_info.html */,
 				8E3782FE2183B982004F083F /* Info.plist */,
 				8B7FD90D223AE7710069D6FD /* GoogleService-Info.plist */,
 				8B3936BC222C646F0032442F /* StudsButton.swift */,
@@ -399,10 +393,8 @@
 				8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */,
 				8B7FD90E223AE7720069D6FD /* GoogleService-Info.plist in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */,
-				8E44CED5229F0BC500CF96E0 /* contact_info.html in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
-				8E44CED7229F0C2500CF96E0 /* housing_info.html in Resources */,
 				8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

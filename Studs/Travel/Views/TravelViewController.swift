@@ -152,7 +152,7 @@ extension TravelViewController: CLLocationManagerDelegate {
                 lat: currentLocation.coordinate.latitude,
                 lng: currentLocation.coordinate.longitude
             )
-            print("Update own live location: \(location)")
+
             viewModel.updateOwnLiveLocation(currentLocation: location)
         }
 

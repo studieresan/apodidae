@@ -30,7 +30,6 @@ final class TravelViewModel {
                 if location.user != self.ownUsername {
                     self.delegate?.onNewLiveLocation(latestLocation: location)
                 }
-                print(location as Any)
             }
         }
     }
