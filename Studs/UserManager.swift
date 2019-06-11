@@ -11,6 +11,8 @@ import RxSwift
 
 final class UserManager {
 
+    // MARK: User data
+
     static func saveUserData(data: UserData) {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(data), forKey: "userdata")
     }
@@ -32,6 +34,22 @@ final class UserManager {
 
     static func isLoggedIn() -> Bool {
         return UserManager.getUserData() != nil
+    }
+
+    // MARK: Preferences
+
+    static func setDefaultPreferences() {
+        UserDefaults.standard.register(defaults: [
+            "livelocationshare": true,
+        ])
+    }
+
+    static func getShouldShareLiveLocation() -> Bool {
+        return UserDefaults.standard.bool(forKey: "livelocationshare")
+    }
+
+    static func setShouldShareLiveLocation(_ setting: Bool) {
+        UserDefaults.standard.set(setting, forKey: "livelocationshare")
     }
 
 }

@@ -39,6 +39,10 @@ final class TravelViewModel {
         dbRef.reference(withPath: "live-locations").removeAllObservers()
     }
 
+    func updateOwnLiveLocation(currentLocation loc: LastKnownLocation) {
+        dbRef.reference(withPath: "live-locations").child(loc.user).setValue(loc.asDict())
+    }
+
 }
 
 protocol TravelViewModelDelegate: class {

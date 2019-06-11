@@ -134,15 +134,28 @@ final class TravelViewController: UIViewController {
 extension TravelViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+        let currentLocation = locations[0]
+
         // Only zoom in on user once
         if !hasZoomedInMap {
-            let currentLocation = locations[0]
             map.setCenter(currentLocation.coordinate, animated: true)
             let region = MKCoordinateRegion(center: currentLocation.coordinate, latitudinalMeters: mapSpan, longitudinalMeters: mapSpan)
             map.setRegion(region, animated: false)
             hasZoomedInMap = true
         }
+
+        // Update own live location if allowed
+        if UserManager.getShouldShareLiveLocation() {
+            let username = (UserManager.getUserData()?.name)!
+            let location = LastKnownLocation(
+                user: username,
+                lat: currentLocation.coordinate.latitude,
+                lng: currentLocation.coordinate.longitude
+            )
+            print("Update own live location: \(location)")
+            viewModel.updateOwnLiveLocation(currentLocation: location)
+        }
+
     }
 
 }
