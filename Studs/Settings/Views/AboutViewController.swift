@@ -27,6 +27,7 @@ final class AboutViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+        title = "Settings"
         let logoutBtn = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(showLogoutDialog))
         navigationItem.setRightBarButton(logoutBtn, animated: false)
 
