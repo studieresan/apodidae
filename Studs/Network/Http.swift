@@ -11,6 +11,7 @@ import RxSwift
 
 struct Http {
     private static let baseURL = Bundle.main.infoDictionary!["API_BASE_URL"] as! String
+	
     public enum Endpoint: String {
         case login = "login"
         case logout = "logout"
@@ -127,11 +128,11 @@ struct Http {
         return Http.post(endpoint: Endpoint.login, body: loginPayload, type: UserData.self)
     }
 
-    static func fetchAllEvents() -> Observable<EventsResponse> {
+	static func fetchEvents(studsYear: Int?) -> Observable<EventsResponse> {
         let query =
 """
 {
-	events {
+	events(studsYear: \(studsYear?.description ?? "null")) {
         id
         date
         location

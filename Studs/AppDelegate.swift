@@ -12,6 +12,8 @@ import UserNotifications
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+	public static let STUDSYEAR = Bundle.main.infoDictionary!["STUDS_YEAR"] as? Int
+
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?

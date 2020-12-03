@@ -35,7 +35,7 @@ final class EventsViewModel {
 
     func fetchData() {
         // Fetch the events
-        Http.fetchAllEvents().subscribe(onNext: { [weak self] events in
+		Http.fetchEvents(studsYear: AppDelegate.STUDSYEAR).subscribe(onNext: { [weak self] events in
             guard let self = self else { return }
 
 			
