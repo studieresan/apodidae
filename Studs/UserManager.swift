@@ -25,6 +25,7 @@ final class UserManager {
     }
 
     static func getToken() -> String? {
+		print("TOken; ",  getUserData()?.token)
         return getUserData()?.token
     }
 

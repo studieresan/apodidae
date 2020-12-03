@@ -53,7 +53,7 @@ final class EventDetailViewController: UIViewController {
             setInitialLocation()
         }
 
-        self.title = event?.companyName
+		self.title = event?.company?.name
         setUpClickListeners()
     }
 
@@ -74,7 +74,7 @@ final class EventDetailViewController: UIViewController {
             guard err == nil else { return }
 
             let destination = MKMapItem(placemark: MKPlacemark(coordinate: coordinate)).apply {
-                $0.name = self?.event?.companyName
+				$0.name = self?.event?.company?.name
             }
 
             destination.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault])
@@ -83,23 +83,19 @@ final class EventDetailViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func didTapPreEvent(_ sender: Any) {
-        if (event!.beforeSurveys?.count)! < 1 {
-            showNoFormAlert()
-            return
-        }
-        if let preEventUrl = event!.beforeSurveys?[0] {
-            self.openUrl(url: preEventUrl)
-        }
+		guard let preEventUrl = event?.beforeSurvey else {
+			showNoFormAlert()
+			return
+		}
+		self.openUrl(url: preEventUrl)
     }
 
     @IBAction func didTapAfterEvent(_ sender: Any) {
-        if (event!.afterSurveys?.count)! < 1 {
-            showNoFormAlert()
-            return
-        }
-        if let afterEventUrl = event!.afterSurveys?[0] {
-            self.openUrl(url: afterEventUrl)
-        }
+		guard let afterEventUrl = event!.afterSurvey else {
+			showNoFormAlert()
+			return
+		}
+		self.openUrl(url: afterEventUrl)
     }
 
     // MARK: Private methods
@@ -127,7 +123,7 @@ final class EventDetailViewController: UIViewController {
             $0.text = day
         }
 
-        companyName.text = event!.companyName
+		companyName.text = event!.company?.name ?? "Okänt företag"
 
         eventAddress.text = event!.location
 

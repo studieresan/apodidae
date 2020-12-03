@@ -8,14 +8,13 @@
 
 import UIKit
 import CoreLocation
-import FirebaseDatabase
 
 final class StatusUpdateViewController: UIViewController {
 
     // MARK: Properties
 
     private var locationManager = CLLocationManager()
-    private let dbRef = Database.database()
+//    private let dbRef = Database.database()
 
     private var username: String!
     private var profilePicUrl: String!
@@ -179,17 +178,17 @@ final class StatusUpdateViewController: UIViewController {
         }
         let dict = data.asDict()
 
-        dbRef.reference(withPath: "locations").childByAutoId().setValue(dict) { [weak self] err, _ in
-            if err != nil {
-                let alert = UIAlertController(title: "Something went wrong",
-                                              message: "Please try again later", preferredStyle: .alert)
-                let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(action1)
-                self?.present(alert, animated: true, completion: nil)
-                return
-            }
-            self?.dismiss(animated: true, completion: nil)
-        }
+//        dbRef.reference(withPath: "locations").childByAutoId().setValue(dict) { [weak self] err, _ in
+//            if err != nil {
+//                let alert = UIAlertController(title: "Something went wrong",
+//                                              message: "Please try again later", preferredStyle: .alert)
+//                let action1 = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//                alert.addAction(action1)
+//                self?.present(alert, animated: true, completion: nil)
+//                return
+//            }
+//            self?.dismiss(animated: true, completion: nil)
+//        }
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {

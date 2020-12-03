@@ -7,39 +7,38 @@
 //
 
 import Foundation
-import FirebaseDatabase
 
 final class TravelViewModel {
 
     weak var delegate: TravelViewModelDelegate?
-    private let dbRef = Database.database()
+//    private let dbRef = Database.database()
     private let ownUsername = UserManager.getUserData()?.name
 
     func setupLiveLocationListener() {
-        dbRef.reference(withPath: "live-locations").observe(.value) { snapshot in
-            for child in snapshot.children {
-                guard
-                    let child = child as? DataSnapshot,
-                    let dict = child.value as? [String: Any]
-                    else {
-                        return
-                }
-                let location = LastKnownLocation(fromDict: dict)
-
-                // We don't want to show our own live location on the map
-                if location.user != self.ownUsername {
-                    self.delegate?.onNewLiveLocation(latestLocation: location)
-                }
-            }
-        }
+//        dbRef.reference(withPath: "live-locations").observe(.value) { snapshot in
+//            for child in snapshot.children {
+//                guard
+//                    let child = child as? DataSnapshot,
+//                    let dict = child.value as? [String: Any]
+//                    else {
+//                        return
+//                }
+//                let location = LastKnownLocation(fromDict: dict)
+//
+//                // We don't want to show our own live location on the map
+//                if location.user != self.ownUsername {
+//                    self.delegate?.onNewLiveLocation(latestLocation: location)
+//                }
+//            }
+//        }
     }
 
     func removeLiveLocationListener() {
-        dbRef.reference(withPath: "live-locations").removeAllObservers()
+//        dbRef.reference(withPath: "live-locations").removeAllObservers()
     }
 
     func updateOwnLiveLocation(currentLocation loc: LastKnownLocation) {
-        dbRef.reference(withPath: "live-locations").child(loc.user).setValue(loc.asDict())
+//        dbRef.reference(withPath: "live-locations").child(loc.user).setValue(loc.asDict())
     }
 
 }

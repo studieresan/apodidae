@@ -38,8 +38,10 @@ final class EventsViewModel {
         Http.fetchAllEvents().subscribe(onNext: { [weak self] events in
             guard let self = self else { return }
 
+			
+			
             // Sort events, earliest first
-            let sortedEvents = events.data.allEvents.sorted(by: { $0 < $1 })
+            let sortedEvents = events.data.events.sorted(by: { $0 < $1 })
 
             let organizedEvents = self.organizeEvents(events: sortedEvents)
             let cellViewModels = self.mapEventToCellViewModel(events: organizedEvents)
@@ -108,7 +110,7 @@ final class EventsViewModel {
                 dateFormatter.dateFormat = "d"
                 let day = dateFormatter.string(from: date)
 
-                let viewModel = EventCellViewModel(month: month, day: day, companyName: event.companyName)
+				let viewModel = EventCellViewModel(month: month, day: day, companyName: event.company?.name ?? "Okänt företag")
                 result[index] += [viewModel]
             }
         }

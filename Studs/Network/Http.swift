@@ -104,12 +104,16 @@ struct Http {
                     return
                 }
 
+//				print("Data: \(String(bytes: data, encoding: .utf8))")
+
                 let result = decode(data: data, type: type)
                 switch result {
                 case .success(let it):
+					print("Success with GraphQL for \(type)")
                     observer.onNext(it)
                     observer.onCompleted()
                 case .failure(let err):
+					print("Failiure with GraphQL for \(type), ", err)
                     observer.onError(err)
                 }
             }.resume()
@@ -123,26 +127,33 @@ struct Http {
         return Http.post(endpoint: Endpoint.login, body: loginPayload, type: UserData.self)
     }
 
-    static func fetchAllEvents() -> Observable<AllEventsResponse> {
-        let query = """
-        {
-            allEvents {
-                id
-                companyName
-                schedule
-                privateDescription
-                publicDescription
-                date
-                beforeSurveys
-                afterSurveys
-                location
-                pictures
-                published
-                responsible
-            }
+    static func fetchAllEvents() -> Observable<EventsResponse> {
+        let query =
+"""
+{
+	events {
+        id
+        date
+        location
+        publicDescription
+        privateDescription
+        beforeSurvey
+        afterSurvey
+        pictures
+        published
+	    responsible {
+             firstName
+             lastName
         }
-        """
-        return graphQL(query: query, type: AllEventsResponse.self)
+	    company {
+		    name
+		    id
+	    }
+        studsYear
+	}
+}
+"""
+        return graphQL(query: query, type: EventsResponse.self)
     }
 
     private static func decode<T: Decodable>(data: Data, type: T.Type) -> Result<T, Error> {

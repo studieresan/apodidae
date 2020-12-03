@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 enum InfoType {
     case housing
@@ -19,7 +18,7 @@ final class TravelInfoViewController: UIViewController {
     // MARK: Properties
 
     private let infoType: InfoType
-    private let dbRef = Database.database()
+//    private let dbRef = Database.database()
 
     // MARK: UI Elements
 
@@ -40,15 +39,15 @@ final class TravelInfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        var ref: DatabaseReference
+//        var ref: DatabaseReference
 
         switch infoType {
         case .housing:
             self.title = "Housing"
-            ref = dbRef.reference(withPath: "housing")
+//            ref = dbRef.reference(withPath: "housing")
         case .contacts:
             self.title = "Contacts"
-            ref = dbRef.reference(withPath: "contacts")
+//            ref = dbRef.reference(withPath: "contacts")
         }
 
         let closeBtn = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(dismissView))
@@ -58,10 +57,10 @@ final class TravelInfoViewController: UIViewController {
 
         addConstraints()
 
-        ref.observeSingleEvent(of: .value) { snapshot in
-            let text = snapshot.value as? String ?? ""
-            self.infoTextView.text = text
-        }
+//        ref.observeSingleEvent(of: .value) { snapshot in
+//            let text = snapshot.value as? String ?? ""
+//            self.infoTextView.text = text
+//        }
     }
 
     override func viewDidLayoutSubviews() {

@@ -8,8 +8,6 @@
 
 import UIKit
 import UserNotifications
-import Firebase
-import FirebaseMessaging
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -18,7 +16,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         UserManager.setDefaultPreferences()
 
         UNUserNotificationCenter.current().delegate = self
@@ -42,3 +40,5 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
         return true
     }
 }
+
+

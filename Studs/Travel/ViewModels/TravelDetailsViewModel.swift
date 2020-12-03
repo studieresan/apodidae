@@ -7,13 +7,12 @@
 //
 
 import Foundation
-import FirebaseDatabase
 
 final class TravelDetailsViewModel {
 
     weak var delegate: TravelDetailsViewModelDelegate?
 
-    private let dbRef = Database.database()
+//    private let dbRef = Database.database()
     private var feedItems: [FeedItem] = [] {
         didSet {
             delegate?.onNewValues()
@@ -26,27 +25,27 @@ final class TravelDetailsViewModel {
         let secondsInADay = 86400.0
         let timeStampOneDayAgo = Date().timeIntervalSince1970 - secondsInADay
 
-        dbRef.reference(withPath: "locations")
-            .queryOrdered(byChild: "timestamp")
-            .queryStarting(atValue: timeStampOneDayAgo)
-            .observe(.value) { (snapshot) in
-            var items: [FeedItem] = []
-            for child in snapshot.children {
-                guard
-                    let child = child as? DataSnapshot,
-                    let dict = child.value as? [String: Any]
-                    else {
-                        return
-                }
-                let feedItem = FeedItem(withDict: dict)
-                items += [feedItem]
-            }
-            self.feedItems = items.reversed()
-        }
+//        dbRef.reference(withPath: "locations")
+//            .queryOrdered(byChild: "timestamp")
+//            .queryStarting(atValue: timeStampOneDayAgo)
+//            .observe(.value) { (snapshot) in
+//            var items: [FeedItem] = []
+//            for child in snapshot.children {
+//                guard
+//                    let child = child as? DataSnapshot,
+//                    let dict = child.value as? [String: Any]
+//                    else {
+//                        return
+//                }
+//                let feedItem = FeedItem(withDict: dict)
+//                items += [feedItem]
+//            }
+            self.feedItems = []// items.reversed()
+//        }
     }
 
     func removeDbListeners() {
-        dbRef.reference(withPath: "locations").removeAllObservers()
+//        dbRef.reference(withPath: "locations").removeAllObservers()
     }
 
     func getFeedItem(forIndexPath indexPath: IndexPath) -> FeedItem {
