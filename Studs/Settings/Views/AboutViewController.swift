@@ -72,7 +72,9 @@ final class AboutViewController: UIViewController {
 
     private func logout() {
         UserManager.clearUserData()
-        self.present(LoginViewController.instance(), animated: true, completion: nil)
+		let loginVC = LoginViewController.instance()
+		loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
     }
 
     private func setupTableRows() -> [[UITableViewCell]] {
