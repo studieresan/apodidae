@@ -20,13 +20,18 @@ final class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		
+		emailTextField.tag = 1
+		passwordTextField.tag = 2
 
         emailTextField.delegate = self
         passwordTextField.delegate = self
 
         // Clear the error label on load
         errorLabel.text = ""
-
+		
+		
         viewModel.onErrorMsgChange = { [weak self] (errorMsg) in
             DispatchQueue.main.async {
                 self?.errorLabel.text = errorMsg
@@ -43,7 +48,7 @@ final class LoginViewController: UIViewController {
             }
         }
     }
-
+	
     // MARK: Actions
 
     @IBAction func didTapLogin(_ sender: Any) {
@@ -66,8 +71,14 @@ final class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+	internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if textField.tag == 1 { // email
+			passwordTextField.becomeFirstResponder()
+		} else if textField.tag == 2 { // password
+			didTapLogin(textField)
+		} else {
+			return true
+		}
+		return false
+   }
 }
