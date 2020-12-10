@@ -42,4 +42,3 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
         return true
     }
 }
-

@@ -42,8 +42,8 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
 
     private func setupTable() {
         // Set styling
-        view.backgroundColor = UIColor.bgColor
-        eventsTable.backgroundColor = UIColor.bgColor
+		view.backgroundColor = .primaryBG
+        eventsTable.backgroundColor = .primaryBG
 
         // Set up the table view
         eventsTable.delegate = self
@@ -81,7 +81,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         let label = UILabel()
         header.addSubview(label)
 
-        header.backgroundColor = UIColor.bgColor
+        header.backgroundColor = UIColor.primaryBG
         label.text = viewModel.sectionTitles[section]
 
         let fontWeight = section == 0 ? UIFont.Weight.heavy : UIFont.Weight.regular

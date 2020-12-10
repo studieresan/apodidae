@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bgw-zg-1Pc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bgw-zg-1Pc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="9sW-jd-cuL">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" id="DhH-XP-5gT" customClass="EventTableViewCell" customModule="Studs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="80"/>
@@ -56,7 +55,7 @@
                                                                             </subviews>
                                                                         </stackView>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" name="SecondaryBG"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="j1D-sZ-tin" secondAttribute="bottom" constant="11" id="63h-ZL-jF5"/>
                                                                         <constraint firstAttribute="width" constant="64" id="Sa8-nf-qAR"/>
@@ -75,7 +74,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" name="SecondaryBG"/>
                                                                     <constraints>
                                                                         <constraint firstItem="QaO-vr-qGI" firstAttribute="centerY" secondItem="I9A-1C-X9v" secondAttribute="centerY" id="71E-nd-0qt"/>
                                                                         <constraint firstAttribute="trailing" secondItem="QaO-vr-qGI" secondAttribute="trailing" id="Jb3-FA-bzS"/>
@@ -89,7 +88,6 @@
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="Wyg-uv-XQo" firstAttribute="top" secondItem="3iL-j3-IUK" secondAttribute="top" id="1jR-du-dTn"/>
                                                         <constraint firstItem="Wyg-uv-XQo" firstAttribute="leading" secondItem="3iL-j3-IUK" secondAttribute="leading" id="Ars-em-Wsy"/>
@@ -116,14 +114,13 @@
                                 <sections/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mOw-bL-SIS"/>
                         <constraints>
                             <constraint firstItem="9sW-jd-cuL" firstAttribute="bottom" secondItem="mOw-bL-SIS" secondAttribute="bottom" id="3Cm-3k-8bC"/>
                             <constraint firstItem="9sW-jd-cuL" firstAttribute="top" secondItem="mOw-bL-SIS" secondAttribute="top" id="Yex-1o-EwX"/>
                             <constraint firstItem="9sW-jd-cuL" firstAttribute="leading" secondItem="mOw-bL-SIS" secondAttribute="leading" id="svu-9C-gNV"/>
                             <constraint firstItem="9sW-jd-cuL" firstAttribute="trailing" secondItem="mOw-bL-SIS" secondAttribute="trailing" id="yRn-c3-0HW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mOw-bL-SIS"/>
                     </view>
                     <connections>
                         <outlet property="eventsTable" destination="9sW-jd-cuL" id="F8h-Oo-4jX"/>
@@ -134,4 +131,12 @@
             <point key="canvasLocation" x="568.79999999999995" y="-204.64767616191907"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="SecondaryBG">
+            <color red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

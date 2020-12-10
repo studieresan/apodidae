@@ -229,7 +229,7 @@ final class StatusUpdateViewController: UIViewController {
     private func setupTextView() -> UITextView {
         return UITextView().apply {
             $0.font = .systemFont(ofSize: StatusUpdateViewController.statusFontSize)
-            $0.textColor = .black
+            $0.textColor = .textColor
             $0.textContainerInset = .zero
             $0.translatesAutoresizingMaskIntoConstraints = false
         }

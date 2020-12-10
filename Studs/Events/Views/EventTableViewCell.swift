@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class EventTableViewCell: UITableViewCell {
+class EventTableViewCell: UITableViewCell {
 
     // MARK: Properties
 
@@ -21,7 +21,7 @@ final class EventTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
         // Set colors of elements
-        contentView.backgroundColor = UIColor.bgColor
+        contentView.backgroundColor = UIColor.secondaryBG
         month.textColor = UIColor.primaryDark
         day.textColor = UIColor.primaryDark
 
@@ -29,18 +29,30 @@ final class EventTableViewCell: UITableViewCell {
         containerView.layer.run {
             $0.shadowRadius = 2
             $0.shadowOpacity = 1
-            $0.shadowColor = UIColor(rgb: 0xcbcbcb).cgColor
+			$0.shadowColor = UIColor.shadow.cgColor
             $0.shadowOffset = CGSize(width: 0, height: 2)
             $0.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
         }
     }
+
+	// To change shadow color on appearance switch. Courtesy of https://stackoverflow.com/questions/58092716/uiviews-shadowpath-color-doesnt-change
+	override open func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+
+		if #available(iOS 13, *), self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+			print("Chaning to ", UIColor.shadow.cgColor.components)
+			containerView.layer.run {
+				$0.shadowColor = UIColor.shadow.cgColor
+			}
+		}
+	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         if selected {
             // Configure the view for the selected state
-            contentView.backgroundColor = UIColor.bgColor
+            contentView.backgroundColor = UIColor.primaryBG
             containerView.backgroundColor = UIColor.veryLightGray
         }
     }
@@ -48,7 +60,7 @@ final class EventTableViewCell: UITableViewCell {
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
 
-        contentView.backgroundColor = UIColor.bgColor
+        contentView.backgroundColor = UIColor.primaryBG
         containerView.backgroundColor = UIColor.veryLightGray
     }
 }

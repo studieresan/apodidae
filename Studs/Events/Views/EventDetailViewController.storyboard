@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zEG-Wk-532">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zEG-Wk-532">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +62,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" name="PrimaryBG"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="trailing" secondItem="uyv-Dx-SoC" secondAttribute="trailing" id="Kic-tE-Lca"/>
                                                                                     <constraint firstAttribute="width" constant="64" id="aWH-2A-DDK"/>
@@ -80,7 +81,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" name="PrimaryBG"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="Eel-2a-qov" firstAttribute="leading" secondItem="thL-Bj-sge" secondAttribute="leading" id="Se5-qZ-lA0"/>
                                                                                     <constraint firstItem="Eel-2a-qov" firstAttribute="centerY" secondItem="thL-Bj-sge" secondAttribute="centerY" id="W6W-r0-wf8"/>
@@ -138,7 +139,7 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" name="PrimaryBG"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="JWf-co-518" secondAttribute="bottom" constant="15" id="29f-R8-Shz"/>
                                                                             <constraint firstItem="JWf-co-518" firstAttribute="leading" secondItem="x1X-J1-Tl8" secondAttribute="leading" constant="25" id="IA2-5H-zj5"/>
@@ -149,7 +150,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="PrimaryBG"/>
                                                         <constraints>
                                                             <constraint firstItem="jhR-A8-wXL" firstAttribute="top" secondItem="x5o-lW-q7u" secondAttribute="top" id="GGx-bt-QeJ"/>
                                                             <constraint firstAttribute="bottom" secondItem="jhR-A8-wXL" secondAttribute="bottom" id="WlE-nz-iMR"/>
@@ -175,7 +176,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="E8X-n7-K3i">
                                                                         <rect key="frame" x="0.0" y="34" width="339" height="40"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pG9-T5-5gP" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pG9-T5-5gP" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="40"/>
                                                                                 <color key="backgroundColor" red="0.48994715249999998" green="0.671123413" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
@@ -188,7 +189,7 @@
                                                                                     <action selector="didTapPreEvent:" destination="zEG-Wk-532" eventType="touchUpInside" id="R0o-Tg-Tr9"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjF-Ch-NQU" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjF-Ch-NQU" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
                                                                                 <rect key="frame" x="177" y="0.0" width="162" height="40"/>
                                                                                 <color key="backgroundColor" red="0.48994715249999998" green="0.671123413" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                                                                 <constraints>
@@ -206,7 +207,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="PrimaryBG"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="F2p-Vy-Lx3" secondAttribute="bottom" constant="26" id="CnN-kE-lQW"/>
                                                             <constraint firstAttribute="trailing" secondItem="F2p-Vy-Lx3" secondAttribute="trailing" constant="18" id="ah8-7p-IwK"/>
@@ -228,7 +229,7 @@
                                                                     </label>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLz-iG-yGm">
                                                                         <rect key="frame" x="0.0" y="38" width="337" height="266.5"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" name="PrimaryBG"/>
                                                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                         <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
@@ -238,7 +239,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="PrimaryBG"/>
                                                         <constraints>
                                                             <constraint firstItem="Nyz-ns-p7d" firstAttribute="top" secondItem="XtD-iy-bta" secondAttribute="top" constant="20" id="7xA-mW-y7u"/>
                                                             <constraint firstItem="Nyz-ns-p7d" firstAttribute="leading" secondItem="XtD-iy-bta" secondAttribute="leading" constant="19" id="F4a-Bz-KPd"/>
@@ -260,14 +261,14 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="GkJ-eB-pPw"/>
+                        <color key="backgroundColor" name="PrimaryBG"/>
                         <constraints>
                             <constraint firstItem="GkJ-eB-pPw" firstAttribute="bottom" secondItem="4bJ-pF-36q" secondAttribute="bottom" id="0bJ-hk-cA5"/>
                             <constraint firstItem="4bJ-pF-36q" firstAttribute="leading" secondItem="GkJ-eB-pPw" secondAttribute="leading" id="Ll1-Tc-bBP"/>
                             <constraint firstItem="4bJ-pF-36q" firstAttribute="top" secondItem="GkJ-eB-pPw" secondAttribute="top" id="X9q-i7-V3C"/>
                             <constraint firstItem="GkJ-eB-pPw" firstAttribute="trailing" secondItem="4bJ-pF-36q" secondAttribute="trailing" id="orr-Ht-Czc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GkJ-eB-pPw"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -290,5 +291,8 @@
     <resources>
         <image name="locationIcon" width="12" height="14"/>
         <image name="timeIcon" width="14" height="13"/>
+        <namedColor name="PrimaryBG">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

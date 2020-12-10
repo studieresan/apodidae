@@ -21,13 +21,19 @@ extension UIColor {
     }
 
     // MARK: - Studs Colors
-    static let primary = UIColor(rgb: 0x3d8ec6)
-    static let primaryDark = UIColor(rgb: 0x1D6598)
-    static let bgColor = UIColor(rgb: 0xFCFCFC)
-    static let veryLightGray = UIColor(rgb: 0xd9d9d9)
+	// Force unwrapp so we will notice at first run if the colors are bad
+	static let primary = UIColor(named: "Primary")!
+	static let primaryDark = UIColor(named: "PrimaryDark")!
+	static let primaryBG = UIColor(named: "PrimaryBG")!
+	static let secondaryBG = UIColor(named: "SecondaryBG")!
+	static let veryLightGray = UIColor(named: "VeryLightGray")!
 
-    static let textColor = UIColor(rgb: 0x4d4d4d)
+	static let textColor = UIColor(named: "TextColor")!
 
-    static let darkBlue = UIColor(rgb: 0x2F3C51)
-    static let lightBlue = UIColor(rgb: 0x17B7C8)
+	static let shadow = UIColor(named: "Shadow")!
+	
+	static let studsButtonText = UIColor(named: "StudsButtonText")!
+	
+	static let darkBlue = UIColor(named: "DarkBlue")!
+	static let lightBlue = UIColor(named: "LightBlue")!
 }
