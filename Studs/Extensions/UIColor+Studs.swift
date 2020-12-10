@@ -23,6 +23,8 @@ extension UIColor {
     // MARK: - Studs Colors
 	// Force unwrapp so we will notice at first run if the colors are bad
 	static let primary = UIColor(named: "Primary")!
+	static let secondary = UIColor(named: "Secondary")!
+
 	static let primaryDark = UIColor(named: "PrimaryDark")!
 	static let primaryBG = UIColor(named: "PrimaryBG")!
 	static let secondaryBG = UIColor(named: "SecondaryBG")!

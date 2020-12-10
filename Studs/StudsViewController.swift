@@ -19,14 +19,14 @@ final class StudsViewController: UITabBarController {
             $0.tabBarItem = UITabBarItem(title: "Events", image: #imageLiteral(resourceName: "eventsTab"), tag: 0)
         }
 
-//        let travelViewController = UINavigationController(rootViewController: TravelViewController()).apply {
-//            $0.tabBarItem = UITabBarItem(title: "Travel", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
-//        }
+		let travelViewController = UINavigationController(rootViewController: CountdownVC.instance()).apply {
+            $0.tabBarItem = UITabBarItem(title: "Travel", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
+        }
 
         let settingsViewController = UINavigationController(rootViewController: AboutViewController()).apply {
             $0.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "aboutTab"), tag: 2)
         }
 
-        viewControllers = [eventsViewController, settingsViewController]
+        viewControllers = [eventsViewController, travelViewController, settingsViewController]
     }
 }
