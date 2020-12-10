@@ -22,8 +22,8 @@ class EventTableViewCell: UITableViewCell {
 
         // Set colors of elements
         contentView.backgroundColor = UIColor.secondaryBG
-        month.textColor = UIColor.primaryDark
-        day.textColor = UIColor.primaryDark
+        month.textColor = UIColor.primary
+        day.textColor = UIColor.primary
 
         // Add drop shadow to container view
         containerView.layer.run {

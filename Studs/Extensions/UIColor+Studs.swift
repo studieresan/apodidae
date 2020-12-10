@@ -25,7 +25,6 @@ extension UIColor {
 	static let primary = UIColor(named: "Primary")!
 	static let secondary = UIColor(named: "Secondary")!
 
-	static let primaryDark = UIColor(named: "PrimaryDark")!
 	static let primaryBG = UIColor(named: "PrimaryBG")!
 	static let secondaryBG = UIColor(named: "SecondaryBG")!
 	static let veryLightGray = UIColor(named: "VeryLightGray")!
@@ -33,7 +32,4 @@ extension UIColor {
 	static let textColor = UIColor(named: "TextColor")!
 
 	static let shadow = UIColor(named: "Shadow")!
-
-	static let darkBlue = UIColor(named: "DarkBlue")!
-	static let lightBlue = UIColor(named: "LightBlue")!
 }

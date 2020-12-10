@@ -114,12 +114,12 @@ final class EventDetailViewController: UIViewController {
         let day = dateFormatter.string(from: date)
 
         eventTitleMonth.run {
-            $0.textColor = UIColor.primaryDark
+            $0.textColor = UIColor.primary
             $0.text = month
         }
 
         eventTitleDay.run {
-            $0.textColor = UIColor.primaryDark
+            $0.textColor = UIColor.primary
             $0.text = day
         }
 

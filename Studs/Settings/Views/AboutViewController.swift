@@ -42,10 +42,10 @@ final class AboutViewController: UIViewController {
 
         // Settings table
         constraints += [
-            settingsTable.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor),
+            settingsTable.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             settingsTable.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             settingsTable.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            settingsTable.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor),
+			settingsTable.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
         ]
 
         NSLayoutConstraint.activate(constraints)
