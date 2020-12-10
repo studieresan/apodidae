@@ -20,8 +20,7 @@ final class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		
+
 		emailTextField.tag = 1
 		passwordTextField.tag = 2
 
@@ -30,8 +29,7 @@ final class LoginViewController: UIViewController {
 
         // Clear the error label on load
         errorLabel.text = ""
-		
-		
+
         viewModel.onErrorMsgChange = { [weak self] (errorMsg) in
             DispatchQueue.main.async {
                 self?.errorLabel.text = errorMsg
