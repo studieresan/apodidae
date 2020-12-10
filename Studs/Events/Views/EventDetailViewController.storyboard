@@ -103,8 +103,9 @@
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LVb-ao-AV1">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="325" height="22"/>
                                                                                         <subviews>
-                                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-K7-gfD">
-                                                                                                <rect key="frame" x="0.0" y="4" width="14" height="14"/>
+                                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2kB-K7-gfD">
+                                                                                                <rect key="frame" x="0.0" y="4.5" width="14" height="13"/>
+                                                                                                <color key="tintColor" name="TextColor"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="14" id="Orv-Rd-G34"/>
                                                                                                     <constraint firstAttribute="height" constant="14" id="QY1-QC-nEb"/>
@@ -121,8 +122,9 @@
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bS6-75-3bY">
                                                                                         <rect key="frame" x="0.0" y="30" width="325" height="17"/>
                                                                                         <subviews>
-                                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iPa-e5-ada">
-                                                                                                <rect key="frame" x="0.0" y="1" width="14" height="15"/>
+                                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iPa-e5-ada">
+                                                                                                <rect key="frame" x="0.0" y="0.5" width="14" height="15.5"/>
+                                                                                                <color key="tintColor" name="TextColor"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="15" id="7mu-QY-aG6"/>
                                                                                                     <constraint firstAttribute="width" constant="14" id="Ref-1g-13k"/>
@@ -289,10 +291,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="locationIcon" width="12" height="14"/>
-        <image name="timeIcon" width="14" height="13"/>
+        <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <namedColor name="PrimaryBG">
             <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

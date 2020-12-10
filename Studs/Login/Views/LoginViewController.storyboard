@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HXf-Mm-zmf" userLabel="LoginFormStack">
                                 <rect key="frame" x="45" y="50" width="285" height="408"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ju1-Oi-jum">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Ju1-Oi-jum">
                                         <rect key="frame" x="72.5" y="0.0" width="140" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ju1-Oi-jum" secondAttribute="height" multiplier="1:1" id="aXv-On-s8t"/>
@@ -132,7 +132,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="loginLogo" width="400" height="400"/>
+        <image name="squareLogo" width="400" height="400"/>
         <namedColor name="Primary">
             <color red="0.23921568627450981" green="0.55686274509803924" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

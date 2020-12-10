@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="x21-aU-0fh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareLogo" translatesAutoresizingMaskIntoConstraints="NO" id="x21-aU-0fh">
                                 <rect key="frame" x="110.5" y="256.5" width="154" height="154"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="x21-aU-0fh" secondAttribute="height" multiplier="1:1" id="aK2-WY-dSK"/>
@@ -39,7 +39,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchLogo" width="400" height="400"/>
+        <image name="squareLogo" width="400" height="400"/>
         <namedColor name="PrimaryBG">
             <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
