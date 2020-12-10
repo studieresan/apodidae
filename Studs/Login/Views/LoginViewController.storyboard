@@ -120,6 +120,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="LoginButton" destination="1MW-6A-wEw" id="004-2u-1rf"/>
                         <outlet property="emailTextField" destination="kGD-Fk-gGl" id="PMG-QZ-axp"/>
                         <outlet property="errorLabel" destination="FBi-mA-MxO" id="8nB-y6-LDZ"/>
                         <outlet property="passwordTextField" destination="zAD-uO-Slh" id="YAW-G9-abh"/>

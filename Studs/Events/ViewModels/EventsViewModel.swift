@@ -38,8 +38,6 @@ final class EventsViewModel {
 		Http.fetchEvents(studsYear: AppDelegate.STUDSYEAR).subscribe(onNext: { [weak self] events in
             guard let self = self else { return }
 
-			
-			
             // Sort events, earliest first
             let sortedEvents = events.data.events.sorted(by: { $0 < $1 })
 

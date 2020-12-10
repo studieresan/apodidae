@@ -32,8 +32,6 @@ extension UIColor {
 
 	static let shadow = UIColor(named: "Shadow")!
 
-	static let studsButtonText = UIColor(named: "StudsButtonText")!
-
 	static let darkBlue = UIColor(named: "DarkBlue")!
 	static let lightBlue = UIColor(named: "LightBlue")!
 }

@@ -19,7 +19,7 @@ class StudsButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-		titleLabel?.textColor = .studsButtonText
+		titleLabel?.textColor = .white
         layer.cornerRadius = 20
         clipsToBounds = true
         backgroundColor = .primary

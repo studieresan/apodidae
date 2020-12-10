@@ -40,7 +40,6 @@ class EventTableViewCell: UITableViewCell {
 		super.traitCollectionDidChange(previousTraitCollection)
 
 		if #available(iOS 13, *), self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-			print("Chaning to ", UIColor.shadow.cgColor.components)
 			containerView.layer.run {
 				$0.shadowColor = UIColor.shadow.cgColor
 			}

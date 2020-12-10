@@ -14,15 +14,21 @@ final class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+	@IBOutlet weak var loginButton: StudsButton!
+	@IBOutlet weak var errorLabel: UILabel!
+
+	private enum TEXTFIELD_TAGS: Int {
+		case email = 1
+		case pass = 2
+	}
 
     private let viewModel = LoginViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		emailTextField.tag = 1
-		passwordTextField.tag = 2
+		emailTextField.tag = TEXTFIELD_TAGS.email.rawValue
+		passwordTextField.tag = TEXTFIELD_TAGS.pass.rawValue
 
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -33,6 +39,7 @@ final class LoginViewController: UIViewController {
         viewModel.onErrorMsgChange = { [weak self] (errorMsg) in
             DispatchQueue.main.async {
                 self?.errorLabel.text = errorMsg
+				self?.loginButton.isEnabled = true
             }
         }
 
@@ -46,19 +53,22 @@ final class LoginViewController: UIViewController {
             }
         }
     }
-	
+
     // MARK: Actions
 
     @IBAction func didTapLogin(_ sender: Any) {
         let email = emailTextField.text
         let password = passwordTextField.text
 
-        if email == "" || password == "" {
+        guard email != "" && password != "" else {
+			errorLabel.text = "Enter valid email and password"
             return
         }
 
+		self.view.endEditing(true)
+		loginButton.isEnabled = false
+
         viewModel.login(email: email!, password: password!)
-        self.view.endEditing(true)
     }
 
     // Dismiss keyboard when tapping anywhere outside text fields
@@ -70,9 +80,9 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
 	internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		if textField.tag == 1 { // email
+		if textField.tag == TEXTFIELD_TAGS.email.rawValue { // email
 			passwordTextField.becomeFirstResponder()
-		} else if textField.tag == 2 { // password
+		} else if textField.tag == TEXTFIELD_TAGS.pass.rawValue { // password
 			didTapLogin(textField)
 		} else {
 			return true
