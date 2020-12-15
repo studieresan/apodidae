@@ -20,6 +20,7 @@ protocol GraphQLMultipleResponse: GraphQLResponse {
 	static var rootFieldMultiple: String { get }
 }
 
+//Extends all arrays of GraphQL responses to have a rootField
 extension Array: GraphQLResponse where Element: GraphQLMultipleResponse {
 	static var rootField: String {
 		Element.rootFieldMultiple

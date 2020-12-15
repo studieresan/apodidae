@@ -8,8 +8,10 @@
 
 import Foundation
 
+struct Company: Decodable, GraphQLMultipleResponse {
+	static var rootFieldMultiple: String = "companies"
+	static var rootField: String = "company"
 
-struct Company: Decodable {
 	let id: String
 	let name: String
 }

@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
 	override func viewDidLoad() {
 		Http.fetchUser().subscribe(onNext: { [weak self] user in
 			guard let self = self else { return }
-			print(user.firstName, user.lastName)
+			print(user.firstName, user.lastName, user.picture)
 		}, onError: { error in
 			print(error)
 		})
