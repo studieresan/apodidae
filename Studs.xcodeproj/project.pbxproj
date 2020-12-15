@@ -14,6 +14,7 @@
 		2175BF9525866C4C001556FC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9425866C4C001556FC /* Company.swift */; };
 		2175BF9925866C52001556FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9825866C52001556FC /* User.swift */; };
 		2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9B2587B32E001556FC /* GraphQLResponse.swift */; };
+		2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BFB52588D269001556FC /* UIImage+Studs.swift */; };
 		21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7BAD125826077004D5D54 /* CountdownVC.swift */; };
 		21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* Countdown.storyboard */; };
 		8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */; };
@@ -39,7 +40,6 @@
 		8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EA641592184A1D300A138EB /* EventsViewController.storyboard */; };
 		8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415B2184A1E000A138EB /* EventsViewController.swift */; };
 		8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */; };
-		8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48702184BAF600BB36A2 /* AboutViewController.swift */; };
 		8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */; };
 		8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487D2184F00B00BB36A2 /* Event.swift */; };
 		8EAC48812184F23C00BB36A2 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
@@ -52,6 +52,7 @@
 		2175BF9425866C4C001556FC /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		2175BF9825866C52001556FC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2175BF9B2587B32E001556FC /* GraphQLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
+		2175BFB52588D269001556FC /* UIImage+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Studs.swift"; sourceTree = "<group>"; };
 		21A7BAD125826077004D5D54 /* CountdownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownVC.swift; sourceTree = "<group>"; };
 		21A7BAD625827C53004D5D54 /* Countdown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Countdown.storyboard; sourceTree = "<group>"; };
 		411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +82,6 @@
 		8EA641592184A1D300A138EB /* EventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsViewController.storyboard; sourceTree = "<group>"; };
 		8EA6415B2184A1E000A138EB /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Studs.swift"; sourceTree = "<group>"; };
-		8EAC48702184BAF600BB36A2 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsViewController.swift; sourceTree = "<group>"; };
 		8EAC487D2184F00B00BB36A2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		8EAC48802184F23C00BB36A2 /* Http.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Http.swift; sourceTree = "<group>"; };
@@ -189,6 +189,7 @@
 				8E3783092183C3F8004F083F /* UIStoryboard+Studs.swift */,
 				8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */,
 				8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */,
+				2175BFB52588D269001556FC /* UIImage+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,7 +283,6 @@
 		8EAC486C2184BACA00BB36A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8EAC48702184BAF600BB36A2 /* AboutViewController.swift */,
 				2175BF86258661C6001556FC /* Profile.storyboard */,
 			);
 			path = Views;
@@ -473,6 +473,7 @@
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
+				2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */,
 				21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */,
 				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
 				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
@@ -486,7 +487,6 @@
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
 				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
 				8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */,
-				8EAC48712184BAF600BB36A2 /* AboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

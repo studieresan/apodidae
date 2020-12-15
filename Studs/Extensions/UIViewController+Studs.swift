@@ -21,7 +21,6 @@ extension UIViewController {
 		return storyboard.initialViewController()
 	}
 
-
     func setTabBarVisible(visible: Bool, animated: Bool) {
         guard isTabBarVisible != visible else { return }
 

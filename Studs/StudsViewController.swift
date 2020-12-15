@@ -20,11 +20,11 @@ final class StudsViewController: UITabBarController {
         }
 
 		let travelViewController = UINavigationController(rootViewController: CountdownVC.instance(withName: "Countdown")).apply {
-            $0.tabBarItem = UITabBarItem(title: "Travel", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
+            $0.tabBarItem = UITabBarItem(title: "Resan", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
         }
 
 		let settingsViewController = UINavigationController(rootViewController: ProfileViewController.instance(withName: "Profile")).apply {
-            $0.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "aboutTab"), tag: 2)
+            $0.tabBarItem = UITabBarItem(title: "Profil", image: #imageLiteral(resourceName: "aboutTab"), tag: 2)
         }
 
         viewControllers = [eventsViewController, travelViewController, settingsViewController]

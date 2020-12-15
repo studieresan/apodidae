@@ -12,7 +12,6 @@ extension UIImageView {
 
     // https://stackoverflow.com/questions/39813497/swift-3-display-image-from-url/46788201
     public func imageFromURL(urlString: String) {
-        self.backgroundColor = .veryLightGray
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, _, error) -> Void in
 
             if error != nil {

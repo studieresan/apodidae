@@ -134,8 +134,14 @@ final class EventDetailViewController: UIViewController {
 
     private func setInitialLocation() {
         guard let address = event?.location else {
-            fatalError("Event location isn't set")
+            print("Event location isn't set")
+			return
         }
+
+		//If digital, don't find the coords
+		if address == "Zoom" {
+			return
+		}
 
         getCoordinate(addressString: address) { location, error in
             if error != nil {

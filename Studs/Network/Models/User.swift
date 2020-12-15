@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate struct RawUserResponse: Decodable {
+private struct RawUserResponse: Decodable {
 	static var rootField: String = "user"
 	static var rootFieldMultiple: String = "users"
 

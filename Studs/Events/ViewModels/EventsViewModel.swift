@@ -13,7 +13,7 @@ final class EventsViewModel {
 
     // MARK: Properties
 
-    let sectionTitles = ["Next event", "Upcoming", "Past events"]
+    let sectionTitles = ["Nästa event", "Kommande event", "Tidigare events"]
 
     // Array of next event, upcoming events, past events
     private var events = [[Event](), [Event](), [Event]()]
