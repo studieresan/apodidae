@@ -9,6 +9,14 @@
 import Foundation
 import RxSwift
 
+struct FetchError: Error {
+	enum ErrorType {
+		case noDataKey, noRootFieldKey, noJSONResponse, noJSONContent
+	}
+
+	let kind: ErrorType
+}
+
 struct Http {
     private static let baseURL = Bundle.main.infoDictionary!["API_BASE_URL"] as! String
     public enum Endpoint: String {
@@ -83,16 +91,13 @@ struct Http {
         }
     }
 
-    static func graphQL<T: Decodable>(query: String, type: T.Type) -> Observable<T> {
+	static func graphQL<T: Decodable & GraphQLResponse>(query: String, type: T.Type) -> Observable<T> {
         return Observable.create { observer in
-            guard let formatedQuery = query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else {
-                print(query)
-                fatalError("Couldn't create query string")
-            }
 
-            var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)?query=\(formatedQuery)")!)
+            var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)")!)
             request.httpMethod = "POST"
             request.setValue("application/graphql", forHTTPHeaderField: "Content-Type")
+			request.httpBody = "{\(query)}".data(using: .utf8)
 
             if let userToken = UserManager.getToken() {
                 request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
@@ -104,15 +109,31 @@ struct Http {
                     return
                 }
 
-//				print("Data: \(String(bytes: data, encoding: .utf8))")
+				guard let responseAsJSON = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any?] else {
+					observer.onError(FetchError(kind: .noJSONResponse))
+					return
+				}
+				guard let dataJSONContent = responseAsJSON["data"] as? [String: Any?] else {
+					observer.onError(FetchError(kind: .noDataKey))
+					return
+				}
+				guard let rootFieldJSONContent = dataJSONContent[type.rootField] as Any? else {
+					observer.onError(FetchError(kind: .noRootFieldKey))
+					return
+				}
+				guard let contentData = try? JSONSerialization.data(withJSONObject: rootFieldJSONContent, options: .fragmentsAllowed) else {
+					observer.onError(FetchError(kind: .noJSONContent))
+					return
+				}
 
-                let result = decode(data: data, type: type)
-                switch result {
-                case .success(let it):
+				let decodedData = decode(data: contentData, type: type)
+
+				switch decodedData {
+				case .success(let responseData):
 					print("Success with GraphQL for \(type)")
-                    observer.onNext(it)
+					observer.onNext(responseData)
                     observer.onCompleted()
-                case .failure(let err):
+				case .failure(let err):
 					print("Failiure with GraphQL for \(type), ", err)
                     observer.onError(err)
                 }
@@ -127,34 +148,17 @@ struct Http {
         return Http.post(endpoint: Endpoint.login, body: loginPayload, type: UserData.self)
     }
 
-	static func fetchEvents(studsYear: Int?) -> Observable<EventsResponse> {
-        let query =
-"""
-{
-	events(studsYear: \(studsYear?.description ?? "null")) {
-        id
-        date
-        location
-        publicDescription
-        privateDescription
-        beforeSurvey
-        afterSurvey
-        pictures
-        published
-	    responsible {
-             firstName
-             lastName
-        }
-	    company {
-		    name
-		    id
-	    }
-        studsYear
-	}
-}
-"""
-        return graphQL(query: query, type: EventsResponse.self)
+	static func fetchEvents(studsYear: Int?) -> Observable<[Event]> {
+        let query = createEventsQuery(year: studsYear)
+
+		return graphQL(query: query, type: [Event].self)
     }
+
+	static func fetchUser() -> Observable<User> {
+		let query = createUserQuery()
+
+		return graphQL(query: query, type: User.self)
+	}
 
     private static func decode<T: Decodable>(data: Data, type: T.Type) -> Result<T, Error> {
         do {

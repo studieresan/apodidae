@@ -39,7 +39,7 @@ final class EventsViewModel {
             guard let self = self else { return }
 
             // Sort events, earliest first
-            let sortedEvents = events.data.events.sorted(by: { $0 < $1 })
+			let sortedEvents = events.sorted(by: { $0 < $1 })
 
             let organizedEvents = self.organizeEvents(events: sortedEvents)
             let cellViewModels = self.mapEventToCellViewModel(events: organizedEvents)

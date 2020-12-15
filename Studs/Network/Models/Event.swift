@@ -8,20 +8,10 @@
 
 import Foundation
 
-struct EventsResponse: Decodable {
-    let data: Events
-}
+struct Event: Decodable, GraphQLMultipleResponse {
+	static var rootField: String = "event"
+	static var rootFieldMultiple: String = "events"
 
-struct Events: Decodable {
-    let events: [Event]
-}
-
-struct Company: Decodable {
-	let id: String
-	let name: String
-}
-
-struct Event: Decodable {
     let id: String
     let company: Company?
     let schedule: String?

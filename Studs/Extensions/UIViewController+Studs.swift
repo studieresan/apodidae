@@ -15,6 +15,13 @@ extension UIViewController {
         return storyboard.initialViewController()
     }
 
+	///Instance with name of storyboard file
+	static func instance(withName storyboardName: String) -> Self {
+		let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+		return storyboard.initialViewController()
+	}
+
+
     func setTabBarVisible(visible: Bool, animated: Bool) {
         guard isTabBarVisible != visible else { return }
 

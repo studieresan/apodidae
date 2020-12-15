@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */; };
+		2175BF87258661C6001556FC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2175BF86258661C6001556FC /* Profile.storyboard */; };
+		2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8A2586634B001556FC /* ProfileVC.swift */; };
+		2175BF902586664B001556FC /* GraphQLFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8F2586664B001556FC /* GraphQLFields.swift */; };
+		2175BF9525866C4C001556FC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9425866C4C001556FC /* Company.swift */; };
+		2175BF9925866C52001556FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9825866C52001556FC /* User.swift */; };
+		2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9B2587B32E001556FC /* GraphQLResponse.swift */; };
 		21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7BAD125826077004D5D54 /* CountdownVC.swift */; };
-		21A7BAD725827C53004D5D54 /* CountdownVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* CountdownVC.storyboard */; };
+		21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* Countdown.storyboard */; };
 		8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */; };
 		8B1440AD2220322400AE767B /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AC2220322400AE767B /* EventsViewModel.swift */; };
 		8B1440AF2221772D00AE767B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1440AE2221772D00AE767B /* LoginViewController.storyboard */; };
@@ -40,8 +46,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2175BF86258661C6001556FC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		2175BF8A2586634B001556FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		2175BF8F2586664B001556FC /* GraphQLFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFields.swift; sourceTree = "<group>"; };
+		2175BF9425866C4C001556FC /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		2175BF9825866C52001556FC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2175BF9B2587B32E001556FC /* GraphQLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		21A7BAD125826077004D5D54 /* CountdownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownVC.swift; sourceTree = "<group>"; };
-		21A7BAD625827C53004D5D54 /* CountdownVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CountdownVC.storyboard; sourceTree = "<group>"; };
+		21A7BAD625827C53004D5D54 /* Countdown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Countdown.storyboard; sourceTree = "<group>"; };
 		411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Studs/Pods-Studs.release.xcconfig"; sourceTree = "<group>"; };
 		8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCellViewModel.swift; path = Studs/Events/ViewModels/EventCellViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -88,10 +100,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2175BF88258661CB001556FC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2175BF8A2586634B001556FC /* ProfileVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2175BF9325866C3D001556FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8EAC487D2184F00B00BB36A2 /* Event.swift */,
+				2175BF9425866C4C001556FC /* Company.swift */,
+				2175BF9825866C52001556FC /* User.swift */,
+				2175BF9B2587B32E001556FC /* GraphQLResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		21A7BACC25825FF0004D5D54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				21A7BAD625827C53004D5D54 /* CountdownVC.storyboard */,
+				21A7BAD625827C53004D5D54 /* Countdown.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,7 +168,7 @@
 				8EAC487F2184F1C300BB36A2 /* Network */,
 				8EA641582184A1BE00A138EB /* Events */,
 				8EAC48682184BA9400BB36A2 /* Travel */,
-				8EAC48692184BA9F00BB36A2 /* Settings */,
+				8EAC48692184BA9F00BB36A2 /* Profile */,
 				8E37830C2183C4DE004F083F /* Login */,
 				8E37830B2183C485004F083F /* Supporting Files */,
 				8E3783042183BB63004F083F /* Extensions */,
@@ -239,18 +270,20 @@
 			path = Travel;
 			sourceTree = "<group>";
 		};
-		8EAC48692184BA9F00BB36A2 /* Settings */ = {
+		8EAC48692184BA9F00BB36A2 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				2175BF88258661CB001556FC /* ViewControllers */,
 				8EAC486C2184BACA00BB36A2 /* Views */,
 			);
-			path = Settings;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		8EAC486C2184BACA00BB36A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				8EAC48702184BAF600BB36A2 /* AboutViewController.swift */,
+				2175BF86258661C6001556FC /* Profile.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,7 +291,6 @@
 		8EAC487C2184EFCF00BB36A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8EAC487D2184F00B00BB36A2 /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,7 +298,9 @@
 		8EAC487F2184F1C300BB36A2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2175BF9325866C3D001556FC /* Models */,
 				8EAC48802184F23C00BB36A2 /* Http.swift */,
+				2175BF8F2586664B001556FC /* GraphQLFields.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -351,10 +385,11 @@
 			files = (
 				8B1440AF2221772D00AE767B /* LoginViewController.storyboard in Resources */,
 				8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */,
+				2175BF87258661C6001556FC /* Profile.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
-				21A7BAD725827C53004D5D54 /* CountdownVC.storyboard in Resources */,
+				21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */,
 				8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,17 +460,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2175BF9925866C52001556FC /* User.swift in Sources */,
 				8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */,
+				2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */,
 				8B1440AD2220322400AE767B /* EventsViewModel.swift in Sources */,
 				8B1440B42221831100AE767B /* Login.swift in Sources */,
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
 				8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */,
 				8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */,
 				8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */,
+				2175BF9525866C4C001556FC /* Company.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
 				21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */,
+				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
+				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
 				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,
 				8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */,
 				8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */,
