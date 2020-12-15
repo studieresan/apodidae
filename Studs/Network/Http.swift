@@ -130,11 +130,9 @@ struct Http {
 
 				switch decodedData {
 				case .success(let responseData):
-					print("Success with GraphQL for \(type)")
 					observer.onNext(responseData)
                     observer.onCompleted()
 				case .failure(let err):
-					print("Failiure with GraphQL for \(type), ", err)
                     observer.onError(err)
                 }
             }.resume()

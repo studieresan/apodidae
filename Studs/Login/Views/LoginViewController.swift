@@ -61,7 +61,7 @@ final class LoginViewController: UIViewController {
         let password = passwordTextField.text
 
         guard email != "" && password != "" else {
-			errorLabel.text = "Enter valid email and password"
+			errorLabel.text = "Ange giltig email och lösenord"
             return
         }
 
@@ -78,6 +78,7 @@ final class LoginViewController: UIViewController {
 
 }
 
+//What happends when return is pressed
 extension LoginViewController: UITextFieldDelegate {
 	internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if textField.tag == TEXTFIELD_TAGS.email.rawValue { // email

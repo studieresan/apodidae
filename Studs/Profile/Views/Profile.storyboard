@@ -24,7 +24,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfh-UH-DLh" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                         <color key="backgroundColor" name="Primary"/>
-                                        <state key="normal" title="Logga ut">
+                                        <state key="normal" title="LOGGA UT">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>

@@ -37,7 +37,7 @@ final class LoginViewModel {
 
     func login(email: String, password: String) {
         if !isValidEmail(string: email) {
-            errorMsg = "Please log in with a valid email"
+            errorMsg = "Skriv in en giltig email"
             return
         }
 
@@ -55,7 +55,7 @@ final class LoginViewModel {
                 self.isLoggedIn = true
             }
         }, onError: { error in
-            self.errorMsg = "Something went wrong"
+            self.errorMsg = "Någonting blev knasigt"
             print(error)
         }).disposed(by: disposeBag)
     }
