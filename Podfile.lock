@@ -1,71 +1,31 @@
 PODS:
-  - MaterialComponents/BottomSheet (80.0.0):
-    - MaterialComponents/private/KeyboardWatcher
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-  - MaterialComponents/Buttons (80.0.0):
-    - MaterialComponents/Ink
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/Shapes
-    - MaterialComponents/Typography
-    - MDFInternationalization
-    - MDFTextAccessibility
-  - MaterialComponents/Ink (80.0.0):
-    - MaterialComponents/private/Math
-  - MaterialComponents/private/Application (80.0.0)
-  - MaterialComponents/private/KeyboardWatcher (80.0.0):
-    - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (80.0.0)
-  - MaterialComponents/ShadowElevations (80.0.0)
-  - MaterialComponents/ShadowLayer (80.0.0):
-    - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (80.0.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (80.0.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowLayer
-  - MaterialComponents/Typography (80.0.0):
-    - MaterialComponents/private/Application
-    - MaterialComponents/private/Math
-  - MDFInternationalization (2.0.0)
-  - MDFTextAccessibility (2.0.0)
-  - RxAtomic (4.4.2)
-  - RxCocoa (4.4.2):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxSwift (4.4.2):
-    - RxAtomic (>= 4.4.2, ~> 4.4)
+  - RxCocoa (6.0.0-rc.2):
+    - RxRelay (= 6.0.0-rc.2)
+    - RxSwift (= 6.0.0-rc.2)
+  - RxRelay (6.0.0-rc.2):
+    - RxSwift (= 6.0.0-rc.2)
+  - RxSwift (6.0.0-rc.2)
   - SwiftLint (0.31.0)
 
 DEPENDENCIES:
-  - MaterialComponents/BottomSheet
-  - MaterialComponents/Buttons
-  - RxCocoa (~> 4.0)
-  - RxSwift (~> 4.0)
+  - RxCocoa (= 6.0.0-rc.2)
+  - RxSwift (= 6.0.0-rc.2)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - MaterialComponents
-    - MDFInternationalization
-    - MDFTextAccessibility
-    - RxAtomic
-    - RxCocoa
-    - RxSwift
     - SwiftLint
+  trunk:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
-  MaterialComponents: fcd7ab0d6087bce852e2c60c2c712809f76c7f9e
-  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
-  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
-  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
-  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  RxCocoa: 38445a25751be5907f52f7ea02c137f52ce2e7f2
+  RxRelay: b9e2483e83f46e4e7bf1234c6fe418e5c2eaf825
+  RxSwift: ada35be6643bedf6881cdbd6bbfb27aeea527670
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: badbc6938ea749f3c91f6d8a76d733455d54f45e
+PODFILE CHECKSUM: 55a32dad67e675a128aaa3efc8e0897dcf06c36b
 
 COCOAPODS: 1.8.4

@@ -6,9 +6,7 @@ target 'Studs' do
   use_frameworks!
 
   # Pods for Studs
-  pod 'RxSwift', '~> 4.0'
-  pod 'RxCocoa', '~> 4.0'
+	pod 'RxSwift', '6.0.0-rc.2'
+	pod 'RxCocoa', '6.0.0-rc.2'
   pod 'SwiftLint'
-  pod 'MaterialComponents/BottomSheet'
-  pod 'MaterialComponents/Buttons'
 end

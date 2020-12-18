@@ -26,7 +26,7 @@ private struct RawUserResponse: Decodable {
 	let id: String
 	let firstName: String
 	let lastName: String
-	let studsYear: Int
+	let studsYear: Int?
 	let role: String?
 	let info: UserInfo?
 }
@@ -57,7 +57,7 @@ struct User: Decodable, GraphQLMultipleResponse {
 	let id: String
 	let firstName: String
 	let lastName: String
-	let studsYear: Int
+	let studsYear: Int?
 	let role: String?
 
 	//From info obj
