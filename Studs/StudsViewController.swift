@@ -15,7 +15,10 @@ final class StudsViewController: UITabBarController {
     }
 
     private func setupApplication() {
-        let eventsViewController = UINavigationController(rootViewController: EventsViewController.instance()).apply {
+
+		let isLoggedIn = UserManager.isLoggedIn()
+
+        let eventsViewController = UINavigationController(rootViewController: EventsViewController.instance(withName: "EventsView")).apply {
             $0.tabBarItem = UITabBarItem(title: "Events", image: #imageLiteral(resourceName: "eventsTab"), tag: 0)
         }
 

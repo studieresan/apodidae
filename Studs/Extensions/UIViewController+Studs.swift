@@ -12,13 +12,19 @@ extension UIViewController {
     static func instance() -> Self {
         let storyboardName = String(describing: self)
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        return storyboard.initialViewController()
+		guard let viewController: Self = storyboard.initialViewController() else {
+			fatalError("No vc with name \(storyboardName)")
+		}
+        return viewController
     }
 
 	///Instance with name of storyboard file
 	static func instance(withName storyboardName: String) -> Self {
 		let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-		return storyboard.initialViewController()
+		guard let viewController: Self = storyboard.initialViewController() else {
+			fatalError("No vc with name \(storyboardName)")
+		}
+		return viewController
 	}
 
     func setTabBarVisible(visible: Bool, animated: Bool) {

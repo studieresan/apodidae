@@ -13,7 +13,7 @@ final class EventsViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var eventsTable: UITableView!
 
-    let viewModel = EventsViewModel()
+	let viewModel: EventsViewModel = UserManager.isLoggedIn() ? PrivateEventsViewModel() : PublicEventsViewModel()
 
     private let refreshControl = UIRefreshControl()
 
@@ -30,6 +30,7 @@ final class EventsViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.eventsTable.reloadData()
                 self?.refreshControl.endRefreshing()
+				print("Reloading")
             }
         }
 
@@ -65,7 +66,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sectionTitles.count
+		return viewModel.sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,7 +83,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         header.addSubview(label)
 
         header.backgroundColor = UIColor.primaryBG
-        label.text = viewModel.sectionTitles[section]
+		label.text = viewModel.sections[section].title
 
         let fontWeight = section == 0 ? UIFont.Weight.heavy : UIFont.Weight.regular
         label.font = UIFont.systemFont(ofSize: 38, weight: fontWeight)
@@ -98,7 +99,9 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of EventTableViewCell")
         }
 
-        let cellViewModel = viewModel.getCellViewModel(at: indexPath)
+		let event = viewModel.getEvent(at: indexPath)
+		let cellViewModel = EventCellViewModel(event: event)
+
         cell.month.text = cellViewModel.month
         cell.day.text = cellViewModel.day
         cell.companyName.text = cellViewModel.companyName
@@ -110,7 +113,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEvent = viewModel.getEvent(at: indexPath)
-        let eventDetailViewController = EventDetailViewController.instance()
+		let eventDetailViewController = EventDetailViewController.instance(withName: "EventDetailView")
         eventDetailViewController.event = selectedEvent
         navigationController?.pushViewController(eventDetailViewController, animated: true)
     }

@@ -17,8 +17,10 @@
 		2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BFB52588D269001556FC /* UIImage+Studs.swift */; };
 		21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7BAD125826077004D5D54 /* CountdownVC.swift */; };
 		21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* Countdown.storyboard */; };
+		21FBF805258D057C00B3A3ED /* PublicEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */; };
+		21FBF808258D059500B3A3ED /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBF807258D059500B3A3ED /* EventsViewModel.swift */; };
 		8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */; };
-		8B1440AD2220322400AE767B /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AC2220322400AE767B /* EventsViewModel.swift */; };
+		8B1440AD2220322400AE767B /* PrivateEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AC2220322400AE767B /* PrivateEventsViewModel.swift */; };
 		8B1440AF2221772D00AE767B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1440AE2221772D00AE767B /* LoginViewController.storyboard */; };
 		8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B02221779C00AE767B /* LoginViewController.swift */; };
 		8B1440B42221831100AE767B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B32221831100AE767B /* Login.swift */; };
@@ -26,7 +28,7 @@
 		8B3936BD222C64700032442F /* StudsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3936BC222C646F0032442F /* StudsButton.swift */; };
 		8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B63A3DA2210CD670098909F /* EventTableViewCell.swift */; };
 		8B8FC9E222301374000C7796 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FC9E122301374000C7796 /* UserManager.swift */; };
-		8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */; };
+		8BA00BD3221C08D70042351B /* EventDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA00BD2221C08D70042351B /* EventDetailView.storyboard */; };
 		8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */; };
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
@@ -37,7 +39,7 @@
 		8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3783092183C3F8004F083F /* UIStoryboard+Studs.swift */; };
 		8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E37830D2183C4EF004F083F /* ForgotPasswordViewController.storyboard */; };
 		8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37830F2183C507004F083F /* ForgotPasswordViewController.swift */; };
-		8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EA641592184A1D300A138EB /* EventsViewController.storyboard */; };
+		8EA6415A2184A1D300A138EB /* EventsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EA641592184A1D300A138EB /* EventsView.storyboard */; };
 		8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415B2184A1E000A138EB /* EventsViewController.swift */; };
 		8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */; };
 		8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */; };
@@ -55,10 +57,12 @@
 		2175BFB52588D269001556FC /* UIImage+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Studs.swift"; sourceTree = "<group>"; };
 		21A7BAD125826077004D5D54 /* CountdownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownVC.swift; sourceTree = "<group>"; };
 		21A7BAD625827C53004D5D54 /* Countdown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Countdown.storyboard; sourceTree = "<group>"; };
+		21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEventsViewModel.swift; sourceTree = "<group>"; };
+		21FBF807258D059500B3A3ED /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Studs/Pods-Studs.release.xcconfig"; sourceTree = "<group>"; };
 		8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCellViewModel.swift; path = Studs/Events/ViewModels/EventCellViewModel.swift; sourceTree = SOURCE_ROOT; };
-		8B1440AC2220322400AE767B /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		8B1440AC2220322400AE767B /* PrivateEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateEventsViewModel.swift; sourceTree = "<group>"; };
 		8B1440AE2221772D00AE767B /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		8B1440B02221779C00AE767B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8B1440B32221831100AE767B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -66,7 +70,7 @@
 		8B3936BC222C646F0032442F /* StudsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsButton.swift; sourceTree = "<group>"; };
 		8B63A3DA2210CD670098909F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		8B8FC9E122301374000C7796 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Studs/UserManager.swift; sourceTree = SOURCE_ROOT; };
-		8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailViewController.storyboard; sourceTree = "<group>"; };
+		8BA00BD2221C08D70042351B /* EventDetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailView.storyboard; sourceTree = "<group>"; };
 		8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Studs.swift"; sourceTree = "<group>"; };
 		8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +83,7 @@
 		8E3783092183C3F8004F083F /* UIStoryboard+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Studs.swift"; sourceTree = "<group>"; };
 		8E37830D2183C4EF004F083F /* ForgotPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPasswordViewController.storyboard; sourceTree = "<group>"; };
 		8E37830F2183C507004F083F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		8EA641592184A1D300A138EB /* EventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsViewController.storyboard; sourceTree = "<group>"; };
+		8EA641592184A1D300A138EB /* EventsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsView.storyboard; sourceTree = "<group>"; };
 		8EA6415B2184A1E000A138EB /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Studs.swift"; sourceTree = "<group>"; };
 		8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,16 @@
 			isa = PBXGroup;
 			children = (
 				21A7BAD125826077004D5D54 /* CountdownVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		21FBF802258D03F700B3A3ED /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */,
+				8EA6415B2184A1E000A138EB /* EventsViewController.swift */,
+				8B63A3DA2210CD670098909F /* EventTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -215,7 +229,7 @@
 		8EA641582184A1BE00A138EB /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				8EAC487C2184EFCF00BB36A2 /* Models */,
+				21FBF802258D03F700B3A3ED /* ViewControllers */,
 				8EAC48662184BA6200BB36A2 /* Views */,
 				8EAC48672184BA6700BB36A2 /* ViewModels */,
 			);
@@ -244,11 +258,8 @@
 		8EAC48662184BA6200BB36A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8EA641592184A1D300A138EB /* EventsViewController.storyboard */,
-				8B63A3DA2210CD670098909F /* EventTableViewCell.swift */,
-				8EA6415B2184A1E000A138EB /* EventsViewController.swift */,
-				8BA00BD2221C08D70042351B /* EventDetailViewController.storyboard */,
-				8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */,
+				8EA641592184A1D300A138EB /* EventsView.storyboard */,
+				8BA00BD2221C08D70042351B /* EventDetailView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,7 +268,9 @@
 			isa = PBXGroup;
 			children = (
 				8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */,
-				8B1440AC2220322400AE767B /* EventsViewModel.swift */,
+				8B1440AC2220322400AE767B /* PrivateEventsViewModel.swift */,
+				21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */,
+				21FBF807258D059500B3A3ED /* EventsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -286,13 +299,6 @@
 				2175BF86258661C6001556FC /* Profile.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8EAC487C2184EFCF00BB36A2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		8EAC487F2184F1C300BB36A2 /* Network */ = {
@@ -387,10 +393,10 @@
 				8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */,
 				2175BF87258661C6001556FC /* Profile.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordViewController.storyboard in Resources */,
-				8EA6415A2184A1D300A138EB /* EventsViewController.storyboard in Resources */,
+				8EA6415A2184A1D300A138EB /* EventsView.storyboard in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
 				21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */,
-				8BA00BD3221C08D70042351B /* EventDetailViewController.storyboard in Resources */,
+				8BA00BD3221C08D70042351B /* EventDetailView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +469,7 @@
 				2175BF9925866C52001556FC /* User.swift in Sources */,
 				8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */,
 				2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */,
-				8B1440AD2220322400AE767B /* EventsViewModel.swift in Sources */,
+				8B1440AD2220322400AE767B /* PrivateEventsViewModel.swift in Sources */,
 				8B1440B42221831100AE767B /* Login.swift in Sources */,
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
 				8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */,
@@ -471,10 +477,12 @@
 				8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */,
 				2175BF9525866C4C001556FC /* Company.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
+				21FBF805258D057C00B3A3ED /* PublicEventsViewModel.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
 				2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */,
 				21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */,
+				21FBF808258D059500B3A3ED /* EventsViewModel.swift in Sources */,
 				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
 				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
 				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,

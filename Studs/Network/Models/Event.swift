@@ -13,6 +13,7 @@ struct Event: Decodable, GraphQLMultipleResponse {
 	static var rootFieldMultiple: String = "events"
 
     let id: String
+	let published: Bool
     let company: Company?
     let schedule: String?
     let location: String?
