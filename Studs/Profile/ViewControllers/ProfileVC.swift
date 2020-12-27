@@ -40,9 +40,10 @@ class ProfileViewController: UIViewController {
 
 	func logout() {
 		UserManager.clearUserData()
-		let loginView = LoginViewController.instance()
-		loginView.modalPresentationStyle = .fullScreen
-		self.present(loginView, animated: true, completion: nil)
+		DispatchQueue.main.async {
+			let studsVC = self.parent?.parent as? StudsViewController
+			studsVC?.updateViewControllers()
+		}
 	}
 
 	func fetchUser() {

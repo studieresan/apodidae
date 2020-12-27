@@ -46,9 +46,8 @@ final class LoginViewController: UIViewController {
         viewModel.onLoginChange = { [weak self] (isLoggedIn) in
             if isLoggedIn {
                 DispatchQueue.main.async {
-					let studsVC = StudsViewController()
-					studsVC.modalPresentationStyle = .fullScreen
-                    self?.present(studsVC, animated: true, completion: nil)
+					let studsVC = self?.parent?.parent as? StudsViewController
+					studsVC?.updateViewControllers()
                 }
             }
         }

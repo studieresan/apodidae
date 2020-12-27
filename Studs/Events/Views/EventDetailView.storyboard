@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,12 +24,22 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="aja-vv-AT0">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="873.5"/>
                                         <subviews>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJS-sQ-pt7">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcg-k2-4sz">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                                <subviews>
+                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJS-sQ-pt7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                                    </mapView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="256" id="NMu-4d-eJP"/>
+                                                    <constraint firstItem="DJS-sQ-pt7" firstAttribute="top" secondItem="lcg-k2-4sz" secondAttribute="top" id="NpF-ny-XQM"/>
+                                                    <constraint firstAttribute="height" constant="256" id="VdS-ZX-gat"/>
+                                                    <constraint firstAttribute="bottom" secondItem="DJS-sQ-pt7" secondAttribute="bottom" id="W9n-Nt-wNx"/>
+                                                    <constraint firstItem="DJS-sQ-pt7" firstAttribute="leading" secondItem="lcg-k2-4sz" secondAttribute="leading" id="qH3-4h-ghW"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DJS-sQ-pt7" secondAttribute="trailing" id="w01-2B-8fR"/>
                                                 </constraints>
-                                            </mapView>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="InY-kH-rYf">
                                                 <rect key="frame" x="0.0" y="256" width="375" height="617.5"/>
                                                 <subviews>
@@ -278,11 +289,13 @@
                         <outlet property="companyName" destination="Eel-2a-qov" id="hCn-01-pM8"/>
                         <outlet property="descriptionText" destination="vLz-iG-yGm" id="9mX-Yd-t9X"/>
                         <outlet property="eventAddress" destination="heG-NP-3bX" id="qIl-SF-Khr"/>
+                        <outlet property="eventInformation" destination="x1X-J1-Tl8" id="SB9-jF-hVJ"/>
                         <outlet property="eventTime" destination="XBo-Nl-G8x" id="jzs-Ba-hph"/>
                         <outlet property="eventTitleDay" destination="ewm-3C-evj" id="CL3-1E-X3o"/>
                         <outlet property="eventTitleMonth" destination="0Ur-1I-DTg" id="Qvb-Sg-pzd"/>
                         <outlet property="mapView" destination="DJS-sQ-pt7" id="IPP-W4-d07"/>
                         <outlet property="scrollView" destination="4bJ-pF-36q" id="KTF-bR-nW6"/>
+                        <outlet property="surveysView" destination="hDL-FU-Wlm" id="Wfv-Xc-EsB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47J-Ip-0Om" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,5 +312,8 @@
         <namedColor name="TextColor">
             <color red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

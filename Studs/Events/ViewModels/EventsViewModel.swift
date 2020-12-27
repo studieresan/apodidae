@@ -42,15 +42,12 @@ extension EventsViewModel {
 
 	///Fetch the data, group it and assign to self
 	func fetchData() {
-		print("Fetching data")
 		// Fetch the events
 		Http.fetchEvents(studsYear: self.studsYearParameter).subscribe(onNext: { [self] events in
 
-			print("Got events")
 			// Sort events, earliest first
-			let sortedEvents = events.sorted(by: { $0 < $1 })
+			let sortedEvents = events.sorted(by: { $0 > $1 })
 
-			print("Grouping")
 			let groupedEvents = self.groupEvents(sortedEvents)
 
 			self.sections = groupedEvents

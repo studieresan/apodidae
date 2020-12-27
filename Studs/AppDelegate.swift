@@ -32,10 +32,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let rootVC = UserManager.isLoggedIn() ? StudsViewController() : LoginViewController.instance()
-
         window?.run {
-            $0.rootViewController = rootVC
+            $0.rootViewController = StudsViewController()
             $0.makeKeyAndVisible()
         }
 

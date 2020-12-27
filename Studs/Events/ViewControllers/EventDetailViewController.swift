@@ -14,7 +14,7 @@ final class EventDetailViewController: UIViewController {
 
     // MARK: Properties
 
-    public var event: Event?
+    public var event: Event!
 
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -28,6 +28,9 @@ final class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventAddress: UILabel!
 
     @IBOutlet weak var descriptionText: UITextView!
+
+	@IBOutlet weak var eventInformation: UIView!
+	@IBOutlet weak var surveysView: UIView!
 
     // MARK: Lifecycle
 
@@ -52,6 +55,12 @@ final class EventDetailViewController: UIViewController {
             initDescription()
             setInitialLocation()
         }
+
+		//If we are not logged in, don't show info such as exact location or internal surveys
+		let shouldHidePrivateInfo = !UserManager.isLoggedIn()
+
+		surveysView.isHidden = shouldHidePrivateInfo
+		eventInformation.isHidden = shouldHidePrivateInfo
 
 		self.title = event?.company?.name
         setUpClickListeners()
@@ -166,7 +175,8 @@ final class EventDetailViewController: UIViewController {
 
     private func initDescription() {
         descriptionText.run {
-            $0.text = event!.privateDescription
+			$0.text = UserManager.isLoggedIn() ? event.privateDescription :
+				event.publicDescription
             // Remove textview padding
             $0.textContainerInset = UIEdgeInsets.zero
             $0.textContainer.lineFragmentPadding = 0

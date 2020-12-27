@@ -22,13 +22,11 @@ class PublicEventsViewModel: EventsViewModel {
 	var reloadTableViewClosure: (() -> Void)!
 
 	func groupEvents(_ events: [Event]) -> [(title: String, events: [Event])] {
-		print("Group events private")
 
 		var yearEventDict: [Int: [Event]] = [:]
 		events
-//			.filter({$0.published})
+			.filter({$0.published}) //Only show published events in public view
 			.forEach({event in
-				print("Published? ", event.published)
 			let studsYear = event.studsYear ?? -1
 			if yearEventDict[studsYear] == nil {
 				yearEventDict[studsYear] = [event]
@@ -45,8 +43,6 @@ class PublicEventsViewModel: EventsViewModel {
 		let sortedResult = unsortedResult.sorted(by: {section1, section2 in
 			return section1.title > section2.title
 		})
-
-		print("Private grouped", sortedResult)
 
 		return sortedResult
 	}
