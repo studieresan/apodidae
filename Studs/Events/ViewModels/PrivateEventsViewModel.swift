@@ -55,14 +55,20 @@ class PrivateEventsViewModel: EventsViewModel {
      the next event, all upcoming events (not including next event), all past events.
      */
 	func groupEvents(_ events: [Event]) -> [(title: String, events: [Event])] {
+		//The events are in order based on date, the earliest event last
         let today = Date()
-        let idxOfFirstUpcoming = events.firstIndex(where: {
-            $0.getDate()! > today
-        }) ?? 0
 
-        let nextEvent = [events[idxOfFirstUpcoming]]
-        let upcomingEvents = Array(events[idxOfFirstUpcoming+1..<events.count])
-        let pastEvents = Array(events[0..<idxOfFirstUpcoming])
+		//If there is no event where today is
+        let idxOfFirstPrevious = events.firstIndex(where: {
+            $0.getDate() <= today
+		}) ?? 0
+
+        var upcomingEvents = Array(events[0..<idxOfFirstPrevious])
+        let pastEvents = Array(events[idxOfFirstPrevious..<events.count])
+
+		//If there are upcomming events, the first should be next event so remove it from
+		//upcomming and set it as next. If there are no upcomming, there is no "next event" either
+		let nextEvent = upcomingEvents.count > 0 ? [upcomingEvents.removeFirst()] : []
 
 		let nextEventSection = (title: "Nästa event", events: nextEvent)
 		let upcomingEventsSection = (title: "Kommande events", events: upcomingEvents)

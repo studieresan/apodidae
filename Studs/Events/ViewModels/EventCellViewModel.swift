@@ -15,7 +15,7 @@ struct EventCellViewModel {
 
 	init(event: Event) {
 
-		let date = event.getDate() ?? Date(timeIntervalSince1970: 0)
+		let date = event.getDate()
 
 		let dateFormatter = DateFormatter()
 

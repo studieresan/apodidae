@@ -45,21 +45,21 @@ extension Event: Comparable {
         let lhsDate = lhs.getDate()
         let rhsDate = rhs.getDate()
 
-        return lhsDate ?? Date.distantPast < rhsDate ?? Date.distantPast
+        return lhsDate < rhsDate
     }
 
     static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.id == rhs.id
     }
 
-    func getDate() -> Date? {
+    func getDate() -> Date {
 		guard let date = self.date else {
-			return Date()
+			return Date(timeIntervalSince1970: 0)
 		}
         let dateFormatter = ISO8601DateFormatter()
         // iOS <11 can't parse ISO8601 dates with milliseconds, so we remove them
 		let trimmed = date.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
         let trimmedDate = dateFormatter.date(from: trimmed)
-        return trimmedDate
+		return trimmedDate ?? Date(timeIntervalSince1970: 0)
     }
 }

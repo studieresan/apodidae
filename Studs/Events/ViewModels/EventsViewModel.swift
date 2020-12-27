@@ -18,7 +18,7 @@ protocol EventsViewModel: AnyObject {
 	///Array of section title and the events in this section
 	var sections: [(title: String, events: [Event])] { get set }
 
-	///Group the events into section title and events in section
+	///Group the events into section title and events in section. The events passed are sorted by date, the earlies event last
 	func groupEvents(_ events: [Event]) -> [(title: String, events: [Event])]
 
 	var reloadTableViewClosure: (() -> Void)! { get set }
