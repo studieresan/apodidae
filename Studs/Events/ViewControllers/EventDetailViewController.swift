@@ -16,6 +16,7 @@ final class EventDetailViewController: UIViewController {
 
     public var event: Event!
 
+	//Image view controllers when user is not logged in
 	var images: [UIViewController] = []
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -53,25 +54,20 @@ final class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
+		scrollView.contentOffset.y = 0
 
-        if event != nil {
-            initEventTitle()
-            initDescription()
-            setInitialLocation()
-        }
+		initEventTitle()
+		initDescription()
 
 		//If we are not logged in, don't show info such as exact location or internal surveys
-		let shouldHidePrivateInfo = !UserManager.isLoggedIn()
-
-		surveysView.isHidden = shouldHidePrivateInfo
-		eventInformation.isHidden = shouldHidePrivateInfo
-
-//		mapView.isHidden = shouldHidePrivateInfo
-
-		if shouldHidePrivateInfo {
-			headerView.willRemoveSubview(mapView)
+		if !UserManager.isLoggedIn() {
 			mapView.removeFromSuperview()
+			surveysView.removeFromSuperview()
+			eventInformation.removeFromSuperview()
+
 			setupImageGallery()
+		} else { //If we are logged in, init the map things
+			setInitialLocation()
 		}
 
 		self.title = event?.company?.name
@@ -79,19 +75,20 @@ final class EventDetailViewController: UIViewController {
     }
 
 	private func setupImageGallery() {
-		print("Setting up")
 		self.images = event.pictures?.map({imageURL in
 			let view = UIImageView()
 			view.imageFromURL(urlString: imageURL)
-//
+
+			view.contentMode = .scaleAspectFit
+
 			let viewController = UIViewController()
 
-			view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
+//			view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
 
 			viewController.view = view
 
 			return viewController
-		}) ?? []
+		}) ?? [UIViewController()]
 
 		let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
 
@@ -101,43 +98,13 @@ final class EventDetailViewController: UIViewController {
 		self.headerView.addSubview(pageController.view)
 		self.addChild(pageController)
 
-		headerView.translatesAutoresizingMaskIntoConstraints = false
+//		headerView.translatesAutoresizingMaskIntoConstraints = false
 
 		pageController.view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
-
-//		let margins = headerView.readableContentGuide
-//		pageController.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-//		pageController.view.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-//		pageController.view.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
-//		pageController.view.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
-
-//		pageController.view.backgroundColor = .orange
 
 		pageController.setViewControllers([self.images.first!], direction: .forward, animated: true, completion: nil)
 
 		pageController.didMove(toParent: self)
-
-//		let view = UIView()
-//		view.backgroundColor = [UIColor.black, UIColor.orange, UIColor.cyan].randomElement()!
-//
-//		view.translatesAutoresizingMaskIntoConstraints = false
-//
-//		headerView.addSubview(view)
-//
-//		let margins = headerView.safeAreaLayoutGuide
-//		view.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-//		view.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-//		view.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
-//		view.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
-//
-//		let lbl = UILabel()
-//		lbl.text = "BAJS"
-//
-//		view.addSubview(lbl)
-
-		print("Added")
-
-
 	}
 
     private func setUpClickListeners() {
