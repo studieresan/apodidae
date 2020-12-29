@@ -16,6 +16,8 @@ final class EventDetailViewController: UIViewController {
 
     public var event: Event!
 
+	var images: [UIViewController] = []
+
     @IBOutlet weak var scrollView: UIScrollView!
 
     @IBOutlet weak var mapView: MKMapView!
@@ -31,6 +33,8 @@ final class EventDetailViewController: UIViewController {
 
 	@IBOutlet weak var eventInformation: UIView!
 	@IBOutlet weak var surveysView: UIView!
+
+	@IBOutlet weak var headerView: UIView!
 
     // MARK: Lifecycle
 
@@ -62,9 +66,79 @@ final class EventDetailViewController: UIViewController {
 		surveysView.isHidden = shouldHidePrivateInfo
 		eventInformation.isHidden = shouldHidePrivateInfo
 
+//		mapView.isHidden = shouldHidePrivateInfo
+
+		if shouldHidePrivateInfo {
+			headerView.willRemoveSubview(mapView)
+			mapView.removeFromSuperview()
+			setupImageGallery()
+		}
+
 		self.title = event?.company?.name
         setUpClickListeners()
     }
+
+	private func setupImageGallery() {
+		print("Setting up")
+		self.images = event.pictures?.map({imageURL in
+			let view = UIImageView()
+			view.imageFromURL(urlString: imageURL)
+//
+			let viewController = UIViewController()
+
+			view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
+
+			viewController.view = view
+
+			return viewController
+		}) ?? []
+
+		let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+
+		pageController.dataSource = self
+		pageController.delegate = self
+
+		self.headerView.addSubview(pageController.view)
+		self.addChild(pageController)
+
+		headerView.translatesAutoresizingMaskIntoConstraints = false
+
+		pageController.view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
+
+//		let margins = headerView.readableContentGuide
+//		pageController.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+//		pageController.view.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+//		pageController.view.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+//		pageController.view.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
+
+//		pageController.view.backgroundColor = .orange
+
+		pageController.setViewControllers([self.images.first!], direction: .forward, animated: true, completion: nil)
+
+		pageController.didMove(toParent: self)
+
+//		let view = UIView()
+//		view.backgroundColor = [UIColor.black, UIColor.orange, UIColor.cyan].randomElement()!
+//
+//		view.translatesAutoresizingMaskIntoConstraints = false
+//
+//		headerView.addSubview(view)
+//
+//		let margins = headerView.safeAreaLayoutGuide
+//		view.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+//		view.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+//		view.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+//		view.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
+//
+//		let lbl = UILabel()
+//		lbl.text = "BAJS"
+//
+//		view.addSubview(lbl)
+
+		print("Added")
+
+
+	}
 
     private func setUpClickListeners() {
         eventAddress.run {
@@ -227,4 +301,21 @@ extension EventDetailViewController: UIScrollViewDelegate {
             scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         }
     }
+}
+
+extension EventDetailViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+	func pageViewController(
+		_ pageViewController: UIPageViewController,
+		viewControllerBefore viewController: UIViewController
+	) -> UIViewController? {
+		let newIndex = self.images.firstIndex(of: viewController)! - 1
+		let elem = newIndex < self.images.startIndex ? self.images.last! : self.images[newIndex]
+		return elem
+	}
+
+	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+		let newIndex = self.images.firstIndex(of: viewController)! + 1
+		let elem = newIndex >= self.images.endIndex ? self.images.first! : self.images[newIndex]
+		return elem
+	}
 }

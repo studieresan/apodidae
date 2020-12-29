@@ -23,6 +23,7 @@ struct Event: Decodable, GraphQLMultipleResponse {
     let afterSurvey: String?
     let date: String?
 	let studsYear: Int?
+	let pictures: [String]?
 	//TODO: Implement user struct
 	//let responsible: User
 

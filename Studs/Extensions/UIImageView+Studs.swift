@@ -12,7 +12,8 @@ extension UIImageView {
 
     // https://stackoverflow.com/questions/39813497/swift-3-display-image-from-url/46788201
     public func imageFromURL(urlString: String) {
-        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, _, error) -> Void in
+		let transformedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+		URLSession.shared.dataTask(with: URL(string: transformedURL!)!, completionHandler: { (data, _, error) -> Void in
 
             if error != nil {
                 print(error!)

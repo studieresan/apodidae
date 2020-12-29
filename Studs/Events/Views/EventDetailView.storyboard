@@ -293,6 +293,7 @@
                         <outlet property="eventTime" destination="XBo-Nl-G8x" id="jzs-Ba-hph"/>
                         <outlet property="eventTitleDay" destination="ewm-3C-evj" id="CL3-1E-X3o"/>
                         <outlet property="eventTitleMonth" destination="0Ur-1I-DTg" id="Qvb-Sg-pzd"/>
+                        <outlet property="headerView" destination="lcg-k2-4sz" id="DNL-om-zd3"/>
                         <outlet property="mapView" destination="DJS-sQ-pt7" id="IPP-W4-d07"/>
                         <outlet property="scrollView" destination="4bJ-pF-36q" id="KTF-bR-nW6"/>
                         <outlet property="surveysView" destination="hDL-FU-Wlm" id="Wfv-Xc-EsB"/>
