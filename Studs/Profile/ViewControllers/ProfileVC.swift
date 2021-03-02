@@ -50,6 +50,10 @@ class ProfileViewController: UIViewController {
 		Http.fetchUser().subscribe(onNext: { [weak self] user in
 			guard let self = self else { return }
 
+			DispatchQueue.main.async {
+				self.nameLabel.text = "\(user.firstName) \(user.lastName)"
+			}
+
 			if let imageURL = user.picture {
 				DispatchQueue.main.async {
 					let radius = self.imageView.layer.frame.width / 2
