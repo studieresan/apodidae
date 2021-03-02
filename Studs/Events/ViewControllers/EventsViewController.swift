@@ -94,12 +94,22 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         return header
     }
 
+	private func renderCardCell(event: Event) -> UITableViewCell {
+
+		return UITableViewCell()
+	}
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let event = viewModel.getEvent(at: indexPath)
+
+		if event.isCard {
+			//Render cell as card
+			return renderCardCell(event: event)
+		}
         guard let cell = eventsTable.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {
             fatalError("The dequeued cell is not an instance of EventTableViewCell")
         }
-
-		let event = viewModel.getEvent(at: indexPath)
+		//Render regular event row cell
 		let cellViewModel = EventCellViewModel(event: event)
 
         cell.month.text = cellViewModel.month

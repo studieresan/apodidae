@@ -27,8 +27,12 @@ struct Event: Decodable, GraphQLMultipleResponse {
 	//TODO: Implement user struct
 	//let responsible: User
 
-    enum EventCodingKeys: String, CodingKey {
+	//If event should be rendered as a card in events list
+	var isCard: Bool = false
+
+    enum CodingKeys: String, CodingKey {
         case id
+		case published
         case company
         case schedule
         case location
@@ -38,6 +42,7 @@ struct Event: Decodable, GraphQLMultipleResponse {
         case afterSurvey
         case date
 		case studsYear
+		case pictures
     }
 }
 

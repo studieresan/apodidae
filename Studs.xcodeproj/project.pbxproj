@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */; };
+		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		2175BF87258661C6001556FC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2175BF86258661C6001556FC /* Profile.storyboard */; };
 		2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8A2586634B001556FC /* ProfileVC.swift */; };
 		2175BF902586664B001556FC /* GraphQLFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8F2586664B001556FC /* GraphQLFields.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		2175BF86258661C6001556FC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2175BF8A2586634B001556FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		2175BF8F2586664B001556FC /* GraphQLFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFields.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				8B1440AC2220322400AE767B /* PrivateEventsViewModel.swift */,
 				21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */,
 				21FBF807258D059500B3A3ED /* EventsViewModel.swift */,
+				215129C125EE46C500464134 /* EventSection.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,
 				8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */,
 				8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */,
+				215129C225EE46C500464134 /* EventSection.swift in Sources */,
 				8E3783082183C3CF004F083F /* UIViewController+Studs.swift in Sources */,
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
 				8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */,

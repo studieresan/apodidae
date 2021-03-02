@@ -16,18 +16,7 @@ class PrivateEventsViewModel: EventsViewModel {
     // MARK: Properties
 
 	///Array of section title and the events in this section
-	var sections: [(title: String, events: [Event])] = []
-
-    // Array of next event, upcoming events, past events
-    private var events = [[Event](), [Event](), [Event]()]
-
-    // Array of next event cellVM, upcoming event cellVMs, past event cellVMs
-    private var cellViewModels: [[EventCellViewModel]] =
-        [[EventCellViewModel](), [EventCellViewModel](), [EventCellViewModel]()] {
-        didSet {
-            self.reloadTableViewClosure?()
-        }
-    }
+	var sections: [EventSection] = []
 
     var disposeBag = DisposeBag()
 
@@ -37,15 +26,11 @@ class PrivateEventsViewModel: EventsViewModel {
     // MARK: Public methods
 
     func getEvent(at indexPath: IndexPath) -> Event {
-        return events[indexPath.section][indexPath.row]
-    }
-
-    func getCellViewModel(at indexPath: IndexPath) -> EventCellViewModel {
-        return cellViewModels[indexPath.section][indexPath.row]
+		return sections[indexPath.section].events[indexPath.row]
     }
 
     func numberOfRowsInSection(section: Int) -> Int {
-        return cellViewModels[section].count
+		return sections[section].events.count
     }
 
     // MARK: Private methods
@@ -54,7 +39,7 @@ class PrivateEventsViewModel: EventsViewModel {
      Takes an array of Events and divides them into three categories:
      the next event, all upcoming events (not including next event), all past events.
      */
-	func groupEvents(_ events: [Event]) -> [(title: String, events: [Event])] {
+	func groupEvents(_ events: [Event]) -> [EventSection] {
 		//The events are in order based on date, the earliest event last
         let today = Date()
 
@@ -63,16 +48,23 @@ class PrivateEventsViewModel: EventsViewModel {
             $0.getDate() <= today
 		}) ?? 0
 
-        var upcomingEvents = Array(events[0..<idxOfFirstPrevious])
+		//Reversed for the order of events to be [next event, the one after that, ...]
+		var upcomingEvents: [Event] = Array(events[0..<idxOfFirstPrevious]).reversed()
         let pastEvents = Array(events[idxOfFirstPrevious..<events.count])
 
 		//If there are upcomming events, the first should be next event so remove it from
 		//upcomming and set it as next. If there are no upcomming, there is no "next event" either
-		let nextEvent = upcomingEvents.count > 0 ? [upcomingEvents.removeFirst()] : []
+		var nextEvent: [Event] = []
+		if upcomingEvents.count > 0 {
+			//If there is a nextEvent, render it as a card
+			var event: Event = upcomingEvents.removeFirst()
+			event.isCard = true
+			nextEvent.append(event)
+		}
 
-		let nextEventSection = (title: "Nästa event", events: nextEvent)
-		let upcomingEventsSection = (title: "Kommande events", events: upcomingEvents)
-		let pastEventsSection = (title: "Tidigare events", events: pastEvents)
+		let nextEventSection = EventSection(events: nextEvent, title: "Nästa event")
+		let upcomingEventsSection = EventSection(events: upcomingEvents, title: "Kommande events")
+		let pastEventsSection = EventSection(events: pastEvents, title: "Tidigare events")
 
         return [nextEventSection, upcomingEventsSection, pastEventsSection]
     }

@@ -16,10 +16,10 @@ protocol EventsViewModel: AnyObject {
 	var studsYearParameter: Int? { get }
 
 	///Array of section title and the events in this section
-	var sections: [(title: String, events: [Event])] { get set }
+	var sections: [EventSection] { get set }
 
 	///Group the events into section title and events in section. The events passed are sorted by date, the earlies event last
-	func groupEvents(_ events: [Event]) -> [(title: String, events: [Event])]
+	func groupEvents(_ events: [Event]) -> [EventSection]
 
 	var reloadTableViewClosure: (() -> Void)! { get set }
 
