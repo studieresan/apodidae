@@ -8,17 +8,17 @@
 
 import UIKit
 import UserNotifications
-import Firebase
-import FirebaseMessaging
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+
+	public static let STUDSYEAR = Bundle.main.infoDictionary!["STUDS_YEAR"] as? Int
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         UserManager.setDefaultPreferences()
 
         UNUserNotificationCenter.current().delegate = self
@@ -32,10 +32,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let rootVC = UserManager.isLoggedIn() ? StudsViewController() : LoginViewController.instance()
-
         window?.run {
-            $0.rootViewController = rootVC
+            $0.rootViewController = StudsViewController()
             $0.makeKeyAndVisible()
         }
 

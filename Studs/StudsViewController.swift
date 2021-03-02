@@ -11,22 +11,38 @@ import UIKit
 final class StudsViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupApplication()
+		updateViewControllers()
     }
 
-    private func setupApplication() {
-        let eventsViewController = UINavigationController(rootViewController: EventsViewController.instance()).apply {
+    func updateViewControllers() {
+
+		var viewControllers: [UIViewController] = []
+
+		let isLoggedIn = UserManager.isLoggedIn()
+
+        let eventsViewController = UINavigationController(rootViewController: EventsViewController.instance(withName: "EventsView")).apply {
             $0.tabBarItem = UITabBarItem(title: "Events", image: #imageLiteral(resourceName: "eventsTab"), tag: 0)
         }
+		viewControllers.append(eventsViewController)
 
-        let travelViewController = UINavigationController(rootViewController: TravelViewController()).apply {
-            $0.tabBarItem = UITabBarItem(title: "Travel", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
-        }
+		if isLoggedIn {
+			let travelViewController = UINavigationController(rootViewController: CountdownVC.instance(withName: "Countdown")).apply {
+				$0.tabBarItem = UITabBarItem(title: "Resan", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
+			}
 
-        let settingsViewController = UINavigationController(rootViewController: AboutViewController()).apply {
-            $0.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "aboutTab"), tag: 2)
-        }
+			let settingsViewController = UINavigationController(rootViewController: ProfileViewController.instance(withName: "Profile")).apply {
+				$0.tabBarItem = UITabBarItem(title: "Profil", image: #imageLiteral(resourceName: "aboutTab"), tag: 2)
+			}
 
-        viewControllers = [eventsViewController, travelViewController, settingsViewController]
+			viewControllers.append(contentsOf: [travelViewController, settingsViewController])
+		} else {
+			let logginViewController = UINavigationController(rootViewController: LoginViewController.instance(withName: "LoginView")).apply {
+				$0.tabBarItem = UITabBarItem(title: "Logga in", image: #imageLiteral(resourceName: "aboutTab"), tag: 2)
+			}
+			viewControllers.append(logginViewController)
+		}
+
+		self.viewControllers = viewControllers
+		self.selectedIndex = 0
     }
 }

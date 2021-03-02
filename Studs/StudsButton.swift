@@ -10,19 +10,14 @@ import UIKit
 
 class StudsButton: UIButton {
 
-    override open var isHighlighted: Bool {
-        didSet {
-            backgroundColor = isHighlighted ? .primaryDark : .primary
-        }
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        titleLabel?.textColor = .white
+		titleLabel?.textColor = .white
         layer.cornerRadius = 20
         clipsToBounds = true
         backgroundColor = .primary
+
     }
 
 }

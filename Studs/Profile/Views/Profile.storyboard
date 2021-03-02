@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G0f-fH-plL">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profil-->
+        <scene sceneID="hE1-Nu-7Db">
+            <objects>
+                <viewController title="Profil" id="G0f-fH-plL" customClass="ProfileViewController" customModule="Studs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qj5-bd-TH5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-yj-EHx">
+                                <rect key="frame" x="20" y="762" width="374" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfh-UH-DLh" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                        <color key="backgroundColor" name="Primary"/>
+                                        <state key="normal" title="LOGGA UT">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onLogoutTapped:" destination="G0f-fH-plL" eventType="touchUpInside" id="Sc2-fz-Jq5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Zjr-Br-Tm9"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SLP-bi-Iww">
+                                <rect key="frame" x="155" y="438" width="104.5" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Testsson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cy-Dq-Da2">
+                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oG6-9C-9Ow">
+                                <rect key="frame" x="132" y="134" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="8rU-D1-1UA"/>
+                                    <constraint firstAttribute="width" secondItem="oG6-9C-9Ow" secondAttribute="height" multiplier="1:1" id="BGI-dO-Vbt"/>
+                                    <constraint firstAttribute="width" constant="150" id="DSu-l0-ewY"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="01C-Xz-JrB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SLP-bi-Iww" firstAttribute="centerX" secondItem="Qj5-bd-TH5" secondAttribute="centerX" id="11B-rj-Yxp"/>
+                            <constraint firstItem="oG6-9C-9Ow" firstAttribute="centerX" secondItem="Qj5-bd-TH5" secondAttribute="centerX" id="ECc-Pl-znv"/>
+                            <constraint firstItem="SLP-bi-Iww" firstAttribute="centerY" secondItem="Qj5-bd-TH5" secondAttribute="centerY" id="Mjm-0p-qaZ"/>
+                            <constraint firstItem="01C-Xz-JrB" firstAttribute="bottom" secondItem="fBf-yj-EHx" secondAttribute="bottom" constant="20" id="b99-eU-2Bv"/>
+                            <constraint firstItem="oG6-9C-9Ow" firstAttribute="top" secondItem="01C-Xz-JrB" secondAttribute="top" constant="90" id="fT5-tz-QXF"/>
+                            <constraint firstItem="01C-Xz-JrB" firstAttribute="trailing" secondItem="fBf-yj-EHx" secondAttribute="trailing" constant="20" id="ibH-Ks-6Qp"/>
+                            <constraint firstItem="fBf-yj-EHx" firstAttribute="leading" secondItem="01C-Xz-JrB" secondAttribute="leading" constant="20" id="njb-zv-1od"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="oG6-9C-9Ow" id="Hbg-nl-Mtb"/>
+                        <outlet property="nameLabel" destination="5cy-Dq-Da2" id="frI-zK-eT6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5zP-8q-fBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322" y="-55"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Primary">
+            <color red="0.74901960784313726" green="0.36078431372549019" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
