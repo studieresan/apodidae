@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */; };
+		211E49F225F00293007A497D /* SampleEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = 211E49F125F00293007A497D /* SampleEvents.json */; };
+		211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E49F525F00B41007A497D /* UITableCellHoster.swift */; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
+		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
+		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
 		2175BF87258661C6001556FC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2175BF86258661C6001556FC /* Profile.storyboard */; };
 		2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8A2586634B001556FC /* ProfileVC.swift */; };
 		2175BF902586664B001556FC /* GraphQLFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8F2586664B001556FC /* GraphQLFields.swift */; };
@@ -49,7 +53,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		211E49F125F00293007A497D /* SampleEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleEvents.json; sourceTree = "<group>"; };
+		211E49F525F00B41007A497D /* UITableCellHoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableCellHoster.swift; sourceTree = "<group>"; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
+		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
+		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
 		2175BF86258661C6001556FC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2175BF8A2586634B001556FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		2175BF8F2586664B001556FC /* GraphQLFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFields.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 				2175BF9425866C4C001556FC /* Company.swift */,
 				2175BF9825866C52001556FC /* User.swift */,
 				2175BF9B2587B32E001556FC /* GraphQLResponse.swift */,
+				211E49F125F00293007A497D /* SampleEvents.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,6 +165,7 @@
 				8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */,
 				8EA6415B2184A1E000A138EB /* EventsViewController.swift */,
 				8B63A3DA2210CD670098909F /* EventTableViewCell.swift */,
+				215129CA25EE530B00464134 /* EventTableCardViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,7 +209,6 @@
 				8E3783042183BB63004F083F /* Extensions */,
 				8E3782F92183B982004F083F /* Assets.xcassets */,
 				8E3782FE2183B982004F083F /* Info.plist */,
-				8B3936BC222C646F0032442F /* StudsButton.swift */,
 				8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */,
 				8B8FC9E122301374000C7796 /* UserManager.swift */,
 			);
@@ -215,6 +224,7 @@
 				8EA6415D2184A3EE00A138EB /* Extensions+Studs.swift */,
 				8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */,
 				2175BFB52588D269001556FC /* UIImage+Studs.swift */,
+				215129CD25EE9A9200464134 /* Image+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,7 +232,9 @@
 		8E37830B2183C485004F083F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8B3936BC222C646F0032442F /* StudsButton.swift */,
 				8E3782FB2183B982004F083F /* LaunchScreen.storyboard */,
+				211E49F525F00B41007A497D /* UITableCellHoster.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -405,6 +417,7 @@
 				2175BF87258661C6001556FC /* Profile.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordView.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsView.storyboard in Resources */,
+				211E49F225F00293007A497D /* SampleEvents.json in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
 				21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */,
 				8BA00BD3221C08D70042351B /* EventDetailView.storyboard in Resources */,
@@ -490,9 +503,11 @@
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
 				21FBF805258D057C00B3A3ED /* PublicEventsViewModel.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
+				215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
 				2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */,
 				21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */,
+				211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */,
 				21FBF808258D059500B3A3ED /* EventsViewModel.swift in Sources */,
 				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
 				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
@@ -506,6 +521,7 @@
 				8B3936BD222C64700032442F /* StudsButton.swift in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
 				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
+				215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */,
 				8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,7 +662,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB946C463E92B1FCC7943374 /* Pods-Studs.debug.xcconfig */;
 			buildSettings = {
-				API_BASE_URL = "http://localhost:5040";
+				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;

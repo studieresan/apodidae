@@ -104,10 +104,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="companyName" destination="QaO-vr-qGI" id="UGl-e7-PTW"/>
-                                            <outlet property="containerView" destination="3iL-j3-IUK" id="W1Q-8i-KeP"/>
-                                            <outlet property="day" destination="mwd-re-qIn" id="t2F-YT-1J8"/>
-                                            <outlet property="month" destination="mHd-dr-5Q0" id="cqQ-SL-Yb8"/>
+                                            <outlet property="companyName" destination="QaO-vr-qGI" id="lCX-W6-2Bz"/>
+                                            <outlet property="containerView" destination="3iL-j3-IUK" id="EnF-ZM-80V"/>
+                                            <outlet property="day" destination="mwd-re-qIn" id="lKt-El-2SN"/>
+                                            <outlet property="month" destination="mHd-dr-5Q0" id="NDT-As-kTn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -15,7 +15,6 @@ struct Event: Decodable, GraphQLMultipleResponse {
     let id: String
 	let published: Bool
     let company: Company?
-    let schedule: String?
     let location: String?
     let privateDescription: String?
     let publicDescription: String?
@@ -34,7 +33,6 @@ struct Event: Decodable, GraphQLMultipleResponse {
         case id
 		case published
         case company
-        case schedule
         case location
         case privateDescription
         case publicDescription

@@ -117,7 +117,8 @@ final class EventDetailViewController: UIViewController {
     @objc
     private func showMapDirections() {
         guard let address = event?.location else {
-            fatalError("Event location isn't set")
+			print("Event location isn't set")
+			return
         }
 
         getCoordinate(addressString: address) { [weak self] coordinate, err in
