@@ -10,6 +10,13 @@
 		1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */; };
 		211E49F225F00293007A497D /* SampleEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = 211E49F125F00293007A497D /* SampleEvents.json */; };
 		211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E49F525F00B41007A497D /* UITableCellHoster.swift */; };
+		211E49FF25F16393007A497D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211E49FE25F16393007A497D /* WidgetKit.framework */; };
+		211E4A0125F16393007A497D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211E4A0025F16393007A497D /* SwiftUI.framework */; };
+		211E4A0425F16393007A497D /* StudsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0325F16393007A497D /* StudsWidget.swift */; };
+		211E4A0725F16395007A497D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 211E4A0625F16395007A497D /* Assets.xcassets */; };
+		211E4A0925F16395007A497D /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0525F16393007A497D /* StudsWidget.intentdefinition */; };
+		211E4A0A25F16395007A497D /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0525F16393007A497D /* StudsWidget.intentdefinition */; };
+		211E4A0D25F16395007A497D /* StudsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 211E49FD25F16393007A497D /* StudsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -52,9 +59,40 @@
 		8EAC48812184F23C00BB36A2 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		211E4A0B25F16395007A497D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E3782E72183B981004F083F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 211E49FC25F16393007A497D;
+			remoteInfo = StudsWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		211E4A1125F16395007A497D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				211E4A0D25F16395007A497D /* StudsWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		211E49F125F00293007A497D /* SampleEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleEvents.json; sourceTree = "<group>"; };
 		211E49F525F00B41007A497D /* UITableCellHoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableCellHoster.swift; sourceTree = "<group>"; };
+		211E49FD25F16393007A497D /* StudsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StudsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		211E49FE25F16393007A497D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		211E4A0025F16393007A497D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		211E4A0325F16393007A497D /* StudsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsWidget.swift; sourceTree = "<group>"; };
+		211E4A0525F16393007A497D /* StudsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = StudsWidget.intentdefinition; sourceTree = "<group>"; };
+		211E4A0625F16395007A497D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		211E4A0825F16395007A497D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
@@ -103,6 +141,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		211E49FA25F16393007A497D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				211E4A0125F16393007A497D /* SwiftUI.framework in Frameworks */,
+				211E49FF25F16393007A497D /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E3782EC2183B981004F083F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -114,6 +161,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211E4A0225F16393007A497D /* StudsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				211E4A0325F16393007A497D /* StudsWidget.swift */,
+				211E4A0525F16393007A497D /* StudsWidget.intentdefinition */,
+				211E4A0625F16395007A497D /* Assets.xcassets */,
+				211E4A0825F16395007A497D /* Info.plist */,
+			);
+			path = StudsWidget;
+			sourceTree = "<group>";
+		};
 		2175BF88258661CB001556FC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				8E3782F12183B981004F083F /* Studs */,
+				211E4A0225F16393007A497D /* StudsWidget */,
 				8E3782F02183B981004F083F /* Products */,
 				E367E0B3B100618CA945B265 /* Pods */,
 				BC11AD05E604EAD26081389A /* Frameworks */,
@@ -192,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				8E3782EF2183B981004F083F /* Studs.app */,
+				211E49FD25F16393007A497D /* StudsWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -338,6 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */,
+				211E49FE25F16393007A497D /* WidgetKit.framework */,
+				211E4A0025F16393007A497D /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -354,6 +416,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		211E49FC25F16393007A497D /* StudsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 211E4A0E25F16395007A497D /* Build configuration list for PBXNativeTarget "StudsWidgetExtension" */;
+			buildPhases = (
+				211E49F925F16393007A497D /* Sources */,
+				211E49FA25F16393007A497D /* Frameworks */,
+				211E49FB25F16393007A497D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StudsWidgetExtension;
+			productName = StudsWidgetExtension;
+			productReference = 211E49FD25F16393007A497D /* StudsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8E3782EE2183B981004F083F /* Studs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E3783012183B982004F083F /* Build configuration list for PBXNativeTarget "Studs" */;
@@ -364,10 +443,12 @@
 				8E3782ED2183B981004F083F /* Resources */,
 				18AA4DC56A32B21FAE48B8AF /* [CP] Embed Pods Frameworks */,
 				8EDC6C802187A2B500EEA05B /* ShellScript */,
+				211E4A1125F16395007A497D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				211E4A0C25F16395007A497D /* PBXTargetDependency */,
 			);
 			name = Studs;
 			productName = Studs;
@@ -380,10 +461,13 @@
 		8E3782E72183B981004F083F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = Studieresan;
 				TargetAttributes = {
+					211E49FC25F16393007A497D = {
+						CreatedOnToolsVersion = 12.2;
+					};
 					8E3782EE2183B981004F083F = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -403,11 +487,20 @@
 			projectRoot = "";
 			targets = (
 				8E3782EE2183B981004F083F /* Studs */,
+				211E49FC25F16393007A497D /* StudsWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		211E49FB25F16393007A497D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				211E4A0725F16395007A497D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E3782ED2183B981004F083F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,6 +579,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		211E49F925F16393007A497D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				211E4A0925F16395007A497D /* StudsWidget.intentdefinition in Sources */,
+				211E4A0425F16393007A497D /* StudsWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E3782EB2183B981004F083F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -512,6 +614,7 @@
 				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
 				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
 				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,
+				211E4A0A25F16395007A497D /* StudsWidget.intentdefinition in Sources */,
 				8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */,
 				8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */,
 				215129C225EE46C500464134 /* EventSection.swift in Sources */,
@@ -528,6 +631,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		211E4A0C25F16395007A497D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 211E49FC25F16393007A497D /* StudsWidgetExtension */;
+			targetProxy = 211E4A0B25F16395007A497D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		8E3782FB2183B982004F083F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -540,6 +651,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		211E4A0F25F16395007A497D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P3V9ZDGSU4;
+				INFOPLIST_FILE = StudsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan.StudsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		211E4A1025F16395007A497D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P3V9ZDGSU4;
+				INFOPLIST_FILE = StudsWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan.StudsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8E3782FF2183B982004F083F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -662,6 +817,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB946C463E92B1FCC7943374 /* Pods-Studs.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -685,6 +841,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -707,6 +864,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		211E4A0E25F16395007A497D /* Build configuration list for PBXNativeTarget "StudsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				211E4A0F25F16395007A497D /* Debug */,
+				211E4A1025F16395007A497D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8E3782EA2183B981004F083F /* Build configuration list for PBXProject "Studs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
