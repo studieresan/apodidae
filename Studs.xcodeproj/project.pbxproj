@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */; };
-		211E49F225F00293007A497D /* SampleEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = 211E49F125F00293007A497D /* SampleEvents.json */; };
 		211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E49F525F00B41007A497D /* UITableCellHoster.swift */; };
 		211E49FF25F16393007A497D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211E49FE25F16393007A497D /* WidgetKit.framework */; };
 		211E4A0125F16393007A497D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211E4A0025F16393007A497D /* SwiftUI.framework */; };
@@ -35,7 +34,6 @@
 		21E0F85725F18C3B0057DEB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
 		21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
 		21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8F2586664B001556FC /* GraphQLFields.swift */; };
-		21E5B1BF25F1763300DC3BD8 /* SampleEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = 211E49F125F00293007A497D /* SampleEvents.json */; };
 		21E5B1C025F1763300DC3BD8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487D2184F00B00BB36A2 /* Event.swift */; };
 		21E5B1C125F1763300DC3BD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9825866C52001556FC /* User.swift */; };
 		21E5B1C225F1763300DC3BD8 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9B2587B32E001556FC /* GraphQLResponse.swift */; };
@@ -100,7 +98,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		211E49F125F00293007A497D /* SampleEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleEvents.json; sourceTree = "<group>"; };
 		211E49F525F00B41007A497D /* UITableCellHoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableCellHoster.swift; sourceTree = "<group>"; };
 		211E49FD25F16393007A497D /* StudsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StudsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		211E49FE25F16393007A497D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -212,7 +209,6 @@
 				8B1440B32221831100AE767B /* Login.swift */,
 				2175BF9825866C52001556FC /* User.swift */,
 				2175BF9B2587B32E001556FC /* GraphQLResponse.swift */,
-				211E49F125F00293007A497D /* SampleEvents.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -518,7 +514,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21E5B1BF25F1763300DC3BD8 /* SampleEvents.json in Resources */,
 				21E0F85725F18C3B0057DEB1 /* Assets.xcassets in Resources */,
 				211E4A0725F16395007A497D /* Assets.xcassets in Resources */,
 			);
@@ -533,7 +528,6 @@
 				2175BF87258661C6001556FC /* Profile.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordView.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsView.storyboard in Resources */,
-				211E49F225F00293007A497D /* SampleEvents.json in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
 				21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */,
 				8BA00BD3221C08D70042351B /* EventDetailView.storyboard in Resources */,
@@ -716,7 +710,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = StudsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -725,7 +719,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan.StudsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -742,7 +736,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = StudsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -751,7 +745,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan.StudsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -886,7 +880,7 @@
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = Studs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -894,7 +888,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -910,7 +904,7 @@
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = Studs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -918,7 +912,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

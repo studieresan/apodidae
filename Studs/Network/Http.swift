@@ -148,26 +148,9 @@ struct Http {
     }
 
 	static func fetchEvents(studsYear: Int?) -> Observable<[Event]> {
-//        let query = createEventsQuery(year: studsYear)
+        let query = createEventsQuery(year: studsYear)
 
-		// TODO: Remove sample getter
-		let sampleFileData = FileManager().contents(atPath: "/Users/glenn/Documents/KTH/Studs,AI2151/apodidae.nosync/Studs/Models/SampleEvents.json")
-
-		return Observable.create({ observer in
-			let sampleData = decode(data: sampleFileData!, type: [Event].self)
-			switch sampleData {
-			case .success(let responseData):
-				observer.onNext(responseData)
-				observer.onCompleted()
-			case .failure(let err):
-				observer.onError(err)
-			}
-
-			return Disposables
-				.create()
-		})
-
-//		return graphQL(query: query, type: [Event].self)
+		return graphQL(query: query, type: [Event].self)
     }
 
 	static func fetchUser() -> Observable<User> {
