@@ -24,7 +24,7 @@ struct Provider: IntentTimelineProvider {
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<StudsEventEntry>) -> Void) {
 		let studsYear = Bundle.main.infoDictionary?["STUDS_YEAR"] as? Int
 		Http.fetchEvents(studsYear: studsYear).subscribe(onNext: { events in
 
@@ -71,31 +71,22 @@ struct StudsEventEntry: TimelineEntry {
     let configuration: ConfigurationIntent
 }
 
-struct StudsWidgetEntryView: View {
-    var entry: Provider.Entry
-
-    var body: some View {
-
-        return Text(entry.date, style: .time)
-    }
-}
-
 @main
 struct StudsWidget: Widget {
     let kind: String = "StudsWidget"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            StudsWidgetEntryView(entry: entry)
+            WidgetView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Näst event-widget")
+        .description("Visar nästa studsevent på ett snyggt sätt")
     }
 }
 
 struct StudsWidget_Previews: PreviewProvider {
     static var previews: some View {
-		StudsWidgetEntryView(entry: StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent()))
+		WidgetView(entry: StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
