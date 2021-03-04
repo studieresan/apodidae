@@ -17,6 +17,8 @@
 		211E4A0925F16395007A497D /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0525F16393007A497D /* StudsWidget.intentdefinition */; };
 		211E4A0A25F16395007A497D /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0525F16393007A497D /* StudsWidget.intentdefinition */; };
 		211E4A0D25F16395007A497D /* StudsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 211E49FD25F16393007A497D /* StudsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		211E4A1625F16BFB007A497D /* StudsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */; };
+		211E4A1925F16C07007A497D /* StudsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -29,8 +31,18 @@
 		2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BFB52588D269001556FC /* UIImage+Studs.swift */; };
 		21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7BAD125826077004D5D54 /* CountdownVC.swift */; };
 		21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* Countdown.storyboard */; };
+		21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
+		21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8F2586664B001556FC /* GraphQLFields.swift */; };
+		21E5B1BF25F1763300DC3BD8 /* SampleEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = 211E49F125F00293007A497D /* SampleEvents.json */; };
+		21E5B1C025F1763300DC3BD8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487D2184F00B00BB36A2 /* Event.swift */; };
+		21E5B1C125F1763300DC3BD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9825866C52001556FC /* User.swift */; };
+		21E5B1C225F1763300DC3BD8 /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9B2587B32E001556FC /* GraphQLResponse.swift */; };
+		21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9425866C4C001556FC /* Company.swift */; };
+		21E5B1DB25F177FD00DC3BD8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FC9E122301374000C7796 /* UserManager.swift */; };
+		21E5B1DE25F1782300DC3BD8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440B32221831100AE767B /* Login.swift */; };
 		21FBF805258D057C00B3A3ED /* PublicEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */; };
 		21FBF808258D059500B3A3ED /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FBF807258D059500B3A3ED /* EventsViewModel.swift */; };
+		31FE112A0A2845F80DC2E520 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */; };
 		8B1440AD2220322400AE767B /* PrivateEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1440AC2220322400AE767B /* PrivateEventsViewModel.swift */; };
 		8B1440AF2221772D00AE767B /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1440AE2221772D00AE767B /* LoginView.storyboard */; };
@@ -57,6 +69,7 @@
 		8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */; };
 		8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487D2184F00B00BB36A2 /* Event.swift */; };
 		8EAC48812184F23C00BB36A2 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
+		FEBD1777AEC94B51BDEF75E7 /* Pods_StudsWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E0B1C3F6BEE22DCE3E6D08 /* Pods_StudsWidgetExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +106,7 @@
 		211E4A0525F16393007A497D /* StudsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = StudsWidget.intentdefinition; sourceTree = "<group>"; };
 		211E4A0625F16395007A497D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		211E4A0825F16395007A497D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		211E4A1525F16BFB007A497D /* StudsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
@@ -109,6 +123,8 @@
 		21FBF807258D059500B3A3ED /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Studs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Studs/Pods-Studs.release.xcconfig"; sourceTree = "<group>"; };
+		7043D8313FC08D6AD6CBA421 /* Pods-StudsWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudsWidgetExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StudsWidgetExtension/Pods-StudsWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		82E0B1C3F6BEE22DCE3E6D08 /* Pods_StudsWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudsWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1440AA22202F0E00AE767B /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCellViewModel.swift; path = Studs/Events/ViewModels/EventCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		8B1440AC2220322400AE767B /* PrivateEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateEventsViewModel.swift; sourceTree = "<group>"; };
 		8B1440AE2221772D00AE767B /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
@@ -137,6 +153,7 @@
 		8EAC487A2184EB1B00BB36A2 /* StudsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsViewController.swift; sourceTree = "<group>"; };
 		8EAC487D2184F00B00BB36A2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		8EAC48802184F23C00BB36A2 /* Http.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Http.swift; sourceTree = "<group>"; };
+		E7E9EB68A4D845EFD74FB842 /* Pods-StudsWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudsWidgetExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudsWidgetExtension/Pods-StudsWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		FB946C463E92B1FCC7943374 /* Pods-Studs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Studs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Studs/Pods-Studs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +164,7 @@
 			files = (
 				211E4A0125F16393007A497D /* SwiftUI.framework in Frameworks */,
 				211E49FF25F16393007A497D /* WidgetKit.framework in Frameworks */,
+				FEBD1777AEC94B51BDEF75E7 /* Pods_StudsWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */,
+				31FE112A0A2845F80DC2E520 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +204,7 @@
 			children = (
 				8EAC487D2184F00B00BB36A2 /* Event.swift */,
 				2175BF9425866C4C001556FC /* Company.swift */,
+				8B1440B32221831100AE767B /* Login.swift */,
 				2175BF9825866C52001556FC /* User.swift */,
 				2175BF9B2587B32E001556FC /* GraphQLResponse.swift */,
 				211E49F125F00293007A497D /* SampleEvents.json */,
@@ -228,17 +248,10 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		8B1440B2222182F000AE767B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				8B1440B32221831100AE767B /* Login.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		8E3782E62183B981004F083F = {
 			isa = PBXGroup;
 			children = (
+				211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */,
 				8E3782F12183B981004F083F /* Studs */,
 				211E4A0225F16393007A497D /* StudsWidget */,
 				8E3782F02183B981004F083F /* Products */,
@@ -259,6 +272,7 @@
 		8E3782F12183B981004F083F /* Studs */ = {
 			isa = PBXGroup;
 			children = (
+				2175BF9325866C3D001556FC /* Models */,
 				8E3782F22183B981004F083F /* AppDelegate.swift */,
 				8EAC487F2184F1C300BB36A2 /* Network */,
 				8EA641582184A1BE00A138EB /* Events */,
@@ -303,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				21AC1A862598D24700FD4230 /* ViewControllers */,
-				8B1440B2222182F000AE767B /* Models */,
 				8EAC48652184BA3600BB36A2 /* ViewModels */,
 				8EAC48642184BA2700BB36A2 /* Views */,
 			);
@@ -387,7 +400,6 @@
 		8EAC487F2184F1C300BB36A2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				2175BF9325866C3D001556FC /* Models */,
 				8EAC48802184F23C00BB36A2 /* Http.swift */,
 				2175BF8F2586664B001556FC /* GraphQLFields.swift */,
 			);
@@ -400,6 +412,7 @@
 				411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */,
 				211E49FE25F16393007A497D /* WidgetKit.framework */,
 				211E4A0025F16393007A497D /* SwiftUI.framework */,
+				82E0B1C3F6BEE22DCE3E6D08 /* Pods_StudsWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -409,6 +422,8 @@
 			children = (
 				FB946C463E92B1FCC7943374 /* Pods-Studs.debug.xcconfig */,
 				4258DFAF573F3F704DC461EC /* Pods-Studs.release.xcconfig */,
+				7043D8313FC08D6AD6CBA421 /* Pods-StudsWidgetExtension.debug.xcconfig */,
+				E7E9EB68A4D845EFD74FB842 /* Pods-StudsWidgetExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -420,6 +435,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 211E4A0E25F16395007A497D /* Build configuration list for PBXNativeTarget "StudsWidgetExtension" */;
 			buildPhases = (
+				4FD0B59E91A214BB3AED3D7E /* [CP] Check Pods Manifest.lock */,
 				211E49F925F16393007A497D /* Sources */,
 				211E49FA25F16393007A497D /* Frameworks */,
 				211E49FB25F16393007A497D /* Resources */,
@@ -497,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E5B1BF25F1763300DC3BD8 /* SampleEvents.json in Resources */,
 				211E4A0725F16395007A497D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,6 +576,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Studs/Pods-Studs-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4FD0B59E91A214BB3AED3D7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StudsWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8EDC6C802187A2B500EEA05B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,7 +623,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				211E4A0925F16395007A497D /* StudsWidget.intentdefinition in Sources */,
+				21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */,
+				21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */,
+				21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */,
 				211E4A0425F16393007A497D /* StudsWidget.swift in Sources */,
+				21E5B1C025F1763300DC3BD8 /* Event.swift in Sources */,
+				211E4A1925F16C07007A497D /* StudsDataModel.xcdatamodeld in Sources */,
+				21E5B1C225F1763300DC3BD8 /* GraphQLResponse.swift in Sources */,
+				21E5B1DB25F177FD00DC3BD8 /* UserManager.swift in Sources */,
+				21E5B1DE25F1782300DC3BD8 /* Login.swift in Sources */,
+				21E5B1C125F1763300DC3BD8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +670,7 @@
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
 				8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */,
 				8B3936BD222C64700032442F /* StudsButton.swift in Sources */,
+				211E4A1625F16BFB007A497D /* StudsDataModel.xcdatamodeld in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
 				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
 				215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */,
@@ -653,10 +702,12 @@
 /* Begin XCBuildConfiguration section */
 		211E4A0F25F16395007A497D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7043D8313FC08D6AD6CBA421 /* Pods-StudsWidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = StudsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -665,6 +716,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan.StudsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -675,10 +727,12 @@
 		};
 		211E4A1025F16395007A497D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7E9EB68A4D845EFD74FB842 /* Pods-StudsWidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = StudsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -687,6 +741,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = se.studieresan.Studieresan.StudsWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -821,7 +876,7 @@
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = Studs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -845,7 +900,7 @@
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = Studs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -892,6 +947,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				211E4A1525F16BFB007A497D /* StudsDataModel.xcdatamodel */,
+			);
+			currentVersion = 211E4A1525F16BFB007A497D /* StudsDataModel.xcdatamodel */;
+			path = StudsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E3782E72183B981004F083F /* Project object */;
 }

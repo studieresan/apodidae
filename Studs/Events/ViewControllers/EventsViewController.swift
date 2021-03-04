@@ -106,8 +106,11 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	@available(iOS 14, *)
-	private func renderCardCell(event: Event, cellForRowAt indexPath: IndexPath) -> UITableViewCell { 
-		guard let cell = eventsTable.dequeueReusableCell(withIdentifier: "eventCard", for: indexPath) as? UITableCellHoster<EventTableCardViewCell> else {
+	private func renderCardCell(event: Event, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = eventsTable.dequeueReusableCell(
+				withIdentifier: "eventCard",
+				for: indexPath
+		) as? UITableCellHoster<EventTableCardViewCell> else {
 			fatalError("Could not dequeue")
 		}
 		cell.set(rootView: EventTableCardViewCell(event: event), parentController: self)

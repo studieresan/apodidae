@@ -15,3 +15,5 @@ struct Company: Decodable, GraphQLMultipleResponse {
 	let id: String
 	let name: String
 }
+
+let sampleCompany = Company(id: "SOME_COMPANY_ID", name: "Företaget AB")

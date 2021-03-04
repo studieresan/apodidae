@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Combine
 
 struct FetchError: Error {
 	enum ErrorType {
@@ -150,7 +151,7 @@ struct Http {
 //        let query = createEventsQuery(year: studsYear)
 
 		// TODO: Remove sample getter
-		let sampleFileData = FileManager().contents(atPath: "/Users/glenn/Documents/KTH/Studs,AI2151/apodidae.nosync/Studs/Network/Models/SampleEvents.json")
+		let sampleFileData = FileManager().contents(atPath: "/Users/glenn/Documents/KTH/Studs,AI2151/apodidae.nosync/Studs/Models/SampleEvents.json")
 
 		return Observable.create({ observer in
 			let sampleData = decode(data: sampleFileData!, type: [Event].self)

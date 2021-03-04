@@ -78,22 +78,6 @@ struct EventCardIconRow: View {
 struct EventTableCardViewCellPreview: PreviewProvider {
 
 	static var previews: some View {
-		let sampleCompany = Company(id: "SOME_COMPANY_ID", name: "Big Kahuna")
-
-		let sampleEvent = Event(
-			id: "SOME_EVENT_ID",
-			published: false,
-			company: sampleCompany,
-			location: "Big Kahuna, LA",
-			privateDescription: "We will visit the burger joint at 17.00",
-			publicDescription: "Nice visit to a hawaiian burger joint",
-			beforeSurvey: nil,
-			afterSurvey: nil,
-			date: "2021-03-02 17:00",
-			studsYear: 2021,
-			pictures: nil
-		)
-
 		let maxWidth = UIApplication.shared.keyWindow!.frame.width
 		let height: CGFloat = 200
 
@@ -101,6 +85,6 @@ struct EventTableCardViewCellPreview: PreviewProvider {
 			EventTableCardViewCell(event: sampleEvent)
 				.border(Color.red)
 		}
-		.frame(width: maxWidth, height: height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+		.frame(width: maxWidth, height: height, alignment: .center)
 	}
 }

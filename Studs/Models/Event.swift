@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Event: Decodable, GraphQLMultipleResponse {
 	static var rootField: String = "event"
@@ -23,8 +24,7 @@ struct Event: Decodable, GraphQLMultipleResponse {
     let date: String?
 	let studsYear: Int?
 	let pictures: [String]?
-	//TODO: Implement user struct
-	//let responsible: User
+	let responsible: User?
 
 	//If event should be rendered as a card in events list
 	var isCard: Bool = false
@@ -41,6 +41,7 @@ struct Event: Decodable, GraphQLMultipleResponse {
         case date
 		case studsYear
 		case pictures
+		case responsible
     }
 }
 
@@ -67,3 +68,18 @@ extension Event: Comparable {
 		return trimmedDate ?? Date(timeIntervalSince1970: 0)
     }
 }
+
+let sampleEvent = Event(
+	id: "SOME_EVENT_ID",
+	published: false,
+	company: sampleCompany,
+	location: "Osquars backe 21",
+	privateDescription: "Kom i tid, annars kan det bli :konsekvenser:",
+	publicDescription: "We had a great time visisting this company. Wow!",
+	beforeSurvey: nil,
+	afterSurvey: nil,
+	date: "2021-03-02 17:00",
+	studsYear: 2021,
+	pictures: nil,
+	responsible: nil
+)

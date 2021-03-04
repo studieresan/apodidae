@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 final class UserManager {
 
@@ -35,21 +34,4 @@ final class UserManager {
     static func isLoggedIn() -> Bool {
         return UserManager.getUserData() != nil
     }
-
-    // MARK: Preferences
-
-    static func setDefaultPreferences() {
-        UserDefaults.standard.register(defaults: [
-            "livelocationshare": true,
-        ])
-    }
-
-    static func getShouldShareLiveLocation() -> Bool {
-        return UserDefaults.standard.bool(forKey: "livelocationshare")
-    }
-
-    static func setShouldShareLiveLocation(_ setting: Bool) {
-        UserDefaults.standard.set(setting, forKey: "livelocationshare")
-    }
-
 }
