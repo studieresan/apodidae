@@ -78,7 +78,14 @@ let sampleEvent = Event(
 	publicDescription: "We had a great time visisting this company. Wow!",
 	beforeSurvey: nil,
 	afterSurvey: nil,
-	date: "2021-03-02 17:00",
+	date: {
+		//Anonymous function to return a date 3 days from now
+		let today = Date()
+		let eventDate = Calendar.current.date(byAdding: .day, value: 3, to: today)
+		let formatter = ISO8601DateFormatter()
+
+		return formatter.string(from: eventDate ?? today)
+	}(),
 	studsYear: 2021,
 	pictures: nil,
 	responsible: nil

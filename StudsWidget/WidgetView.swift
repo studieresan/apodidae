@@ -13,13 +13,12 @@ struct WidgetView: View {
 	var entry: Provider.Entry
 
 	var body: some View {
-
 		let now = entry.date
 		let eventDate = entry.event?.getDate() ?? Date()
 		let daysUntil = Calendar.current.dateComponents([.day], from: now, to: eventDate)
 
 		let formatter = DateFormatter()
-		formatter.dateFormat = "EEEE d/M HH:mm"
+		formatter.setLocalizedDateFormatFromTemplate("EEEE d/M HH:mm")
 
 		let dateString = formatter.string(from: eventDate)
 

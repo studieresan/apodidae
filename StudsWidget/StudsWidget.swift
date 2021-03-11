@@ -16,7 +16,7 @@ struct Provider: IntentTimelineProvider {
 	var disposeBag = DisposeBag()
 
     func placeholder(in context: Context) -> StudsEventEntry {
-		StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent())
+		return StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent())
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (StudsEventEntry) -> Void) {
@@ -25,8 +25,7 @@ struct Provider: IntentTimelineProvider {
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<StudsEventEntry>) -> Void) {
-		let studsYear = Bundle.main.infoDictionary?["STUDS_YEAR"] as? Int
-		Http.fetchEvents(studsYear: studsYear).subscribe(onNext: { events in
+		Http.fetchEvents(studsYear: nil).subscribe(onNext: { events in
 
 			//Sorted in reverse
 			let sortedEvents = events.sorted(by: {$0 > $1})

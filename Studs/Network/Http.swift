@@ -19,7 +19,7 @@ struct FetchError: Error {
 }
 
 struct Http {
-    private static let baseURL = Bundle.main.infoDictionary!["API_BASE_URL"] as? String ?? "http://localhost:5040"
+    private static let baseURL = Bundle.main.infoDictionary!["API_BASE_URL"] as? String ?? "https://studs-overlord.herokuapp.com"
     public enum Endpoint: String {
         case login = "login"
         case logout = "logout"
