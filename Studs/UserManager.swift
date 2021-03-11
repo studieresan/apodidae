@@ -13,11 +13,11 @@ final class UserManager {
     // MARK: User data
 
     static func saveUserData(data: UserData) {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(data), forKey: "userdata")
+        UserDefaults.studs.set(try? PropertyListEncoder().encode(data), forKey: "userdata")
     }
 
     static func getUserData() -> UserData? {
-        if let value = UserDefaults.standard.value(forKey: "userdata") as? Data {
+        if let value = UserDefaults.studs.value(forKey: "userdata") as? Data {
             return try? PropertyListDecoder().decode(UserData.self, from: value)
         }
         return nil
@@ -28,7 +28,7 @@ final class UserManager {
     }
 
     static func clearUserData() {
-        UserDefaults.standard.removeObject(forKey: "userdata")
+        UserDefaults.studs.removeObject(forKey: "userdata")
     }
 
     static func isLoggedIn() -> Bool {

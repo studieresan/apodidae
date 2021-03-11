@@ -28,6 +28,8 @@
 		2175BF9925866C52001556FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9825866C52001556FC /* User.swift */; };
 		2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF9B2587B32E001556FC /* GraphQLResponse.swift */; };
 		2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BFB52588D269001556FC /* UIImage+Studs.swift */; };
+		217FE32225FA29860005713D /* UserDefaults+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FE32125FA29860005713D /* UserDefaults+Studs.swift */; };
+		217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FE32125FA29860005713D /* UserDefaults+Studs.swift */; };
 		21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7BAD125826077004D5D54 /* CountdownVC.swift */; };
 		21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* Countdown.storyboard */; };
 		21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -117,6 +119,8 @@
 		2175BF9825866C52001556FC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2175BF9B2587B32E001556FC /* GraphQLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResponse.swift; sourceTree = "<group>"; };
 		2175BFB52588D269001556FC /* UIImage+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Studs.swift"; sourceTree = "<group>"; };
+		217FE31E25FA27970005713D /* Studs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Studs.entitlements; sourceTree = "<group>"; };
+		217FE32125FA29860005713D /* UserDefaults+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Studs.swift"; sourceTree = "<group>"; };
 		21A7BAD125826077004D5D54 /* CountdownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownVC.swift; sourceTree = "<group>"; };
 		21A7BAD625827C53004D5D54 /* Countdown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Countdown.storyboard; sourceTree = "<group>"; };
 		21E5B20725F1870600DC3BD8 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 		8E3782F12183B981004F083F /* Studs */ = {
 			isa = PBXGroup;
 			children = (
+				217FE31E25FA27970005713D /* Studs.entitlements */,
 				2175BF9325866C3D001556FC /* Models */,
 				8E3782F22183B981004F083F /* AppDelegate.swift */,
 				8EAC487F2184F1C300BB36A2 /* Network */,
@@ -300,6 +305,7 @@
 				8BA9D4A322AD9FFA00EEEB7E /* UIImageView+Studs.swift */,
 				2175BFB52588D269001556FC /* UIImage+Studs.swift */,
 				215129CD25EE9A9200464134 /* Image+Studs.swift */,
+				217FE32125FA29860005713D /* UserDefaults+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -626,6 +632,7 @@
 				21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */,
 				21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */,
 				21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */,
+				217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */,
 				211E4A0425F16393007A497D /* StudsWidget.swift in Sources */,
 				21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */,
 				21E5B1C025F1763300DC3BD8 /* Event.swift in Sources */,
@@ -670,6 +677,7 @@
 				215129C225EE46C500464134 /* EventSection.swift in Sources */,
 				8E3783082183C3CF004F083F /* UIViewController+Studs.swift in Sources */,
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
+				217FE32225FA29860005713D /* UserDefaults+Studs.swift in Sources */,
 				8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */,
 				8B3936BD222C64700032442F /* StudsButton.swift in Sources */,
 				211E4A1625F16BFB007A497D /* StudsDataModel.xcdatamodeld in Sources */,
@@ -710,7 +718,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = StudsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -736,7 +744,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = StudsWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -879,8 +887,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Studs/Studs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = Studs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -903,8 +912,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				API_BASE_URL = "https://studs-overlord.herokuapp.com";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Studs/Studs.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P3V9ZDGSU4;
 				INFOPLIST_FILE = Studs/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

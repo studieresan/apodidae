@@ -19,10 +19,10 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>information</string>
+			<key>INIntentDescription</key>
+			<string>No config possible</string>
 			<key>INIntentDescriptionID</key>
 			<string>tVvJ9c</string>
-			<key>INIntentEligibleForWidgets</key>
-			<true/>
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
 			<key>INIntentName</key>

@@ -102,7 +102,9 @@ struct Http {
 
             if let userToken = UserManager.getToken() {
                 request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
-            }
+			} else {
+				print("No token")
+			}
 
             URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data else {
