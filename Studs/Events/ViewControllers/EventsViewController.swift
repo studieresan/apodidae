@@ -20,12 +20,15 @@ final class EventsViewController: UIViewController {
 
     // MARK: Lifecycle
     override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
         // Hide the top navigation bar in this view
         navigationController?.setNavigationBarHidden(true, animated: animated)
         resetSelectedCell()
-    }
+	}
 
     override func viewDidLoad() {
+		super.viewDidLoad()
+		
         setupTable()
         viewModel.reloadTableViewClosure = { [weak self] in
             DispatchQueue.main.async {
@@ -142,8 +145,12 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEvent = viewModel.getEvent(at: indexPath)
+		openEvent(event: selectedEvent)
+	}
+
+	fileprivate func openEvent(event: Event) {
 		let eventDetailViewController = EventDetailViewController.instance(withName: "EventDetailView")
-        eventDetailViewController.event = selectedEvent
-        navigationController?.pushViewController(eventDetailViewController, animated: true)
-    }
+		eventDetailViewController.event = event
+		navigationController?.pushViewController(eventDetailViewController, animated: true)
+	}
 }

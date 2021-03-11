@@ -17,6 +17,7 @@ struct WidgetView: View {
 		var description1: String!
 		var titleDescription: String!
 		var description2: String!
+		var widgetURL: URL? //Deeplink
 
 		//If there is indeed an event
 		if let event = entry.event {
@@ -32,10 +33,14 @@ struct WidgetView: View {
 			description1 = "Om \(daysUntil.day!) dagar"
 			titleDescription = event.company?.name ?? "Inget företagsnamn"
 			description2 = dateString
+
+			let widgetURLString = "studs-widget://event?id=\(event.id)"
+			widgetURL = URL(string: widgetURLString)
 		} else {
 			description1 = "Snart..."
 			titleDescription = "Studs"
 			description2 = "Inget event planerat"
+			widgetURL = nil
 		}
 
 		return HStack {
@@ -54,7 +59,9 @@ struct WidgetView: View {
 			.padding()
 
 			Spacer()
-		}.background(Image.blurredBackground)
+		}
+		.background(Image.blurredBackground)
+		.widgetURL(widgetURL)
 	}
 }
 
