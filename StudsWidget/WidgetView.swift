@@ -25,7 +25,7 @@ struct WidgetView: View {
 			let daysUntil = Calendar.current.dateComponents([.day], from: now, to: eventDate)
 
 			let formatter = DateFormatter()
-			formatter.setLocalizedDateFormatFromTemplate("EEEE d/M HH:mm")
+			formatter.dateFormat = "EEEE d/M HH:mm"
 
 			let dateString = formatter.string(from: eventDate)
 

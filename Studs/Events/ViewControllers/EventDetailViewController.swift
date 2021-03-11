@@ -155,8 +155,6 @@ final class EventDetailViewController: UIViewController {
         let dateFormatter = DateFormatter()
 
         let date = event.getDate()
-
-		dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "MMM"
         let month = dateFormatter.string(from: date).uppercased()
 

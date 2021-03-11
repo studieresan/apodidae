@@ -13,8 +13,6 @@
 		211E4A0125F16393007A497D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211E4A0025F16393007A497D /* SwiftUI.framework */; };
 		211E4A0425F16393007A497D /* StudsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0325F16393007A497D /* StudsWidget.swift */; };
 		211E4A0725F16395007A497D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 211E4A0625F16395007A497D /* Assets.xcassets */; };
-		211E4A0925F16395007A497D /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0525F16393007A497D /* StudsWidget.intentdefinition */; };
-		211E4A0A25F16395007A497D /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A0525F16393007A497D /* StudsWidget.intentdefinition */; };
 		211E4A0D25F16395007A497D /* StudsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 211E49FD25F16393007A497D /* StudsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		211E4A1625F16BFB007A497D /* StudsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */; };
 		211E4A1925F16C07007A497D /* StudsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */; };
@@ -32,6 +30,9 @@
 		217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FE32125FA29860005713D /* UserDefaults+Studs.swift */; };
 		21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7BAD125826077004D5D54 /* CountdownVC.swift */; };
 		21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* Countdown.storyboard */; };
+		21B8175025FABA4100D78E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B8175225FABA4100D78E3E /* LaunchScreen.storyboard */; };
+		21B8175825FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
+		21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
 		21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
 		21E0F85725F18C3B0057DEB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
 		21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
@@ -60,7 +61,6 @@
 		8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFE07DA2219C97000EFDD3B /* EventDetailViewController.swift */; };
 		8E3782F32183B981004F083F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3782F22183B981004F083F /* AppDelegate.swift */; };
 		8E3782FA2183B982004F083F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
-		8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782FB2183B982004F083F /* LaunchScreen.storyboard */; };
 		8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3783052183BB70004F083F /* UIColor+Studs.swift */; };
 		8E3783082183C3CF004F083F /* UIViewController+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3783072183C3CF004F083F /* UIViewController+Studs.swift */; };
 		8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3783092183C3F8004F083F /* UIStoryboard+Studs.swift */; };
@@ -105,7 +105,6 @@
 		211E49FE25F16393007A497D /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		211E4A0025F16393007A497D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		211E4A0325F16393007A497D /* StudsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudsWidget.swift; sourceTree = "<group>"; };
-		211E4A0525F16393007A497D /* StudsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = StudsWidget.intentdefinition; sourceTree = "<group>"; };
 		211E4A0625F16395007A497D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		211E4A0825F16395007A497D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		211E4A1525F16BFB007A497D /* StudsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudsDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -123,6 +122,10 @@
 		217FE32125FA29860005713D /* UserDefaults+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Studs.swift"; sourceTree = "<group>"; };
 		21A7BAD125826077004D5D54 /* CountdownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownVC.swift; sourceTree = "<group>"; };
 		21A7BAD625827C53004D5D54 /* Countdown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Countdown.storyboard; sourceTree = "<group>"; };
+		21B8175125FABA4100D78E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21B8175525FABA4B00D78E3E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		21B8175A25FABA7600D78E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/StudsWidget.intentdefinition; sourceTree = "<group>"; };
+		21B8175F25FABA7A00D78E3E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/StudsWidget.strings; sourceTree = "<group>"; };
 		21E5B20725F1870600DC3BD8 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEventsViewModel.swift; sourceTree = "<group>"; };
 		21FBF807258D059500B3A3ED /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
@@ -145,7 +148,6 @@
 		8E3782EF2183B981004F083F /* Studs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3782F22183B981004F083F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E3782F92183B982004F083F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8E3782FC2183B982004F083F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E3782FE2183B982004F083F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E3783052183BB70004F083F /* UIColor+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Studs.swift"; sourceTree = "<group>"; };
 		8E3783072183C3CF004F083F /* UIViewController+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Studs.swift"; sourceTree = "<group>"; };
@@ -190,7 +192,7 @@
 			children = (
 				21E5B20725F1870600DC3BD8 /* WidgetView.swift */,
 				211E4A0325F16393007A497D /* StudsWidget.swift */,
-				211E4A0525F16393007A497D /* StudsWidget.intentdefinition */,
+				21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */,
 				211E4A0625F16395007A497D /* Assets.xcassets */,
 				211E4A0825F16395007A497D /* Info.plist */,
 			);
@@ -314,7 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				8B3936BC222C646F0032442F /* StudsButton.swift */,
-				8E3782FB2183B982004F083F /* LaunchScreen.storyboard */,
+				21B8175225FABA4100D78E3E /* LaunchScreen.storyboard */,
 				211E49F525F00B41007A497D /* UITableCellHoster.swift */,
 			);
 			path = "Supporting Files";
@@ -503,6 +505,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = 8E3782E62183B981004F083F;
 			productRefGroup = 8E3782F02183B981004F083F /* Products */;
@@ -529,8 +532,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B8175025FABA4100D78E3E /* LaunchScreen.storyboard in Resources */,
 				8B1440AF2221772D00AE767B /* LoginView.storyboard in Resources */,
-				8E3782FD2183B982004F083F /* LaunchScreen.storyboard in Resources */,
 				2175BF87258661C6001556FC /* Profile.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordView.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsView.storyboard in Resources */,
@@ -628,7 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				211E4A0925F16395007A497D /* StudsWidget.intentdefinition in Sources */,
+				21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */,
 				21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */,
 				21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */,
 				21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */,
@@ -671,7 +674,7 @@
 				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
 				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
 				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,
-				211E4A0A25F16395007A497D /* StudsWidget.intentdefinition in Sources */,
+				21B8175825FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */,
 				8EAC487B2184EB1B00BB36A2 /* StudsViewController.swift in Sources */,
 				8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */,
 				215129C225EE46C500464134 /* EventSection.swift in Sources */,
@@ -699,12 +702,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8E3782FB2183B982004F083F /* LaunchScreen.storyboard */ = {
+		21B8175225FABA4100D78E3E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8E3782FC2183B982004F083F /* Base */,
+				21B8175125FABA4100D78E3E /* Base */,
+				21B8175525FABA4B00D78E3E /* sv */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21B8175A25FABA7600D78E3E /* Base */,
+				21B8175F25FABA7A00D78E3E /* sv */,
+			);
+			name = StudsWidget.intentdefinition;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

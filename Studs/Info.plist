@@ -40,7 +40,7 @@
 	<key>STUDS_YEAR</key>
 	<integer>2021</integer>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string> </string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
