@@ -16,11 +16,11 @@ struct Provider: IntentTimelineProvider {
 	var disposeBag = DisposeBag()
 
     func placeholder(in context: Context) -> StudsEventEntry {
-		return StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent())
+		return StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent(), widgetFamily: context.family)
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (StudsEventEntry) -> Void) {
-        let entry = StudsEventEntry(date: Date(), event: sampleEvent, configuration: configuration)
+        let entry = StudsEventEntry(date: Date(), event: sampleEvent, configuration: configuration, widgetFamily: context.family)
         completion(entry)
     }
 
@@ -54,7 +54,7 @@ struct Provider: IntentTimelineProvider {
 					}
 				}
 
-				let entry = StudsEventEntry(date: entryDate, event: nextEvent, configuration: configuration)
+				let entry = StudsEventEntry(date: entryDate, event: nextEvent, configuration: configuration, widgetFamily: context.family)
 				entries.append(entry)
 			}
 
@@ -68,6 +68,7 @@ struct StudsEventEntry: TimelineEntry {
     let date: Date
 	let event: Event?
     let configuration: ConfigurationIntent
+	let widgetFamily: WidgetFamily
 }
 
 @main
@@ -85,7 +86,8 @@ struct StudsWidget: Widget {
 
 struct StudsWidget_Previews: PreviewProvider {
     static var previews: some View {
-		WidgetView(entry: StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+		let family: WidgetFamily = .systemSmall
+		WidgetView(entry: StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent(), widgetFamily: family))
+            .previewContext(WidgetPreviewContext(family: family))
     }
 }

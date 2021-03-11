@@ -13,26 +13,46 @@ struct WidgetView: View {
 	var entry: Provider.Entry
 
 	var body: some View {
-		let now = entry.date
-		let eventDate = entry.event?.getDate() ?? Date()
-		let daysUntil = Calendar.current.dateComponents([.day], from: now, to: eventDate)
 
-		let formatter = DateFormatter()
-		formatter.setLocalizedDateFormatFromTemplate("EEEE d/M HH:mm")
+		var description1: String!
+		var titleDescription: String!
+		var description2: String!
 
-		let dateString = formatter.string(from: eventDate)
+		//If there is indeed an event
+		if let event = entry.event {
+			let now = entry.date
+			let eventDate = entry.event?.getDate() ?? Date()
+			let daysUntil = Calendar.current.dateComponents([.day], from: now, to: eventDate)
 
-		//TODO: Kolla om event är nil, returnera annat då
+			let formatter = DateFormatter()
+			formatter.setLocalizedDateFormatFromTemplate("EEEE d/M HH:mm")
+
+			let dateString = formatter.string(from: eventDate)
+
+			description1 = "Om \(daysUntil.day!) dagar"
+			titleDescription = event.company?.name ?? "Inget företagsnamn"
+			description2 = dateString
+		} else {
+			description1 = "Snart..."
+			titleDescription = "Studs"
+			description2 = "Inget event planerat"
+		}
+
 		return HStack {
 			VStack(alignment: .leading) {
-				Text("Om \(daysUntil.day!) dagar")
+				Text(description1)
 
-				Text(entry.event?.company?.name ?? "Inget företag")
+				Text(titleDescription)
 					.font(.title)
 					.bold()
 
-				Text(dateString)
-			}.padding()
+				if entry.widgetFamily != .systemSmall {
+					Text("\(description2)")
+				}
+			}
+			.fixedSize(horizontal: false, vertical: true)
+			.padding()
+
 			Spacer()
 		}.background(Image.blurredBackground)
 	}
@@ -40,7 +60,16 @@ struct WidgetView: View {
 
 struct WidgetView_Previews: PreviewProvider {
 	static var previews: some View {
-		WidgetView(entry: StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent()))
-			.previewContext(WidgetPreviewContext(family: .systemSmall))
+		let family: WidgetFamily = .systemMedium
+
+		WidgetView(
+			entry: StudsEventEntry(
+				date: Date(),
+				event: nil,
+				configuration: ConfigurationIntent(),
+				widgetFamily: family
+			)
+		)
+		.previewContext(WidgetPreviewContext(family: family))
 	}
 }
