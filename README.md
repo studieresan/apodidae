@@ -18,3 +18,7 @@ Then open the project with Xcode.
 The app uses `http://localhost:5040` as the back-end target in development mode, see [overlord](https://github.com/studieresan/overlord) for instructions on how to set it up.
 
 Production uses `https://studs18-overlord.herokuapp.com` for the back-end.
+
+## Important
+If the app ever uses any other kind of encryption not covered by exempt, the key `ITSAppUsesNonExemptEncryption` in `Studs/Info.plist` must be toggled or removed as to avoid legal trouble. Read more [here](https://developer.apple.com/documentation/bundleresources/information_property_list/itsappusesnonexemptencryption). Currently (Mars 2021) the app only uses SSL which is covered by the exempt
+
