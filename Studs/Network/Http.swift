@@ -102,6 +102,7 @@ struct Http {
 
             if let userToken = UserManager.getToken() {
                 request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
+				print("has token")
 			} else {
 				print("No token")
 			}

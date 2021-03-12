@@ -16,15 +16,30 @@ struct Provider: IntentTimelineProvider {
 	var disposeBag = DisposeBag()
 
     func placeholder(in context: Context) -> StudsEventEntry {
-		return StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent(), widgetFamily: context.family)
+		print("place")
+		return StudsEventEntry(
+			date: Date(),
+			event: sampleEvent,
+			configuration: ConfigurationIntent(),
+			widgetFamily: context.family,
+			size: context.displaySize
+		)
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (StudsEventEntry) -> Void) {
-        let entry = StudsEventEntry(date: Date(), event: sampleEvent, configuration: configuration, widgetFamily: context.family)
+		print("Snap")
+        let entry = StudsEventEntry(
+			date: Date(),
+			event: sampleEvent,
+			configuration: configuration,
+			widgetFamily: context.family,
+			size: context.displaySize
+		)
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<StudsEventEntry>) -> Void) {
+		print("Timeline")
 		Http.fetchEvents(studsYear: nil).subscribe(onNext: { events in
 
 			//Sorted in reverse
@@ -54,7 +69,13 @@ struct Provider: IntentTimelineProvider {
 					}
 				}
 
-				let entry = StudsEventEntry(date: entryDate, event: nextEvent, configuration: configuration, widgetFamily: context.family)
+				let entry = StudsEventEntry(
+					date: entryDate,
+					event: nextEvent,
+					configuration: configuration,
+					widgetFamily: context.family,
+					size: context.displaySize
+				)
 				entries.append(entry)
 			}
 
@@ -69,6 +90,7 @@ struct StudsEventEntry: TimelineEntry {
 	let event: Event?
     let configuration: ConfigurationIntent
 	let widgetFamily: WidgetFamily
+	let size: CGSize
 }
 
 @main
@@ -87,7 +109,32 @@ struct StudsWidget: Widget {
 struct StudsWidget_Previews: PreviewProvider {
     static var previews: some View {
 		let family: WidgetFamily = .systemSmall
-		WidgetView(entry: StudsEventEntry(date: Date(), event: sampleEvent, configuration: ConfigurationIntent(), widgetFamily: family))
-            .previewContext(WidgetPreviewContext(family: family))
+
+		let sizeSmall = CGSize(width: 158, height: 158)
+		let sizeMedium = CGSize(width: 338, height: 150)
+		let sizeLarge = CGSize(width: 338, height: 354)
+
+		var size: CGSize!
+		switch family {
+		case .systemSmall:
+			size = sizeSmall
+		case .systemMedium:
+			size = sizeMedium
+		case .systemLarge:
+			size = sizeLarge
+		@unknown default:
+			fatalError()
+		}
+
+		return WidgetView(
+			entry: StudsEventEntry(
+					date: Date(),
+					event: sampleEvent,
+					configuration: ConfigurationIntent(),
+					widgetFamily: family,
+					size: size
+			)
+		)
+		.previewContext(WidgetPreviewContext(family: family))
     }
 }

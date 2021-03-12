@@ -43,18 +43,12 @@ struct WidgetView: View {
 			widgetURL = nil
 		}
 
+		let widgetWidth = entry.size.width
+		let logoSize = 0.2 * widgetWidth
+
 		return
+			//Show logo on top of other stack
 			ZStack {
-				VStack(alignment: .trailing) {
-					HStack {
-						Spacer()
-						Image.studsS
-							.resizable()
-							.frame(width: 30, height: 30, alignment: .topTrailing)
-					}
-					.padding()
-					Spacer()
-				}
 				HStack {
 					VStack(alignment: .leading) {
 						Text(description1)
@@ -72,6 +66,16 @@ struct WidgetView: View {
 
 					Spacer()
 				}
+				VStack(alignment: .trailing) {
+					HStack {
+						Spacer()
+						Image.studsS
+							.resizable()
+							.frame(width: logoSize, height: logoSize, alignment: .topTrailing)
+					}
+					.padding()
+					Spacer()
+				}
 			}
 			.background(Image.blurredBackground)
 			.widgetURL(widgetURL)
@@ -80,14 +84,31 @@ struct WidgetView: View {
 
 struct WidgetView_Previews: PreviewProvider {
 	static var previews: some View {
-		let family: WidgetFamily = .systemLarge
+		let family: WidgetFamily = .systemMedium
 
-		WidgetView(
+		let sizeSmall = CGSize(width: 158, height: 158)
+		let sizeMedium = CGSize(width: 338, height: 150)
+		let sizeLarge = CGSize(width: 338, height: 354)
+
+		var size: CGSize!
+		switch family {
+		case .systemSmall:
+			size = sizeSmall
+		case .systemMedium:
+			size = sizeMedium
+		case .systemLarge:
+			size = sizeLarge
+		@unknown default:
+			fatalError()
+		}
+
+		return WidgetView(
 			entry: StudsEventEntry(
 				date: Date(),
 				event: sampleEvent,
 				configuration: ConfigurationIntent(),
-				widgetFamily: family
+				widgetFamily: family,
+				size: size
 			)
 		)
 		.previewContext(WidgetPreviewContext(family: family))
