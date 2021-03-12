@@ -12,4 +12,5 @@ import SwiftUI
 @available(iOS 13, *)
 extension Image {
 	static let blurredBackground: Image = Image("Blurred-Background")
+	static let studsS: Image = Image("squareS")
 }

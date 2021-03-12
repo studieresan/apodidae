@@ -43,36 +43,49 @@ struct WidgetView: View {
 			widgetURL = nil
 		}
 
-		return HStack {
-			VStack(alignment: .leading) {
-				Text(description1)
+		return
+			ZStack {
+				VStack(alignment: .trailing) {
+					HStack {
+						Spacer()
+						Image.studsS
+							.resizable()
+							.frame(width: 30, height: 30, alignment: .topTrailing)
+					}
+					.padding()
+					Spacer()
+				}
+				HStack {
+					VStack(alignment: .leading) {
+						Text(description1)
 
-				Text(titleDescription)
-					.font(.title)
-					.bold()
+						Text(titleDescription)
+							.font(.title)
+							.bold()
 
-				if entry.widgetFamily != .systemSmall {
-					Text("\(description2)")
+						if entry.widgetFamily != .systemSmall {
+							Text("\(description2)")
+						}
+					}
+					.fixedSize(horizontal: false, vertical: true)
+					.padding()
+
+					Spacer()
 				}
 			}
-			.fixedSize(horizontal: false, vertical: true)
-			.padding()
-
-			Spacer()
-		}
-		.background(Image.blurredBackground)
-		.widgetURL(widgetURL)
+			.background(Image.blurredBackground)
+			.widgetURL(widgetURL)
 	}
 }
 
 struct WidgetView_Previews: PreviewProvider {
 	static var previews: some View {
-		let family: WidgetFamily = .systemMedium
+		let family: WidgetFamily = .systemLarge
 
 		WidgetView(
 			entry: StudsEventEntry(
 				date: Date(),
-				event: nil,
+				event: sampleEvent,
 				configuration: ConfigurationIntent(),
 				widgetFamily: family
 			)
