@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Combine
 
 struct FetchError: Error {
 	enum ErrorType {
@@ -18,7 +19,7 @@ struct FetchError: Error {
 }
 
 struct Http {
-    private static let baseURL = Bundle.main.infoDictionary!["API_BASE_URL"] as? String ?? "http://localhost:5040"
+    private static let baseURL = Bundle.main.infoDictionary!["API_BASE_URL"] as? String ?? "https://studs-overlord.herokuapp.com"
     public enum Endpoint: String {
         case login = "login"
         case logout = "logout"
@@ -101,7 +102,10 @@ struct Http {
 
             if let userToken = UserManager.getToken() {
                 request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
-            }
+				print("has token")
+			} else {
+				print("No token")
+			}
 
             URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data else {

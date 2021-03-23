@@ -15,13 +15,13 @@ class PublicEventsViewModel: EventsViewModel {
 	var studsYearParameter: Int? //Set to nil
 
 	///Array of section title and the events in this section
-	var sections: [(title: String, events: [Event])] = []
+	var sections: [EventSection] = []
 
 	var disposeBag = DisposeBag()
 
 	var reloadTableViewClosure: (() -> Void)!
 
-	func groupEvents(_ events: [Event]) -> [(title: String, events: [Event])] {
+	func groupEvents(_ events: [Event]) -> [EventSection] {
 
 		var yearEventDict: [Int: [Event]] = [:]
 		events
@@ -35,16 +35,16 @@ class PublicEventsViewModel: EventsViewModel {
 			}
 		})
 
-		var unsortedResult: [(title: String, events: [Event])] = []
+		var unsortedSections: [EventSection] = []
 		yearEventDict.forEach({year, events in
-			unsortedResult.append((title: year.description, events: events))
+			unsortedSections.append(EventSection(events: events, title: year.description))
 		})
 
-		let sortedResult = unsortedResult.sorted(by: {section1, section2 in
+		let sortedSections = unsortedSections.sorted(by: {section1, section2 in
 			return section1.title > section2.title
 		})
 
-		return sortedResult
+		return sortedSections
 	}
 
 }

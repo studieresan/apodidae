@@ -18,8 +18,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
-//        FirebaseApp.configure()
-        UserManager.setDefaultPreferences()
 
         UNUserNotificationCenter.current().delegate = self
 
@@ -39,4 +37,21 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
 
         return true
     }
+
+	//Handle deep link
+	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+		let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+		let queries = urlComponents?.queryItems
+		let scheme = url.scheme
+		if scheme == "studs-widget",
+			url.host == "event",
+			let eventId = queries?.first(where: {queryItem in
+				return queryItem.name == "id"
+			})?.value {
+			//TODO: Open event with ID
+			print("Open event with id \(eventId)")
+		}
+
+		return false
+	}
 }

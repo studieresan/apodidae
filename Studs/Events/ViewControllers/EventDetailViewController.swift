@@ -117,7 +117,8 @@ final class EventDetailViewController: UIViewController {
     @objc
     private func showMapDirections() {
         guard let address = event?.location else {
-            fatalError("Event location isn't set")
+			print("Event location isn't set")
+			return
         }
 
         getCoordinate(addressString: address) { [weak self] coordinate, err in
@@ -154,7 +155,6 @@ final class EventDetailViewController: UIViewController {
         let dateFormatter = DateFormatter()
 
         let date = event.getDate()
-
         dateFormatter.dateFormat = "MMM"
         let month = dateFormatter.string(from: date).uppercased()
 

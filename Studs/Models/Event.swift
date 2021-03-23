@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Event: Decodable, GraphQLMultipleResponse {
 	static var rootField: String = "event"
@@ -15,7 +16,6 @@ struct Event: Decodable, GraphQLMultipleResponse {
     let id: String
 	let published: Bool
     let company: Company?
-    let schedule: String?
     let location: String?
     let privateDescription: String?
     let publicDescription: String?
@@ -24,13 +24,15 @@ struct Event: Decodable, GraphQLMultipleResponse {
     let date: String?
 	let studsYear: Int?
 	let pictures: [String]?
-	//TODO: Implement user struct
-	//let responsible: User
+	let responsible: User?
 
-    enum EventCodingKeys: String, CodingKey {
+	//If event should be rendered as a card in events list
+	var isCard: Bool = false
+
+    enum CodingKeys: String, CodingKey {
         case id
+		case published
         case company
-        case schedule
         case location
         case privateDescription
         case publicDescription
@@ -38,6 +40,8 @@ struct Event: Decodable, GraphQLMultipleResponse {
         case afterSurvey
         case date
 		case studsYear
+		case pictures
+		case responsible
     }
 }
 
@@ -64,3 +68,25 @@ extension Event: Comparable {
 		return trimmedDate ?? Date(timeIntervalSince1970: 0)
     }
 }
+
+let sampleEvent = Event(
+	id: "SOME_EVENT_ID",
+	published: false,
+	company: sampleCompany,
+	location: "Osquars backe 21",
+	privateDescription: "Kom i tid, annars kan det bli :konsekvenser:",
+	publicDescription: "We had a great time visisting this company. Wow!",
+	beforeSurvey: nil,
+	afterSurvey: nil,
+	date: {
+		//Anonymous function to return a date 3 days from now
+		let today = Date()
+		let eventDate = Calendar.current.date(byAdding: .day, value: 3, to: today)
+		let formatter = ISO8601DateFormatter()
+
+		return formatter.string(from: eventDate ?? today)
+	}(),
+	studsYear: 2021,
+	pictures: nil,
+	responsible: nil
+)

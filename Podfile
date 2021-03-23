@@ -7,6 +7,9 @@ target 'Studs' do
 
   # Pods for Studs
 	pod 'RxSwift', '6.0.0-rc.2'
-	pod 'RxCocoa', '6.0.0-rc.2'
   pod 'SwiftLint'
+
+	target 'StudsWidgetExtension' do
+		inherit! :search_paths
+	end
 end
