@@ -20,6 +20,8 @@
 		212E4AE526131B09008B070E /* Date+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AE126131993008B070E /* Date+Studs.swift */; };
 		212E4AF22613250D008B070E /* HappeningsMainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212E4AF12613250D008B070E /* HappeningsMainView.storyboard */; };
 		212E4AF62613251A008B070E /* HappeningsMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF52613251A008B070E /* HappeningsMainVC.swift */; };
+		212E4AFA261364BA008B070E /* Happening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF9261364BA008B070E /* Happening.swift */; };
+		212E4AFE261369A5008B070E /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AFD261369A5008B070E /* GeoJSON.swift */; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -114,6 +116,8 @@
 		212E4AE826131CF3008B070E /* StudsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudsWidgetExtension.entitlements; sourceTree = "<group>"; };
 		212E4AF12613250D008B070E /* HappeningsMainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HappeningsMainView.storyboard; sourceTree = "<group>"; };
 		212E4AF52613251A008B070E /* HappeningsMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningsMainVC.swift; sourceTree = "<group>"; };
+		212E4AF9261364BA008B070E /* Happening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happening.swift; sourceTree = "<group>"; };
+		212E4AFD261369A5008B070E /* GeoJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSON.swift; sourceTree = "<group>"; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 				8B1440B32221831100AE767B /* Login.swift */,
 				2175BF9825866C52001556FC /* User.swift */,
 				2175BF9B2587B32E001556FC /* GraphQLResponse.swift */,
+				212E4AF9261364BA008B070E /* Happening.swift */,
+				212E4AFD261369A5008B070E /* GeoJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -661,8 +667,10 @@
 			files = (
 				2175BF9925866C52001556FC /* User.swift in Sources */,
 				8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */,
+				212E4AFA261364BA008B070E /* Happening.swift in Sources */,
 				2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */,
 				8B1440AD2220322400AE767B /* PrivateEventsViewModel.swift in Sources */,
+				212E4AFE261369A5008B070E /* GeoJSON.swift in Sources */,
 				8B1440B42221831100AE767B /* Login.swift in Sources */,
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
 				8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */,

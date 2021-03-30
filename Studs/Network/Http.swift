@@ -92,7 +92,7 @@ struct Http {
         }
     }
 
-	static func graphQL<T: Decodable & GraphQLResponse>(query: String, type: T.Type) -> Observable<T> {
+	static func graphQL<T: Decodable & GraphQLSingleResponse>(query: String, type: T.Type) -> Observable<T> {
         return Observable.create { observer in
 
             var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)")!)

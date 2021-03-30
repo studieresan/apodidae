@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-struct Event: Decodable, GraphQLMultipleResponse {
+struct Event: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 	static var rootField: String = "event"
 	static var rootFieldMultiple: String = "events"
 

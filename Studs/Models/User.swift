@@ -31,7 +31,7 @@ private struct RawUserResponse: Decodable {
 	let info: UserInfo?
 }
 
-struct User: Decodable, GraphQLMultipleResponse {
+struct User: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 	static var rootField: String = "user"
 	static var rootFieldMultiple: String = "users"
 
