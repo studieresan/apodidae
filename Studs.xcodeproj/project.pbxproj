@@ -16,6 +16,8 @@
 		211E4A0D25F16395007A497D /* StudsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 211E49FD25F16393007A497D /* StudsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		211E4A1625F16BFB007A497D /* StudsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */; };
 		211E4A1925F16C07007A497D /* StudsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */; };
+		212E4AE226131993008B070E /* Date+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AE126131993008B070E /* Date+Studs.swift */; };
+		212E4AE526131B09008B070E /* Date+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AE126131993008B070E /* Date+Studs.swift */; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -108,6 +110,8 @@
 		211E4A0625F16395007A497D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		211E4A0825F16395007A497D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		211E4A1525F16BFB007A497D /* StudsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		212E4AE126131993008B070E /* Date+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Studs.swift"; sourceTree = "<group>"; };
+		212E4AE826131CF3008B070E /* StudsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudsWidgetExtension.entitlements; sourceTree = "<group>"; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 		8E3782E62183B981004F083F = {
 			isa = PBXGroup;
 			children = (
+				212E4AE826131CF3008B070E /* StudsWidgetExtension.entitlements */,
 				211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */,
 				8E3782F12183B981004F083F /* Studs */,
 				211E4A0225F16393007A497D /* StudsWidget */,
@@ -308,6 +313,7 @@
 				2175BFB52588D269001556FC /* UIImage+Studs.swift */,
 				215129CD25EE9A9200464134 /* Image+Studs.swift */,
 				217FE32125FA29860005713D /* UserDefaults+Studs.swift */,
+				212E4AE126131993008B070E /* Date+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -631,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212E4AE526131B09008B070E /* Date+Studs.swift in Sources */,
 				21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */,
 				21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */,
 				21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */,
@@ -670,6 +677,7 @@
 				2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */,
 				21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */,
 				211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */,
+				212E4AE226131993008B070E /* Date+Studs.swift in Sources */,
 				21FBF808258D059500B3A3ED /* EventsViewModel.swift in Sources */,
 				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
 				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
@@ -729,6 +737,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StudsWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
@@ -756,6 +765,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StudsWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;

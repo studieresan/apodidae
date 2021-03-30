@@ -44,12 +44,12 @@ struct Provider: IntentTimelineProvider {
 
 			var entries: [StudsEventEntry] = []
 
-			// Generate a timeline consisting of five entries a day apart, starting from the current date.
+			// Generate a timeline consisting of 4 entries 12 hours apart, starting from the current date.
 			let currentDate = Date()
 
 			var nextEvent: Event? = sortedEvents.first
-			for hourOffset in 0 ..< 5 {
-				let entryDate = Calendar.current.date(byAdding: .day, value: hourOffset, to: currentDate)!
+			for hourOffset in 0 ..< 4 {
+				let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset * 12, to: currentDate)!
 
 				//Don't search if was nil last time, means that this will also be nil
 				if nextEvent != nil {

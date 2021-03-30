@@ -34,6 +34,10 @@ struct WidgetView: View {
 			titleDescription = event.company?.name ?? "Inget företagsnamn"
 			description2 = dateString
 
+			if now.isSameDay(as: eventDate) {
+				description1 = "Idag!"
+			}
+
 			let widgetURLString = "studs-widget://event?id=\(event.id)"
 			widgetURL = URL(string: widgetURLString)
 		} else {
