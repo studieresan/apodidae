@@ -26,8 +26,8 @@ final class StudsViewController: UITabBarController {
 		viewControllers.append(eventsViewController)
 
 		if isLoggedIn {
-			let travelViewController = UINavigationController(rootViewController: CountdownVC.instance(withName: "Countdown")).apply {
-				$0.tabBarItem = UITabBarItem(title: "Resan", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
+			let travelViewController = UINavigationController(rootViewController: HappeningsMainVC.instance(withName: "HappeningsMainView")).apply {
+				$0.tabBarItem = UITabBarItem(title: "Happenings", image: #imageLiteral(resourceName: "travelTab"), tag: 1)
 			}
 
 			let settingsViewController = UINavigationController(rootViewController: ProfileViewController.instance(withName: "Profile")).apply {

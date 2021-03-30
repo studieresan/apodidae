@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wX3-qM-oj5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Här sitter vi!-->
+        <scene sceneID="GGF-GB-NPJ">
+            <objects>
+                <viewController title="Här sitter vi!" id="wX3-qM-oj5" customClass="HappeningsMainVC" customModule="Studs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CIZ-dQ-r1o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Här sitter vi!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rd-Yj-DWZ">
+                                <rect key="frame" x="20" y="44" width="173.5" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5S2-bG-gtW">
+                                <rect key="frame" x="0.0" y="105" width="414" height="616"/>
+                                <connections>
+                                    <segue destination="5sk-7j-nTj" kind="embed" id="SLs-E5-jyN"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pkl-7g-C9O" userLabel="Switch">
+                                <rect key="frame" x="100" y="731" width="214" height="32"/>
+                                <color key="backgroundColor" name="PrimaryBG"/>
+                                <segments>
+                                    <segment title="Kartvy"/>
+                                    <segment title="Listvy"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="Primary"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Cy-Ocr" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                <rect key="frame" x="40" y="782" width="334" height="60"/>
+                                <color key="backgroundColor" name="Primary"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="fq3-HY-1iH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title="Här sitter jag">
+                                    <color key="titleColor" name="PrimaryBG"/>
+                                </state>
+                                <connections>
+                                    <action selector="newHappeningPressed:" destination="wX3-qM-oj5" eventType="touchUpInside" id="mcj-wo-b2B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jug-Jo-0XR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Rd-Yj-DWZ" firstAttribute="top" secondItem="Jug-Jo-0XR" secondAttribute="top" id="3bh-eO-OAy"/>
+                            <constraint firstItem="fHy-Cy-Ocr" firstAttribute="top" secondItem="pkl-7g-C9O" secondAttribute="bottom" constant="20" id="4wr-J9-ivF"/>
+                            <constraint firstItem="fHy-Cy-Ocr" firstAttribute="leading" secondItem="Jug-Jo-0XR" secondAttribute="leading" constant="40" id="5B1-8w-gxD"/>
+                            <constraint firstItem="Jug-Jo-0XR" firstAttribute="bottom" secondItem="fHy-Cy-Ocr" secondAttribute="bottom" constant="20" id="5DO-0m-CKv"/>
+                            <constraint firstItem="pkl-7g-C9O" firstAttribute="centerX" secondItem="CIZ-dQ-r1o" secondAttribute="centerX" id="C39-bA-LVg"/>
+                            <constraint firstItem="pkl-7g-C9O" firstAttribute="top" secondItem="5S2-bG-gtW" secondAttribute="bottom" constant="10" id="C5h-ua-Z9O"/>
+                            <constraint firstItem="Jug-Jo-0XR" firstAttribute="trailing" secondItem="fHy-Cy-Ocr" secondAttribute="trailing" constant="40" id="E9U-kb-u77"/>
+                            <constraint firstItem="5S2-bG-gtW" firstAttribute="leading" secondItem="Jug-Jo-0XR" secondAttribute="leading" id="IMQ-wz-E2i"/>
+                            <constraint firstItem="5S2-bG-gtW" firstAttribute="top" secondItem="5Rd-Yj-DWZ" secondAttribute="bottom" constant="20" id="JRB-aB-2Z8"/>
+                            <constraint firstItem="Jug-Jo-0XR" firstAttribute="bottom" secondItem="fHy-Cy-Ocr" secondAttribute="bottom" constant="20" id="Qcx-Mh-GBU"/>
+                            <constraint firstItem="5Rd-Yj-DWZ" firstAttribute="leading" secondItem="Jug-Jo-0XR" secondAttribute="leading" constant="20" id="gYe-Kg-fJW"/>
+                            <constraint firstItem="pkl-7g-C9O" firstAttribute="leading" secondItem="Jug-Jo-0XR" secondAttribute="leading" constant="100" id="l0t-Z8-GUi"/>
+                            <constraint firstItem="fHy-Cy-Ocr" firstAttribute="centerX" secondItem="CIZ-dQ-r1o" secondAttribute="centerX" id="mVq-6d-s3a"/>
+                            <constraint firstItem="Jug-Jo-0XR" firstAttribute="trailing" secondItem="5S2-bG-gtW" secondAttribute="trailing" id="q0z-v3-rJA"/>
+                            <constraint firstItem="fHy-Cy-Ocr" firstAttribute="top" secondItem="pkl-7g-C9O" secondAttribute="bottom" constant="20" id="tL3-6V-dFi"/>
+                            <constraint firstItem="Jug-Jo-0XR" firstAttribute="trailing" secondItem="pkl-7g-C9O" secondAttribute="trailing" constant="100" id="xKk-ID-qhu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="happeningsSubview" destination="5S2-bG-gtW" id="pPO-nn-hR3"/>
+                        <outlet property="subviewTypeSwitch" destination="pkl-7g-C9O" id="Stb-en-gOl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tlu-zh-AFe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-233.33333333333334" y="118.52678571428571"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JdY-im-0Ap">
+            <objects>
+                <viewController id="5sk-7j-nTj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yqG-ab-f2D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="616"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhN-i9-vK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="119"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Primary">
+            <color red="0.74901960784313726" green="0.36078431372549019" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBG">
+            <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

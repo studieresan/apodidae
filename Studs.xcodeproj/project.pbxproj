@@ -18,6 +18,8 @@
 		211E4A1925F16C07007A497D /* StudsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 211E4A1425F16BFB007A497D /* StudsDataModel.xcdatamodeld */; };
 		212E4AE226131993008B070E /* Date+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AE126131993008B070E /* Date+Studs.swift */; };
 		212E4AE526131B09008B070E /* Date+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AE126131993008B070E /* Date+Studs.swift */; };
+		212E4AF22613250D008B070E /* HappeningsMainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212E4AF12613250D008B070E /* HappeningsMainView.storyboard */; };
+		212E4AF62613251A008B070E /* HappeningsMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF52613251A008B070E /* HappeningsMainVC.swift */; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -30,8 +32,6 @@
 		2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BFB52588D269001556FC /* UIImage+Studs.swift */; };
 		217FE32225FA29860005713D /* UserDefaults+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FE32125FA29860005713D /* UserDefaults+Studs.swift */; };
 		217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FE32125FA29860005713D /* UserDefaults+Studs.swift */; };
-		21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7BAD125826077004D5D54 /* CountdownVC.swift */; };
-		21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A7BAD625827C53004D5D54 /* Countdown.storyboard */; };
 		21B8175025FABA4100D78E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B8175225FABA4100D78E3E /* LaunchScreen.storyboard */; };
 		21B8175825FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
 		21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
@@ -112,6 +112,8 @@
 		211E4A1525F16BFB007A497D /* StudsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudsDataModel.xcdatamodel; sourceTree = "<group>"; };
 		212E4AE126131993008B070E /* Date+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Studs.swift"; sourceTree = "<group>"; };
 		212E4AE826131CF3008B070E /* StudsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudsWidgetExtension.entitlements; sourceTree = "<group>"; };
+		212E4AF12613250D008B070E /* HappeningsMainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HappeningsMainView.storyboard; sourceTree = "<group>"; };
+		212E4AF52613251A008B070E /* HappeningsMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningsMainVC.swift; sourceTree = "<group>"; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
@@ -124,8 +126,6 @@
 		2175BFB52588D269001556FC /* UIImage+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Studs.swift"; sourceTree = "<group>"; };
 		217FE31E25FA27970005713D /* Studs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Studs.entitlements; sourceTree = "<group>"; };
 		217FE32125FA29860005713D /* UserDefaults+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Studs.swift"; sourceTree = "<group>"; };
-		21A7BAD125826077004D5D54 /* CountdownVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownVC.swift; sourceTree = "<group>"; };
-		21A7BAD625827C53004D5D54 /* Countdown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Countdown.storyboard; sourceTree = "<group>"; };
 		21B8175125FABA4100D78E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21B8175525FABA4B00D78E3E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		21B8175A25FABA7600D78E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/StudsWidget.intentdefinition; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		21A7BACC25825FF0004D5D54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				21A7BAD625827C53004D5D54 /* Countdown.storyboard */,
+				212E4AF12613250D008B070E /* HappeningsMainView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 		21A7BACD25826035004D5D54 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				21A7BAD125826077004D5D54 /* CountdownVC.swift */,
+				212E4AF52613251A008B070E /* HappeningsMainVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 				8E3782F22183B981004F083F /* AppDelegate.swift */,
 				8EAC487F2184F1C300BB36A2 /* Network */,
 				8EA641582184A1BE00A138EB /* Events */,
-				8EAC48682184BA9400BB36A2 /* Travel */,
+				8EAC48682184BA9400BB36A2 /* Happenings */,
 				8EAC48692184BA9F00BB36A2 /* Profile */,
 				8E37830C2183C4DE004F083F /* Login */,
 				8E37830B2183C485004F083F /* Supporting Files */,
@@ -386,13 +386,13 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		8EAC48682184BA9400BB36A2 /* Travel */ = {
+		8EAC48682184BA9400BB36A2 /* Happenings */ = {
 			isa = PBXGroup;
 			children = (
 				21A7BACD25826035004D5D54 /* ViewControllers */,
 				21A7BACC25825FF0004D5D54 /* Views */,
 			);
-			path = Travel;
+			path = Happenings;
 			sourceTree = "<group>";
 		};
 		8EAC48692184BA9F00BB36A2 /* Profile */ = {
@@ -539,12 +539,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				21B8175025FABA4100D78E3E /* LaunchScreen.storyboard in Resources */,
+				212E4AF22613250D008B070E /* HappeningsMainView.storyboard in Resources */,
 				8B1440AF2221772D00AE767B /* LoginView.storyboard in Resources */,
 				2175BF87258661C6001556FC /* Profile.storyboard in Resources */,
 				8E37830E2183C4EF004F083F /* ForgotPasswordView.storyboard in Resources */,
 				8EA6415A2184A1D300A138EB /* EventsView.storyboard in Resources */,
 				8E3782FA2183B982004F083F /* Assets.xcassets in Resources */,
-				21A7BAD725827C53004D5D54 /* Countdown.storyboard in Resources */,
 				8BA00BD3221C08D70042351B /* EventDetailView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,10 +675,10 @@
 				215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
 				2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */,
-				21A7BAD225826077004D5D54 /* CountdownVC.swift in Sources */,
 				211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */,
 				212E4AE226131993008B070E /* Date+Studs.swift in Sources */,
 				21FBF808258D059500B3A3ED /* EventsViewModel.swift in Sources */,
+				212E4AF62613251A008B070E /* HappeningsMainVC.swift in Sources */,
 				2175BF902586664B001556FC /* GraphQLFields.swift in Sources */,
 				2175BF9C2587B32E001556FC /* GraphQLResponse.swift in Sources */,
 				8B8FC9E222301374000C7796 /* UserManager.swift in Sources */,
