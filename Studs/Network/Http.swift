@@ -162,6 +162,12 @@ struct Http {
 		return graphQL(query: query, type: User.self)
 	}
 
+	static func fetchHappenings() -> Observable<[Happening]> {
+		let query = createHappeningsQuery()
+
+		return graphQL(query: query, type: [Happening].self)
+	}
+
     private static func decode<T: Decodable>(data: Data, type: T.Type) -> Result<T, Error> {
         do {
             let decoder = JSONDecoder()

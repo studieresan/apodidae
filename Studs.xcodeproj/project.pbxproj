@@ -22,6 +22,11 @@
 		212E4AF62613251A008B070E /* HappeningsMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF52613251A008B070E /* HappeningsMainVC.swift */; };
 		212E4AFA261364BA008B070E /* Happening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF9261364BA008B070E /* Happening.swift */; };
 		212E4AFE261369A5008B070E /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AFD261369A5008B070E /* GeoJSON.swift */; };
+		212E4B0726136D08008B070E /* Happening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF9261364BA008B070E /* Happening.swift */; };
+		212E4B0A26136D13008B070E /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AFD261369A5008B070E /* GeoJSON.swift */; };
+		212E4B0E26136E22008B070E /* MapSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B0D26136E22008B070E /* MapSubview.swift */; };
+		212E4B1226136E3D008B070E /* HappeningsSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B1126136E3D008B070E /* HappeningsSubview.swift */; };
+		212E4B1626136ED8008B070E /* ListSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B1526136ED8008B070E /* ListSubview.swift */; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -118,6 +123,9 @@
 		212E4AF52613251A008B070E /* HappeningsMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningsMainVC.swift; sourceTree = "<group>"; };
 		212E4AF9261364BA008B070E /* Happening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happening.swift; sourceTree = "<group>"; };
 		212E4AFD261369A5008B070E /* GeoJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoJSON.swift; sourceTree = "<group>"; };
+		212E4B0D26136E22008B070E /* MapSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSubview.swift; sourceTree = "<group>"; };
+		212E4B1126136E3D008B070E /* HappeningsSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningsSubview.swift; sourceTree = "<group>"; };
+		212E4B1526136ED8008B070E /* ListSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSubview.swift; sourceTree = "<group>"; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
@@ -241,6 +249,9 @@
 			isa = PBXGroup;
 			children = (
 				212E4AF52613251A008B070E /* HappeningsMainVC.swift */,
+				212E4B0D26136E22008B070E /* MapSubview.swift */,
+				212E4B1126136E3D008B070E /* HappeningsSubview.swift */,
+				212E4B1526136ED8008B070E /* ListSubview.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -647,8 +658,10 @@
 				21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */,
 				21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */,
 				21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */,
+				212E4B0726136D08008B070E /* Happening.swift in Sources */,
 				21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */,
 				217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */,
+				212E4B0A26136D13008B070E /* GeoJSON.swift in Sources */,
 				211E4A0425F16393007A497D /* StudsWidget.swift in Sources */,
 				21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */,
 				21E5B1C025F1763300DC3BD8 /* Event.swift in Sources */,
@@ -669,6 +682,7 @@
 				8B63A3DB2210CD670098909F /* EventTableViewCell.swift in Sources */,
 				212E4AFA261364BA008B070E /* Happening.swift in Sources */,
 				2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */,
+				212E4B1226136E3D008B070E /* HappeningsSubview.swift in Sources */,
 				8B1440AD2220322400AE767B /* PrivateEventsViewModel.swift in Sources */,
 				212E4AFE261369A5008B070E /* GeoJSON.swift in Sources */,
 				8B1440B42221831100AE767B /* Login.swift in Sources */,
@@ -695,6 +709,7 @@
 				8EA6415E2184A3EE00A138EB /* Extensions+Studs.swift in Sources */,
 				215129C225EE46C500464134 /* EventSection.swift in Sources */,
 				8E3783082183C3CF004F083F /* UIViewController+Studs.swift in Sources */,
+				212E4B0E26136E22008B070E /* MapSubview.swift in Sources */,
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
 				217FE32225FA29860005713D /* UserDefaults+Studs.swift in Sources */,
 				8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */,
@@ -702,6 +717,7 @@
 				211E4A1625F16BFB007A497D /* StudsDataModel.xcdatamodeld in Sources */,
 				8E3782F32183B981004F083F /* AppDelegate.swift in Sources */,
 				8BFE07DB2219C97000EFDD3B /* EventDetailViewController.swift in Sources */,
+				212E4B1626136ED8008B070E /* ListSubview.swift in Sources */,
 				215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */,
 				8B1440B6222183EB00AE767B /* LoginViewModel.swift in Sources */,
 			);

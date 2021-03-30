@@ -88,6 +88,30 @@ company {
 studsYear
 """
 
+let happeningFields = """
+id
+host {
+  \(userFields)
+}
+participants {
+  \(userFields)
+}
+location {
+  type
+  geometry {
+    type
+    coordinates
+  }
+  properties {
+    name
+  }
+}
+created
+title
+emoji
+description
+"""
+
 func createUsersQuery(role: String?, year: Int?) -> String {
 	return """
 users(userRole: \(role ?? "null"), studsYear: \(year?.description ?? "null")) {
@@ -132,6 +156,14 @@ func createEventQuery(id: String) -> String {
 	return """
 event(eventId: \(id)) {
  \(eventFields)
+}
+"""
+}
+
+func createHappeningsQuery() -> String {
+	return """
+happenings {
+  \(happeningFields)
 }
 """
 }

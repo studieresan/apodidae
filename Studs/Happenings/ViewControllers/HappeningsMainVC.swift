@@ -9,15 +9,20 @@
 import Foundation
 import UIKit
 import MapKit
+import RxSwift
 
 //TODO: Cache mapview and listview as to not have to rerender them at every switch
 class HappeningsMainVC: UIViewController {
 
-	//Each segment title
-	let segments: [String] = [
-		"Kartvy",
-		"Listvy",
-	]
+	struct Subview {
+		let title: String
+		let viewController: HappeningsSubview
+	}
+
+	//Each segment title with its corresponding subview view
+	var happeningSubviews: [Subview] = []
+
+	var disposeBag = DisposeBag()
 
 	@IBOutlet weak var subviewTypeSwitch: UISegmentedControl!
 	@IBOutlet weak var happeningsSubview: UIView!
@@ -35,53 +40,57 @@ class HappeningsMainVC: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		self.happeningSubviews = [
+			Subview(title: "Kartvy", viewController: MapSubview()),
+			Subview(title: "Listvy", viewController: ListSubview()),
+		]
+
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
 		subviewTypeSwitch.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.primaryBG], for: .selected)
 
 		subviewTypeSwitch.removeAllSegments()
-		for (index, segment) in self.segments.enumerated() {
-			subviewTypeSwitch.insertSegment(withTitle: segment, at: index, animated: true)
+
+		for (index, segment) in self.happeningSubviews.enumerated() {
+			subviewTypeSwitch.insertSegment(withTitle: segment.title, at: index, animated: true)
 		}
 
 		subviewTypeSwitch.selectedSegmentIndex = self.currentSubviewIndex
+
+		fetchData()
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
+		self.setFramesOfSubviews()
 		self.reloadSubview()
 	}
 
-	func loadMapView() {
-		let map = MKMapView()
-
-		map.mapType = .standard
-
-		let center: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 59.347990, longitude: 18.071482)
-		let spanSize: CLLocationDistance = 200
-
-		let region = MKCoordinateRegion(center: center, latitudinalMeters: spanSize, longitudinalMeters: spanSize)
-
-		map.setRegion(region, animated: true)
-
-		let subviewFrame = self.happeningsSubview.frame
-		map.frame = CGRect(x: 0, y: 0, width: subviewFrame.width, height: subviewFrame.height)
-
-		self.happeningsSubview.addSubview(map)
+	func fetchData() {
+		Http
+			.fetchHappenings()
+			.subscribe(
+				onNext: { [self] happenings in
+					for segment in self.happeningSubviews {
+						segment.viewController.onData(happenings)
+					}
+				}).disposed(by: self.disposeBag)
 	}
 
-	func loadListView() {
-		print("TODO: Load list view")
+	///Set the frame of all subviews as to not be bigger than their superview
+	func setFramesOfSubviews() {
+		self.happeningSubviews.forEach({ subview in
+			subview.viewController.view.frame = self.happeningsSubview.bounds
+		})
 	}
 
 	func reloadSubview() {
 		//Clear all subviews
 		self.happeningsSubview.subviews.forEach({$0.removeFromSuperview()})
-		switch self.currentSubviewIndex {
-		case 0:
-			self.loadMapView()
-		case 1:
-			self.loadListView()
-		default:
-			fatalError("Not implemented \(self.currentSubviewIndex) subview type")
-		}
+
+		//Choose new subview to show
+		let newSubview = self.happeningSubviews[self.currentSubviewIndex].viewController
+		self.happeningsSubview.addSubview(
+			newSubview.view
+		)
 	}
 }
