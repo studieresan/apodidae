@@ -38,6 +38,9 @@
                                     <segment title="Listvy"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" name="Primary"/>
+                                <connections>
+                                    <action selector="didSwitchSubviewType:" destination="wX3-qM-oj5" eventType="valueChanged" id="gkS-Sw-6qt"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHy-Cy-Ocr" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
                                 <rect key="frame" x="40" y="782" width="334" height="60"/>
@@ -50,7 +53,7 @@
                                     <color key="titleColor" name="PrimaryBG"/>
                                 </state>
                                 <connections>
-                                    <action selector="newHappeningPressed:" destination="wX3-qM-oj5" eventType="touchUpInside" id="mcj-wo-b2B"/>
+                                    <action selector="didPressNewHappening:" destination="wX3-qM-oj5" eventType="touchUpInside" id="CtZ-uJ-fY2"/>
                                 </connections>
                             </button>
                         </subviews>
