@@ -12,6 +12,17 @@ import MapKit
 class MapSubview: UIViewController, HappeningsSubview {
 	var happenings: [Happening] = []
 
+	// Center is Medis, sthlm
+	static var defaultCenter = CLLocationCoordinate2D(latitude: 59.315278, longitude: 18.072521)
+	static var defaultDelta = 0.01
+
+	var center = defaultCenter
+	var span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: defaultDelta, longitudeDelta: defaultDelta)
+
+	let locationManager = CLLocationManager()
+
+	var mapView: MKMapView = MKMapView()
+
 	func onData(_ happenings: [Happening]) {
 		self.happenings = happenings
 		self.reloadView()
@@ -19,29 +30,79 @@ class MapSubview: UIViewController, HappeningsSubview {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let view = MKMapView()
+		let view = mapView
 
 		view.delegate = self
-
 		view.mapType = .standard
 
-		let center: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 59.347990, longitude: 18.071482)
-		let spanSize: CLLocationDistance = 200
+		view.showsUserLocation = true
 
-		let region = MKCoordinateRegion(center: center, latitudinalMeters: spanSize, longitudinalMeters: spanSize)
-
-		view.setRegion(region, animated: true)
+		locationManager.delegate = self
+		if CLLocationManager.locationServicesEnabled() {
+			locationManager.requestWhenInUseAuthorization()
+			locationManager.startUpdatingLocation()
+		} else {
+			print("No location enabled")
+		}
 
 		view.clipsToBounds = true
 
 		self.view = view
+
+		self.reCenterMap()
+		self.resetDefaultCenter()
 	}
 
 	func reloadView() {
+		//Clear all current annotations
+		for annotation in self.mapView.annotations {
+			self.mapView.removeAnnotation(annotation)
+		}
 
+		//Add all happening annotations
+		for happening in self.happenings {
+			let location = happening.location.coordinate()
+
+			let annotation = MKPointAnnotation()
+
+			annotation.title = happening.emoji
+			annotation.subtitle = happening.title
+
+			annotation.coordinate = location
+
+			mapView.addAnnotation(annotation)
+		}
+	}
+
+	func resetDefaultCenter() {
+		self.center = MapSubview.defaultCenter
+		let delta = MapSubview.defaultDelta
+		self.span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
+	}
+
+	func reCenterMap() {
+		let region = MKCoordinateRegion(center: center, span: self.span)
+
+		mapView.setRegion(region, animated: true)
 	}
 }
 
 extension MapSubview: MKMapViewDelegate {
+	func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+		let span = mapView.region.span
+		self.span = span
+	}
+}
 
+extension MapSubview: CLLocationManagerDelegate {
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		if let currentLocation = locations.last {
+			self.center = currentLocation.coordinate
+			self.reCenterMap()
+		}
+	}
+
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		print("Error with location: \(error)")
+	}
 }

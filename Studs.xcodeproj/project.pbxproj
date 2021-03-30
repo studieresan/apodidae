@@ -27,6 +27,7 @@
 		212E4B0E26136E22008B070E /* MapSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B0D26136E22008B070E /* MapSubview.swift */; };
 		212E4B1226136E3D008B070E /* HappeningsSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B1126136E3D008B070E /* HappeningsSubview.swift */; };
 		212E4B1626136ED8008B070E /* ListSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B1526136ED8008B070E /* ListSubview.swift */; };
+		212E4B1A2613A515008B070E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212E4B192613A515008B070E /* MapKit.framework */; };
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
@@ -126,6 +127,7 @@
 		212E4B0D26136E22008B070E /* MapSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSubview.swift; sourceTree = "<group>"; };
 		212E4B1126136E3D008B070E /* HappeningsSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningsSubview.swift; sourceTree = "<group>"; };
 		212E4B1526136ED8008B070E /* ListSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSubview.swift; sourceTree = "<group>"; };
+		212E4B192613A515008B070E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B0D56B156D33BC6C61DBD27 /* Pods_Studs.framework in Frameworks */,
+				212E4B1A2613A515008B070E /* MapKit.framework in Frameworks */,
 				31FE112A0A2845F80DC2E520 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +444,7 @@
 		BC11AD05E604EAD26081389A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				212E4B192613A515008B070E /* MapKit.framework */,
 				411C646ACD8CBCC62B74A8E0 /* Pods_Studs.framework */,
 				211E49FE25F16393007A497D /* WidgetKit.framework */,
 				211E4A0025F16393007A497D /* SwiftUI.framework */,
