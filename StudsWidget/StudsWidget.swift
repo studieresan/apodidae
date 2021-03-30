@@ -54,9 +54,11 @@ struct Provider: IntentTimelineProvider {
 				//Don't search if was nil last time, means that this will also be nil
 				if nextEvent != nil {
 					//Find index offirst event where entryDate is before eventDate, i.e. the event
-					//before in list is the next event
+					//before in list is the next event. If they are same day, choose next event as this means that that event is the
+					// next event (disregarding time of day)
 					let firstEventAfterDate = sortedEvents.firstIndex(where: {event in
-						return event.getDate() < entryDate
+						return event.getDate() < entryDate &&
+							!entryDate.isSameDay(as: event.getDate())
 					})
 					//If index exists and is bigger than 0 (i.e. there exists a next event)
 					if let index = firstEventAfterDate, index >= 1 {

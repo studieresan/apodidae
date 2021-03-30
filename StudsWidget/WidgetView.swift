@@ -22,21 +22,27 @@ struct WidgetView: View {
 		//If there is indeed an event
 		if let event = entry.event {
 			let now = entry.date
-			let eventDate = entry.event?.getDate() ?? Date()
-			let daysUntil = Calendar.current.dateComponents([.day], from: now, to: eventDate)
+			let eventDate = event.getDate()
 
 			let formatter = DateFormatter()
 			formatter.dateFormat = "EEEE d/M HH:mm"
 
 			let dateString = formatter.string(from: eventDate)
 
-			description1 = "Om \(daysUntil.day!) dagar"
-			titleDescription = event.company?.name ?? "Inget företagsnamn"
-			description2 = dateString
-
 			if now.isSameDay(as: eventDate) {
 				description1 = "Idag!"
+			} else {
+			let untilDate = Calendar.current.dateComponents([.day], from: now, to: eventDate)
+				var daysUntil: Int = untilDate.day ?? -1
+				// If 0 days but not same day means that we are on the day before
+				if daysUntil == 0 && !now.isSameDay(as: event.getDate()) {
+					daysUntil = 1
+				}
+
+				description1 = "Om \(daysUntil) dagar"
 			}
+			titleDescription = event.company?.name ?? "Inget företagsnamn"
+			description2 = dateString
 
 			let widgetURLString = "studs-widget://event?id=\(event.id)"
 			widgetURL = URL(string: widgetURLString)
