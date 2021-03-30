@@ -99,6 +99,7 @@ extension MapSubview: CLLocationManagerDelegate {
 		if let currentLocation = locations.last {
 			self.center = currentLocation.coordinate
 			self.reCenterMap()
+			self.locationManager.stopUpdatingLocation()
 		}
 	}
 
