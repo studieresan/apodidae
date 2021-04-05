@@ -49,10 +49,11 @@ class MapSubview: UIViewController, HappeningsSubview {
 
 		self.view = view
 
-		self.reCenterMap()
 		self.resetDefaultCenter()
+		self.reCenterMap()
 	}
 
+	//Show all happenings on map
 	func reloadView() {
 		//Clear all current annotations
 		for annotation in self.mapView.annotations {
@@ -74,12 +75,14 @@ class MapSubview: UIViewController, HappeningsSubview {
 		}
 	}
 
+	//Center map to defaults
 	func resetDefaultCenter() {
 		self.center = MapSubview.defaultCenter
 		let delta = MapSubview.defaultDelta
 		self.span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
 	}
 
+	//Center map to current center
 	func reCenterMap() {
 		let region = MKCoordinateRegion(center: center, span: self.span)
 
@@ -96,6 +99,7 @@ extension MapSubview: MKMapViewDelegate {
 
 extension MapSubview: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		//Only center the map once, when we get the users location
 		if let currentLocation = locations.last {
 			self.center = currentLocation.coordinate
 			self.reCenterMap()

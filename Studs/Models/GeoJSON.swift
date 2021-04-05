@@ -11,25 +11,36 @@ import CoreLocation
 
 //As per defined in API https://github.com/studieresan/overlord/blob/master/API.md#geojsonfeaturetype
 class GeoJSON: Decodable {
-	var type: String
-	var geometry: GeoJSONGeometryType
-	var properties: GeoJSONPropertiesType
 
-	// Long and lat are in this order according to RFC spec https://tools.ietf.org/html/rfc7946
+	let longitude: Double
+	let latitude: Double
+
+	required init(from decoder: Decoder) throws {
+		let raw = try GeoJSONRaw(from: decoder)
+
+		let coordinates = raw.geometry.coordinates
+
+		// Long and lat exists and are in this order according to RFC spec https://tools.ietf.org/html/rfc7946
+		self.longitude = coordinates[0]
+		self.latitude = coordinates[1]
+	}
+
 	func coordinate() -> CLLocationCoordinate2D {
-		//Should always work to get at least these coordinates according to RFC
-		let long: Double = self.geometry.coordinates[0]
-		let lat: Double = self.geometry.coordinates[1]
-
-		return CLLocationCoordinate2D(latitude: lat, longitude: long)
+		return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
 	}
 }
 
-class GeoJSONGeometryType: Decodable {
+private class GeoJSONRaw: Decodable {
+	var type: String
+	var geometry: GeoJSONGeometryType
+	var properties: GeoJSONPropertiesType
+}
+
+private class GeoJSONGeometryType: Decodable {
 	var type: String
 	var coordinates: [Double]
 }
 
-class GeoJSONPropertiesType: Decodable {
+private class GeoJSONPropertiesType: Decodable {
 	var name: String
 }

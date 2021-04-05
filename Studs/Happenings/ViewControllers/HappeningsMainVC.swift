@@ -41,9 +41,15 @@ class HappeningsMainVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		//Find list view controller in main storyboard of happenings. Used to simplify 
+		guard let happeningsList = UIStoryboard(name: "HappeningsMainView", bundle: nil)
+				.instantiateViewController(withIdentifier: "happenings-list-controller") as? ListSubview else {
+			fatalError("Could not find storyboard happenings-list-controller")
+		}
+
 		self.happeningSubviews = [
 			Subview(title: "Kartvy", viewController: MapSubview()),
-			Subview(title: "Listvy", viewController: ListSubview()),
+			Subview(title: "Listvy", viewController: happeningsList),
 		]
 
 		self.navigationController?.setNavigationBarHidden(true, animated: false)
