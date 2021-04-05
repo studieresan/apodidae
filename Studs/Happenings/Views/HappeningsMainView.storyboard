@@ -135,6 +135,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qep-PD-VBP" userLabel="emoji">
+                                            <rect key="frame" x="68" y="45.5" width="32" height="33.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Yf5-hZ-WpA" secondAttribute="trailing" constant="20" id="H7U-1U-dEE"/>
@@ -146,13 +152,16 @@
                                         <constraint firstItem="FQq-bd-Sy5" firstAttribute="top" secondItem="Jvb-l0-UAm" secondAttribute="bottom" constant="5" id="hrR-m2-MjR"/>
                                         <constraint firstItem="Yf5-hZ-WpA" firstAttribute="bottom" secondItem="rfR-I1-7RH" secondAttribute="bottomMargin" constant="10" id="jLM-at-BOM"/>
                                         <constraint firstItem="hId-cw-qYn" firstAttribute="leading" secondItem="rfR-I1-7RH" secondAttribute="leading" constant="20" id="kkx-x3-moc"/>
+                                        <constraint firstItem="hId-cw-qYn" firstAttribute="trailing" secondItem="Qep-PD-VBP" secondAttribute="trailing" id="mCc-MM-FgV"/>
                                         <constraint firstItem="Jvb-l0-UAm" firstAttribute="top" secondItem="rfR-I1-7RH" secondAttribute="top" constant="10" id="oof-qy-t6Z"/>
                                         <constraint firstItem="Jvb-l0-UAm" firstAttribute="leading" secondItem="hId-cw-qYn" secondAttribute="trailing" constant="20" id="r4W-3Z-V2z"/>
                                         <constraint firstAttribute="trailing" secondItem="Jvb-l0-UAm" secondAttribute="trailing" constant="20" id="u9I-P5-IeM"/>
+                                        <constraint firstItem="hId-cw-qYn" firstAttribute="bottom" secondItem="Qep-PD-VBP" secondAttribute="bottom" id="ywn-ud-oTP"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="happeningDescription" destination="Yf5-hZ-WpA" id="zr5-zV-MgQ"/>
+                                    <outlet property="happeningEmoji" destination="Qep-PD-VBP" id="q0K-49-2ap"/>
                                     <outlet property="happeningLocation" destination="FQq-bd-Sy5" id="5BB-lG-mUn"/>
                                     <outlet property="happeningTitle" destination="Jvb-l0-UAm" id="ZZT-8d-jNc"/>
                                     <outlet property="userImage" destination="hId-cw-qYn" id="djC-Vu-yJm"/>

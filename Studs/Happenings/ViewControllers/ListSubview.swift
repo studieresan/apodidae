@@ -70,6 +70,8 @@ class HappeningListEntryCell: UITableViewCell {
 	@IBOutlet var happeningLocation: UILabel!
 	@IBOutlet var happeningDescription: UILabel!
 
+	@IBOutlet var happeningEmoji: UILabel!
+
 	func from(happening: Happening) {
 		self.userImage.image = UIImage.roundStudsS.reversedApperance()
 		self.userImage.imageFromURL(urlString: happening.host.picture!)
@@ -79,5 +81,7 @@ class HappeningListEntryCell: UITableViewCell {
 		self.happeningTitle.text = happening.title
 		self.happeningLocation.text = happening.location.title
 		self.happeningDescription.text = happening.description
+
+		self.happeningEmoji.text = happening.emoji
 	}
 }
