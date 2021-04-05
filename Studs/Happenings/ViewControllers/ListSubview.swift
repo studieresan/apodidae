@@ -67,13 +67,17 @@ class HappeningListEntryCell: UITableViewCell {
 	@IBOutlet var userImage: UIImageView!
 
 	@IBOutlet var happeningTitle: UILabel!
+	@IBOutlet var happeningLocation: UILabel!
 	@IBOutlet var happeningDescription: UILabel!
 
 	func from(happening: Happening) {
 		self.userImage.image = UIImage.roundStudsS.reversedApperance()
 		self.userImage.imageFromURL(urlString: happening.host.picture!)
+		// Make circular
+		self.userImage.layer.cornerRadius = self.userImage.frame.width / 2
 
 		self.happeningTitle.text = happening.title
+		self.happeningLocation.text = happening.location.title
 		self.happeningDescription.text = happening.description
 	}
 }

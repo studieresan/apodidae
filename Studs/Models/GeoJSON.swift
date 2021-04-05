@@ -15,6 +15,8 @@ class GeoJSON: Decodable {
 	let longitude: Double
 	let latitude: Double
 
+	let title: String
+
 	required init(from decoder: Decoder) throws {
 		let raw = try GeoJSONRaw(from: decoder)
 
@@ -23,6 +25,8 @@ class GeoJSON: Decodable {
 		// Long and lat exists and are in this order according to RFC spec https://tools.ietf.org/html/rfc7946
 		self.longitude = coordinates[0]
 		self.latitude = coordinates[1]
+
+		self.title = raw.properties.name
 	}
 
 	func coordinate() -> CLLocationCoordinate2D {
