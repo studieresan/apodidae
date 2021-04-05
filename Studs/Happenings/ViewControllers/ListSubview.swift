@@ -39,6 +39,10 @@ extension ListSubview {
 		return 100
 	}
 
+	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 0
+	}
+
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "happening-entry") as? HappeningListEntryCell else {
 			fatalError("Could not dequeue happenings-entry cell")
@@ -47,6 +51,12 @@ extension ListSubview {
 		let happening = self.happenings[row]
 
 		cell.from(happening: happening)
+
+		if row % 2 == 1 {
+			cell.backgroundColor = .primaryBG
+		} else {
+			cell.backgroundColor = .secondaryBG
+		}
 
 		return cell
 	}
