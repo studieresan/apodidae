@@ -35,12 +35,18 @@ extension ListSubview {
 		return self.happenings.count
 	}
 
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 100
+	}
+
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "happening-entry") as? HappeningListEntryCell else {
 			fatalError("Could not dequeue happenings-entry cell")
 		}
 		let row = indexPath.row
 		let happening = self.happenings[row]
+
+		cell.from(happening: happening)
 
 		return cell
 	}
@@ -53,10 +59,11 @@ class HappeningListEntryCell: UITableViewCell {
 	@IBOutlet var happeningTitle: UILabel!
 	@IBOutlet var happeningDescription: UILabel!
 
-	override func awakeFromNib() {
-		super.awakeFromNib()
+	func from(happening: Happening) {
+		self.userImage.image = UIImage.roundStudsS.reversedApperance()
+		self.userImage.imageFromURL(urlString: happening.host.picture!)
 
-		print("awake")
-
+		self.happeningTitle.text = happening.title
+		self.happeningDescription.text = happening.description
 	}
 }
