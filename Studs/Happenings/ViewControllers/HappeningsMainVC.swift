@@ -52,7 +52,8 @@ class HappeningsMainVC: UIViewController {
 			Subview(title: "Listvy", viewController: happeningsList),
 		]
 
-		self.navigationController?.setNavigationBarHidden(true, animated: false)
+		self.navigationController?.navigationBar.titleTextAttributes = [.font: UIFont.preferredFont(forTextStyle: .title1)]
+
 		subviewTypeSwitch.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.primaryBG], for: .selected)
 
 		subviewTypeSwitch.removeAllSegments()

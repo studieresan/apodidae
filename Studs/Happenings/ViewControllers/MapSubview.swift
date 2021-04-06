@@ -59,19 +59,20 @@ class MapSubview: UIViewController, HappeningsSubview {
 		for annotation in self.mapView.annotations {
 			self.mapView.removeAnnotation(annotation)
 		}
-
+		DispatchQueue.main.async {
 		//Add all happening annotations
-		for happening in self.happenings {
-			let location = happening.location.coordinate()
+			for happening in self.happenings {
+				let location = happening.location.coordinate()
 
-			let annotation = MKPointAnnotation()
+				let annotation = MKPointAnnotation()
 
-			annotation.title = happening.emoji
-			annotation.subtitle = happening.title
+				annotation.title = happening.emoji
+				annotation.subtitle = happening.title
 
-			annotation.coordinate = location
+				annotation.coordinate = location
 
-			mapView.addAnnotation(annotation)
+				self.mapView.addAnnotation(annotation)
+			}
 		}
 	}
 
