@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -263,6 +264,9 @@
                                                 <state key="normal" title="ändra">
                                                     <color key="titleColor" name="Primary"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="pxG-Zb-9ZI" kind="showDetail" identifier="change-location" id="qyJ-7D-TEb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="SecondaryBG"/>
@@ -284,7 +288,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ekZ-up-FUr">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ekZ-up-FUr">
                                         <rect key="frame" x="0.0" y="25" width="374" height="90"/>
                                         <color key="backgroundColor" name="SecondaryBG"/>
                                         <constraints>
@@ -338,6 +342,9 @@
                                                 <state key="normal" title="ändra">
                                                     <color key="titleColor" name="Primary"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="ifo-zu-LMg" kind="showDetail" identifier="change-companions" id="dXG-Ep-oPa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="SecondaryBG"/>
@@ -384,6 +391,170 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPZ-cq-X16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="746.37681159420299" y="870.53571428571422"/>
+        </scene>
+        <!--Choose companions-->
+        <scene sceneID="wZA-Cy-DDS">
+            <objects>
+                <viewController title="Choose companions" id="ifo-zu-LMg" customClass="ChooseCompanionsViewController" customModule="Studs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hZ2-x3-EW6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-zqW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="77"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Namn Namnsson" translatesAutoresizingMaskIntoConstraints="NO" id="RLm-IV-uuf">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="77"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="up4-jJ-Tjt">
+                                        <rect key="frame" x="264" y="0.0" width="150" height="77"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV8-T9-wqX" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="18.5" width="80" height="40"/>
+                                                <color key="backgroundColor" name="Primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="KAx-Le-smf"/>
+                                                    <constraint firstAttribute="height" constant="40" id="f1h-MB-adu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <color key="tintColor" name="PrimaryBG"/>
+                                                <state key="normal" title="Klar"/>
+                                                <connections>
+                                                    <action selector="onDonePressed:" destination="ifo-zu-LMg" eventType="touchUpInside" id="Gu5-Cg-iew"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="uV8-T9-wqX" firstAttribute="centerX" secondItem="up4-jJ-Tjt" secondAttribute="centerX" id="Oxl-aq-806"/>
+                                            <constraint firstItem="uV8-T9-wqX" firstAttribute="centerY" secondItem="up4-jJ-Tjt" secondAttribute="centerY" id="Pg4-bU-XaO"/>
+                                            <constraint firstAttribute="width" constant="150" id="gpO-Ti-PXz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FKP-gr-E5x">
+                                <rect key="frame" x="0.0" y="97" width="414" height="745"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JRw-iL-owQ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="user-cell" id="X6z-eB-tfp">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YuU-Xy-bFW">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bjI-R7-rCL">
+                                                    <rect key="frame" x="22" y="10" width="84.5" height="84.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="bjI-R7-rCL" secondAttribute="height" multiplier="1:1" id="2sq-6T-lEh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Namesson" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCa-zI-sFH">
+                                                    <rect key="frame" x="20" y="104.5" width="88.5" height="13.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="SCa-zI-sFH" secondAttribute="bottom" constant="10" id="FN8-Sj-WX2"/>
+                                                <constraint firstItem="bjI-R7-rCL" firstAttribute="centerX" secondItem="YuU-Xy-bFW" secondAttribute="centerX" id="HHx-nh-sh3"/>
+                                                <constraint firstItem="bjI-R7-rCL" firstAttribute="top" secondItem="YuU-Xy-bFW" secondAttribute="top" constant="10" id="ary-1G-4jX"/>
+                                                <constraint firstItem="SCa-zI-sFH" firstAttribute="top" secondItem="bjI-R7-rCL" secondAttribute="bottom" constant="10" id="mhp-K8-eT0"/>
+                                                <constraint firstItem="SCa-zI-sFH" firstAttribute="centerX" secondItem="YuU-Xy-bFW" secondAttribute="centerX" id="uyf-hI-7j0"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hb1-et-Qed"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FKP-gr-E5x" firstAttribute="top" secondItem="pKB-Qa-zqW" secondAttribute="bottom" constant="20" id="8dG-yJ-29R"/>
+                            <constraint firstItem="hb1-et-Qed" firstAttribute="trailing" secondItem="pKB-Qa-zqW" secondAttribute="trailing" id="Ihk-S9-GRY"/>
+                            <constraint firstItem="FKP-gr-E5x" firstAttribute="leading" secondItem="hb1-et-Qed" secondAttribute="leading" id="Upd-pg-u0t"/>
+                            <constraint firstItem="hb1-et-Qed" firstAttribute="trailing" secondItem="FKP-gr-E5x" secondAttribute="trailing" id="aVC-I4-Tpp"/>
+                            <constraint firstAttribute="bottom" secondItem="FKP-gr-E5x" secondAttribute="bottom" id="lgl-I5-d2a"/>
+                            <constraint firstItem="pKB-Qa-zqW" firstAttribute="top" secondItem="hb1-et-Qed" secondAttribute="top" id="mgD-Sv-jxu"/>
+                            <constraint firstItem="pKB-Qa-zqW" firstAttribute="leading" secondItem="hb1-et-Qed" secondAttribute="leading" id="tLL-cv-ONE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="FKP-gr-E5x" id="Mxx-vh-F9Q"/>
+                        <outlet property="searchBar" destination="RLm-IV-uuf" id="Cu2-Bh-RuA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yCB-LQ-xXI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679.7101449275362" y="1268.9732142857142"/>
+        </scene>
+        <!--Choose location-->
+        <scene sceneID="hRg-DF-xL2">
+            <objects>
+                <viewController title="Choose location" id="pxG-Zb-9ZI" customClass="ChooseLocationViewController" customModule="Studs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kE2-qA-Hag">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lja-Kl-lYt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyD-hW-d2j">
+                                <rect key="frame" x="20" y="441" width="374" height="34"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Namn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-LE-qmY">
+                                        <rect key="frame" x="0.0" y="0.0" width="274" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEt-Pm-ul1" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                        <rect key="frame" x="274" y="0.0" width="100" height="34"/>
+                                        <color key="backgroundColor" name="Primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="hWU-wj-tB2"/>
+                                        </constraints>
+                                        <color key="tintColor" name="SecondaryBG"/>
+                                        <state key="normal" title="Spara"/>
+                                        <connections>
+                                            <action selector="onSavePressed:" destination="pxG-Zb-9ZI" eventType="touchUpInside" id="1dI-SC-R4d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xH1-Hn-pGM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xH1-Hn-pGM" firstAttribute="trailing" secondItem="HyD-hW-d2j" secondAttribute="trailing" constant="20" id="9jD-sp-MTC"/>
+                            <constraint firstItem="xH1-Hn-pGM" firstAttribute="trailing" secondItem="Lja-Kl-lYt" secondAttribute="trailing" id="9zD-2Z-obB"/>
+                            <constraint firstItem="HyD-hW-d2j" firstAttribute="top" secondItem="Lja-Kl-lYt" secondAttribute="bottom" constant="20" id="DPl-4R-sCE"/>
+                            <constraint firstItem="Lja-Kl-lYt" firstAttribute="top" secondItem="xH1-Hn-pGM" secondAttribute="top" id="H3u-nW-P12"/>
+                            <constraint firstItem="Lja-Kl-lYt" firstAttribute="height" secondItem="kE2-qA-Hag" secondAttribute="height" multiplier="0.5" id="Lvo-QJ-vKj"/>
+                            <constraint firstItem="HyD-hW-d2j" firstAttribute="leading" secondItem="xH1-Hn-pGM" secondAttribute="leading" constant="20" id="gpY-Ia-hGO"/>
+                            <constraint firstItem="Lja-Kl-lYt" firstAttribute="leading" secondItem="xH1-Hn-pGM" secondAttribute="leading" id="yQv-zL-kiw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Lja-Kl-lYt" id="qxR-v6-oo8"/>
+                        <outlet property="titleField" destination="a8s-LE-qmY" id="JVn-ic-dcA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kw7-6T-n6l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1680" y="587"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JdY-im-0Ap">

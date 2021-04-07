@@ -44,6 +44,8 @@
 		21B8175025FABA4100D78E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B8175225FABA4100D78E3E /* LaunchScreen.storyboard */; };
 		21B8175825FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
 		21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
+		21D1DEAC261DBF4F009DBDB9 /* ChooseLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1DEAB261DBF4F009DBDB9 /* ChooseLocationVC.swift */; };
+		21D1DEB0261DBF6C009DBDB9 /* ChooseCompanionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1DEAF261DBF6C009DBDB9 /* ChooseCompanionsVC.swift */; };
 		21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
 		21E0F85725F18C3B0057DEB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
 		21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
@@ -146,6 +148,8 @@
 		21B8175525FABA4B00D78E3E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		21B8175A25FABA7600D78E3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/StudsWidget.intentdefinition; sourceTree = "<group>"; };
 		21B8175F25FABA7A00D78E3E /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/StudsWidget.strings; sourceTree = "<group>"; };
+		21D1DEAB261DBF4F009DBDB9 /* ChooseLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationVC.swift; sourceTree = "<group>"; };
+		21D1DEAF261DBF6C009DBDB9 /* ChooseCompanionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCompanionsVC.swift; sourceTree = "<group>"; };
 		21E5B20725F1870600DC3BD8 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEventsViewModel.swift; sourceTree = "<group>"; };
 		21FBF807258D059500B3A3ED /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				212E4B1126136E3D008B070E /* HappeningsSubview.swift */,
 				212E4B1526136ED8008B070E /* ListSubview.swift */,
 				215D6681261C41260086E637 /* HappeningNewVC.swift */,
+				21D1DEAB261DBF4F009DBDB9 /* ChooseLocationVC.swift */,
+				21D1DEAF261DBF6C009DBDB9 /* ChooseCompanionsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				8B1440AD2220322400AE767B /* PrivateEventsViewModel.swift in Sources */,
 				212E4AFE261369A5008B070E /* GeoJSON.swift in Sources */,
 				8B1440B42221831100AE767B /* Login.swift in Sources */,
+				21D1DEAC261DBF4F009DBDB9 /* ChooseLocationVC.swift in Sources */,
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
 				8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */,
 				8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */,
@@ -720,6 +727,7 @@
 				8EAC48812184F23C00BB36A2 /* Http.swift in Sources */,
 				217FE32225FA29860005713D /* UserDefaults+Studs.swift in Sources */,
 				215D6682261C41260086E637 /* HappeningNewVC.swift in Sources */,
+				21D1DEB0261DBF6C009DBDB9 /* ChooseCompanionsVC.swift in Sources */,
 				8B1440B12221779C00AE767B /* LoginViewController.swift in Sources */,
 				8B3936BD222C64700032442F /* StudsButton.swift in Sources */,
 				211E4A1625F16BFB007A497D /* StudsDataModel.xcdatamodeld in Sources */,

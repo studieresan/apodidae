@@ -24,7 +24,6 @@ class HappeningNewViewController: UIViewController {
 	}
 
 	@objc func hideKeyboard() {
-		print("HIDE")
 		self.view.endEditing(true)
 	}
 
