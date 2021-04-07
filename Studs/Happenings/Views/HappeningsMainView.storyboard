@@ -381,7 +381,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Här sitter jag!" largeTitleDisplayMode="always" id="LpO-ET-FxP"/>
                     <connections>
+                        <outlet property="companionsLabel" destination="7x0-H0-wuX" id="Obn-6M-Y0y"/>
                         <outlet property="descriptionField" destination="ekZ-up-FUr" id="fXN-7e-6sr"/>
+                        <outlet property="locationLabel" destination="D6m-pa-DNm" id="UOa-86-5ZQ"/>
                         <outletCollection property="emojiButtons" destination="pRf-8x-UDx" collectionClass="NSMutableArray" id="Zqq-3w-g2b"/>
                         <outletCollection property="emojiButtons" destination="VqR-Ak-xF6" collectionClass="NSMutableArray" id="UKc-ke-DS2"/>
                         <outletCollection property="emojiButtons" destination="pRr-o5-f31" collectionClass="NSMutableArray" id="O8V-38-7TG"/>

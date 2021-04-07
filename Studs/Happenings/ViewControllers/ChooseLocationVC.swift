@@ -15,7 +15,12 @@ class ChooseLocationViewController: UIViewController {
 	@IBOutlet var mapView: MKMapView!
 	@IBOutlet var titleField: UITextField!
 
+	var currentLocation = MKMapView.defaultCenter
+
 	var locationManager = CLLocationManager()
+
+	//Function to call when the user changed the location. Set by super-viewcontroller
+	var setLocation: ((_: CLLocationCoordinate2D,_: String) -> Void)!
 
 	@IBAction func onDonePressed(_ sender: Any) {
 		self.dismiss(animated: true)
@@ -31,7 +36,13 @@ class ChooseLocationViewController: UIViewController {
 		let locationCoordinate = self.mapView.convert(pressLocation, toCoordinateFrom: self.mapView)
 
 		self.generatePin(at: locationCoordinate)
+	}
 
+	func getNameOfLocation(coords: CLLocationCoordinate2D) {
+		let geoCoder = CLGeocoder()
+		geoCoder.locationNameOf(coords: coords) { name in
+			self.titleField.text = name ?? "Okänd plats"
+		}
 	}
 
 	func generatePin(at location: CLLocationCoordinate2D) {
@@ -41,12 +52,21 @@ class ChooseLocationViewController: UIViewController {
 		self.mapView.annotations.forEach({self.mapView.removeAnnotation($0)})
 
 		self.mapView.addAnnotation(pin)
+
+		self.currentLocation = location
+		
+		self.getNameOfLocation(coords: location)
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		self.setLocation(currentLocation, titleField.text ?? "")
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		mapView.resetDefaultCenter()
+		self.generatePin(at: mapView.centerCoordinate)
 
 		locationManager.delegate = self
 		if CLLocationManager.locationServicesEnabled() {
@@ -74,6 +94,8 @@ extension ChooseLocationViewController: CLLocationManagerDelegate {
 			let center = currentLocation.coordinate
 
 			self.mapView.setCenter(center, animated: true)
+
+			self.generatePin(at: center)
 		}
 	}
 

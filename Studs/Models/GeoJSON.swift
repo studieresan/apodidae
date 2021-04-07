@@ -29,6 +29,12 @@ class GeoJSON: Decodable {
 		self.title = raw.properties.name
 	}
 
+	init(coordinates: CLLocationCoordinate2D, title: String) {
+		self.longitude = coordinates.longitude
+		self.latitude = coordinates.latitude
+		self.title = title
+	}
+
 	func coordinate() -> CLLocationCoordinate2D {
 		return CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
 	}

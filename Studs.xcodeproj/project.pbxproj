@@ -47,6 +47,7 @@
 		21D1DEAC261DBF4F009DBDB9 /* ChooseLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1DEAB261DBF4F009DBDB9 /* ChooseLocationVC.swift */; };
 		21D1DEB0261DBF6C009DBDB9 /* ChooseCompanionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1DEAF261DBF6C009DBDB9 /* ChooseCompanionsVC.swift */; };
 		21D1DEB4261DC30F009DBDB9 /* MKMapView+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1DEB3261DC30F009DBDB9 /* MKMapView+Studs.swift */; };
+		21D1DEB8261DD301009DBDB9 /* CLGeocoder+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */; };
 		21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
 		21E0F85725F18C3B0057DEB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
 		21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
@@ -152,6 +153,7 @@
 		21D1DEAB261DBF4F009DBDB9 /* ChooseLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationVC.swift; sourceTree = "<group>"; };
 		21D1DEAF261DBF6C009DBDB9 /* ChooseCompanionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCompanionsVC.swift; sourceTree = "<group>"; };
 		21D1DEB3261DC30F009DBDB9 /* MKMapView+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Studs.swift"; sourceTree = "<group>"; };
+		21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLGeocoder+Studs.swift"; sourceTree = "<group>"; };
 		21E5B20725F1870600DC3BD8 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEventsViewModel.swift; sourceTree = "<group>"; };
 		21FBF807258D059500B3A3ED /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				217FE32125FA29860005713D /* UserDefaults+Studs.swift */,
 				212E4AE126131993008B070E /* Date+Studs.swift */,
 				21D1DEB3261DC30F009DBDB9 /* MKMapView+Studs.swift */,
+				21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */,
 				2175BF9525866C4C001556FC /* Company.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
+				21D1DEB8261DD301009DBDB9 /* CLGeocoder+Studs.swift in Sources */,
 				21D1DEB4261DC30F009DBDB9 /* MKMapView+Studs.swift in Sources */,
 				21FBF805258D057C00B3A3ED /* PublicEventsViewModel.swift in Sources */,
 				8E3783062183BB70004F083F /* UIColor+Studs.swift in Sources */,
