@@ -48,25 +48,9 @@ class HappeningNewViewController: UIViewController {
 		//Set bar title font
 		self.navigationController?.navigationBar.titleTextAttributes = [.font: UIFont.preferredFont(forTextStyle: .title1)]
 
-		self.descriptionField.delegate = self
-		self.descriptionField.returnKeyType = .done
-
 	}
 
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.hideKeyboard()
-	}
-}
-
-extension HappeningNewViewController: UITextViewDelegate {
-
-	func textAreaShouldReturn(_ textField: UITextField) -> Bool {
-		textField.resignFirstResponder()
-
-		print("Should return ")
-		self.hideKeyboard()
-		textField.endEditing(true)
-
-		return true
 	}
 }
