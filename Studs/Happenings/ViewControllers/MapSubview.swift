@@ -12,12 +12,8 @@ import MapKit
 class MapSubview: UIViewController, HappeningsSubview {
 	var happenings: [Happening] = []
 
-	// Center is Medis, sthlm
-	static var defaultCenter = CLLocationCoordinate2D(latitude: 59.315278, longitude: 18.072521)
-	static var defaultDelta = 0.01
-
-	var center = defaultCenter
-	var span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: defaultDelta, longitudeDelta: defaultDelta)
+	var center = MKMapView.defaultCenter
+	var span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: MKMapView.defaultDelta, longitudeDelta: MKMapView.defaultDelta)
 
 	let locationManager = CLLocationManager()
 
@@ -49,8 +45,7 @@ class MapSubview: UIViewController, HappeningsSubview {
 
 		self.view = view
 
-		self.resetDefaultCenter()
-		self.reCenterMap()
+		mapView.resetDefaultCenter()
 	}
 
 	//Show all happenings on map
@@ -74,13 +69,6 @@ class MapSubview: UIViewController, HappeningsSubview {
 				self.mapView.addAnnotation(annotation)
 			}
 		}
-	}
-
-	//Center map to defaults
-	func resetDefaultCenter() {
-		self.center = MapSubview.defaultCenter
-		let delta = MapSubview.defaultDelta
-		self.span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
 	}
 
 	//Center map to current center

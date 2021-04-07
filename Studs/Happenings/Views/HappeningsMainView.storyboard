@@ -437,6 +437,9 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="RLm-IV-uuf" firstAttribute="centerY" secondItem="pKB-Qa-zqW" secondAttribute="centerY" id="hid-Fh-cie"/>
+                                </constraints>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FKP-gr-E5x">
                                 <rect key="frame" x="0.0" y="97" width="414" height="745"/>
@@ -513,25 +516,38 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyD-hW-d2j">
-                                <rect key="frame" x="20" y="441" width="374" height="34"/>
+                                <rect key="frame" x="20" y="441" width="374" height="77"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Namn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-LE-qmY">
-                                        <rect key="frame" x="0.0" y="0.0" width="274" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEt-Pm-ul1" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
-                                        <rect key="frame" x="274" y="0.0" width="100" height="34"/>
-                                        <color key="backgroundColor" name="Primary"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLd-y5-UJR">
+                                        <rect key="frame" x="224" y="0.0" width="150" height="77"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf8-wd-HJJ" customClass="StudsButton" customModule="Studs" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="18.5" width="80" height="40"/>
+                                                <color key="backgroundColor" name="Primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="5GG-n0-Ccv"/>
+                                                    <constraint firstAttribute="width" constant="80" id="ocb-f4-T2M"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <color key="tintColor" name="PrimaryBG"/>
+                                                <state key="normal" title="Klar"/>
+                                                <connections>
+                                                    <action selector="onDonePressed:" destination="pxG-Zb-9ZI" eventType="touchUpInside" id="ezo-07-YE8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="hWU-wj-tB2"/>
+                                            <constraint firstAttribute="width" constant="150" id="OXq-RY-mp7"/>
+                                            <constraint firstItem="wf8-wd-HJJ" firstAttribute="centerY" secondItem="JLd-y5-UJR" secondAttribute="centerY" id="T5o-C8-Oau"/>
+                                            <constraint firstItem="wf8-wd-HJJ" firstAttribute="centerX" secondItem="JLd-y5-UJR" secondAttribute="centerX" id="qbA-EE-xZf"/>
                                         </constraints>
-                                        <color key="tintColor" name="SecondaryBG"/>
-                                        <state key="normal" title="Spara"/>
-                                        <connections>
-                                            <action selector="onSavePressed:" destination="pxG-Zb-9ZI" eventType="touchUpInside" id="1dI-SC-R4d"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
