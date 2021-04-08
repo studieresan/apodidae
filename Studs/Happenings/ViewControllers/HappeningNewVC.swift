@@ -111,9 +111,11 @@ class HappeningNewViewController: UIViewController {
 				return
 			}
 			chooseCompanionsVC.allUsers = self.allUsers
-			chooseCompanionsVC.selectedUsers = self.companions
+			//Create as set as this is needed in VC
+			chooseCompanionsVC.selectedUsers = Set(self.companions)
 			chooseCompanionsVC.setSelectedUsers = { users in
 				self.companions = users
+				self.companionsLabel.text = "Du sitter med \(users.count) polare"
 			}
 
 		default:

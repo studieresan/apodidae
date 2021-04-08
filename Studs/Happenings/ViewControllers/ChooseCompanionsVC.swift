@@ -13,7 +13,7 @@ class ChooseCompanionsViewController: UIViewController {
 
 	//Set by super-viewcontroller
 	var allUsers: [User]!
-	var selectedUsers: [User]!
+	var selectedUsers: Set<User> = []
 	//Called when view disapears
 	var setSelectedUsers: ((_: [User]) -> Void)!
 
@@ -30,7 +30,7 @@ class ChooseCompanionsViewController: UIViewController {
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		self.setSelectedUsers(self.selectedUsers)
+		self.setSelectedUsers(Array(self.selectedUsers))
 	}
 
 	override func viewDidLoad() {
@@ -42,6 +42,12 @@ class ChooseCompanionsViewController: UIViewController {
 
 		self.collectionView.dataSource = self
 		self.collectionView.delegate = self
+	}
+
+	func decideAlpha(for user: User, cell: UICollectionViewCell) {
+		//If the user is not selected, set alpha channel to darken cell
+		cell.contentView.alpha = self.selectedUsers.contains(user) ? 1 : 0.5
+		print("Alpha for \(user.firstName): \(cell.alpha)")
 	}
 }
 
@@ -65,11 +71,7 @@ extension ChooseCompanionsViewController: UICollectionViewDataSource {
 
 		cell.userNameLabel.text = user.fullName()
 
-		cell.isHighlighted = userIndex % 2 == 0
-		cell.userImage.isHighlighted = userIndex % 2 == 0
-		cell.isSelected = userIndex % 2 == 0
-
-		cell.isUserInteractionEnabled = true
+		self.decideAlpha(for: user, cell: cell)
 
 		return cell
 	}
@@ -91,7 +93,24 @@ extension ChooseCompanionsViewController: UISearchBarDelegate {
 }
 
 extension ChooseCompanionsViewController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		guard let cell = collectionView.cellForItem(at: indexPath) else {
+			print("Cell tapped does not exist??")
+			return
+		}
+		let user = self.shownUsers[indexPath.row]
 
+		//Toggle if in selectedUsers
+		if self.selectedUsers.contains(user) {
+			self.selectedUsers.remove(user)
+			print("Remove \(user.firstName)")
+		} else {
+			self.selectedUsers.insert(user)
+			print("Add \(user.firstName)")
+		}
+
+		self.decideAlpha(for: user, cell: cell)
+	}
 }
 
 class CompanionUserCell: UICollectionViewCell {

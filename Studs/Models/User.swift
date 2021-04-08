@@ -75,5 +75,11 @@ struct User: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 	}
 }
 
+extension User: Hashable {
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(self.id)
+	}
+}
+
 //TODO
 //let CV...
