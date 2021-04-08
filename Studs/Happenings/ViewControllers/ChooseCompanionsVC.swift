@@ -13,7 +13,9 @@ class ChooseCompanionsViewController: UIViewController {
 
 	//Set by super-viewcontroller
 	var allUsers: [User]!
-	var selectedUsers: Set<User> = []
+	//Set with selected users before starting new selection
+	var selectedUsers: Set<User>!
+
 	//Called when view disapears
 	var setSelectedUsers: ((_: [User]) -> Void)!
 
@@ -30,6 +32,9 @@ class ChooseCompanionsViewController: UIViewController {
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
+
+		//Cannot iterate over collectionView.indexPathsForSelectedItems as it will differ in case of
+		//search filtering and such
 		self.setSelectedUsers(Array(self.selectedUsers))
 	}
 
@@ -42,12 +47,14 @@ class ChooseCompanionsViewController: UIViewController {
 
 		self.collectionView.dataSource = self
 		self.collectionView.delegate = self
+
+		self.collectionView.allowsSelection = true
+		self.collectionView.allowsMultipleSelection = true
+		print("\(#function)")
 	}
 
 	func decideAlpha(for user: User, cell: UICollectionViewCell) {
-		//If the user is not selected, set alpha channel to darken cell
 		cell.contentView.alpha = self.selectedUsers.contains(user) ? 1 : 0.5
-		print("Alpha for \(user.firstName): \(cell.alpha)")
 	}
 }
 
@@ -93,28 +100,37 @@ extension ChooseCompanionsViewController: UISearchBarDelegate {
 }
 
 extension ChooseCompanionsViewController: UICollectionViewDelegate {
+
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		guard let cell = collectionView.cellForItem(at: indexPath) else {
 			print("Cell tapped does not exist??")
 			return
 		}
 		let user = self.shownUsers[indexPath.row]
-
-		//Toggle if in selectedUsers
-		if self.selectedUsers.contains(user) {
-			self.selectedUsers.remove(user)
-			print("Remove \(user.firstName)")
-		} else {
-			self.selectedUsers.insert(user)
-			print("Add \(user.firstName)")
-		}
+		self.selectedUsers.insert(user)
 
 		self.decideAlpha(for: user, cell: cell)
+	}
+
+	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+		guard let cell = collectionView.cellForItem(at: indexPath) else {
+			print("Cell tapped does not exist??")
+			return
+		}
+
+		let user = self.shownUsers[indexPath.row]
+		self.selectedUsers.remove(user)
+
+		self.decideAlpha(for: user, cell: cell)
+	}
+
+	@available(iOS 13, *)
+	func collectionView(_ collectionView: UICollectionView, shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
+		return true
 	}
 }
 
 class CompanionUserCell: UICollectionViewCell {
 	@IBOutlet var userImage: UIImageView!
 	@IBOutlet var userNameLabel: UILabel!
-
 }
