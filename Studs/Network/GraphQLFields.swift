@@ -114,56 +114,106 @@ description
 
 func createUsersQuery(role: String?, year: Int?) -> String {
 	return """
+{
 users(userRole: \(role ?? "null"), studsYear: \(year?.description ?? "null")) {
  \(userFields)
+}
 }
 """
 }
 
 func createUserQuery() -> String {
 	return """
+{
 user {
  \(userFields)
+}
 }
 """
 }
 
 func createCompaniesQuery() -> String {
 	return """
+{
 companies {
  \(companyFields)
+}
 }
 """
 }
 
 func createCompanyQuery(id: String) -> String {
 	return """
+{
 company(companyId: \(id)) {
  \(companyFields)
+}
 }
 """
 }
 
 func createEventsQuery(year: Int?) -> String {
 	return """
+{
 events(studsYear: \(year?.description ?? "null")) {
  \(eventFields)
+}
 }
 """
 }
 
 func createEventQuery(id: String) -> String {
 	return """
+{
 event(eventId: \(id)) {
  \(eventFields)
+}
 }
 """
 }
 
 func createHappeningsQuery() -> String {
 	return """
+{
 happenings {
   \(happeningFields)
+}
+}
+"""
+}
+
+func createHappeningsCreateQuery(
+	hostId: String,
+	participants: [User],
+	location: GeoJSON,
+	title: String,
+	emoji: String,
+	description: String?
+) -> String {
+	//Map all users to their ID
+	let participants: [String] = participants.map({$0.id})
+	return """
+mutation {
+  happeningCreate(fields: {
+    host: "\(hostId)",
+    participants: \(participants),
+    location: {
+      type: "Feature",
+	  geometry: {
+		type: "Point",
+		coordinates: \(location.coordinatesList)
+	  },
+	  properties: {
+		name: "\(location.title)"
+	  }
+    },
+    title: "\(title)",
+    emoji: "\(emoji)",
+    description: "\(description ?? "null")",
+  })
+  {
+    \(happeningFields)
+  }
 }
 """
 }

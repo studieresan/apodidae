@@ -16,6 +16,9 @@ class HappeningNewViewController: UIViewController {
 	//Cache request of all users
 	var allUsers: [User] = []
 
+	//ID of currently logged in user
+	var userId: String?
+
 	var pickedEmoji: String?
 	var location: GeoJSON?
 	var companions: [User] = []
@@ -33,7 +36,44 @@ class HappeningNewViewController: UIViewController {
 	@IBOutlet var companionsLabel: UILabel!
 
 	@IBAction func saveButtonPressed(_ sender: Any) {
-		print("SAVE")
+		guard let userId = self.userId,
+			  let pickedEmoji = self.pickedEmoji,
+			  let location = self.location else {
+			let alert = UIAlertController(title: "Kan inte spara Happening", message: "Glöm inte att välja emoji och plats!", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+				print("OK")
+			}))
+			self.present(alert, animated: true)
+			return
+		}
+		let happeningCreateQuery = createHappeningsCreateQuery(
+			hostId: userId,
+			participants: self.companions,
+			location: location,
+			title: "Sitter med \(self.companions.count) andra!",
+			emoji: pickedEmoji,
+			description: self.descriptionField.text
+		)
+
+		view.isUserInteractionEnabled = false
+
+		Http.graphQL(query: happeningCreateQuery, type: CreatedHappening.self).subscribe({response in
+			DispatchQueue.main.async {
+				guard response.error == nil else {
+					let alert = UIAlertController(
+						title: "Fel med att skapa Happening",
+						message: "\(response.error!.localizedDescription)", preferredStyle: .alert
+					)
+					alert.addAction(UIAlertAction(title: "OK", style: .default))
+					self.present(alert, animated: true)
+					self.view.isUserInteractionEnabled = true
+					return
+				}
+
+				self.dismiss(animated: true)
+			}
+		}).disposed(by: self.disposeBag)
+
 	}
 
 	@objc func hideKeyboard() {
@@ -54,9 +94,12 @@ class HappeningNewViewController: UIViewController {
 		}
 	}
 
+	//Called in begining for default center, then possibly later when user location is found
 	func setLocationLabel(coords: CLLocationCoordinate2D) {
 		CLGeocoder().locationNameOf(coords: coords, callback: { name in
-			self.locationLabel.text = name ?? "Okänd plats"
+			let locationName = name ?? "Okänd plats"
+			self.locationLabel.text = locationName
+			self.location = GeoJSON(coordinates: coords, title: locationName)
 		})
 	}
 
@@ -79,10 +122,18 @@ class HappeningNewViewController: UIViewController {
 		locationLabel.text = ""
 		companionsLabel.text = ""
 
+		self.userId = UserManager.getUserData()?.id
+
 		//Fetch all users and cache them
 		Http.fetchAllUsers(studsYear: AppDelegate.STUDSYEAR).subscribe(onNext: { users in
 			//Sort by name
 			self.allUsers = users.sorted(by: {$0.fullName() < $1.fullName()})
+
+			//Filter out id of current user
+			if let userId = self.userId {
+				self.allUsers = self.allUsers.filter({$0.id != userId})
+			}
+
 		}).disposed(by: self.disposeBag)
 
 		findStartLocation()

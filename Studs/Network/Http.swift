@@ -98,7 +98,7 @@ struct Http {
             var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)")!)
             request.httpMethod = "POST"
             request.setValue("application/graphql", forHTTPHeaderField: "Content-Type")
-			request.httpBody = "{\(query)}".data(using: .utf8)
+			request.httpBody = "\(query)".data(using: .utf8)
 
             if let userToken = UserManager.getToken() {
                 request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")

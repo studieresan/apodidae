@@ -10,12 +10,19 @@ import Foundation
 import CoreLocation
 
 //As per defined in API https://github.com/studieresan/overlord/blob/master/API.md#geojsonfeaturetype
-class GeoJSON: Decodable {
+class GeoJSON: Codable {
 
 	let longitude: Double
 	let latitude: Double
 
 	let title: String
+
+	var coordinatesList: [Double] {
+		return [ //As in RFC specification mentioned below
+			self.longitude,
+			self.latitude,
+		]
+	}
 
 	required init(from decoder: Decoder) throws {
 		let raw = try GeoJSONRaw(from: decoder)
@@ -29,6 +36,21 @@ class GeoJSON: Decodable {
 		self.title = raw.properties.name
 	}
 
+	func encode(to encoder: Encoder) throws {
+		//Assumes type is feature and geometry type is Point
+		let geometry = GeoJSONGeometryType(
+			type: "Point",
+			coordinates: [
+				self.longitude,
+				self.latitude,
+			])
+
+		let prop = GeoJSONPropertiesType(name: self.title)
+
+		let raw = GeoJSONRaw(type: "Feature", geometry: geometry, properties: prop)
+		try raw.encode(to: encoder)
+	}
+
 	init(coordinates: CLLocationCoordinate2D, title: String) {
 		self.longitude = coordinates.longitude
 		self.latitude = coordinates.latitude
@@ -40,17 +62,32 @@ class GeoJSON: Decodable {
 	}
 }
 
-private class GeoJSONRaw: Decodable {
+private class GeoJSONRaw: Codable {
 	var type: String
 	var geometry: GeoJSONGeometryType
 	var properties: GeoJSONPropertiesType
+
+	init(type: String, geometry: GeoJSONGeometryType, properties: GeoJSONPropertiesType) {
+		self.type = type
+		self.geometry = geometry
+		self.properties = properties
+	}
 }
 
-private class GeoJSONGeometryType: Decodable {
+private class GeoJSONGeometryType: Codable {
 	var type: String
 	var coordinates: [Double]
+
+	init(type: String, coordinates: [Double]) {
+		self.type = type
+		self.coordinates = coordinates
+	}
 }
 
-private class GeoJSONPropertiesType: Decodable {
+private class GeoJSONPropertiesType: Codable {
 	var name: String
+
+	init(name: String) {
+		self.name = name
+	}
 }
