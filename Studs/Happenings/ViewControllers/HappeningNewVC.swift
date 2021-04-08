@@ -138,6 +138,8 @@ class HappeningNewViewController: UIViewController {
 
 		}).disposed(by: self.disposeBag)
 
+		self.setCompanionLabel()
+
 		findStartLocation()
 	}
 
