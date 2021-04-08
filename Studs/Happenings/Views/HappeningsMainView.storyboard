@@ -563,7 +563,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lja-Kl-lYt">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lja-Kl-lYt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="421"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyD-hW-d2j">
@@ -614,6 +614,7 @@
                             <constraint firstItem="Lja-Kl-lYt" firstAttribute="leading" secondItem="xH1-Hn-pGM" secondAttribute="leading" id="yQv-zL-kiw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Ztq-VQ-lm8"/>
                     <connections>
                         <outlet property="mapView" destination="Lja-Kl-lYt" id="qxR-v6-oo8"/>
                         <outlet property="titleField" destination="a8s-LE-qmY" id="JVn-ic-dcA"/>

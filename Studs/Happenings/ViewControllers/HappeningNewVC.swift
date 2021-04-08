@@ -40,9 +40,7 @@ class HappeningNewViewController: UIViewController {
 			  let pickedEmoji = self.pickedEmoji,
 			  let location = self.location else {
 			let alert = UIAlertController(title: "Kan inte spara Happening", message: "Glöm inte att välja emoji och plats!", preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-				print("OK")
-			}))
+			alert.addAction(UIAlertAction(title: "OK", style: .default))
 			self.present(alert, animated: true)
 			return
 		}
@@ -70,7 +68,7 @@ class HappeningNewViewController: UIViewController {
 					return
 				}
 
-				self.dismiss(animated: true)
+				self.navigationController?.popViewController(animated: true)
 			}
 		}).disposed(by: self.disposeBag)
 
@@ -111,6 +109,10 @@ class HappeningNewViewController: UIViewController {
 		} else {
 			setLocationLabel(coords: MKMapView.defaultCenter)
 		}
+	}
+
+	func setCompanionLabel() {
+		self.companionsLabel.text = "Du sitter med \(self.companions.count) polare"
 	}
 
 	override func viewDidLoad() {
@@ -166,7 +168,7 @@ class HappeningNewViewController: UIViewController {
 			chooseCompanionsVC.selectedUsers = Set(self.companions)
 			chooseCompanionsVC.setSelectedUsers = { users in
 				self.companions = users
-				self.companionsLabel.text = "Du sitter med \(users.count) polare"
+				self.setCompanionLabel()
 			}
 
 		default:

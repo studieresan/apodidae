@@ -64,15 +64,20 @@ class ChooseLocationViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		self.generatePin(at: mapView.centerCoordinate)
+		self.generatePin(at: currentLocation)
 
+		let span = MKCoordinateSpan(latitudeDelta: MKMapView.defaultDelta, longitudeDelta: MKMapView.defaultDelta)
+
+		let region = MKCoordinateRegion(center: self.currentLocation, span: span)
+
+		mapView.setRegion(region, animated: true)
 		mapView.showsUserLocation = true
-		mapView.setCenter(self.currentLocation, animated: true)
 
 		//Register long map press for pin
 		let longMapPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
 		longMapPress.addTarget(self, action: #selector(onLongMapPress(_:)))
 		mapView.addGestureRecognizer(longMapPress)
+
 	}
 }
 

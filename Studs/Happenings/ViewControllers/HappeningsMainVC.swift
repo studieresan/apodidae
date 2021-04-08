@@ -22,34 +22,39 @@ class HappeningsMainVC: UIViewController {
 	//Each segment title with its corresponding subview view
 	var happeningSubviews: [Subview] = []
 
+	var mapSubview = MapSubview()
+	var listSubview: ListSubview!
+
 	var disposeBag = DisposeBag()
 
 	@IBOutlet weak var subviewTypeSwitch: UISegmentedControl!
 	@IBOutlet weak var happeningsSubview: UIView!
-
-	var currentSubviewIndex = 0
 
 	@IBAction func didPressNewHappening(_ sender: Any) {
 		print("new happening")
 	}
 
 	@IBAction func didSwitchSubviewType(_ sender: Any) {
-		self.currentSubviewIndex = self.subviewTypeSwitch.selectedSegmentIndex
 		self.reloadSubview()
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		//Find list view controller in main storyboard of happenings. Used to simplify 
-		guard let happeningsList = UIStoryboard(name: "HappeningsMainView", bundle: nil)
+		guard let listSubview = UIStoryboard(name: "HappeningsMainView", bundle: nil)
 				.instantiateViewController(withIdentifier: "happenings-list-controller") as? ListSubview else {
-			fatalError("Could not find storyboard happenings-list-controller")
+			fatalError("Could not find happenings-list-controller")
 		}
+		self.listSubview = listSubview
+
+		//When a happening cell is pressed, center on it in the map
+		self.listSubview.onCellPressed = centerOnHappening
+
+		self.listSubview.onUpdateData = self.fetchData
 
 		self.happeningSubviews = [
-			Subview(title: "Kartvy", viewController: MapSubview()),
-			Subview(title: "Listvy", viewController: happeningsList),
+			Subview(title: "Kartvy", viewController: self.mapSubview),
+			Subview(title: "Listvy", viewController: self.listSubview),
 		]
 
 		self.navigationController?.navigationBar.titleTextAttributes = [.font: UIFont.preferredFont(forTextStyle: .title1)]
@@ -62,7 +67,7 @@ class HappeningsMainVC: UIViewController {
 			subviewTypeSwitch.insertSegment(withTitle: segment.title, at: index, animated: true)
 		}
 
-		subviewTypeSwitch.selectedSegmentIndex = self.currentSubviewIndex
+		subviewTypeSwitch.selectedSegmentIndex = 0
 
 		fetchData()
 	}
@@ -70,15 +75,33 @@ class HappeningsMainVC: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		self.setFramesOfSubviews()
 		self.reloadSubview()
+		self.fetchData()
 	}
 
-	func fetchData() {
+	func centerOnHappening(_ happening: Happening) {
+		//Switch to map
+		self.subviewTypeSwitch.selectedSegmentIndex = 0
+		self.reloadSubview()
+		self.mapSubview.centerOn(happening: happening)
+	}
+
+	///Fetch data with a callback when done
+	func fetchData(callback: ((_: Error?) -> Void)? = nil) {
 		Http
 			.fetchHappenings()
 			.subscribe(
 				onNext: { [self] happenings in
 					for segment in self.happeningSubviews {
 						segment.viewController.onData(happenings)
+					}
+					if callback != nil {
+						//If callback, call with nil error
+						callback!(nil)
+					}
+				}, onError: { error in
+					//If error, callback with error
+					if callback != nil {
+						callback!(error)
 					}
 				}).disposed(by: self.disposeBag)
 	}
@@ -90,12 +113,13 @@ class HappeningsMainVC: UIViewController {
 		})
 	}
 
+	///Set the subview depending on what the value of the switch is
 	func reloadSubview() {
 		//Clear all subviews
 		self.happeningsSubview.subviews.forEach({$0.removeFromSuperview()})
 
 		//Choose new subview to show
-		let newSubview = self.happeningSubviews[self.currentSubviewIndex].viewController
+		let newSubview = self.happeningSubviews[self.subviewTypeSwitch.selectedSegmentIndex].viewController
 		self.happeningsSubview.addSubview(
 			newSubview.view
 		)

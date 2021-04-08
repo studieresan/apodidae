@@ -12,6 +12,23 @@ import UIKit
 class ListSubview: UITableViewController, HappeningsSubview {
 	var happenings: [Happening] = []
 
+	//Set by super-viewcontroller
+	var onCellPressed: ((_: Happening) -> Void)!
+	//Function that takes a callback with potential error
+	var onUpdateData: ((_: @escaping (_: Error?) -> Void) -> Void)!
+
+	@objc func refresh(sender: Any?) {
+		self.onUpdateData { error in
+			if error != nil {
+				print("ERROR WITH UPDATE")
+			}
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+				self.tableView.refreshControl?.endRefreshing()
+			}
+		}
+	}
+
 	func onData(_ happenings: [Happening]) {
 		self.happenings = happenings
 
@@ -21,15 +38,15 @@ class ListSubview: UITableViewController, HappeningsSubview {
 	}
 
 	override func viewDidLoad() {
+		super.viewDidLoad()
 
+		let refreshControl = UIRefreshControl()
+		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+		self.tableView.refreshControl = refreshControl
 	}
 }
 
 extension ListSubview {
-
-	override func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
-	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.happenings.count
@@ -59,6 +76,11 @@ extension ListSubview {
 		}
 
 		return cell
+	}
+
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let happening = self.happenings[indexPath.row]
+		self.onCellPressed(happening)
 	}
 }
 

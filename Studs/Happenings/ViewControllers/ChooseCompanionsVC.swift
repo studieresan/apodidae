@@ -50,7 +50,6 @@ class ChooseCompanionsViewController: UIViewController {
 
 		self.collectionView.allowsSelection = true
 		self.collectionView.allowsMultipleSelection = true
-		print("\(#function)")
 	}
 
 	func decideAlpha(for user: User, cell: UICollectionViewCell) {

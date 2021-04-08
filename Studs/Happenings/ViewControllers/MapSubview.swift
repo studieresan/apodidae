@@ -48,13 +48,20 @@ class MapSubview: UIViewController, HappeningsSubview {
 		mapView.resetDefaultCenter()
 	}
 
+	func centerOn(happening: Happening) {
+		self.mapView.setCenter(happening.location.coordinate(), animated: true)
+	}
+
 	//Show all happenings on map
 	func reloadView() {
 		//Clear all current annotations
+		var annotationsToRemove: [MKAnnotation] = []
 		for annotation in self.mapView.annotations {
-			self.mapView.removeAnnotation(annotation)
+			annotationsToRemove.append(annotation)
 		}
 		DispatchQueue.main.async {
+			//Must be removed on main thread
+			self.mapView.removeAnnotations(annotationsToRemove)
 		//Add all happening annotations
 			for happening in self.happenings {
 				let location = happening.location.coordinate()
