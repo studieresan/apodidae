@@ -69,6 +69,10 @@ struct User: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 	let master: String?
 	let allergies: String?
 	let picture: String?
+
+	func fullName() -> String {
+		return "\(self.firstName) \(self.lastName)"
+	}
 }
 
 //TODO

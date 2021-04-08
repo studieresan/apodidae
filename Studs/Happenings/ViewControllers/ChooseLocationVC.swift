@@ -15,12 +15,10 @@ class ChooseLocationViewController: UIViewController {
 	@IBOutlet var mapView: MKMapView!
 	@IBOutlet var titleField: UITextField!
 
-	var currentLocation = MKMapView.defaultCenter
-
-	var locationManager = CLLocationManager()
+	var currentLocation: CLLocationCoordinate2D!
 
 	//Function to call when the user changed the location. Set by super-viewcontroller
-	var setLocation: ((_: CLLocationCoordinate2D,_: String) -> Void)!
+	var setLocation: ((_: CLLocationCoordinate2D, _: String) -> Void)!
 
 	@IBAction func onDonePressed(_ sender: Any) {
 		self.dismiss(animated: true)
@@ -54,53 +52,27 @@ class ChooseLocationViewController: UIViewController {
 		self.mapView.addAnnotation(pin)
 
 		self.currentLocation = location
-		
+
 		self.getNameOfLocation(coords: location)
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
 		self.setLocation(currentLocation, titleField.text ?? "")
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		mapView.resetDefaultCenter()
 		self.generatePin(at: mapView.centerCoordinate)
 
-		locationManager.delegate = self
-		if CLLocationManager.locationServicesEnabled() {
-			locationManager.requestWhenInUseAuthorization()
-			locationManager.startUpdatingLocation()
-		} else {
-			print("No location enabled")
-		}
-
 		mapView.showsUserLocation = true
+		mapView.setCenter(self.currentLocation, animated: true)
 
 		//Register long map press for pin
 		let longMapPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
 		longMapPress.addTarget(self, action: #selector(onLongMapPress(_:)))
 		mapView.addGestureRecognizer(longMapPress)
-	}
-}
-
-extension ChooseLocationViewController: CLLocationManagerDelegate {
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		//Only center the map once, when we get the users location
-		if let currentLocation = locations.last {
-			self.locationManager.stopUpdatingLocation()
-
-			let center = currentLocation.coordinate
-
-			self.mapView.setCenter(center, animated: true)
-
-			self.generatePin(at: center)
-		}
-	}
-
-	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		print("Error with location: \(error)")
 	}
 }
 

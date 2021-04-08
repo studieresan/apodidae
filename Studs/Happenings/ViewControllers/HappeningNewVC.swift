@@ -9,14 +9,20 @@
 import Foundation
 import UIKit
 import MapKit
+import RxSwift
 
 class HappeningNewViewController: UIViewController {
+
+	//Cache request of all users
+	var allUsers: [User] = []
 
 	var pickedEmoji: String?
 	var location: GeoJSON?
 	var companions: [User] = []
 
 	var locationManager = CLLocationManager()
+
+	var disposeBag = DisposeBag()
 
 	@IBOutlet var emojiButtons: [UIButton]!
 
@@ -73,6 +79,12 @@ class HappeningNewViewController: UIViewController {
 		locationLabel.text = ""
 		companionsLabel.text = ""
 
+		//Fetch all users and cache them
+		Http.fetchAllUsers(studsYear: AppDelegate.STUDSYEAR).subscribe(onNext: { users in
+			//Sort by name
+			self.allUsers = users.sorted(by: {$0.fullName() < $1.fullName()})
+		}).disposed(by: self.disposeBag)
+
 		findStartLocation()
 	}
 
@@ -87,6 +99,7 @@ class HappeningNewViewController: UIViewController {
 				print("VC is not correct! (change-location)")
 				return
 			}
+			chooseLocationVC.currentLocation = self.location?.coordinate()
 			chooseLocationVC.setLocation = { location, title in
 				self.location = GeoJSON(coordinates: location, title: title)
 				self.locationLabel.text = title
@@ -97,7 +110,11 @@ class HappeningNewViewController: UIViewController {
 				print("VC is not correct! (change-location)")
 				return
 			}
-			//TODO
+			chooseCompanionsVC.allUsers = self.allUsers
+			chooseCompanionsVC.selectedUsers = self.companions
+			chooseCompanionsVC.setSelectedUsers = { users in
+				self.companions = users
+			}
 
 		default:
 			return

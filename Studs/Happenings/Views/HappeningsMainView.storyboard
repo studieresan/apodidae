@@ -453,34 +453,69 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="user-cell" id="X6z-eB-tfp">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="user-cell" id="X6z-eB-tfp" customClass="CompanionUserCell" customModule="Studs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YuU-Xy-bFW">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bjI-R7-rCL">
-                                                    <rect key="frame" x="22" y="10" width="84.5" height="84.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eHO-V2-ztM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOf-Dl-gRi">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="73"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bjI-R7-rCL">
+                                                                    <rect key="frame" x="27.5" y="0.0" width="73" height="73"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="bjI-R7-rCL" secondAttribute="height" multiplier="1:1" id="15y-Su-fcn"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="bjI-R7-rCL" firstAttribute="centerX" secondItem="HOf-Dl-gRi" secondAttribute="centerX" id="Egq-o8-pYt"/>
+                                                                <constraint firstAttribute="bottom" secondItem="bjI-R7-rCL" secondAttribute="bottom" id="OQu-vz-Oi7"/>
+                                                                <constraint firstItem="bjI-R7-rCL" firstAttribute="top" secondItem="HOf-Dl-gRi" secondAttribute="top" id="X7x-Wz-KIi"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cR9-GH-Yfo">
+                                                            <rect key="frame" x="0.0" y="73" width="128" height="55"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Namesson" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCa-zI-sFH">
+                                                                    <rect key="frame" x="10" y="0.0" width="108" height="55"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="SCa-zI-sFH" secondAttribute="bottom" id="UwH-Ax-CZq"/>
+                                                                <constraint firstItem="SCa-zI-sFH" firstAttribute="top" secondItem="cR9-GH-Yfo" secondAttribute="top" id="bLm-RE-A0j"/>
+                                                                <constraint firstItem="SCa-zI-sFH" firstAttribute="centerY" secondItem="cR9-GH-Yfo" secondAttribute="centerY" id="on5-RV-HqP"/>
+                                                                <constraint firstAttribute="trailing" secondItem="SCa-zI-sFH" secondAttribute="trailing" constant="10" id="rtH-wD-psd"/>
+                                                                <constraint firstItem="SCa-zI-sFH" firstAttribute="leading" secondItem="cR9-GH-Yfo" secondAttribute="leading" constant="10" id="wXm-kv-SIk"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="bjI-R7-rCL" secondAttribute="height" multiplier="1:1" id="2sq-6T-lEh"/>
+                                                        <constraint firstItem="cR9-GH-Yfo" firstAttribute="height" secondItem="bjI-R7-rCL" secondAttribute="height" multiplier="0.75" id="Icd-AC-YgP"/>
                                                     </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Namesson" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCa-zI-sFH">
-                                                    <rect key="frame" x="20" y="104.5" width="88.5" height="13.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="SCa-zI-sFH" secondAttribute="bottom" constant="10" id="FN8-Sj-WX2"/>
-                                                <constraint firstItem="bjI-R7-rCL" firstAttribute="centerX" secondItem="YuU-Xy-bFW" secondAttribute="centerX" id="HHx-nh-sh3"/>
-                                                <constraint firstItem="bjI-R7-rCL" firstAttribute="top" secondItem="YuU-Xy-bFW" secondAttribute="top" constant="10" id="ary-1G-4jX"/>
-                                                <constraint firstItem="SCa-zI-sFH" firstAttribute="top" secondItem="bjI-R7-rCL" secondAttribute="bottom" constant="10" id="mhp-K8-eT0"/>
-                                                <constraint firstItem="SCa-zI-sFH" firstAttribute="centerX" secondItem="YuU-Xy-bFW" secondAttribute="centerX" id="uyf-hI-7j0"/>
+                                                <constraint firstAttribute="bottom" secondItem="eHO-V2-ztM" secondAttribute="bottom" id="3mZ-cM-gBA"/>
+                                                <constraint firstItem="eHO-V2-ztM" firstAttribute="top" secondItem="YuU-Xy-bFW" secondAttribute="top" id="Lbd-lQ-XjH"/>
+                                                <constraint firstAttribute="trailing" secondItem="eHO-V2-ztM" secondAttribute="trailing" id="Vvr-zp-fcY"/>
+                                                <constraint firstItem="eHO-V2-ztM" firstAttribute="leading" secondItem="YuU-Xy-bFW" secondAttribute="leading" id="b1S-zl-hsB"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="userImage" destination="bjI-R7-rCL" id="UTD-oW-bTe"/>
+                                            <outlet property="userNameLabel" destination="SCa-zI-sFH" id="HuR-GE-K7H"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

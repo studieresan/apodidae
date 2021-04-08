@@ -159,6 +159,12 @@ struct Http {
 		return graphQL(query: query, type: User.self)
 	}
 
+	static func fetchAllUsers(of role: String? = nil, studsYear: Int? = nil) -> Observable<[User]> {
+		let query = createUsersQuery(role: role, year: studsYear)
+
+		return graphQL(query: query, type: [User].self)
+	}
+
 	static func fetchHappenings() -> Observable<[Happening]> {
 		let query = createHappeningsQuery()
 

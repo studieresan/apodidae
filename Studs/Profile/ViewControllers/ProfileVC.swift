@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
 			guard let self = self else { return }
 
 			DispatchQueue.main.async {
-				self.nameLabel.text = "\(user.firstName) \(user.lastName)"
+				self.nameLabel.text = user.fullName()
 			}
 
 			if let imageURL = user.picture {
