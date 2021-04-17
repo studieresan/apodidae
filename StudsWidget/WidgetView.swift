@@ -66,6 +66,8 @@ struct WidgetView: View {
 						Text(titleDescription)
 							.font(.title)
 							.bold()
+							.minimumScaleFactor(0.01) // Allow font scaling of title if to big
+							.lineLimit(1)
 
 						if entry.widgetFamily != .systemSmall {
 							Text("\(description2)")
@@ -94,7 +96,7 @@ struct WidgetView: View {
 
 struct WidgetView_Previews: PreviewProvider {
 	static var previews: some View {
-		let family: WidgetFamily = .systemMedium
+		let family: WidgetFamily = .systemSmall
 
 		let sizeSmall = CGSize(width: 158, height: 158)
 		let sizeMedium = CGSize(width: 338, height: 150)
