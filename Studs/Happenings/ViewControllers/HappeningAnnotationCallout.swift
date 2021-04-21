@@ -34,12 +34,6 @@ class HappeningAnnotationCallout: UIViewController {
 		self.companionsCollectionView.allowsSelection = false
 		self.companionsCollectionView.allowsMultipleSelection = false
 
-		//If no companions, hide collection view
-		if happening.participants?.count ?? 0 <= 0 {
-			self.companionsCollectionView.isHidden = true
-			self.companionsCollectionView.heightAnchor.constraint(equalToConstant: 0).isActive = true
-		}
-
 		//Set the height of the collection view to be just high and wide enough
 		let collectionViewLayout = self.companionsCollectionView.collectionViewLayout
 		let collectionContentSize = collectionViewLayout.collectionViewContentSize
