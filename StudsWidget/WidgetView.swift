@@ -33,13 +33,18 @@ struct WidgetView: View {
 				description1 = "Idag!"
 			} else {
 			let untilDate = Calendar.current.dateComponents([.day], from: now, to: eventDate)
-				var daysUntil: Int = untilDate.day ?? -1
+				var daysUntil: Int = untilDate.day ?? -1 //will be seen as -1 but good because of debugging
 				// If 0 days but not same day means that we are on the day before
 				if daysUntil == 0 && !now.isSameDay(as: event.getDate()) {
 					daysUntil = 1
 				}
 
-				description1 = "Om \(daysUntil) dagar"
+				//Special case if we are on the day before
+				if daysUntil == 1 {
+					description1 = "Imorgon!"
+				} else {
+					description1 = "Om \(daysUntil) dagar"
+				}
 			}
 			titleDescription = event.company?.name ?? "Inget företagsnamn"
 			description2 = dateString
