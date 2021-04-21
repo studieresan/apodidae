@@ -63,7 +63,9 @@ extension ChooseCompanionsViewController: UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user-cell", for: indexPath) as? CompanionUserCell else {
+		guard let cell = collectionView
+				.dequeueReusableCell(withReuseIdentifier: CompanionUserCell.identifier, for: indexPath)
+				as? CompanionUserCell else {
 			fatalError("Could not dequeue user-cell")
 		}
 
@@ -135,6 +137,8 @@ extension ChooseCompanionsViewController: UICollectionViewDelegate {
 class CompanionUserCell: UICollectionViewCell {
 	@IBOutlet var userImage: UIImageView!
 	@IBOutlet var userNameLabel: UILabel!
+
+	static let identifier = "user-cell"
 
 	override func prepareForReuse() {
 		self.userImage.image = .roundStudsS

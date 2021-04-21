@@ -43,6 +43,7 @@ final class StudsViewController: UITabBarController {
 		}
 
 		self.viewControllers = viewControllers
+		self.tabBar.tintColor = .primary
 		self.selectedIndex = 0
     }
 }

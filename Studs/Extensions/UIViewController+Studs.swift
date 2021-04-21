@@ -27,6 +27,14 @@ extension UIViewController {
 		return viewController
 	}
 
+	static func instance(withName storyboardName: String, id storyboardID: String) -> Self {
+		let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+		guard let viewController: Self = storyboard.instantiateViewController(withIdentifier: storyboardID) as? Self else {
+			fatalError("No vc with name \(storyboardName) and id \(storyboardID)")
+		}
+		return viewController
+	}
+
     func setTabBarVisible(visible: Bool, animated: Bool) {
         guard isTabBarVisible != visible else { return }
 

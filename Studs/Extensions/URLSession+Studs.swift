@@ -11,7 +11,9 @@ import Foundation
 extension URLSession {
 	///Similar to URLSession.shared but with more generous cache policy
 	static var image: URLSession = {
-		let session: URLSession = URLSession.new()
+		guard let session: URLSession = URLSession.shared.copy() as? URLSession else {
+			return URLSession.shared
+		}
 		session.configuration.requestCachePolicy = .returnCacheDataElseLoad
 
 		return session

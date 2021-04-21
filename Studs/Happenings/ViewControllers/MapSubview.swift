@@ -141,7 +141,10 @@ class HappeningMapAnnotationView: MKAnnotationView {
 	lazy var imageView: UIImageView = UIImageView(image: nil)
 
 	//Shows how many companions are at the happening
-	lazy var badgeLabel: UILabel = UILabel()
+	lazy var badgeLabel: UILabel = {
+		let label = UILabel()
+		return label
+	}()
 	lazy var badgeView: UIView = {
 		let view = UIView()
 
@@ -149,6 +152,8 @@ class HappeningMapAnnotationView: MKAnnotationView {
 
 		return view
 	}()
+
+	lazy var calloutVC: HappeningAnnotationCallout? = nil
 
 	override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
 		super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
@@ -179,20 +184,25 @@ class HappeningMapAnnotationView: MKAnnotationView {
 			height: self.badgeSize
 		)
 
-		self.badgeView.backgroundColor = .white
-
 		//Create round border around badge
 		self.badgeView.layer.borderWidth = 1
-		self.badgeView.layer.borderColor = UIColor.black.cgColor
 		self.badgeView.layer.cornerRadius = self.badgeSize / 2
-
-		self.badgeLabel.font = .preferredFont(forTextStyle: .caption2)
 
 		//Center badge label inside badgeView
 		self.badgeLabel.translatesAutoresizingMaskIntoConstraints = false
 		self.badgeLabel.centerXAnchor.constraint(equalTo: self.badgeView.centerXAnchor).isActive = true
 		self.badgeLabel.centerYAnchor.constraint(equalTo: self.badgeView.centerYAnchor).isActive = true
 
+		self.canShowCallout = true
+
+		//Set bolor depending on if darkmode is available or not
+		if #available(iOS 13, *) {
+			self.badgeView.backgroundColor = .systemGray6
+			self.badgeView.layer.borderColor = UIColor.label.cgColor
+		} else {
+			self.badgeView.backgroundColor = .white
+		}
+		self.badgeLabel.font = .preferredFont(forTextStyle: .caption2)
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -202,9 +212,10 @@ class HappeningMapAnnotationView: MKAnnotationView {
 	override func prepareForReuse() {
 		super.prepareForReuse()
 
-		//Reset image and text
+		//Reset all stored attributes
 		self.imageView.image = nil
 		self.badgeLabel.text = nil
+		self.calloutVC = nil
 	}
 
 	override func prepareForDisplay() {
@@ -214,13 +225,25 @@ class HappeningMapAnnotationView: MKAnnotationView {
 			return
 		}
 
-		print("Prepare for display")
-
 		let happening = annotation.happening
 
 		imageView.imageFromURL(urlString: happening.host.picture ?? "")
 
-//		self.badgeView.setNeedsDisplay()
+		//If not initilized, try to init
+		if self.calloutVC == nil {
+			self.calloutVC = UIViewController
+				.instance(withName: "HappeningsMainView", id: HappeningAnnotationCallout.identifier)
+			 as? HappeningAnnotationCallout
+		}
+
+		if let calloutVC = self.calloutVC {
+			calloutVC.happening = happening
+			self.detailCalloutAccessoryView = calloutVC.view
+		} else {
+			let calloutLabel = UILabel()
+			calloutLabel.text = "\(happening.host.firstName) är med \(happening.participants?.count ?? 0) andra på \(happening.location.title)"
+			self.detailCalloutAccessoryView = calloutLabel
+		}
 
 		//If there are participants, show badge as well. Else hide badge
 		if let count = happening.participants?.count, count > 0 {
