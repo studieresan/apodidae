@@ -40,13 +40,13 @@ class HappeningAnnotationCallout: UIViewController {
 			self.companionsCollectionView.heightAnchor.constraint(equalToConstant: 0).isActive = true
 		}
 
+		//Set the height of the collection view to be just high and wide enough
+		let collectionViewLayout = self.companionsCollectionView.collectionViewLayout
+		let collectionContentSize = collectionViewLayout.collectionViewContentSize
+		self.companionsCollectionView.heightAnchor.constraint(equalToConstant: collectionContentSize.height).isActive = true
+		self.companionsCollectionView.widthAnchor.constraint(equalToConstant: collectionContentSize.width).isActive = true
+
 		print("Callout view did load \(happening.host.firstName)")
-	}
-
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-
-		self.companionsCollectionView.reloadData()
 	}
 }
 
@@ -73,7 +73,7 @@ extension HappeningAnnotationCallout: UICollectionViewDataSource {
 		cell.image.imageFromURL(urlString: user.picture ?? "")
 		cell.nameLabel.text = "\(user.fullName())"
 
-		cell.image.layer.cornerRadius = cell.image.frame.width / 2
+		cell.image.layer.cornerRadius = cell.image.frame.width / 4
 		cell.image.layer.borderWidth = 0.5
 
 		cell.contentView.backgroundColor = .clear
