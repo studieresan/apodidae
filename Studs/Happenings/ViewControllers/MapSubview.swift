@@ -128,40 +128,71 @@ class HappeningMapAnnotation: MKPointAnnotation {
 	}
 }
 
+//A map annotation view that shows an image of the host as the marker, and if they have
+//companions also a round badge at the upper-right corner with how many they sit with
 class HappeningMapAnnotationView: MKAnnotationView {
 	static let reuseIdentifier = "HappeningMapAnnotation"
 
-	let size: CGFloat = 50
+	let imageSize: CGFloat = 50
+	let badgeSize: CGFloat = 20
 	//The border of the image
 	let borderSize: CGFloat = 1
 
 	lazy var imageView: UIImageView = UIImageView(image: nil)
 
-	lazy var badge: UILabel = UILabel()
+	//Shows how many companions are at the happening
+	lazy var badgeLabel: UILabel = UILabel()
+	lazy var badgeView: UIView = {
+		let view = UIView()
+
+		view.addSubview(self.badgeLabel)
+
+		return view
+	}()
 
 	override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
 		super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
 
-		self.backgroundColor = .black
-
-		self.frame.size = CGSize(width: self.size, height: self.size)
+		self.frame.size = CGSize(width: self.imageSize, height: self.imageSize)
 
 		self.addSubview(self.imageView)
 
-		//Make both outer view and image view round
-		self.layer.cornerRadius = self.size / 2
-		self.layer.masksToBounds = true
-		self.imageView.layer.cornerRadius = self.size / 2
+		//Make image view round and have border
+		self.imageView.layer.cornerRadius = self.imageSize / 2
 		self.imageView.layer.masksToBounds = true
+		self.imageView.layer.borderWidth = self.borderSize
 
-		//Set image view to almost at other anchors, diffing by borderSize pixels (i.e. creating a border of that size)
+		//Set image view to at other anchors, as to fill the view
 		self.imageView.translatesAutoresizingMaskIntoConstraints = false
-		self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: self.borderSize).isActive = true
-		self.imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -self.borderSize).isActive = true
-		self.imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: self.borderSize).isActive = true
-		self.imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -self.borderSize).isActive = true
+		self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+		self.imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+		self.imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+		self.imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
-		
+		self.addSubview(badgeView)
+
+		//Place badge at upper-right corner of marker
+		self.badgeView.frame = CGRect(
+			x: self.imageSize - (3/4 * self.badgeSize),
+			y: (-1/4) * self.badgeSize,
+			width: self.badgeSize,
+			height: self.badgeSize
+		)
+
+		self.badgeView.backgroundColor = .white
+
+		//Create round border around badge
+		self.badgeView.layer.borderWidth = 1
+		self.badgeView.layer.borderColor = UIColor.black.cgColor
+		self.badgeView.layer.cornerRadius = self.badgeSize / 2
+
+		self.badgeLabel.font = .preferredFont(forTextStyle: .caption2)
+
+		//Center badge label inside badgeView
+		self.badgeLabel.translatesAutoresizingMaskIntoConstraints = false
+		self.badgeLabel.centerXAnchor.constraint(equalTo: self.badgeView.centerXAnchor).isActive = true
+		self.badgeLabel.centerYAnchor.constraint(equalTo: self.badgeView.centerYAnchor).isActive = true
+
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -171,7 +202,9 @@ class HappeningMapAnnotationView: MKAnnotationView {
 	override func prepareForReuse() {
 		super.prepareForReuse()
 
+		//Reset image and text
 		self.imageView.image = nil
+		self.badgeLabel.text = nil
 	}
 
 	override func prepareForDisplay() {
@@ -183,6 +216,18 @@ class HappeningMapAnnotationView: MKAnnotationView {
 
 		print("Prepare for display")
 
-		imageView.imageFromURL(urlString: annotation.happening.host.picture ?? "")
+		let happening = annotation.happening
+
+		imageView.imageFromURL(urlString: happening.host.picture ?? "")
+
+//		self.badgeView.setNeedsDisplay()
+
+		//If there are participants, show badge as well. Else hide badge
+		if let count = happening.participants?.count, count > 0 {
+			self.badgeView.isHidden = false
+			self.badgeLabel.text = "+\(count)"
+		} else {
+			self.badgeView.isHidden = true
+		}
 	}
 }
