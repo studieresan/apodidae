@@ -50,6 +50,7 @@
 		21D1DEB8261DD301009DBDB9 /* CLGeocoder+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */; };
 		21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
 		21E0F85725F18C3B0057DEB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E3782F92183B982004F083F /* Assets.xcassets */; };
+		21E4E1C126303416008A2601 /* URLSession+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E4E1C026303415008A2601 /* URLSession+Studs.swift */; };
 		21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC48802184F23C00BB36A2 /* Http.swift */; };
 		21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8F2586664B001556FC /* GraphQLFields.swift */; };
 		21E5B1C025F1763300DC3BD8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC487D2184F00B00BB36A2 /* Event.swift */; };
@@ -154,6 +155,7 @@
 		21D1DEAF261DBF6C009DBDB9 /* ChooseCompanionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCompanionsVC.swift; sourceTree = "<group>"; };
 		21D1DEB3261DC30F009DBDB9 /* MKMapView+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Studs.swift"; sourceTree = "<group>"; };
 		21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLGeocoder+Studs.swift"; sourceTree = "<group>"; };
+		21E4E1C026303415008A2601 /* URLSession+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Studs.swift"; sourceTree = "<group>"; };
 		21E5B20725F1870600DC3BD8 /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
 		21FBF804258D057C00B3A3ED /* PublicEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEventsViewModel.swift; sourceTree = "<group>"; };
 		21FBF807258D059500B3A3ED /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				212E4AE126131993008B070E /* Date+Studs.swift */,
 				21D1DEB3261DC30F009DBDB9 /* MKMapView+Studs.swift */,
 				21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */,
+				21E4E1C026303415008A2601 /* URLSession+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
 				2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */,
+				21E4E1C126303416008A2601 /* URLSession+Studs.swift in Sources */,
 				211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */,
 				212E4AE226131993008B070E /* Date+Studs.swift in Sources */,
 				21FBF808258D059500B3A3ED /* EventsViewModel.swift in Sources */,
