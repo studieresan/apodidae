@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import WidgetKit
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -29,6 +30,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationC
         application.registerForRemoteNotifications()
 
         window = UIWindow(frame: UIScreen.main.bounds)
+
+		//Reload widget when opening app
+		if #available(iOS 14.0, *) {
+			WidgetCenter.shared.reloadAllTimelines()
+		}
 
         window?.run {
             $0.rootViewController = StudsViewController()
