@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class HappeningAnnotationCallout: UIViewController {
 	static let identifier = "callout"
@@ -15,11 +16,40 @@ class HappeningAnnotationCallout: UIViewController {
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var emojiLabel: UILabel!
 	@IBOutlet var descriptionLabel: UILabel!
+
+	@IBOutlet var createdLabel: UILabel!
+	@IBOutlet var removeButton: StudsButton!
+
 	@IBOutlet var companionsCollectionView: UICollectionView!
 
 	let maxHeight: CGFloat = 200
 
 	var happening: Happening!
+
+	let disposeBag: DisposeBag = DisposeBag()
+
+	@IBAction func onRemovePressed(_ sender: Any) {
+		let alert = UIAlertController(
+			title: "Är du säker?",
+			message: "Är du säker på att du vill ta bort denna happening? Åtgärden går inte att ångra", preferredStyle: .alert
+		)
+		alert.addAction(UIAlertAction(title: "OK", style: .default) {_ in
+			Http.delete(happening: self.happening).subscribe(onNext: {
+				if $0.wasSuccessfull {
+					//Create notification that the happenings should update
+					NotificationCenter.default.post(.init(name: .HappeningsSetUpdate))
+				} else {
+					print("Couldn't delete happening??")
+				}
+			}, onError: {error in
+				print("ERROR WITH DELETE, \(error)")
+			}).disposed(by: self.disposeBag)
+		})
+		alert.addAction(UIAlertAction(title: "Avbryt", style: .cancel) {_ in
+			//Don't do anything
+		})
+		self.present(alert, animated: true)
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -49,6 +79,13 @@ class HappeningAnnotationCallout: UIViewController {
 		//Reload the data to force it to update. Got UI bug otherwise where all
 		//companions would not show at first, until scroll
 		self.companionsCollectionView.reloadData()
+
+		//If the host of the happening is the user, show the remove button
+		self.removeButton.isHidden = !happening.host.isSelfUser()
+
+		let formatter = DateFormatter()
+		formatter.dateFormat = "dd MMM HH:mm"
+		self.createdLabel.text = formatter.string(from: self.happening.created)
 	}
 }
 

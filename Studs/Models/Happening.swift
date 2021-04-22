@@ -27,6 +27,18 @@ class CreatedHappening: Happening, GraphQLSingleResponse {
 	static var rootField: String = "happeningCreate"
 }
 
+///A remove mutation will only return a boolean
+class DeleteHappening: Decodable, GraphQLSingleResponse {
+	static var rootField: String = "happeningDelete"
+
+	let wasSuccessfull: Bool
+
+	required init(from decoder: Decoder) throws {
+		let container = try decoder.singleValueContainer()
+		self.wasSuccessfull = try container.decode(Bool.self)
+	}
+}
+
 ///Used when creating a happening in the backend
 class NewHappening {
 	var hostId: String

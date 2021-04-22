@@ -208,3 +208,11 @@ mutation {
 }
 """
 }
+
+func createHappeningsDeleteQuery(happening: Happening) -> String {
+"""
+mutation {
+  happeningDelete(id: "\(happening.id)")
+}
+"""
+}

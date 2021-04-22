@@ -57,19 +57,13 @@ class MapSubview: UIViewController, HappeningsSubview {
 
 	//Show all happenings on map
 	func reloadView() {
-		//Clear all current annotations
-		var annotationsToRemove: [MKAnnotation] = []
-		for annotation in self.mapView.annotations {
-			annotationsToRemove.append(annotation)
-		}
+		//Must be done on main thread
 		DispatchQueue.main.async {
-			//Must be removed on main thread
-			self.mapView.removeAnnotations(annotationsToRemove)
-		//Add all happening annotations
+			//Clear all current annotations
+			self.mapView.removeAnnotations(self.mapView.annotations)
+			//Add all happening annotations
 			for happening in self.happenings {
-
 				let annotation = HappeningMapAnnotation(happening: happening)
-
 				self.mapView.addAnnotation(annotation)
 			}
 		}
@@ -80,6 +74,19 @@ class MapSubview: UIViewController, HappeningsSubview {
 		let region = MKCoordinateRegion(center: center, span: self.span)
 
 		mapView.setRegion(region, animated: true)
+	}
+
+	func removed(happening: Happening) {
+		self.happenings = self.happenings.filter({$0.id != happening.id})
+		//Find all annotations that has same happening id. This _should_ always
+		//be a list of exactly 1 element
+		let annotationsToRemove = mapView.annotations.filter({annotation in
+			guard let annotation = annotation as? HappeningMapAnnotation else {
+				return false
+			}
+			return annotation.happening.id == happening.id
+		})
+		self.mapView.removeAnnotations(annotationsToRemove)
 	}
 }
 

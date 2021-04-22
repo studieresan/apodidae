@@ -14,19 +14,21 @@ class ListSubview: UITableViewController, HappeningsSubview {
 
 	//Set by super-viewcontroller
 	var onCellPressed: ((_: Happening) -> Void)!
-	//Function that takes a callback with potential error
-	var onUpdateData: ((_: @escaping (_: Error?) -> Void) -> Void)!
 
 	@objc func refresh(sender: Any?) {
-		self.onUpdateData { error in
+
+		let callback: (Error?) -> Void = { error in
 			if error != nil {
 				print("ERROR WITH UPDATE")
 			}
 			DispatchQueue.main.async {
+				print("Update done")
 				self.tableView.reloadData()
 				self.tableView.refreshControl?.endRefreshing()
 			}
 		}
+
+		NotificationCenter.default.post(.init(name: .HappeningsSetUpdate, userInfo: ["callback": callback]))
 	}
 
 	func onData(_ happenings: [Happening]) {

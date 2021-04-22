@@ -29,6 +29,8 @@ class HappeningsMainVC: UIViewController {
 
 	var disposeBag = DisposeBag()
 
+	var updateNotification: NSObjectProtocol?
+
 	@IBOutlet weak var subviewTypeSwitch: UISegmentedControl!
 	@IBOutlet weak var happeningsSubview: UIView!
 
@@ -52,8 +54,6 @@ class HappeningsMainVC: UIViewController {
 		//When a happening cell is pressed, center on it in the map
 		self.listSubview.onCellPressed = centerOnHappening
 
-		self.listSubview.onUpdateData = self.fetchData
-
 		self.happeningSubviews = [
 			Subview(title: "Kartvy", viewController: self.mapSubview),
 			Subview(title: "Listvy", viewController: self.listSubview),
@@ -72,6 +72,21 @@ class HappeningsMainVC: UIViewController {
 		subviewTypeSwitch.selectedSegmentIndex = 0
 
 		fetchData()
+
+		//Subscribe to a notification called when the VC should re-fetch happenings, for example
+		//if a refresh was triggered or a happening was removed
+		self.updateNotification = NotificationCenter.default.addObserver(
+			forName: .HappeningsSetUpdate,
+			object: nil,
+			queue: nil
+		) { notification in
+			self.fetchData(callback: {error in
+				//If there is a callback, call it with potential error
+				if let callback = notification.userInfo?["callback"] as? ((_: Error?) -> Void) {
+					callback(error)
+				}
+			})
+		}
 	}
 
 	override func viewDidAppear(_ animated: Bool) {

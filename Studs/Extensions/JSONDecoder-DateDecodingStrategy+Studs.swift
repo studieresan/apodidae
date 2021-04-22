@@ -27,6 +27,7 @@ extension JSONDecoder.DateDecodingStrategy {
 			.withColonSeparatorInTimeZone,
 			.withFractionalSeconds,
 		]
+		dateFormatter.timeZone = .autoupdatingCurrent
 
 		guard let date = dateFormatter.date(from: dateString) else {
 			throw DecodingError.dataCorruptedError(

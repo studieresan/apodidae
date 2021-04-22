@@ -32,6 +32,7 @@
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
 		2152855226319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */; };
 		215285552631A09100E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */; };
+		2152855B2631BB6300E73A3D /* NSNotification-Name+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152855A2631BB6300E73A3D /* NSNotification-Name+Studs.swift */; };
 		215D6682261C41260086E637 /* HappeningNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D6681261C41260086E637 /* HappeningNewVC.swift */; };
 		2175BF87258661C6001556FC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2175BF86258661C6001556FC /* Profile.storyboard */; };
 		2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8A2586634B001556FC /* ProfileVC.swift */; };
@@ -141,6 +142,7 @@
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
 		2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder-DateDecodingStrategy+Studs.swift"; sourceTree = "<group>"; };
+		2152855A2631BB6300E73A3D /* NSNotification-Name+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification-Name+Studs.swift"; sourceTree = "<group>"; };
 		215D6681261C41260086E637 /* HappeningNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningNewVC.swift; sourceTree = "<group>"; };
 		2175BF86258661C6001556FC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2175BF8A2586634B001556FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */,
 				21E4E1C026303415008A2601 /* URLSession+Studs.swift */,
 				2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */,
+				2152855A2631BB6300E73A3D /* NSNotification-Name+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				8E37830A2183C3F8004F083F /* UIStoryboard+Studs.swift in Sources */,
 				8BA9D4A422AD9FFA00EEEB7E /* UIImageView+Studs.swift in Sources */,
 				8EAC487E2184F00B00BB36A2 /* Event.swift in Sources */,
+				2152855B2631BB6300E73A3D /* NSNotification-Name+Studs.swift in Sources */,
 				8B1440AB22202F0E00AE767B /* EventCellViewModel.swift in Sources */,
 				2175BF9525866C4C001556FC /* Company.swift in Sources */,
 				8EA6415C2184A1E000A138EB /* EventsViewController.swift in Sources */,
