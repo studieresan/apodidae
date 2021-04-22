@@ -365,7 +365,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRr-o5-f31">
-                                        <rect key="frame" x="114.5" y="0.0" width="30" height="50"/>
+                                        <rect key="frame" x="69" y="0.0" width="30" height="50"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <state key="normal" title="🍷"/>
                                         <connections>
@@ -373,7 +373,7 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRf-8x-UDx">
-                                        <rect key="frame" x="229.5" y="0.0" width="30" height="50"/>
+                                        <rect key="frame" x="137.5" y="0.0" width="30" height="50"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <state key="normal" title="🍔"/>
                                         <connections>
@@ -381,11 +381,27 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgK-gL-GwE">
-                                        <rect key="frame" x="344" y="0.0" width="30" height="50"/>
+                                        <rect key="frame" x="206.5" y="0.0" width="30" height="50"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <state key="normal" title="☕️"/>
                                         <connections>
                                             <action selector="emojiButtonPressed:" destination="lr1-IZ-UWU" eventType="touchUpInside" id="jlX-yb-qmK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spe-Dl-FTy">
+                                        <rect key="frame" x="275" y="0.0" width="30" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <state key="normal" title="🚶"/>
+                                        <connections>
+                                            <action selector="emojiButtonPressed:" destination="lr1-IZ-UWU" eventType="touchUpInside" id="ckV-Tf-Pf4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gW5-hL-ghY">
+                                        <rect key="frame" x="344" y="0.0" width="30" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <state key="normal" title="🤔"/>
+                                        <connections>
+                                            <action selector="emojiButtonPressed:" destination="lr1-IZ-UWU" eventType="touchUpInside" id="CfJ-F4-Wca"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -560,6 +576,8 @@
                         <outletCollection property="emojiButtons" destination="VqR-Ak-xF6" collectionClass="NSMutableArray" id="UKc-ke-DS2"/>
                         <outletCollection property="emojiButtons" destination="pRr-o5-f31" collectionClass="NSMutableArray" id="O8V-38-7TG"/>
                         <outletCollection property="emojiButtons" destination="VgK-gL-GwE" collectionClass="NSMutableArray" id="55P-F3-HwH"/>
+                        <outletCollection property="emojiButtons" destination="spe-Dl-FTy" collectionClass="NSMutableArray" id="vgW-LE-glw"/>
+                        <outletCollection property="emojiButtons" destination="gW5-hL-ghY" collectionClass="NSMutableArray" id="FbQ-Mp-Vn4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPZ-cq-X16" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
