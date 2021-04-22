@@ -56,7 +56,7 @@ class HappeningNewViewController: UIViewController {
 			companionsDescription = "med \(self.companions.count) andra"
 		}
 
-		let happeningCreateQuery = createHappeningsCreateQuery(
+		let newHappening = NewHappening(
 			hostId: userId,
 			participants: self.companions,
 			location: location,
@@ -67,23 +67,17 @@ class HappeningNewViewController: UIViewController {
 
 		view.isUserInteractionEnabled = false
 
-		Http.graphQL(query: happeningCreateQuery, type: CreatedHappening.self).subscribe({response in
-			DispatchQueue.main.async {
-				guard response.error == nil else {
-					let alert = UIAlertController(
-						title: "Fel med att skapa Happening",
-						message: "\(response.error!.localizedDescription)", preferredStyle: .alert
-					)
-					alert.addAction(UIAlertAction(title: "OK", style: .default))
-					self.present(alert, animated: true)
-					self.view.isUserInteractionEnabled = true
-					return
-				}
-
-				self.navigationController?.popViewController(animated: true)
-			}
+		Http.create(happening: newHappening).subscribe(onNext: { _ in
+			self.navigationController?.popViewController(animated: true)
+		}, onError: { error in
+			let alert = UIAlertController(
+				title: "Fel med att skapa Happening",
+				message: "\(error.localizedDescription)", preferredStyle: .alert
+			)
+			alert.addAction(UIAlertAction(title: "OK", style: .default))
+			self.present(alert, animated: true)
+			self.view.isUserInteractionEnabled = true
 		}).disposed(by: self.disposeBag)
-
 	}
 
 	@objc func hideKeyboard() {
@@ -136,6 +130,7 @@ class HappeningNewViewController: UIViewController {
 		locationLabel.text = ""
 		companionsLabel.text = ""
 
+		//Cache userId
 		self.userId = UserManager.getUserData()?.id
 
 		//Fetch all users and cache them
@@ -144,9 +139,7 @@ class HappeningNewViewController: UIViewController {
 			self.allUsers = users.sorted(by: {$0.fullName() < $1.fullName()})
 
 			//Filter out id of current user
-			if let userId = self.userId {
-				self.allUsers = self.allUsers.filter({$0.id != userId})
-			}
+			self.allUsers = self.allUsers.filter({!$0.isSelfUser()})
 
 		}).disposed(by: self.disposeBag)
 

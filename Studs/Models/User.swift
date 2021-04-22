@@ -73,6 +73,14 @@ struct User: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 	func fullName() -> String {
 		return "\(self.firstName) \(self.lastName)"
 	}
+
+	func isSelfUser() -> Bool {
+		//If not logged in
+		guard let loggedInUser = UserManager.getUserData() else {
+			return false
+		}
+		return loggedInUser.id == self.id
+	}
 }
 
 extension User: Hashable {

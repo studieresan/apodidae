@@ -71,7 +71,6 @@ extension ChooseCompanionsViewController: UICollectionViewDataSource {
 
 		let userIndex = indexPath.row
 		let user = self.shownUsers[userIndex]
-		print(userIndex, indexPath.item, user.firstName)
 
 		cell.userImage.imageFromURL(urlString: user.picture ?? "")
 		//Make round and with border
@@ -104,7 +103,6 @@ extension ChooseCompanionsViewController: UISearchBarDelegate {
 extension ChooseCompanionsViewController: UICollectionViewDelegate {
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		print(indexPath.row, indexPath.item)
 		guard let cell = collectionView.cellForItem(at: indexPath) else {
 			print("Cell tapped does not exist??")
 			return
@@ -122,7 +120,6 @@ extension ChooseCompanionsViewController: UICollectionViewDelegate {
 		}
 
 		let user = self.shownUsers[indexPath.row]
-		print("Deselect", indexPath.row, indexPath.item, user.firstName)
 		self.selectedUsers.remove(user)
 
 		self.decideAlpha(for: user, cell: cell)

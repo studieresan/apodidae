@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Happening: Decodable, GraphQLMultipleResponse {
+class Happening: Decodable, GraphQLMultipleResponse {
 
 	static var rootFieldMultiple: String = "happenings"
 
@@ -22,13 +22,33 @@ struct Happening: Decodable, GraphQLMultipleResponse {
 	var description: String?
 }
 
-struct CreatedHappening: Decodable, GraphQLSingleResponse {
+///Similar to Happening but with a GraphQL root field to unpack a created query
+class CreatedHappening: Happening, GraphQLSingleResponse {
 	static var rootField: String = "happeningCreate"
+}
 
-	//Decoded happening
-	let happening: Happening
+///Used when creating a happening in the backend
+class NewHappening {
+	var hostId: String
+	var participants: [User]
+	var location: GeoJSON
+	var title: String
+	var emoji: String
+	var description: String?
 
-	init(from decoder: Decoder) throws {
-		self.happening = try Happening(from: decoder)
+	init(
+		hostId: String,
+		participants: [User],
+		location: GeoJSON,
+		title: String,
+		emoji: String,
+		description: String?
+	) {
+		self.hostId = hostId
+		self.participants = participants
+		self.location = location
+		self.title = title
+		self.emoji = emoji
+		self.description = description
 	}
 }

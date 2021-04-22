@@ -182,34 +182,27 @@ happenings {
 """
 }
 
-func createHappeningsCreateQuery(
-	hostId: String,
-	participants: [User],
-	location: GeoJSON,
-	title: String,
-	emoji: String,
-	description: String?
-) -> String {
+func createHappeningsCreateQuery(newHappening happening: NewHappening) -> String {
 	//Map all users to their ID
-	let participants: [String] = participants.map({$0.id})
+	let participantsIDs: [String] = happening.participants.map({$0.id})
 	return """
 mutation {
   happeningCreate(fields: {
-    host: "\(hostId)",
-    participants: \(participants),
+    host: "\(happening.hostId)",
+    participants: \(participantsIDs),
     location: {
       type: "Feature",
 	  geometry: {
 		type: "Point",
-		coordinates: \(location.coordinatesList)
+		coordinates: \(happening.location.coordinatesList)
 	  },
 	  properties: {
-		name: "\(location.title)"
+		name: "\(happening.location.title)"
 	  }
     },
-    title: "\(title)",
-    emoji: "\(emoji)",
-    description: "\(description ?? "null")",
+    title: "\(happening.title)",
+    emoji: "\(happening.emoji)",
+    description: "\(happening.description ?? "null")",
   })
   {
     \(happeningFields)

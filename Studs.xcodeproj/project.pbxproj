@@ -22,7 +22,6 @@
 		212E4AF62613251A008B070E /* HappeningsMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF52613251A008B070E /* HappeningsMainVC.swift */; };
 		212E4AFA261364BA008B070E /* Happening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF9261364BA008B070E /* Happening.swift */; };
 		212E4AFE261369A5008B070E /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AFD261369A5008B070E /* GeoJSON.swift */; };
-		212E4B0726136D08008B070E /* Happening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF9261364BA008B070E /* Happening.swift */; };
 		212E4B0A26136D13008B070E /* GeoJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AFD261369A5008B070E /* GeoJSON.swift */; };
 		212E4B0E26136E22008B070E /* MapSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B0D26136E22008B070E /* MapSubview.swift */; };
 		212E4B1226136E3D008B070E /* HappeningsSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4B1126136E3D008B070E /* HappeningsSubview.swift */; };
@@ -41,6 +40,7 @@
 		2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BFB52588D269001556FC /* UIImage+Studs.swift */; };
 		217FE32225FA29860005713D /* UserDefaults+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FE32125FA29860005713D /* UserDefaults+Studs.swift */; };
 		217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217FE32125FA29860005713D /* UserDefaults+Studs.swift */; };
+		21859B09263166DE00722F0D /* Happening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E4AF9261364BA008B070E /* Happening.swift */; };
 		21B8175025FABA4100D78E3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B8175225FABA4100D78E3E /* LaunchScreen.storyboard */; };
 		21B8175825FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
 		21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 21B8175B25FABA7600D78E3E /* StudsWidget.intentdefinition */; };
@@ -683,7 +683,6 @@
 				21B8175925FABA7600D78E3E /* StudsWidget.intentdefinition in Sources */,
 				21E5B1B925F1762B00DC3BD8 /* Http.swift in Sources */,
 				21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */,
-				212E4B0726136D08008B070E /* Happening.swift in Sources */,
 				21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */,
 				217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */,
 				212E4B0A26136D13008B070E /* GeoJSON.swift in Sources */,
@@ -694,6 +693,7 @@
 				211E4A1925F16C07007A497D /* StudsDataModel.xcdatamodeld in Sources */,
 				21E5B1C225F1763300DC3BD8 /* GraphQLResponse.swift in Sources */,
 				21E5B1DB25F177FD00DC3BD8 /* UserManager.swift in Sources */,
+				21859B09263166DE00722F0D /* Happening.swift in Sources */,
 				21E5B1DE25F1782300DC3BD8 /* Login.swift in Sources */,
 				21E5B1C125F1763300DC3BD8 /* User.swift in Sources */,
 			);
