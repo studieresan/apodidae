@@ -45,7 +45,7 @@ class PrivateEventsViewModel: EventsViewModel {
 
 		//If there is no event where today is
         let idxOfFirstPrevious = events.firstIndex(where: {
-            $0.date <= today
+            $0.date <= today && !today.isSameDay(as: $0.date)
 		}) ?? 0
 
 		//Reversed for the order of events to be [next event, the one after that, ...]
