@@ -15,7 +15,7 @@ struct EventTableCardViewCell: View {
 
 	var body: some View {
 
-		let date = event.getDate()
+		let date = event.date
 
 		let formatter = DateFormatter()
 		formatter.dateFormat = "d MMMM"

@@ -16,7 +16,7 @@ class Happening: Decodable, GraphQLMultipleResponse {
 	var host: User
 	var participants: [User]?
 	var location: GeoJSON
-	var created: String
+	var created: Date
 	var title: String
 	var emoji: String
 	var description: String?

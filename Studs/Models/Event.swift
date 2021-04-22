@@ -21,7 +21,7 @@ struct Event: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
     let publicDescription: String?
     let beforeSurvey: String?
     let afterSurvey: String?
-    let date: String?
+    let date: Date
 	let studsYear: Int?
 	let pictures: [String]?
 	let responsible: User?
@@ -47,25 +47,11 @@ struct Event: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 
 extension Event: Comparable {
     static func < (lhs: Event, rhs: Event) -> Bool {
-        let lhsDate = lhs.getDate()
-        let rhsDate = rhs.getDate()
-
-        return lhsDate < rhsDate
+		return lhs.date < rhs.date
     }
 
     static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.id == rhs.id
-    }
-
-    func getDate() -> Date {
-		guard let date = self.date else {
-			return Date(timeIntervalSince1970: 0)
-		}
-        let dateFormatter = ISO8601DateFormatter()
-        // iOS <11 can't parse ISO8601 dates with milliseconds, so we remove them
-		let trimmed = date.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression)
-        let trimmedDate = dateFormatter.date(from: trimmed)
-		return trimmedDate ?? Date(timeIntervalSince1970: 0)
     }
 }
 
@@ -84,7 +70,7 @@ let sampleEvent = Event(
 		let eventDate = Calendar.current.date(byAdding: .day, value: 3, to: today)
 		let formatter = ISO8601DateFormatter()
 
-		return formatter.string(from: eventDate ?? today)
+		return eventDate! //formatter.string(from: eventDate ?? today)
 	}(),
 	studsYear: 2021,
 	pictures: nil,

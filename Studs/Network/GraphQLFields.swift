@@ -8,8 +8,6 @@
 
 import Foundation
 
-// TODO: Add role fetching from user
-
 let userFields = """
 id
 firstName

@@ -30,6 +30,8 @@
 		215129C225EE46C500464134 /* EventSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129C125EE46C500464134 /* EventSection.swift */; };
 		215129CB25EE530B00464134 /* EventTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CA25EE530B00464134 /* EventTableCardViewCell.swift */; };
 		215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215129CD25EE9A9200464134 /* Image+Studs.swift */; };
+		2152855226319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */; };
+		215285552631A09100E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */; };
 		215D6682261C41260086E637 /* HappeningNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D6681261C41260086E637 /* HappeningNewVC.swift */; };
 		2175BF87258661C6001556FC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2175BF86258661C6001556FC /* Profile.storyboard */; };
 		2175BF8B2586634B001556FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2175BF8A2586634B001556FC /* ProfileVC.swift */; };
@@ -138,6 +140,7 @@
 		215129C125EE46C500464134 /* EventSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSection.swift; sourceTree = "<group>"; };
 		215129CA25EE530B00464134 /* EventTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableCardViewCell.swift; sourceTree = "<group>"; };
 		215129CD25EE9A9200464134 /* Image+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Studs.swift"; sourceTree = "<group>"; };
+		2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder-DateDecodingStrategy+Studs.swift"; sourceTree = "<group>"; };
 		215D6681261C41260086E637 /* HappeningNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappeningNewVC.swift; sourceTree = "<group>"; };
 		2175BF86258661C6001556FC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2175BF8A2586634B001556FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -355,6 +358,7 @@
 				21D1DEB3261DC30F009DBDB9 /* MKMapView+Studs.swift */,
 				21D1DEB7261DD301009DBDB9 /* CLGeocoder+Studs.swift */,
 				21E4E1C026303415008A2601 /* URLSession+Studs.swift */,
+				2152855126319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -685,6 +689,7 @@
 				21E5B1C325F1763300DC3BD8 /* Company.swift in Sources */,
 				21E5B1BC25F1762E00DC3BD8 /* GraphQLFields.swift in Sources */,
 				217FE32525FA2A2C0005713D /* UserDefaults+Studs.swift in Sources */,
+				215285552631A09100E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift in Sources */,
 				212E4B0A26136D13008B070E /* GeoJSON.swift in Sources */,
 				211E4A0425F16393007A497D /* StudsWidget.swift in Sources */,
 				21E0F85425F18C070057DEB1 /* Image+Studs.swift in Sources */,
@@ -725,6 +730,7 @@
 				215129CE25EE9A9200464134 /* Image+Studs.swift in Sources */,
 				8E3783102183C507004F083F /* ForgotPasswordViewController.swift in Sources */,
 				2175BFB62588D269001556FC /* UIImage+Studs.swift in Sources */,
+				2152855226319A9000E73A3D /* JSONDecoder-DateDecodingStrategy+Studs.swift in Sources */,
 				21E4E1C126303416008A2601 /* URLSession+Studs.swift in Sources */,
 				211E49F625F00B41007A497D /* UITableCellHoster.swift in Sources */,
 				212E4AE226131993008B070E /* Date+Studs.swift in Sources */,

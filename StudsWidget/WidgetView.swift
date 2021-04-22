@@ -22,7 +22,7 @@ struct WidgetView: View {
 		//If there is indeed an event
 		if let event = entry.event {
 			let now = entry.date
-			let eventDate = event.getDate()
+			let eventDate = event.date
 
 			let formatter = DateFormatter()
 			formatter.dateFormat = "EEEE d/M HH:mm"
@@ -35,7 +35,7 @@ struct WidgetView: View {
 			let untilDate = Calendar.current.dateComponents([.day], from: now, to: eventDate)
 				var daysUntil: Int = untilDate.day ?? -1 //will be seen as -1 but good because of debugging
 				// If 0 days but not same day means that we are on the day before
-				if daysUntil == 0 && !now.isSameDay(as: event.getDate()) {
+				if daysUntil == 0 && !now.isSameDay(as: event.date) {
 					daysUntil = 1
 				}
 

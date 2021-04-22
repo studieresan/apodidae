@@ -11,8 +11,10 @@ import UIKit
 import MapKit
 import RxSwift
 
-//TODO: Cache mapview and listview as to not have to rerender them at every switch
 class HappeningsMainVC: UIViewController {
+
+	//How many days old a happening can max be to be seen
+	let maxHappeningAge = 3
 
 	struct Subview {
 		let title: String
@@ -91,8 +93,16 @@ class HappeningsMainVC: UIViewController {
 			.fetchHappenings()
 			.subscribe(
 				onNext: { [self] happenings in
+					//Filter all happenings older than 3 days
+					let filteredHappenings = happenings.filter({ happening in
+						let now = Date()
+						if let daysUntil = Calendar.current.dateComponents([.day], from: happening.created, to: now).day {
+							return daysUntil < self.maxHappeningAge
+						}
+						return false
+					})
 					for segment in self.happeningSubviews {
-						segment.viewController.onData(happenings)
+						segment.viewController.onData(filteredHappenings)
 					}
 					if callback != nil {
 						//If callback, call with nil error

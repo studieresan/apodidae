@@ -134,6 +134,7 @@ struct Http {
 					observer.onNext(responseData)
                     observer.onCompleted()
 				case .failure(let err):
+					print("Error with \(type.rootField): \(err)")
                     observer.onError(err)
                 }
             }.resume()
@@ -180,6 +181,9 @@ struct Http {
     private static func decode<T: Decodable>(data: Data, type: T.Type) -> Result<T, Error> {
         do {
             let decoder = JSONDecoder()
+
+			decoder.dateDecodingStrategy = .iso8601WithFractalSeconds
+
             let result = try decoder.decode(type, from: data)
             return .success(result)
         } catch let err {

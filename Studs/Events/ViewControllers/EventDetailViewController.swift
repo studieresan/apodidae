@@ -154,8 +154,9 @@ final class EventDetailViewController: UIViewController {
     private func initEventTitle() {
         let dateFormatter = DateFormatter()
 
-        let date = event.getDate()
-        dateFormatter.dateFormat = "MMM"
+        let date = event.date
+
+		dateFormatter.dateFormat = "MMM"
         let month = dateFormatter.string(from: date).uppercased()
 
         dateFormatter.dateFormat = "d"
