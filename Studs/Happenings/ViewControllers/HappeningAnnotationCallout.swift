@@ -17,6 +17,8 @@ class HappeningAnnotationCallout: UIViewController {
 	@IBOutlet var descriptionLabel: UILabel!
 	@IBOutlet var companionsCollectionView: UICollectionView!
 
+	let maxHeight: CGFloat = 200
+
 	var happening: Happening!
 
 	override func viewDidLoad() {
@@ -37,8 +39,16 @@ class HappeningAnnotationCallout: UIViewController {
 		//Set the height of the collection view to be just high and wide enough
 		let collectionViewLayout = self.companionsCollectionView.collectionViewLayout
 		let collectionContentSize = collectionViewLayout.collectionViewContentSize
-		self.companionsCollectionView.heightAnchor.constraint(equalToConstant: collectionContentSize.height).isActive = true
+
+		//Let the callout have a resonable max height instead of expanding to the void and beyond!
+		let companionCollectionHeight = min(self.maxHeight, collectionContentSize.height)
+
+		self.companionsCollectionView.heightAnchor.constraint(equalToConstant: companionCollectionHeight).isActive = true
 		self.companionsCollectionView.widthAnchor.constraint(equalToConstant: collectionContentSize.width).isActive = true
+
+		//Reload the data to force it to update. Got UI bug otherwise where all
+		//companions would not show at first, until scroll
+		self.companionsCollectionView.reloadData()
 	}
 }
 
@@ -61,10 +71,13 @@ extension HappeningAnnotationCallout: UICollectionViewDataSource {
 
 		let user = participants[indexPath.row]
 
-		cell.image.imageFromURL(urlString: user.picture ?? "")
+		//Make images round when the image has been fetched and thus the image view size has been calculated
+		//Callback is called on main thread
+		cell.image.imageFromURL(urlString: user.picture ?? "") { imageView in
+			cell.image.layer.cornerRadius = imageView.frame.width / 2
+		}
 		cell.nameLabel.text = "\(user.fullName())"
 
-		cell.image.layer.cornerRadius = cell.image.frame.width / 4
 		cell.image.layer.borderWidth = 0.5
 
 		cell.contentView.backgroundColor = .clear

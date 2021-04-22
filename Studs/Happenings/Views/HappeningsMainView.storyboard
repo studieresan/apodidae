@@ -48,7 +48,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="65K-gK-Iv1">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="65K-gK-Iv1">
                                 <rect key="frame" x="20" y="111.5" width="374" height="784.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AAT-6n-chL">
@@ -193,7 +193,7 @@
                                 </state>
                                 <connections>
                                     <action selector="didPressNewHappening:" destination="wX3-qM-oj5" eventType="touchUpInside" id="CtZ-uJ-fY2"/>
-                                    <segue destination="lr1-IZ-UWU" kind="show" id="Hxd-qS-ohc"/>
+                                    <segue destination="lr1-IZ-UWU" kind="show" identifier="new-happening" id="Hxd-qS-ohc"/>
                                 </connections>
                             </button>
                         </subviews>

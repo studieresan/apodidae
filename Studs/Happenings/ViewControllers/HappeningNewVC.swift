@@ -68,15 +68,19 @@ class HappeningNewViewController: UIViewController {
 		view.isUserInteractionEnabled = false
 
 		Http.create(happening: newHappening).subscribe(onNext: { _ in
-			self.navigationController?.popViewController(animated: true)
+			DispatchQueue.main.async {
+				self.navigationController?.popViewController(animated: true)
+			}
 		}, onError: { error in
-			let alert = UIAlertController(
-				title: "Fel med att skapa Happening",
-				message: "\(error.localizedDescription)", preferredStyle: .alert
-			)
-			alert.addAction(UIAlertAction(title: "OK", style: .default))
-			self.present(alert, animated: true)
-			self.view.isUserInteractionEnabled = true
+			DispatchQueue.main.async {
+				let alert = UIAlertController(
+					title: "Fel med att skapa Happening",
+					message: "\(error.localizedDescription)", preferredStyle: .alert
+				)
+				alert.addAction(UIAlertAction(title: "OK", style: .default))
+				self.present(alert, animated: true)
+				self.view.isUserInteractionEnabled = true
+			}
 		}).disposed(by: self.disposeBag)
 	}
 
@@ -160,6 +164,7 @@ class HappeningNewViewController: UIViewController {
 				return
 			}
 			chooseLocationVC.currentLocation = self.location?.coordinate()
+			//Callback when location is set by other cv
 			chooseLocationVC.setLocation = { location, title in
 				self.location = GeoJSON(coordinates: location, title: title)
 				self.locationLabel.text = title
@@ -173,6 +178,7 @@ class HappeningNewViewController: UIViewController {
 			chooseCompanionsVC.allUsers = self.allUsers
 			//Create as set as this is needed in VC
 			chooseCompanionsVC.selectedUsers = Set(self.companions)
+			//Callback when selected users are set by other cv
 			chooseCompanionsVC.setSelectedUsers = { users in
 				self.companions = users
 				self.setCompanionLabel()
