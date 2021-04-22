@@ -39,14 +39,11 @@ class HappeningAnnotationCallout: UIViewController {
 		let collectionContentSize = collectionViewLayout.collectionViewContentSize
 		self.companionsCollectionView.heightAnchor.constraint(equalToConstant: collectionContentSize.height).isActive = true
 		self.companionsCollectionView.widthAnchor.constraint(equalToConstant: collectionContentSize.width).isActive = true
-
-		print("Callout view did load \(happening.host.firstName)")
 	}
 }
 
 extension HappeningAnnotationCallout: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		print("nr items? \(happening.participants?.count ?? 0)")
 		return happening.participants?.count ?? 0
 	}
 

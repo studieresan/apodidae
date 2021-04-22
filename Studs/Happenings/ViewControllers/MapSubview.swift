@@ -90,14 +90,28 @@ extension MapSubview: MKMapViewDelegate {
 	}
 
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		guard let annotation = annotation as? HappeningMapAnnotation,
+		if let annotation = annotation as? HappeningMapAnnotation,
 			  let annotationView = mapView
 				.dequeueReusableAnnotationView(withIdentifier: HappeningMapAnnotationView.reuseIdentifier, for: annotation)
-				as? HappeningMapAnnotationView else {
-			return nil
-		}
+				as? HappeningMapAnnotationView {
 
-		return annotationView
+			return annotationView
+		} else if #available(iOS 14.0, *), annotation is MKUserLocation {
+			//Show user location above all annotations
+			//Courtesy of https://stackoverflow.com/questions/7142367/z-index-of-ios-mapkit-user-location-annotation
+
+			// Try to reuse the existing view that we create below
+			let reuseIdentifier = "userLocation"
+			if let existingView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) {
+				return existingView
+			}
+			let view = MKUserLocationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+
+			view.zPriority = .max   // Show user location above other annotations
+			view.isEnabled = false  // Ignore touch events and do not show callout
+			return view
+		}
+		return nil
 	}
 }
 

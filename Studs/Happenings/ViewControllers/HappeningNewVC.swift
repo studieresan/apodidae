@@ -44,11 +44,23 @@ class HappeningNewViewController: UIViewController {
 			self.present(alert, animated: true)
 			return
 		}
+
+		//Describe the amount of companions
+		var companionsDescription: String
+		switch self.companions.count {
+		case 0:
+			companionsDescription = "ensam"
+		case 1:
+			companionsDescription = "med en annan person"
+		default:
+			companionsDescription = "med \(self.companions.count) andra"
+		}
+
 		let happeningCreateQuery = createHappeningsCreateQuery(
 			hostId: userId,
 			participants: self.companions,
 			location: location,
-			title: "Sitter med \(self.companions.count) andra!",
+			title: "Sitter \(companionsDescription)!",
 			emoji: pickedEmoji,
 			description: self.descriptionField.text
 		)
