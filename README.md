@@ -1,6 +1,6 @@
 # Apodidae
 
-The iOS app for Studs 2019, written in Swift.
+The iOS app created for Studs 2019, expanded upon by Studs 2021, written in Swift. 
 
 ## Set up locally
 

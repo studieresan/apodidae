@@ -60,7 +60,7 @@ class HappeningNewViewController: UIViewController {
 			hostId: userId,
 			participants: self.companions,
 			location: location,
-			title: "Sitter \(companionsDescription)!",
+			title: "Är \(companionsDescription)!",
 			emoji: pickedEmoji,
 			description: self.descriptionField.text
 		)
@@ -122,7 +122,7 @@ class HappeningNewViewController: UIViewController {
 	}
 
 	func setCompanionLabel() {
-		self.companionsLabel.text = "Du sitter med \(self.companions.count) polare"
+		self.companionsLabel.text = "Du är med \(self.companions.count) polare"
 	}
 
 	override func viewDidLoad() {
