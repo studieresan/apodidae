@@ -119,8 +119,6 @@ final class EventDetailViewController: UIViewController {
 		self.headerView.addSubview(pageController.view)
 		self.addChild(pageController)
 
-
-
 		pageController.view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
 
 		//Can do unsafe unwrapp as we know by previous statement that count >= 1
