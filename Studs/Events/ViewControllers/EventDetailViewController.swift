@@ -74,7 +74,26 @@ final class EventDetailViewController: UIViewController {
         setUpClickListeners()
     }
 
+	///Guaranteed to return non-empty list
+	private func createFallbackGallery() -> [UIViewController] {
+		let viewController = UIViewController()
+
+		let label = UILabel()
+		label.text = "Inga bilder tillgängliga"
+
+		let view: UIView = viewController.view
+		view.addSubview(label)
+
+		label.translatesAutoresizingMaskIntoConstraints = false
+
+		label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+		label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
+		return [viewController]
+	}
+
 	private func setupImageGallery() {
+		// For all image urls, create an image view and download the image to this
 		self.images = event.pictures?.map({imageURL in
 			let view = UIImageView()
 			view.imageFromURL(urlString: imageURL)
@@ -83,12 +102,14 @@ final class EventDetailViewController: UIViewController {
 
 			let viewController = UIViewController()
 
-//			view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
-
 			viewController.view = view
 
 			return viewController
-		}) ?? [UIViewController()]
+		}) ?? self.createFallbackGallery() // if pictures is null, create fallback gallery
+		//If there are no images, create fallback gallery
+		if self.images.count < 1 {
+			self.images = self.createFallbackGallery()
+		}
 
 		let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
 
@@ -98,10 +119,11 @@ final class EventDetailViewController: UIViewController {
 		self.headerView.addSubview(pageController.view)
 		self.addChild(pageController)
 
-//		headerView.translatesAutoresizingMaskIntoConstraints = false
+
 
 		pageController.view.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
 
+		//Can do unsafe unwrapp as we know by previous statement that count >= 1
 		pageController.setViewControllers([self.images.first!], direction: .forward, animated: true, completion: nil)
 
 		pageController.didMove(toParent: self)
@@ -276,12 +298,20 @@ extension EventDetailViewController: UIPageViewControllerDelegate, UIPageViewCon
 		_ pageViewController: UIPageViewController,
 		viewControllerBefore viewController: UIViewController
 	) -> UIViewController? {
+		// Fail safe if only one image to controll. Looks weird to have the same one loop then
+		if self.images.count == 1 {
+			return nil
+		}
 		let newIndex = self.images.firstIndex(of: viewController)! - 1
 		let elem = newIndex < self.images.startIndex ? self.images.last! : self.images[newIndex]
 		return elem
 	}
 
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+		// Fail safe if only one image to controll. Looks weird to have the same one loop then
+		if self.images.count == 1 {
+			return nil
+		}
 		let newIndex = self.images.firstIndex(of: viewController)! + 1
 		let elem = newIndex >= self.images.endIndex ? self.images.first! : self.images[newIndex]
 		return elem
