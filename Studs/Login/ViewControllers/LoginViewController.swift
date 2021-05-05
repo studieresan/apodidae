@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 final class LoginViewController: UIViewController {
 
@@ -49,6 +50,10 @@ final class LoginViewController: UIViewController {
 					let studsVC = self?.parent?.parent as? StudsViewController
 					studsVC?.updateViewControllers()
                 }
+				//Reload widget when logging in
+				if #available(iOS 14.0, *) {
+					WidgetCenter.shared.reloadAllTimelines()
+				}
             }
         }
     }

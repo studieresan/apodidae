@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import WidgetKit
 
 class ProfileViewController: UIViewController {
 
@@ -43,6 +44,10 @@ class ProfileViewController: UIViewController {
 		DispatchQueue.main.async {
 			let studsVC = self.parent?.parent as? StudsViewController
 			studsVC?.updateViewControllers()
+		}
+		//Reload widget when logging out
+		if #available(iOS 14.0, *) {
+			WidgetCenter.shared.reloadAllTimelines()
 		}
 	}
 

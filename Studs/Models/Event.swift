@@ -50,6 +50,10 @@ extension Event: Comparable {
 		return lhs.date < rhs.date
     }
 
+	static func > (lhs: Event, rhs: Event) -> Bool {
+		return lhs.date > rhs.date
+	}
+	
     static func == (lhs: Event, rhs: Event) -> Bool {
         return lhs.id == rhs.id
     }
