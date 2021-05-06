@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Company: Decodable, GraphQLMultipleResponse {
+struct Company: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 	static var rootFieldMultiple: String = "companies"
 	static var rootField: String = "company"
 

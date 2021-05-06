@@ -92,19 +92,16 @@ struct Http {
         }
     }
 
-	static func graphQL<T: Decodable & GraphQLResponse>(query: String, type: T.Type) -> Observable<T> {
+	static func graphQL<T: Decodable & GraphQLSingleResponse>(query: String, type: T.Type) -> Observable<T> {
         return Observable.create { observer in
 
             var request = URLRequest(url: URL(string: "\(baseURL)/\(Endpoint.graphQL)")!)
             request.httpMethod = "POST"
             request.setValue("application/graphql", forHTTPHeaderField: "Content-Type")
-			request.httpBody = "{\(query)}".data(using: .utf8)
+			request.httpBody = "\(query)".data(using: .utf8)
 
             if let userToken = UserManager.getToken() {
                 request.setValue("Bearer \(userToken)", forHTTPHeaderField: "Authorization")
-				print("has token")
-			} else {
-				print("No token")
 			}
 
             URLSession.shared.dataTask(with: request) { data, _, error in
@@ -137,6 +134,7 @@ struct Http {
 					observer.onNext(responseData)
                     observer.onCompleted()
 				case .failure(let err):
+					print("Error with \(type.rootField): \(err)")
                     observer.onError(err)
                 }
             }.resume()
@@ -162,9 +160,36 @@ struct Http {
 		return graphQL(query: query, type: User.self)
 	}
 
+	static func fetchAllUsers(of role: String? = nil, studsYear: Int? = nil) -> Observable<[User]> {
+		let query = createUsersQuery(role: role, year: studsYear)
+
+		return graphQL(query: query, type: [User].self)
+	}
+
+	static func fetchHappenings() -> Observable<[Happening]> {
+		let query = createHappeningsQuery()
+
+		return graphQL(query: query, type: [Happening].self)
+	}
+
+	static func create(happening: NewHappening) -> Observable<CreatedHappening> {
+		let query = createHappeningsCreateQuery(newHappening: happening)
+
+		return graphQL(query: query, type: CreatedHappening.self)
+	}
+
+	static func delete(happening: Happening) -> Observable<DeleteHappening> {
+		let query = createHappeningsDeleteQuery(happening: happening)
+
+		return graphQL(query: query, type: DeleteHappening.self)
+	}
+
     private static func decode<T: Decodable>(data: Data, type: T.Type) -> Result<T, Error> {
         do {
             let decoder = JSONDecoder()
+
+			decoder.dateDecodingStrategy = .iso8601WithFractalSeconds
+
             let result = try decoder.decode(type, from: data)
             return .success(result)
         } catch let err {

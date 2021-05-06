@@ -31,7 +31,7 @@ private struct RawUserResponse: Decodable {
 	let info: UserInfo?
 }
 
-struct User: Decodable, GraphQLMultipleResponse {
+struct User: Decodable, GraphQLSingleResponse, GraphQLMultipleResponse {
 	static var rootField: String = "user"
 	static var rootFieldMultiple: String = "users"
 
@@ -69,6 +69,24 @@ struct User: Decodable, GraphQLMultipleResponse {
 	let master: String?
 	let allergies: String?
 	let picture: String?
+
+	func fullName() -> String {
+		return "\(self.firstName) \(self.lastName)"
+	}
+
+	func isSelfUser() -> Bool {
+		//If not logged in
+		guard let loggedInUser = UserManager.getUserData() else {
+			return false
+		}
+		return loggedInUser.id == self.id
+	}
+}
+
+extension User: Hashable {
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(self.id)
+	}
 }
 
 //TODO

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import WidgetKit
 
 class ProfileViewController: UIViewController {
 
@@ -44,6 +45,10 @@ class ProfileViewController: UIViewController {
 			let studsVC = self.parent?.parent as? StudsViewController
 			studsVC?.updateViewControllers()
 		}
+		//Reload widget when logging out
+		if #available(iOS 14.0, *) {
+			WidgetCenter.shared.reloadAllTimelines()
+		}
 	}
 
 	func fetchUser() {
@@ -51,7 +56,7 @@ class ProfileViewController: UIViewController {
 			guard let self = self else { return }
 
 			DispatchQueue.main.async {
-				self.nameLabel.text = "\(user.firstName) \(user.lastName)"
+				self.nameLabel.text = user.fullName()
 			}
 
 			if let imageURL = user.picture {
